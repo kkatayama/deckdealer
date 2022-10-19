@@ -357,9 +357,15 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 | column_type | one of `INTEGER`, `DOUBLE`, `TEXT`, `DATETIME` |
 | Exception | "{ref}_id" not required when creating "users" table |
 
-## Workflow Example:
-* Let's create a table named **`steps`** <br /> 
-  with the columns **`["step_id", "user_id", "step_count", "latitude", "longitude", "step_time"]`**
+## Workflow 2 - Create Tables:
+* Let's create a few tables!<br /> 
+   * **`managers`**" | `["manager_id", "user_id", "restaurant_id", "first_name", "last_name", "phone_number", "email", "profile_pic", "entry_time"]` <br />
+   * **`restaurant_profile`**" | `["restaurant_id", "manager_id", "restaurant_name", "address", "bio", "phone_number", "profile_pic", "entry_time"]` <br />
+   * **`restaurant_photos`**" | `["photo_id", "restaurant_id", "photo_url", "entry_time"]` <br />
+   * **`restaurant_schedule`**" | `["schedule_id", "restaurant_id", "mon_open", "mon_close", "tue_open", "tue_close", "wed_open", "wed_close", "thu_open", "thu_close", "fri_open", "fri_close", "sat_open", "sat_close", "sun_open", "sun_close", "entry_time"]` <br />
+   * **`restaurant_requests`**" | `["request_id", "restaurant_id", "hourly_wage", "shift_start", "shift_end", "entry_time"]` <br />
+   * **`bartenders`**" | `["bartender_id", "user_id", "first_name", "last_name", "address", "phone_number", "email", "profile_pic", "entry_time"]` <br />
+   * **`bartender_wages`**" | `["entry_id", "bartender_id", "restaurant_id", "hourly_wage", "tips", "entry_time"]` <br />
 
 ---
 <details><summary>Show Workflow Example (click here to expand)
