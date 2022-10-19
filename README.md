@@ -4,9 +4,9 @@
 Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 
 **Features:**
-* [*User Functions*](#User-Functions)   - [**`/login`**](#1-login), [**`/logout`**](#2-logout) [**`/register`**](#3-register)
-* [*Admin Functions*](#Admin-Functions) - [**`/createTable`**](#1-createTable) and [**`/deleteTable`**](#2-deleteTable)
-* [*Core Functions*](#Core-Functions)   - [**`/add`**](#1-add), [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete)
+* [*User Functions*](#User-Functions) <code>&nbsp;&nbsp;</code> - [**`/login`**](#1-login), [**`/logout`**](#2-logout), [**`/register`**](#3-register)
+* [*Admin Functions*](#Admin-Functions) - [**`/createTable`**](#1-createTable), [**`/deleteTable`**](#2-deleteTable)
+* [*Core Functions*](#Core-Functions) <code>&nbsp;&nbsp;</code> - [**`/add`**](#1-add), [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete)
 * [*Extra_Functions*](#Extra-Functions) - [**`/uploadImageUrl`**](#1-uploadImageUrl)
 * Query and URL path parameter support
 * Additional **`filter`** parameter - enables SQLite expressions containing operators 
