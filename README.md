@@ -359,7 +359,7 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
 ## Workflow 2 - Create Tables:
 * Let's create a few tables!<br /> 
-  * **`managers`** | `["manager_id", "user_id", "restaurant_id", "first_name", "last_name", "phone_number", "email", "profile_pic", "entry_time"]` <br />
+  * **`managers`** | ["manager_id", "user_id", "restaurant_id", "first_name", "last_name", "phone_number", "email", "profile_pic", "entry_time"] <br />
   * **`restaurant_profile`** | `["restaurant_id", "manager_id", "restaurant_name", "address", "bio", "phone_number", "profile_pic", "entry_time"]` <br />
   * **`restaurant_photos`** | `["photo_id", "restaurant_id", "photo_url", "entry_time"]` <br />
   * **`restaurant_schedule`** | `["schedule_id", "restaurant_id", "mon_open", "mon_close", "tue_open", "tue_close", "wed_open", "wed_close", "thu_open", "thu_close", "fri_open", "fri_close", "sat_open", "sat_close", "sun_open", "sun_close", "entry_time"]` <br />
