@@ -237,7 +237,31 @@ Request:
 
 Response:
 ```json
-{'message': 'incorrect password', 'password': '123'}
+{
+  "message": "incorrect password",
+  "password": "123"
+}
+```
+---
+Arguments:
+```python
+username = admin
+password = admin
+```
+
+Request:
+```ruby
+/login?username=admin&password=admin
+```
+
+Response:
+```json
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
 ```
 ---
 </details>
@@ -246,7 +270,7 @@ Response:
 * Let's log in as the user **`admin`** 
 
 ---
-<details><summary>Show Workflow 1 - Login Example (click here to expand)
+<details><summary>Show Workflow 1 - Login (click here to expand)
 </summary>
 
 ### Let's log in as the user `admin`
@@ -285,7 +309,11 @@ Response:
 |:--|:--|
 | **`/logout`**  | log out a user |
 
-### Example `/logout`
+---
+<details><summary>Endpoint Background (click here to expand)
+</summary>
+
+### Investigating the Endpoint `/logout`
 Request:
 ```ruby
 /logout
@@ -300,6 +328,7 @@ Response:
 ```
 
 ---
+</details>
 
 # Admin Functions
 The examples listed below will cover the **2 admin functions**. <br />
