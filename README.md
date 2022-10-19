@@ -164,7 +164,7 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 
 ---
 
-# User Functions
+# [User Functions](#User-Functions)
 The examples listed below will cover the **3 user functions**.<br />
 All examples shown are executed via a **GET** request and can be tested with any browser. <br />
 All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
