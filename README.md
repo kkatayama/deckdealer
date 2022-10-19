@@ -4,7 +4,7 @@
 Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 
 **Features:**
-* [*User Functions*](User-Functions) - [**`/login`**](#1-login), [**`/logout`**](#2-logout) [**`/register`**](#3-register)
+* [*User Functions*](User Functions) - [**`/login`**](#1-login), [**`/logout`**](#2-logout) [**`/register`**](#3-register)
 * [*Admin Functions*](#Admin-Functions) - [**`/createTable`**](#1-createTable) and [**`/deleteTable`**](#2-deleteTable)
 * [*Core Functions*](#Core-Functions) - [**`/add`**](#1-add), [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete)
 * [*Extra_Functions*](#Extra-Functions) - [**`/uploadImageUrl`**](#1-uploadImageUrl)
@@ -166,8 +166,8 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 
 # User Functions
 The examples listed below will cover the **3 user functions**.<br />
-All examples shown are executed via a **GET** request and can be tested with any browser.
-All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
+All examples shown are executed via a **GET** request and can be tested with any browser. <br />
+All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
 # 1. `/login`
 **Login `user`** 
