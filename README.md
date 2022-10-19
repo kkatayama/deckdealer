@@ -119,7 +119,7 @@ Response:
 }
 ```
 
-### Simply add the token parameter
+### Simply append the token parameter
 Request:
 ```ruby
 /add?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09
@@ -153,6 +153,11 @@ Response:
 }
 ```
 
+### When using `curl`, add `-b` and `-c` to save and read session cookies
+``` ruby
+curl -b cookie.txt -c cookie.txt 'http://localhost:8888/login/username/admin/password/admin'
+curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
+```
 
 </details>
 
