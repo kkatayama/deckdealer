@@ -40,6 +40,7 @@ These functions represent the main endpoints of the framework and will handle th
 **1 Extra Function**
 1. [**`uploadImageUrl`**](#1-uploadImageUrl) - Upload an image to the backend via `image_url`
 
+
 ---
 <details><summary>Debugging Tip!  (click me to expand)
 </summary>
@@ -169,7 +170,8 @@ All examples shown are executed via a **GET** request and can be tested with any
 All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
 # 1. `/login`
-**Login `user`**
+**Login `user`** 
+> Before we can
 
 ### Endpoints:
 | Resource | Description |
