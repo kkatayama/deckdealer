@@ -1,0 +1,3989 @@
+127.0.0.1 2022-10-18 13:27:51.635163 GET http://0.0.0.0:8080/usage 200 OK
+{"request.params": {}}
+{
+  "message": "API_Endpoints",
+  "Core_Functions": {
+    "/add": {
+      "message": "usage info: '/add'",
+      "description": "add a single entry into a table: <table_name>",
+      "endpoints": {
+        "/add": {
+          "returns": "returns all tables[] in the database"
+        },
+        "/add/usage": {
+          "returns": "message: 'usage-info"
+        },
+        "/add/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/add/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "add entry: 'param_name=param_value'",
+          "example": "/add/users/username/user_01/password/user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "/add/<table_name>?param_name=param_value": {
+          "params": "add entry: 'param_name=param_value'",
+          "example": "/add/users?username=user_01&password=user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "Required": "'user_id' and all params not '*_id' and '*_time'",
+        "Exception": "no 'user_id' when adding to the users table",
+        "Response": {
+          "'user_id'": "when entry added to 'users' table",
+          "'<ref>_id'": "when entry added to any other table"
+        }
+      }
+    },
+    "/get": {
+      "message": "usage info: '/get'",
+      "description": "fetch entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/get": {
+          "returns": "return all tables[] in the database"
+        },
+        "/get/usage": {
+          "returns": "{'message': 'usage-info'}"
+        },
+        "/get/<table_name>": {
+          "returns": "returns all entries for the table: <table_name>"
+        },
+        "/get/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "match entries: 'param_name=param_value'",
+          "example": "/get/users/username/bob",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>?param_name=param_value": {
+          "params": "match entries: 'param_name=param_value'",
+          "example": "/get/users?user_id=8",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>/filter/query": {
+          "url_paths": "match entries: 'filter=[query]'",
+          "example": "/get/oximeter/filter/(temperature > '100.4') GROUP BY user_id",
+          "response": {
+            "message": "1 oximeter entry found",
+            "data": {
+              "entry_id": 53,
+              "user_id": 8,
+              "heart_rate": 133,
+              "blood_o2": 95,
+              "temperature": 101.71,
+              "entry_time": "2022-04-05 12:16:54.651"
+            }
+          }
+        },
+        "/get/<table_name>?filter=query": {
+          "params": "match entries: 'filter=[query]'",
+          "example": "/get/users?filter=(create_time > \"2022-04-03\")",
+          "response": {
+            "message": "found 3 user entries",
+            "data": [
+              {
+                "user_id": 6,
+                "username": "M2band",
+                "password": "3..4",
+                "create_time": "2022-04-03 15:29:41.223"
+              },
+              {
+                "user_id": 7,
+                "username": "alice@udel.edu",
+                "password": "d..a",
+                "create_time": "2022-04-05 03:25:57.163"
+              },
+              {
+                "user_id": 8,
+                "username": "robert@udel.edu",
+                "password": "8..4",
+                "create_time": "2022-04-05 03:41:12.857"
+              }
+            ]
+          }
+        },
+        "Options": {
+          "Parameters": {
+            "None": "submit no parameters (none required)",
+            "/key/value": "match is limited to 'column_name == column_value'",
+            "?key=value": "match is limited to 'column_name == column_value'",
+            "/filter/query": "supports expressions, operators, and functions",
+            "?filter=query": "supports expressions, operators, and functions"
+          }
+        },
+        "Response": {
+          "data": {
+            "{object}": "a single object matching the parameters",
+            "[{object}]": "a single object matching the parameters"
+          }
+        }
+      }
+    },
+    "/edit": {
+      "message": "usage info: '/edit'",
+      "description": "edit entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/edit": {
+          "returns": "return all tables[] in the database"
+        },
+        "/edit/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/edit/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/edit/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?param_name=param_value": {
+          "params": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>/filter/query": {
+          "url_paths": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?filter=query": {
+          "params": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 edit parameter": "any parameter not '*_id' or '*_time'",
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of edits made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/delete": {
+      "message": "usage info: '/delete'",
+      "description": "delete entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/delete": {
+          "returns": "return all tables[] in the database"
+        },
+        "/delete/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/delete/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/delete/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?param_name=param_value": {
+          "params": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>/filter/query": {
+          "url_paths": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?filter=query": {
+          "params": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    }
+  },
+  "Admin_Functions": {
+    "/createTable": {
+      "message": "usage info: /createTable",
+      "description": "create a table and insert it into the database",
+      "end_points": {
+        "/createTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/createTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/createTable/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/createTable/<table_name>/<column_name>/<column_type>": {
+          "url_paths": "create columns: 'param_name=param_'",
+          "example": "/createTable/steps/step_id/INTEGER/user_id/INTEGER/step_count/INTEGER/latitude/DOUBLE/longitude/DOUBLE/step_time/DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "/createTable/<table_name>?column_name=column_type": {
+          "params": "create columns: 'param_name=param_value'",
+          "example": "/createTable/steps?step_id=INTEGER&user_id=INTEGER&step_count=INTEGER&latitude=DOUBLE&longitude=DOUBLE&step_time=DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "user_id": "INTEGER",
+            "{ref}_id": "INTEGER",
+            "{ref}_time": "DATETIME",
+            "column_name": "lowercase with underscores where appropriate",
+            "column_type": "one of 'INTEGER', 'DOUBLE', 'TEXT', 'DATETIME'"
+          }
+        },
+        "Exception": "'{ref}_id' not required when creating 'users' table",
+        "Response": {
+          "message": "number of tables created",
+          "table": "the table name",
+          "columns[]": "array of columns with their type"
+        }
+      }
+    },
+    "/deleteTable": {
+      "message": "usage info: /deleteTable",
+      "description": "delete a table from the database",
+      "end_points": {
+        "/deleteTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/deleteTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/deleteTable/<table_name>": {
+          "action": "delete the table: <table_name>",
+          "example": "/deleteTable/steps",
+          "response": {
+            "message": "1 table deleted!",
+            "table": "steps"
+          }
+        },
+        "Required": "<table_name>",
+        "Response": {
+          "message": "number of deletes made",
+          "table": "the name of the table that was deleted"
+        }
+      }
+    }
+  },
+  "User_Functions": {
+    "/login": {
+      "message": "usage info: /login",
+      "description": "login a user",
+      "end_points": {
+        "/login": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/login/<param_name>/<param_value>": {
+          "url_paths": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "/login?param_name=param_value": {
+          "params": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/logout": {
+      "message": "usage info: /logout",
+      "description": "logout a user",
+      "end_points": {
+        "/logout": {
+          "returns": "message: 'user logged out'"
+        }
+      }
+    }
+  }
+}
+127.0.0.1 2022-10-18 13:32:19.685642 GET http://localhost:8080/ 200 OK
+{"request.params": {}}
+{
+  "message": "API_Endpoints",
+  "Core_Functions": {
+    "/add": {
+      "message": "usage info: '/add'",
+      "description": "add a single entry into a table: <table_name>",
+      "endpoints": {
+        "/add": {
+          "returns": "returns all tables[] in the database"
+        },
+        "/add/usage": {
+          "returns": "message: 'usage-info"
+        },
+        "/add/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/add/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "add entry: 'param_name=param_value'",
+          "example": "/add/users/username/user_01/password/user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "/add/<table_name>?param_name=param_value": {
+          "params": "add entry: 'param_name=param_value'",
+          "example": "/add/users?username=user_01&password=user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "Required": "'user_id' and all params not '*_id' and '*_time'",
+        "Exception": "no 'user_id' when adding to the users table",
+        "Response": {
+          "'user_id'": "when entry added to 'users' table",
+          "'<ref>_id'": "when entry added to any other table"
+        }
+      }
+    },
+    "/get": {
+      "message": "usage info: '/get'",
+      "description": "fetch entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/get": {
+          "returns": "return all tables[] in the database"
+        },
+        "/get/usage": {
+          "returns": "{'message': 'usage-info'}"
+        },
+        "/get/<table_name>": {
+          "returns": "returns all entries for the table: <table_name>"
+        },
+        "/get/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "match entries: 'param_name=param_value'",
+          "example": "/get/users/username/bob",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>?param_name=param_value": {
+          "params": "match entries: 'param_name=param_value'",
+          "example": "/get/users?user_id=8",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>/filter/query": {
+          "url_paths": "match entries: 'filter=[query]'",
+          "example": "/get/oximeter/filter/(temperature > '100.4') GROUP BY user_id",
+          "response": {
+            "message": "1 oximeter entry found",
+            "data": {
+              "entry_id": 53,
+              "user_id": 8,
+              "heart_rate": 133,
+              "blood_o2": 95,
+              "temperature": 101.71,
+              "entry_time": "2022-04-05 12:16:54.651"
+            }
+          }
+        },
+        "/get/<table_name>?filter=query": {
+          "params": "match entries: 'filter=[query]'",
+          "example": "/get/users?filter=(create_time > \"2022-04-03\")",
+          "response": {
+            "message": "found 3 user entries",
+            "data": [
+              {
+                "user_id": 6,
+                "username": "M2band",
+                "password": "3..4",
+                "create_time": "2022-04-03 15:29:41.223"
+              },
+              {
+                "user_id": 7,
+                "username": "alice@udel.edu",
+                "password": "d..a",
+                "create_time": "2022-04-05 03:25:57.163"
+              },
+              {
+                "user_id": 8,
+                "username": "robert@udel.edu",
+                "password": "8..4",
+                "create_time": "2022-04-05 03:41:12.857"
+              }
+            ]
+          }
+        },
+        "Options": {
+          "Parameters": {
+            "None": "submit no parameters (none required)",
+            "/key/value": "match is limited to 'column_name == column_value'",
+            "?key=value": "match is limited to 'column_name == column_value'",
+            "/filter/query": "supports expressions, operators, and functions",
+            "?filter=query": "supports expressions, operators, and functions"
+          }
+        },
+        "Response": {
+          "data": {
+            "{object}": "a single object matching the parameters",
+            "[{object}]": "a single object matching the parameters"
+          }
+        }
+      }
+    },
+    "/edit": {
+      "message": "usage info: '/edit'",
+      "description": "edit entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/edit": {
+          "returns": "return all tables[] in the database"
+        },
+        "/edit/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/edit/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/edit/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?param_name=param_value": {
+          "params": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>/filter/query": {
+          "url_paths": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?filter=query": {
+          "params": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 edit parameter": "any parameter not '*_id' or '*_time'",
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of edits made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/delete": {
+      "message": "usage info: '/delete'",
+      "description": "delete entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/delete": {
+          "returns": "return all tables[] in the database"
+        },
+        "/delete/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/delete/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/delete/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?param_name=param_value": {
+          "params": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>/filter/query": {
+          "url_paths": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?filter=query": {
+          "params": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    }
+  },
+  "Admin_Functions": {
+    "/createTable": {
+      "message": "usage info: /createTable",
+      "description": "create a table and insert it into the database",
+      "end_points": {
+        "/createTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/createTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/createTable/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/createTable/<table_name>/<column_name>/<column_type>": {
+          "url_paths": "create columns: 'param_name=param_'",
+          "example": "/createTable/steps/step_id/INTEGER/user_id/INTEGER/step_count/INTEGER/latitude/DOUBLE/longitude/DOUBLE/step_time/DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "/createTable/<table_name>?column_name=column_type": {
+          "params": "create columns: 'param_name=param_value'",
+          "example": "/createTable/steps?step_id=INTEGER&user_id=INTEGER&step_count=INTEGER&latitude=DOUBLE&longitude=DOUBLE&step_time=DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "user_id": "INTEGER",
+            "{ref}_id": "INTEGER",
+            "{ref}_time": "DATETIME",
+            "column_name": "lowercase with underscores where appropriate",
+            "column_type": "one of 'INTEGER', 'DOUBLE', 'TEXT', 'DATETIME'"
+          }
+        },
+        "Exception": "'{ref}_id' not required when creating 'users' table",
+        "Response": {
+          "message": "number of tables created",
+          "table": "the table name",
+          "columns[]": "array of columns with their type"
+        }
+      }
+    },
+    "/deleteTable": {
+      "message": "usage info: /deleteTable",
+      "description": "delete a table from the database",
+      "end_points": {
+        "/deleteTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/deleteTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/deleteTable/<table_name>": {
+          "action": "delete the table: <table_name>",
+          "example": "/deleteTable/steps",
+          "response": {
+            "message": "1 table deleted!",
+            "table": "steps"
+          }
+        },
+        "Required": "<table_name>",
+        "Response": {
+          "message": "number of deletes made",
+          "table": "the name of the table that was deleted"
+        }
+      }
+    }
+  },
+  "User_Functions": {
+    "/login": {
+      "message": "usage info: /login",
+      "description": "login a user",
+      "end_points": {
+        "/login": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/login/<param_name>/<param_value>": {
+          "url_paths": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "/login?param_name=param_value": {
+          "params": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/logout": {
+      "message": "usage info: /logout",
+      "description": "logout a user",
+      "end_points": {
+        "/logout": {
+          "returns": "message: 'user logged out'"
+        }
+      }
+    }
+  }
+}
+127.0.0.1 2022-10-18 13:36:19.855627 GET http://localhost:8080/ 200 OK
+{"request.params": {}}
+{
+  "message": "API_Endpoints",
+  "Core_Functions": {
+    "/add": {
+      "message": "usage info: '/add'",
+      "description": "add a single entry into a table: <table_name>",
+      "endpoints": {
+        "/add": {
+          "returns": "returns all tables[] in the database"
+        },
+        "/add/usage": {
+          "returns": "message: 'usage-info"
+        },
+        "/add/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/add/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "add entry: 'param_name=param_value'",
+          "example": "/add/users/username/user_01/password/user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "/add/<table_name>?param_name=param_value": {
+          "params": "add entry: 'param_name=param_value'",
+          "example": "/add/users?username=user_01&password=user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "Required": "'user_id' and all params not '*_id' and '*_time'",
+        "Exception": "no 'user_id' when adding to the users table",
+        "Response": {
+          "'user_id'": "when entry added to 'users' table",
+          "'<ref>_id'": "when entry added to any other table"
+        }
+      }
+    },
+    "/get": {
+      "message": "usage info: '/get'",
+      "description": "fetch entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/get": {
+          "returns": "return all tables[] in the database"
+        },
+        "/get/usage": {
+          "returns": "{'message': 'usage-info'}"
+        },
+        "/get/<table_name>": {
+          "returns": "returns all entries for the table: <table_name>"
+        },
+        "/get/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "match entries: 'param_name=param_value'",
+          "example": "/get/users/username/bob",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>?param_name=param_value": {
+          "params": "match entries: 'param_name=param_value'",
+          "example": "/get/users?user_id=8",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>/filter/query": {
+          "url_paths": "match entries: 'filter=[query]'",
+          "example": "/get/oximeter/filter/(temperature > '100.4') GROUP BY user_id",
+          "response": {
+            "message": "1 oximeter entry found",
+            "data": {
+              "entry_id": 53,
+              "user_id": 8,
+              "heart_rate": 133,
+              "blood_o2": 95,
+              "temperature": 101.71,
+              "entry_time": "2022-04-05 12:16:54.651"
+            }
+          }
+        },
+        "/get/<table_name>?filter=query": {
+          "params": "match entries: 'filter=[query]'",
+          "example": "/get/users?filter=(create_time > \"2022-04-03\")",
+          "response": {
+            "message": "found 3 user entries",
+            "data": [
+              {
+                "user_id": 6,
+                "username": "M2band",
+                "password": "3..4",
+                "create_time": "2022-04-03 15:29:41.223"
+              },
+              {
+                "user_id": 7,
+                "username": "alice@udel.edu",
+                "password": "d..a",
+                "create_time": "2022-04-05 03:25:57.163"
+              },
+              {
+                "user_id": 8,
+                "username": "robert@udel.edu",
+                "password": "8..4",
+                "create_time": "2022-04-05 03:41:12.857"
+              }
+            ]
+          }
+        },
+        "Options": {
+          "Parameters": {
+            "None": "submit no parameters (none required)",
+            "/key/value": "match is limited to 'column_name == column_value'",
+            "?key=value": "match is limited to 'column_name == column_value'",
+            "/filter/query": "supports expressions, operators, and functions",
+            "?filter=query": "supports expressions, operators, and functions"
+          }
+        },
+        "Response": {
+          "data": {
+            "{object}": "a single object matching the parameters",
+            "[{object}]": "a single object matching the parameters"
+          }
+        }
+      }
+    },
+    "/edit": {
+      "message": "usage info: '/edit'",
+      "description": "edit entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/edit": {
+          "returns": "return all tables[] in the database"
+        },
+        "/edit/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/edit/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/edit/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?param_name=param_value": {
+          "params": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>/filter/query": {
+          "url_paths": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?filter=query": {
+          "params": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 edit parameter": "any parameter not '*_id' or '*_time'",
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of edits made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/delete": {
+      "message": "usage info: '/delete'",
+      "description": "delete entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/delete": {
+          "returns": "return all tables[] in the database"
+        },
+        "/delete/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/delete/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/delete/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?param_name=param_value": {
+          "params": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>/filter/query": {
+          "url_paths": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?filter=query": {
+          "params": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    }
+  },
+  "Admin_Functions": {
+    "/createTable": {
+      "message": "usage info: /createTable",
+      "description": "create a table and insert it into the database",
+      "end_points": {
+        "/createTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/createTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/createTable/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/createTable/<table_name>/<column_name>/<column_type>": {
+          "url_paths": "create columns: 'param_name=param_'",
+          "example": "/createTable/steps/step_id/INTEGER/user_id/INTEGER/step_count/INTEGER/latitude/DOUBLE/longitude/DOUBLE/step_time/DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "/createTable/<table_name>?column_name=column_type": {
+          "params": "create columns: 'param_name=param_value'",
+          "example": "/createTable/steps?step_id=INTEGER&user_id=INTEGER&step_count=INTEGER&latitude=DOUBLE&longitude=DOUBLE&step_time=DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "user_id": "INTEGER",
+            "{ref}_id": "INTEGER",
+            "{ref}_time": "DATETIME",
+            "column_name": "lowercase with underscores where appropriate",
+            "column_type": "one of 'INTEGER', 'DOUBLE', 'TEXT', 'DATETIME'"
+          }
+        },
+        "Exception": "'{ref}_id' not required when creating 'users' table",
+        "Response": {
+          "message": "number of tables created",
+          "table": "the table name",
+          "columns[]": "array of columns with their type"
+        }
+      }
+    },
+    "/deleteTable": {
+      "message": "usage info: /deleteTable",
+      "description": "delete a table from the database",
+      "end_points": {
+        "/deleteTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/deleteTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/deleteTable/<table_name>": {
+          "action": "delete the table: <table_name>",
+          "example": "/deleteTable/steps",
+          "response": {
+            "message": "1 table deleted!",
+            "table": "steps"
+          }
+        },
+        "Required": "<table_name>",
+        "Response": {
+          "message": "number of deletes made",
+          "table": "the name of the table that was deleted"
+        }
+      }
+    }
+  },
+  "User_Functions": {
+    "/login": {
+      "message": "usage info: /login",
+      "description": "login a user",
+      "end_points": {
+        "/login": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/login/<param_name>/<param_value>": {
+          "url_paths": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "/login?param_name=param_value": {
+          "params": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/logout": {
+      "message": "usage info: /logout",
+      "description": "logout a user",
+      "end_points": {
+        "/logout": {
+          "returns": "message: 'user logged out'"
+        }
+      }
+    }
+  }
+}
+127.0.0.1 2022-10-18 13:37:31.736587 GET http://localhost:8080/createTable/usage 200 OK
+{"request.params": {}}
+{
+  "message": "usage info: /createTable",
+  "description": "create a table and insert it into the database",
+  "end_points": {
+    "/createTable": {
+      "returns": "return all tables[] in the database"
+    },
+    "/createTable/usage": {
+      "returns": "message: 'usage-info'"
+    },
+    "/createTable/<table_name>": {
+      "returns": "message: 'missing parameters'"
+    },
+    "/createTable/<table_name>/<column_name>/<column_type>": {
+      "url_paths": "create columns: 'param_name=param_'",
+      "example": "/createTable/steps/step_id/INTEGER/user_id/INTEGER/step_count/INTEGER/latitude/DOUBLE/longitude/DOUBLE/step_time/DATETIME",
+      "response": {
+        "message": "1 table created",
+        "table": "steps",
+        "columns": [
+          "step_id INTEGER PRIMARY KEY",
+          "user_id INTEGER NOT NULL",
+          "step_count INTEGER NOT NULL",
+          "latitude DOUBLE NOT NULL",
+          "longitude DOUBLE NOT NULL",
+          "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+        ]
+      }
+    },
+    "/createTable/<table_name>?column_name=column_type": {
+      "params": "create columns: 'param_name=param_value'",
+      "example": "/createTable/steps?step_id=INTEGER&user_id=INTEGER&step_count=INTEGER&latitude=DOUBLE&longitude=DOUBLE&step_time=DATETIME",
+      "response": {
+        "message": "1 table created",
+        "table": "steps",
+        "columns": [
+          "step_id INTEGER PRIMARY KEY",
+          "user_id INTEGER NOT NULL",
+          "step_count INTEGER NOT NULL",
+          "latitude DOUBLE NOT NULL",
+          "longitude DOUBLE NOT NULL",
+          "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+        ]
+      }
+    },
+    "Required": {
+      "Parameters": {
+        "user_id": "INTEGER",
+        "{ref}_id": "INTEGER",
+        "{ref}_time": "DATETIME",
+        "column_name": "lowercase with underscores where appropriate",
+        "column_type": "one of 'INTEGER', 'DOUBLE', 'TEXT', 'DATETIME'"
+      }
+    },
+    "Exception": "'{ref}_id' not required when creating 'users' table",
+    "Response": {
+      "message": "number of tables created",
+      "table": "the table name",
+      "columns[]": "array of columns with their type"
+    }
+  }
+}
+127.0.0.1 2022-10-18 13:38:10.562122 GET http://localhost:8080/createTable/users 200 OK
+{"request.params": {}}
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "user_id": "INTEGER",
+      "{ref}_id": "INTEGER",
+      "{ref}_time": "DATETIME",
+      "column_name": "column_type",
+      "available_types": [
+        "INTEGER",
+        "DOUBLE",
+        "TEXT",
+        "DATETIME"
+      ]
+    }
+  ],
+  "available_types": [
+    "INTEGER",
+    "DOUBLE",
+    "TEXT",
+    "DATETIME"
+  ],
+  "Exception": "\"{ref}_id\" not required when creating \"users\" table",
+  "submitted": []
+}
+127.0.0.1 2022-10-18 13:43:40.065577 GET http://localhost:8080/createTable/users 200 OK
+{"request.params": {}}
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "user_id": "INTEGER",
+      "{ref}_id": "INTEGER",
+      "{ref}_time": "DATETIME",
+      "column_name": "column_type",
+      "available_types": [
+        "INTEGER",
+        "DOUBLE",
+        "TEXT",
+        "DATETIME"
+      ]
+    }
+  ],
+  "available_types": [
+    "INTEGER",
+    "DOUBLE",
+    "TEXT",
+    "DATETIME"
+  ],
+  "Exception": "\"{ref}_id\" not required when creating \"users\" table",
+  "submitted": []
+}
+127.0.0.1 2022-10-18 13:43:46.305067 GET http://localhost:8080/ 200 OK
+{"request.params": {}}
+{
+  "message": "API_Endpoints",
+  "Core_Functions": {
+    "/add": {
+      "message": "usage info: '/add'",
+      "description": "add a single entry into a table: <table_name>",
+      "endpoints": {
+        "/add": {
+          "returns": "returns all tables[] in the database"
+        },
+        "/add/usage": {
+          "returns": "message: 'usage-info"
+        },
+        "/add/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/add/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "add entry: 'param_name=param_value'",
+          "example": "/add/users/username/user_01/password/user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "/add/<table_name>?param_name=param_value": {
+          "params": "add entry: 'param_name=param_value'",
+          "example": "/add/users?username=user_01&password=user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "Required": "'user_id' and all params not '*_id' and '*_time'",
+        "Exception": "no 'user_id' when adding to the users table",
+        "Response": {
+          "'user_id'": "when entry added to 'users' table",
+          "'<ref>_id'": "when entry added to any other table"
+        }
+      }
+    },
+    "/get": {
+      "message": "usage info: '/get'",
+      "description": "fetch entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/get": {
+          "returns": "return all tables[] in the database"
+        },
+        "/get/usage": {
+          "returns": "{'message': 'usage-info'}"
+        },
+        "/get/<table_name>": {
+          "returns": "returns all entries for the table: <table_name>"
+        },
+        "/get/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "match entries: 'param_name=param_value'",
+          "example": "/get/users/username/bob",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>?param_name=param_value": {
+          "params": "match entries: 'param_name=param_value'",
+          "example": "/get/users?user_id=8",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>/filter/query": {
+          "url_paths": "match entries: 'filter=[query]'",
+          "example": "/get/oximeter/filter/(temperature > '100.4') GROUP BY user_id",
+          "response": {
+            "message": "1 oximeter entry found",
+            "data": {
+              "entry_id": 53,
+              "user_id": 8,
+              "heart_rate": 133,
+              "blood_o2": 95,
+              "temperature": 101.71,
+              "entry_time": "2022-04-05 12:16:54.651"
+            }
+          }
+        },
+        "/get/<table_name>?filter=query": {
+          "params": "match entries: 'filter=[query]'",
+          "example": "/get/users?filter=(create_time > \"2022-04-03\")",
+          "response": {
+            "message": "found 3 user entries",
+            "data": [
+              {
+                "user_id": 6,
+                "username": "M2band",
+                "password": "3..4",
+                "create_time": "2022-04-03 15:29:41.223"
+              },
+              {
+                "user_id": 7,
+                "username": "alice@udel.edu",
+                "password": "d..a",
+                "create_time": "2022-04-05 03:25:57.163"
+              },
+              {
+                "user_id": 8,
+                "username": "robert@udel.edu",
+                "password": "8..4",
+                "create_time": "2022-04-05 03:41:12.857"
+              }
+            ]
+          }
+        },
+        "Options": {
+          "Parameters": {
+            "None": "submit no parameters (none required)",
+            "/key/value": "match is limited to 'column_name == column_value'",
+            "?key=value": "match is limited to 'column_name == column_value'",
+            "/filter/query": "supports expressions, operators, and functions",
+            "?filter=query": "supports expressions, operators, and functions"
+          }
+        },
+        "Response": {
+          "data": {
+            "{object}": "a single object matching the parameters",
+            "[{object}]": "a single object matching the parameters"
+          }
+        }
+      }
+    },
+    "/edit": {
+      "message": "usage info: '/edit'",
+      "description": "edit entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/edit": {
+          "returns": "return all tables[] in the database"
+        },
+        "/edit/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/edit/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/edit/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?param_name=param_value": {
+          "params": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>/filter/query": {
+          "url_paths": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?filter=query": {
+          "params": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 edit parameter": "any parameter not '*_id' or '*_time'",
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of edits made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/delete": {
+      "message": "usage info: '/delete'",
+      "description": "delete entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/delete": {
+          "returns": "return all tables[] in the database"
+        },
+        "/delete/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/delete/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/delete/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?param_name=param_value": {
+          "params": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>/filter/query": {
+          "url_paths": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?filter=query": {
+          "params": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    }
+  },
+  "Admin_Functions": {
+    "/createTable": {
+      "message": "usage info: /createTable",
+      "description": "create a table and insert it into the database",
+      "end_points": {
+        "/createTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/createTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/createTable/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/createTable/<table_name>/<column_name>/<column_type>": {
+          "url_paths": "create columns: 'param_name=param_'",
+          "example": "/createTable/steps/step_id/INTEGER/user_id/INTEGER/step_count/INTEGER/latitude/DOUBLE/longitude/DOUBLE/step_time/DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "/createTable/<table_name>?column_name=column_type": {
+          "params": "create columns: 'param_name=param_value'",
+          "example": "/createTable/steps?step_id=INTEGER&user_id=INTEGER&step_count=INTEGER&latitude=DOUBLE&longitude=DOUBLE&step_time=DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "user_id": "INTEGER",
+            "{ref}_id": "INTEGER",
+            "{ref}_time": "DATETIME",
+            "column_name": "lowercase with underscores where appropriate",
+            "column_type": "one of 'INTEGER', 'DOUBLE', 'TEXT', 'DATETIME'"
+          }
+        },
+        "Exception": "'{ref}_id' not required when creating 'users' table",
+        "Response": {
+          "message": "number of tables created",
+          "table": "the table name",
+          "columns[]": "array of columns with their type"
+        }
+      }
+    },
+    "/deleteTable": {
+      "message": "usage info: /deleteTable",
+      "description": "delete a table from the database",
+      "end_points": {
+        "/deleteTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/deleteTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/deleteTable/<table_name>": {
+          "action": "delete the table: <table_name>",
+          "example": "/deleteTable/steps",
+          "response": {
+            "message": "1 table deleted!",
+            "table": "steps"
+          }
+        },
+        "Required": "<table_name>",
+        "Response": {
+          "message": "number of deletes made",
+          "table": "the name of the table that was deleted"
+        }
+      }
+    }
+  },
+  "User_Functions": {
+    "/login": {
+      "message": "usage info: /login",
+      "description": "login a user",
+      "end_points": {
+        "/login": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/login/<param_name>/<param_value>": {
+          "url_paths": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "/login?param_name=param_value": {
+          "params": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/logout": {
+      "message": "usage info: /logout",
+      "description": "logout a user",
+      "end_points": {
+        "/logout": {
+          "returns": "message: 'user logged out'"
+        }
+      }
+    }
+  }
+}
+127.0.0.1 2022-10-18 13:44:10.802002 GET http://localhost:8080/ 200 OK
+{"request.params": {}}
+{
+  "message": "API_Endpoints",
+  "Core_Functions": {
+    "/add": {
+      "message": "usage info: '/add'",
+      "description": "add a single entry into a table: <table_name>",
+      "endpoints": {
+        "/add": {
+          "returns": "returns all tables[] in the database"
+        },
+        "/add/usage": {
+          "returns": "message: 'usage-info"
+        },
+        "/add/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/add/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "add entry: 'param_name=param_value'",
+          "example": "/add/users/username/user_01/password/user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "/add/<table_name>?param_name=param_value": {
+          "params": "add entry: 'param_name=param_value'",
+          "example": "/add/users?username=user_01&password=user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "Required": "'user_id' and all params not '*_id' and '*_time'",
+        "Exception": "no 'user_id' when adding to the users table",
+        "Response": {
+          "'user_id'": "when entry added to 'users' table",
+          "'<ref>_id'": "when entry added to any other table"
+        }
+      }
+    },
+    "/get": {
+      "message": "usage info: '/get'",
+      "description": "fetch entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/get": {
+          "returns": "return all tables[] in the database"
+        },
+        "/get/usage": {
+          "returns": "{'message': 'usage-info'}"
+        },
+        "/get/<table_name>": {
+          "returns": "returns all entries for the table: <table_name>"
+        },
+        "/get/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "match entries: 'param_name=param_value'",
+          "example": "/get/users/username/bob",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>?param_name=param_value": {
+          "params": "match entries: 'param_name=param_value'",
+          "example": "/get/users?user_id=8",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>/filter/query": {
+          "url_paths": "match entries: 'filter=[query]'",
+          "example": "/get/oximeter/filter/(temperature > '100.4') GROUP BY user_id",
+          "response": {
+            "message": "1 oximeter entry found",
+            "data": {
+              "entry_id": 53,
+              "user_id": 8,
+              "heart_rate": 133,
+              "blood_o2": 95,
+              "temperature": 101.71,
+              "entry_time": "2022-04-05 12:16:54.651"
+            }
+          }
+        },
+        "/get/<table_name>?filter=query": {
+          "params": "match entries: 'filter=[query]'",
+          "example": "/get/users?filter=(create_time > \"2022-04-03\")",
+          "response": {
+            "message": "found 3 user entries",
+            "data": [
+              {
+                "user_id": 6,
+                "username": "M2band",
+                "password": "3..4",
+                "create_time": "2022-04-03 15:29:41.223"
+              },
+              {
+                "user_id": 7,
+                "username": "alice@udel.edu",
+                "password": "d..a",
+                "create_time": "2022-04-05 03:25:57.163"
+              },
+              {
+                "user_id": 8,
+                "username": "robert@udel.edu",
+                "password": "8..4",
+                "create_time": "2022-04-05 03:41:12.857"
+              }
+            ]
+          }
+        },
+        "Options": {
+          "Parameters": {
+            "None": "submit no parameters (none required)",
+            "/key/value": "match is limited to 'column_name == column_value'",
+            "?key=value": "match is limited to 'column_name == column_value'",
+            "/filter/query": "supports expressions, operators, and functions",
+            "?filter=query": "supports expressions, operators, and functions"
+          }
+        },
+        "Response": {
+          "data": {
+            "{object}": "a single object matching the parameters",
+            "[{object}]": "a single object matching the parameters"
+          }
+        }
+      }
+    },
+    "/edit": {
+      "message": "usage info: '/edit'",
+      "description": "edit entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/edit": {
+          "returns": "return all tables[] in the database"
+        },
+        "/edit/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/edit/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/edit/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?param_name=param_value": {
+          "params": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>/filter/query": {
+          "url_paths": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?filter=query": {
+          "params": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 edit parameter": "any parameter not '*_id' or '*_time'",
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of edits made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/delete": {
+      "message": "usage info: '/delete'",
+      "description": "delete entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/delete": {
+          "returns": "return all tables[] in the database"
+        },
+        "/delete/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/delete/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/delete/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?param_name=param_value": {
+          "params": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>/filter/query": {
+          "url_paths": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?filter=query": {
+          "params": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    }
+  },
+  "Admin_Functions": {
+    "/createTable": {
+      "message": "usage info: /createTable",
+      "description": "create a table and insert it into the database",
+      "end_points": {
+        "/createTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/createTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/createTable/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/createTable/<table_name>/<column_name>/<column_type>": {
+          "url_paths": "create columns: 'param_name=param_'",
+          "example": "/createTable/steps/step_id/INTEGER/user_id/INTEGER/step_count/INTEGER/latitude/DOUBLE/longitude/DOUBLE/step_time/DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "/createTable/<table_name>?column_name=column_type": {
+          "params": "create columns: 'param_name=param_value'",
+          "example": "/createTable/steps?step_id=INTEGER&user_id=INTEGER&step_count=INTEGER&latitude=DOUBLE&longitude=DOUBLE&step_time=DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "user_id": "INTEGER",
+            "{ref}_id": "INTEGER",
+            "{ref}_time": "DATETIME",
+            "column_name": "lowercase with underscores where appropriate",
+            "column_type": "one of 'INTEGER', 'DOUBLE', 'TEXT', 'DATETIME'"
+          }
+        },
+        "Exception": "'{ref}_id' not required when creating 'users' table",
+        "Response": {
+          "message": "number of tables created",
+          "table": "the table name",
+          "columns[]": "array of columns with their type"
+        }
+      }
+    },
+    "/deleteTable": {
+      "message": "usage info: /deleteTable",
+      "description": "delete a table from the database",
+      "end_points": {
+        "/deleteTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/deleteTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/deleteTable/<table_name>": {
+          "action": "delete the table: <table_name>",
+          "example": "/deleteTable/steps",
+          "response": {
+            "message": "1 table deleted!",
+            "table": "steps"
+          }
+        },
+        "Required": "<table_name>",
+        "Response": {
+          "message": "number of deletes made",
+          "table": "the name of the table that was deleted"
+        }
+      }
+    }
+  },
+  "User_Functions": {
+    "/login": {
+      "message": "usage info: /login",
+      "description": "login a user",
+      "end_points": {
+        "/login": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/login/<param_name>/<param_value>": {
+          "url_paths": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "/login?param_name=param_value": {
+          "params": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/logout": {
+      "message": "usage info: /logout",
+      "description": "logout a user",
+      "end_points": {
+        "/logout": {
+          "returns": "message: 'user logged out'"
+        }
+      }
+    }
+  }
+}
+127.0.0.1 2022-10-18 13:44:16.827143 GET http://localhost:8080/add 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 13:44:22.338592 GET http://localhost:8080/login 200 OK
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+127.0.0.1 2022-10-18 13:44:42.348050 GET http://localhost:8080/register 200 OK
+{"request.params": {}}
+{
+  "message": "missing paramater",
+  "required params": [
+    "username",
+    "password",
+    "password2"
+  ]
+}
+127.0.0.1 2022-10-18 13:50:01.994680 GET http://localhost:8080/register 200 OK
+{"request.params": {}}
+{
+  "message": "missing paramater",
+  "required params": [
+    "username",
+    "password",
+    "password2"
+  ]
+}
+127.0.0.1 2022-10-18 13:51:27.171422 GET http://localhost:8080/register/username/test%40test.com 200 OK
+{"request.params": {}}
+{
+  "message": "missing paramater",
+  "required params": [
+    "username",
+    "password",
+    "password2"
+  ]
+}
+127.0.0.1 2022-10-18 13:52:01.747875 GET http://localhost:8080/register?username=test@test.com&password=test&password2=test2 200 OK
+{"request.params": {"username": "test@test.com", "password": "test", "password2": "test2"}}
+{
+  "message": "passwords do not match",
+  "password1": "test",
+  "password2": "test2"
+}
+127.0.0.1 2022-10-18 13:52:57.989208 GET http://localhost:8080/register?username=test@test.com&password=test&password2=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test", "password2": "test"}}
+{
+  "message": "new user created",
+  "user_id": 1,
+  "username": "test@test.com"
+}
+127.0.0.1 2022-10-18 13:53:19.774168 GET http://localhost:8080/add 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d96903 8c24d5937c96dee6b
+127.0.0.1 2022-10-18 13:53:41.014933 GET http://localhost:8080/add?token=dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d96903%208c24d5937c96dee6b 200 OK
+{"request.params": {"token": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d96903 8c24d5937c96dee6b"}}
+{
+  "message": "invalid token"
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b
+127.0.0.1 2022-10-18 13:54:02.444510 GET http://localhost:8080/add?token=dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b 200 OK
+{"request.params": {"token": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b"}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 13:58:10.676785 GET http://localhost:8080/login 200 OK
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+127.0.0.1 2022-10-18 13:59:26.878390 GET http://localhost:8080/login/username/test%40test.com/password/test 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09
+127.0.0.1 2022-10-18 13:59:59.541683 GET http://localhost:8080/add?token=IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09
+127.0.0.1 2022-10-18 14:00:08.462822 GET http://localhost:8080/add?token=IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 14:03:20.570441 GET http://localhost:8080/add/token/IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09
+127.0.0.1 2022-10-18 14:03:49.163372 GET http://localhost:8080/add?token=IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09
+127.0.0.1 2022-10-18 14:03:51.090810 GET http://localhost:8080/add?token=IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09
+127.0.0.1 2022-10-18 14:08:25.322972 GET http://localhost:8080/add?token=IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09
+127.0.0.1 2022-10-18 14:09:08.171000 GET http://localhost:8080/logout?token=IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IWNJMHIySkJzZUwyOXdTeTFtVzR6cGc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "user logged out"
+}
+127.0.0.1 2022-10-18 14:09:20.178162 GET http://localhost:8080/login/username/test%40test.com/password/test 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 14:09:41.705820 GET http://localhost:8080/add?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "active tables in the database",
+  "tables": [
+    {
+      "name": "users",
+      "type": "table",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "username",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "password",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    }
+  ]
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = 
+127.0.0.1 2022-10-18 14:13:38.398774 GET http://localhost:8080/add?token= 200 OK
+{"request.params": {"token": ""}}
+{
+  "message": "invalid token"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 14:47:15.276333 GET http://localhost:8080/add?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "active tables in the database",
+  "tables": [
+    {
+      "name": "users",
+      "type": "table",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "username",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "password",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    }
+  ]
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 14:47:33.207682 GET http://localhost:8080/add/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "missing": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 14:47:47.471295 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 14:53:43.808766 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out"
+}
+127.0.0.1 2022-10-18 14:55:13.090437 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": null
+}
+127.0.0.1 2022-10-18 14:55:28.779153 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 14:56:28.579723 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+127.0.0.1 2022-10-18 14:56:40.642595 GET http://localhost:8080/ 200 OK
+{"request.params": {}}
+{
+  "message": "API_Endpoints",
+  "Core_Functions": {
+    "/add": {
+      "message": "usage info: '/add'",
+      "description": "add a single entry into a table: <table_name>",
+      "endpoints": {
+        "/add": {
+          "returns": "returns all tables[] in the database"
+        },
+        "/add/usage": {
+          "returns": "message: 'usage-info"
+        },
+        "/add/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/add/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "add entry: 'param_name=param_value'",
+          "example": "/add/users/username/user_01/password/user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "/add/<table_name>?param_name=param_value": {
+          "params": "add entry: 'param_name=param_value'",
+          "example": "/add/users?username=user_01&password=user_01",
+          "response": {
+            "message": "data added to {users}",
+            "user_id": 8
+          }
+        },
+        "Required": "'user_id' and all params not '*_id' and '*_time'",
+        "Exception": "no 'user_id' when adding to the users table",
+        "Response": {
+          "'user_id'": "when entry added to 'users' table",
+          "'<ref>_id'": "when entry added to any other table"
+        }
+      }
+    },
+    "/get": {
+      "message": "usage info: '/get'",
+      "description": "fetch entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/get": {
+          "returns": "return all tables[] in the database"
+        },
+        "/get/usage": {
+          "returns": "{'message': 'usage-info'}"
+        },
+        "/get/<table_name>": {
+          "returns": "returns all entries for the table: <table_name>"
+        },
+        "/get/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "match entries: 'param_name=param_value'",
+          "example": "/get/users/username/bob",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>?param_name=param_value": {
+          "params": "match entries: 'param_name=param_value'",
+          "example": "/get/users?user_id=8",
+          "response": {
+            "message": "1 user entry found",
+            "data": {
+              "user_id": 8,
+              "username": "bob",
+              "password": "8..4",
+              "create_time": "2022-04-05 03:25:57.163"
+            }
+          }
+        },
+        "/get/<table_name>/filter/query": {
+          "url_paths": "match entries: 'filter=[query]'",
+          "example": "/get/oximeter/filter/(temperature > '100.4') GROUP BY user_id",
+          "response": {
+            "message": "1 oximeter entry found",
+            "data": {
+              "entry_id": 53,
+              "user_id": 8,
+              "heart_rate": 133,
+              "blood_o2": 95,
+              "temperature": 101.71,
+              "entry_time": "2022-04-05 12:16:54.651"
+            }
+          }
+        },
+        "/get/<table_name>?filter=query": {
+          "params": "match entries: 'filter=[query]'",
+          "example": "/get/users?filter=(create_time > \"2022-04-03\")",
+          "response": {
+            "message": "found 3 user entries",
+            "data": [
+              {
+                "user_id": 6,
+                "username": "M2band",
+                "password": "3..4",
+                "create_time": "2022-04-03 15:29:41.223"
+              },
+              {
+                "user_id": 7,
+                "username": "alice@udel.edu",
+                "password": "d..a",
+                "create_time": "2022-04-05 03:25:57.163"
+              },
+              {
+                "user_id": 8,
+                "username": "robert@udel.edu",
+                "password": "8..4",
+                "create_time": "2022-04-05 03:41:12.857"
+              }
+            ]
+          }
+        },
+        "Options": {
+          "Parameters": {
+            "None": "submit no parameters (none required)",
+            "/key/value": "match is limited to 'column_name == column_value'",
+            "?key=value": "match is limited to 'column_name == column_value'",
+            "/filter/query": "supports expressions, operators, and functions",
+            "?filter=query": "supports expressions, operators, and functions"
+          }
+        },
+        "Response": {
+          "data": {
+            "{object}": "a single object matching the parameters",
+            "[{object}]": "a single object matching the parameters"
+          }
+        }
+      }
+    },
+    "/edit": {
+      "message": "usage info: '/edit'",
+      "description": "edit entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/edit": {
+          "returns": "return all tables[] in the database"
+        },
+        "/edit/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/edit/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/edit/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?param_name=param_value": {
+          "params": "edit entries: 'param_name=param_value'",
+          "example": "/edit/users/username/robert?user_id=8",
+          "response": {
+            "message": "edited 1 user entry",
+            "submitted": [
+              {
+                "username": "robert",
+                "user_id": "8"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>/filter/query": {
+          "url_paths": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "/edit/<table_name>?filter=query": {
+          "params": "edit entries: 'filter=[query]'",
+          "example": "/edit/oximeter/temperature/(temperature-32.0)*(5.0/9.0)?filter=(user_id='7')",
+          "response": {
+            "message": "edited 6 oximeter entries",
+            "submitted": [
+              {
+                "filter": "(user_id='7')",
+                "temperature": "((5.0/9.0)*(temperature-32.0))"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 edit parameter": "any parameter not '*_id' or '*_time'",
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of edits made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/delete": {
+      "message": "usage info: '/delete'",
+      "description": "delete entry/entries from a table: <table_name>",
+      "endpoints": {
+        "/delete": {
+          "returns": "return all tables[] in the database"
+        },
+        "/delete/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/delete/<table_name>": {
+          "returns": "message: 'missing a parameter'"
+        },
+        "/delete/<table_name>/<param_name>/<param_value>": {
+          "url_paths": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?param_name=param_value": {
+          "params": "delete entries: 'param_name=param_value'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>/filter/query": {
+          "url_paths": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "/delete/<table_name>?filter=query": {
+          "params": "delete entries: 'filter=[query]'",
+          "example": "/delete/oximeter?filter=(user_id = '8' AND temperature > '100.4')",
+          "response": {
+            "message": "6 oximeter entries deleted",
+            "submitted": [
+              {
+                "filter": "(user_id = '8' AND temperature > '100.4')"
+              }
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    }
+  },
+  "Admin_Functions": {
+    "/createTable": {
+      "message": "usage info: /createTable",
+      "description": "create a table and insert it into the database",
+      "end_points": {
+        "/createTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/createTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/createTable/<table_name>": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/createTable/<table_name>/<column_name>/<column_type>": {
+          "url_paths": "create columns: 'param_name=param_'",
+          "example": "/createTable/steps/step_id/INTEGER/user_id/INTEGER/step_count/INTEGER/latitude/DOUBLE/longitude/DOUBLE/step_time/DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "/createTable/<table_name>?column_name=column_type": {
+          "params": "create columns: 'param_name=param_value'",
+          "example": "/createTable/steps?step_id=INTEGER&user_id=INTEGER&step_count=INTEGER&latitude=DOUBLE&longitude=DOUBLE&step_time=DATETIME",
+          "response": {
+            "message": "1 table created",
+            "table": "steps",
+            "columns": [
+              "step_id INTEGER PRIMARY KEY",
+              "user_id INTEGER NOT NULL",
+              "step_count INTEGER NOT NULL",
+              "latitude DOUBLE NOT NULL",
+              "longitude DOUBLE NOT NULL",
+              "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+            ]
+          }
+        },
+        "Required": {
+          "Parameters": {
+            "user_id": "INTEGER",
+            "{ref}_id": "INTEGER",
+            "{ref}_time": "DATETIME",
+            "column_name": "lowercase with underscores where appropriate",
+            "column_type": "one of 'INTEGER', 'DOUBLE', 'TEXT', 'DATETIME'"
+          }
+        },
+        "Exception": "'{ref}_id' not required when creating 'users' table",
+        "Response": {
+          "message": "number of tables created",
+          "table": "the table name",
+          "columns[]": "array of columns with their type"
+        }
+      }
+    },
+    "/deleteTable": {
+      "message": "usage info: /deleteTable",
+      "description": "delete a table from the database",
+      "end_points": {
+        "/deleteTable": {
+          "returns": "return all tables[] in the database"
+        },
+        "/deleteTable/usage": {
+          "returns": "message: 'usage-info'"
+        },
+        "/deleteTable/<table_name>": {
+          "action": "delete the table: <table_name>",
+          "example": "/deleteTable/steps",
+          "response": {
+            "message": "1 table deleted!",
+            "table": "steps"
+          }
+        },
+        "Required": "<table_name>",
+        "Response": {
+          "message": "number of deletes made",
+          "table": "the name of the table that was deleted"
+        }
+      }
+    }
+  },
+  "User_Functions": {
+    "/login": {
+      "message": "usage info: /login",
+      "description": "login a user",
+      "end_points": {
+        "/login": {
+          "returns": "message: 'missing parameters'"
+        },
+        "/login/<param_name>/<param_value>": {
+          "url_paths": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "/login?param_name=param_value": {
+          "params": "login with: 'param_name=param_value'",
+          "example": "",
+          "response": {}
+        },
+        "Required": {
+          "Parameters": {
+            "at least 1 reference parameter": "any '*_id' or '*_time' parameter or 'filter'"
+          }
+        },
+        "Response": {
+          "message": "number of deletes made",
+          "submitted[]": "the parameters that were submitted"
+        }
+      }
+    },
+    "/logout": {
+      "message": "usage info: /logout",
+      "description": "logout a user",
+      "end_points": {
+        "/logout": {
+          "returns": "message: 'user logged out'"
+        }
+      }
+    }
+  }
+}
+127.0.0.1 2022-10-18 14:56:48.481802 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 14:56:53.731715 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:04:59.033678 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": null
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:05:16.202284 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:05:34.920805 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 15:05:40.640869 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:05:44.469147 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:08:37.056896 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:09:04.563007 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:09:08.682683 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:09:11.409712 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:09:12.161204 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:09:17.602670 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": null
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:09:28.771695 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:10:04.915752 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 15:10:10.963718 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": null
+}
+127.0.0.1 2022-10-18 15:11:27.355047 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": null
+}
+127.0.0.1 2022-10-18 15:11:27.435345 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": null
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:11:31.299878 GET http://localhost:8080/add/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "missing": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:11:42.210985 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:23:13.892264 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:23:20.987854 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:23:25.244563 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+parseParams()
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:24:13.933989 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:24:35.124203 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:26:37.978144 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:28:54.036681 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:29:49.358921 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:30:07.590167 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:30:29.415484 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 15:30:52.303212 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:31:39.177370 GET http://localhost:8080/add/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "missing": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:32:56.559823 GET http://localhost:8080/add/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "missing": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:33:37.687074 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:34:19.094362 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": null
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:34:32.491748 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:35:26.417199 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:35:37.216522 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:35:48.762606 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:36:02.919762 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:36:11.529207 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:39:08.923918 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 15:39:18.116778 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 15:39:23.646232 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 15:39:28.461312 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+127.0.0.1 2022-10-18 15:39:33.587180 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:03:35.241058 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:03:53.701254 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:03:59.445525 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:04:17.688806 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:04:57.853331 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:05:24.361873 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:05:32.264423 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:05:37.278083 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:05:45.805587 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+127.0.0.1 2022-10-18 16:05:53.620373 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": null
+}
+127.0.0.1 2022-10-18 16:05:59.300031 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 16:06:11.941576 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:06:16.011851 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:06:21.361553 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+127.0.0.1 2022-10-18 16:06:27.511150 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:06:29.984265 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:06:42.760718 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:06:53.568668 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:07:16.371405 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:07:28.341689 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:07:55.539588 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:09:29.942887 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:09:44.976691 POST http://localhost:8080/get/users 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:09:51.025954 POST http://localhost:8080/get/users 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:10:02.408431 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 16:10:14.136427 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:10:21.143803 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:10:24.820414 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:10:25.856191 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:10:48.350323 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:11:55.476299 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:14:00.484978 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:14:19.057889 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:14:44.050734 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:15:00.815269 GET http://localhost:8080/login/username/test%40test.com/password/test 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 16:15:06.281367 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:17:34.214990 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 16:17:59.038179 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 16:18:02.356053 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:18:17.231731 POST http://localhost:8080/get/users 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:18:39.041987 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:24:03.876250 POST http://localhost:8080/get/users 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:24:08.757854 POST http://localhost:8080/logout 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+127.0.0.1 2022-10-18 16:24:20.420443 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:24:23.772863 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:27:17.051997 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:28:00.125969 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 16:29:58.687908 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 16:30:38.654206 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:31:10.460380 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:57:38.343466 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 16:59:16.317214 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 16:59:31.518188 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": null
+}
+127.0.0.1 2022-10-18 16:59:42.932030 GET http://localhost:8080/login/username/test%40test.com/password/test 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 17:00:01.113552 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 20:53:37.072424 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 20:54:09.676164 GET http://localhost:8080/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+127.0.0.1 2022-10-18 20:54:13.715967 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 20:54:38.348100 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 20:54:55.084184 GET http://localhost:8080/login/username/test%40test.com/password/test 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 20:55:04.847803 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 20:55:14.814979 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-18 21:00:05.157276 GET http://localhost:8080/login?username=test@test.com&password=test 200 OK
+{"request.params": {"username": "test@test.com", "password": "test"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "test@test.com",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-18 21:00:09.841141 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 21:02:56.922583 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 21:03:01.705960 GET http://localhost:8080/get/users?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 21:30:19.466555 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 21:32:02.809823 POST http://localhost:8080/get/users 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+cookie_info = ('user_id', '1')
+127.0.0.1 2022-10-18 21:32:28.064268 POST http://localhost:8080/get/users 200 OK
+{"request.params": {"token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "test@test.com",
+    "password": "dad6e57d4589eb538edeed92da32afe0ae39fd593d35a4aa9100e2e8a8f29c6c97ee66300f72063279f06b8bad02c0d37e803eff2d969038c24d5937c96dee6b",
+    "create_time": "2022-10-18 13:52:58.073"
+  }
+}
+127.0.0.1 2022-10-18 21:32:38.062485 GET http://localhost:8080/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
