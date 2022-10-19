@@ -42,7 +42,7 @@ These functions represent the main endpoints of the framework and will handle th
 
 
 ---
-<details><summary>Debugging Tip!  (click me to expand)
+<details><summary>Debugging Tip! (click me to expand)
 </summary>
 
 To see all of the available `tables` along with the `column_names` and the `column_types`, make a request to the root path of any core or admin function
@@ -117,7 +117,7 @@ Response:
 ```json
 {
   "message": "invalid token"
-}MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+}
 ```
 
 ### Simply append the token parameter
@@ -186,14 +186,12 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 | username | the user's username |
 | password | the user's password |
 
-## Workflow Example:
-* Let's log in as the user **`admin`** 
-
 ---
-<details><summary>Show Workflow Example (click here to expand)
+<details><summary>Endpoint Background (click here to expand)
 </summary>
 
 ### Investigating the Endpoint: `/login`
+---
 Request:
 ```ruby
 /login
@@ -206,7 +204,7 @@ Response:
   "required": [{"username": "TEXT", "password": "TEXT"}], "submitted": [{}]
 }
 ```
-
+---
 Arguments:
 ```python
 username = admin
@@ -225,8 +223,33 @@ Response:
   "submitted": [{"username": "admin"}]
 }
 ```
+---
+Arguments:
+```python
+username = admin
+password = 123
+```
 
-### Let's Login the user `admin`
+Request:
+```ruby
+/login?username=admin&password=123
+```
+
+Response:
+```json
+{'message': 'incorrect password', 'password': '123'}
+```
+---
+</details>
+
+## Workflow 1 - Login:
+* Let's log in as the user **`admin`** 
+
+---
+<details><summary>Show Workflow 1 - Login Example (click here to expand)
+</summary>
+
+### Let's log in as the user `admin`
 Arguments:
 ```python
 username = admin

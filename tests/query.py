@@ -16,8 +16,10 @@ example usage:
 # -- System Modules -- #
 from urllib.parse import urlparse, parse_qsl
 from pathlib import Path
+import http.cookiejar
 import argparse
 import requests
+import pickle
 import sys
 import re
 
@@ -29,6 +31,28 @@ from utils.db_functions import parseUrlPaths
 from rich import print, print_json
 
 
+def export_cookies(session, cookie_file="cookies.pickle"):
+    """Export Session Cookies"""
+    with open(cookie_file, "wb") as f:
+        pickle.dump(session.cookies, f)
+
+def export_headers(session, header_file="headers.pickle"):
+    """Export Session Headers"""
+    with open(header_file, "wb") as f:
+        pickle.dump(session.headers, f)
+
+def load_cookies(cookie_file="cookies.pickle"):
+    """Load External Cookies"""
+    with open(cookie_file, "rb") as f:
+        return pickle.load(f)
+
+def load_headers(header_file="headers.pickle"):
+    """Load External Headers"""
+    with open(header_file, "rb") as f:
+        return pickle.load(f)
+
+
+
 def parseQuery(query):
     commands = [
         "add",
@@ -37,12 +61,20 @@ def parseQuery(query):
         "delete",
         "login",
         "logout",
+        "register"
         "createTable",
         "deleteTable",
+        "uploadImageUrl"
     ]
     tables = [
         "users",
-        "oximeter"
+        "bartenders",
+        "bartender_wages",
+        "managers",
+        "restaurant_photos",
+        "restaurant_profile",
+        "restaurant_requests",
+        "restaurant_schedule"
     ]
     regex = rf"""
     /({'|'.join(commands)})/(tables) |  # catch /<cmd>/<table_name
@@ -72,7 +104,10 @@ def executeQuery(base_url, query):
     url = f'{base_url}{query}'
     arguments = parseQuery(query)
 
-    r = requests.get(url)
+    s = requests.Session()
+    s.headers.update(load_headers())
+    s.cookies.update(load_cookies())
+    r = s.get(url)
     res = r.json() if r.status_code == 200 else r.text
 
     output = f"""
@@ -96,13 +131,21 @@ Response:
 def main():
     examples = '''example usage:
     ./%(prog)s '/get/users'
-    ./%(prog)s '/get/users' --url 'http://localhost:8080'
+    ./%(prog)s '/get/users' --url 'http://localhost:8888'
     '''
 
     ap = argparse.ArgumentParser(epilog=examples, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('query', help="api endpoint to query")
-    ap.add_argument('-u', '--url', default="https://m2band.hopto.org/", help='base url of web framework')
+    ap.add_argument('-u', '--url', default="https://bartender.hopto.org/", help='base url of web framework')
+    ap.add_argument('-l', '--login', default=False, action="store_true", help="login and save session cookies...")
     args = ap.parse_args()
+
+    if args.login:
+        s = requests.Session()
+        r = s.post('https://bartender.hopto.org/login', data={"username": "admin", "password": "admin"})
+        export_headers(s)
+        export_cookies(s)
+
 
     executeQuery(base_url=args.url, query=args.query)
     # print(out)
