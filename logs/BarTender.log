@@ -2619,3 +2619,11 @@ cookie_info = ('user_id', '1')
     "password2"
   ]
 }
+127.0.0.1 2022-10-19 09:59:35.952647 GET http://localhost:8888/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
