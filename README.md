@@ -4,9 +4,9 @@
 Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 
 **Features:**
-* [*User Functions*](#User-Functions) - [**`/login`**](#1-login), [**`/logout`**](#2-logout) [**`/register`**](#3-register)
+* [*User Functions*](#User-Functions)  - [**`/login`**](#1-login), [**`/logout`**](#2-logout) [**`/register`**](#3-register)
 * [*Admin Functions*](#Admin-Functions) - [**`/createTable`**](#1-createTable) and [**`/deleteTable`**](#2-deleteTable)
-* [*Core Functions*](#Core-Functions) - [**`/add`**](#1-add), [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete)
+* [*Core Functions*](#Core-Functions)  - [**`/add`**](#1-add), [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete)
 * [*Extra_Functions*](#Extra-Functions) - [**`/uploadImageUrl`**](#1-uploadImageUrl)
 * Query and URL path parameter support
 * Additional **`filter`** parameter - enables SQLite expressions containing operators 
@@ -19,7 +19,7 @@ Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 * A column name with suffix **`_id`** reference a **unique item** or a **unique item group**.
 * A column name with suffix **`_time`** reference a **unique datetime item**
 * All tables must have a **`{ref}_id`** `column` to be used as `PRIMARY KEY`
-* All tables must have a **`{ref}_time`** `column`
+* All tables must have a **`{ref}_time`** `column` 
 
 **3 User Functions:**
 1. [**`/login`**](#1-login)       - Login a user
@@ -270,7 +270,7 @@ Response:
 * Let's log in as the user **`admin`** 
 
 ---
-<details><summary>Show Workflow 1 - Login (click here to expand)
+<details><summary>Workflow 1 - Login (click here to expand)
 </summary>
 
 ### Let's log in as the user `admin`
@@ -355,7 +355,6 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 | {ref}_time | DATETIME |
 | column_name | lowercase with underscores where appropriate |
 | column_type | one of `INTEGER`, `DOUBLE`, `TEXT`, `DATETIME` |
-| Exception | "{ref}_id" not required when creating "users" table |
 
 ---
 <details><summary>Endpoint Background (click here to expand)
@@ -392,12 +391,12 @@ Response:
 ### Creating the Table `steps`
 Arguments:
 ```python
-step_id = INTEGER
-user_id = INTEGER
+step_id    = INTEGER
+user_id    = INTEGER
 step_count = INTEGER
-latitude = DOUBLE
-longitude = DOUBLE
-step_time = DATETIME
+latitude   = DOUBLE
+longitude  = DOUBLE
+step_time  = DATETIME
 ```
 
 Request:
@@ -420,6 +419,41 @@ Response:
     ]
 }
 ```
+
+### Creating the Table `oximeter`
+Arguments:
+```python
+entry_id    = INTEGER
+user_id     = INTEGER
+heart_rate  = INTEGER
+blood_o2    = INTEGER
+temperature = DOUBLE
+entry_time  = DATETIME
+```
+
+Request:
+```ruby
+/createTable/oximeter/entry_id/INTEGER/user_id/INTEGER/heart_rate/INTEGER/blood_o2/INTEGER/temperature/DOUBLE/entry_time/DATETIME
+```
+
+Response:
+```json
+{
+    "message": "1 table created",
+    "table": "oximeter",
+    "columns": [
+        "entry_id    INTEGER PRIMARY KEY",
+        "user_id     INTEGER NOT NULL",
+        "heart_rate  INTEGER NOT NULL",
+        "blood_o2    INTEGER NOT NULL",
+        "temperature DOUBLE NOT NULL",
+        "entry_time  DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+    ]
+}
+```
+
+
+
 </details>
 
 ---
@@ -435,7 +469,7 @@ Response:
   * **`bartender_wages`**  <br />
 
 ---
-<details><summary>Show Workflow Example (click here to expand)
+<details><summary>Workflow 2 - Create Tables (click here to expand)
 </summary>
 
 ### Creating the Table `managers`:
@@ -602,11 +636,8 @@ Response:
 |:--|:--|
 | table_name | the name of the **`table`** you wish to delete  |
 
-## Workflow Example:
-* Let's delete the table named **`steps`** 
-
 ---
-<details><summary>Show Workflow Example (click here to expand)
+<details><summary>Endpoint Background (click here to expand)
 </summary>
 
 ### Investigating the Endpoint: `/deleteTable`
@@ -692,12 +723,8 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 | `user_id` | when entry added to **`users`** table |
 | `{ref}_id` | when entry added to any other table |  
 
-## Workflow Example:
-* [Let's add 2 users to the **`users`** table: `alice` and `bob`](#adding-alice-to-the-users-table)
-* [Then, add sensor data to the **`oximeter`** table for both users](#adding-sensor-data-for-the-user-alice-to-the-oximeter-table)
-
 ---
-<details><summary>Show Workflow Example (click here to expand)
+<details><summary>Endpoint Background (click here to expand)
 </summary>
 
 ### Investigating the Endpoint: `/add`
@@ -735,7 +762,6 @@ Response:
   "submitted": [{"username": "alice"}]
 }
 ```
-
 
 ### Adding `alice` to the **`users`** table
 To add the user `alice`, we need to provide the **username** and **password** parameters
@@ -858,6 +884,22 @@ Response:
 {"message": "data added to {oximeter}", "entry_id": 57, "user_id": "8"}
 {"message": "data added to {oximeter}", "entry_id": 58, "user_id": "8"}
 ```
+
+---
+</details>
+
+## Workflow Example:
+* [Let's add 2 users to the **`users`** table: `alice` and `bob`](#adding-alice-to-the-users-table)
+* [Then, add sensor data to the **`oximeter`** table for both users](#adding-sensor-data-for-the-user-alice-to-the-oximeter-table)
+
+
+
+---
+<details><summary>Show Workflow Example (click here to expand)
+</summary>
+
+
+
 
 Now that we have added users and sensor data, let's take a look at the next **core function**: [**`/get`**](#2-get)
 </details>
