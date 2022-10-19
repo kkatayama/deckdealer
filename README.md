@@ -165,13 +165,13 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 ---
 
 # User Functions
-The examples listed below will cover the **2 user functions**.
+The examples listed below will cover the **3 user functions**.<br />
 All examples shown are executed via a **GET** request and can be tested with any browser.
 All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
 # 1. `/login`
 **Login `user`** 
-> Before we can
+> Only logged in users can call functions!
 
 ### Endpoints:
 | Resource | Description |
@@ -187,14 +187,14 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 | password | the user's password |
 
 ## Workflow Example:
-* Let's login the user **`admin`** 
+* Let's log in as the user **`admin`** 
 
 ---
 <details><summary>Show Workflow Example (click here to expand)
 </summary>
 
 ### Investigating the Endpoint: `/login`
-Requ;58;31Mest:
+Request:
 ```ruby
 /login
 ```
@@ -247,6 +247,9 @@ Response:
   "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
 ```
+
+> Note: the `token` is only needed when api requests do not store session cookies.
+
 </details>
 
 ---
