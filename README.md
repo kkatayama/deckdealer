@@ -357,18 +357,8 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 | column_type | one of `INTEGER`, `DOUBLE`, `TEXT`, `DATETIME` |
 | Exception | "{ref}_id" not required when creating "users" table |
 
-## Workflow 2 - Create Tables:
-* Let's create a few tables!<br /> 
-  * **`managers`**  <br />
-  * **`restaurant_profile`**  <br />
-  * **`restaurant_photos`**  <br />
-  * **`restaurant_schedule`**  <br />
-  * **`restaurant_requests`**  <br />
-  * **`bartenders`**  <br />
-  * **`bartender_wages`**  <br />
-
 ---
-<details><summary>Show Workflow Example (click here to expand)
+<details><summary>Endpoint Background (click here to expand)
 </summary>
 
 ### Investigating the Endpoint: `/createTable`
@@ -430,6 +420,169 @@ Response:
     ]
 }
 ```
+</details>
+
+---
+
+## Workflow 2 - Create Tables:
+* Let's create a few tables!<br /> 
+  * **`managers`**  <br />
+  * **`restaurant_profile`**  <br />
+  * **`restaurant_photos`**  <br />
+  * **`restaurant_schedule`**  <br />
+  * **`restaurant_requests`**  <br />
+  * **`bartenders`**  <br />
+  * **`bartender_wages`**  <br />
+
+---
+<details><summary>Show Workflow Example (click here to expand)
+</summary>
+
+### Creating the Table `managers`:
+Request:
+```ruby
+/createTable/managers/manager_id/INTEGER/user_id/INTEGER/restaurant_id/INTEGER/first_name/TEXT/last_name/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
+```
+
+Response:
+```json
+{
+    "message": "1 table created",
+    "table": "managers",
+    "columns": [
+        "manager_id INTEGER PRIMARY KEY",
+        "user_id INTEGER NOT NULL",
+        "restaurant_id INTEGER NOT NULL",
+        "first_name TEXT NOT NULL",
+        "last_name TEXT NOT NULL",
+        "phone_number TEXT NOT NULL",
+        "email TEXT NOT NULL",
+        "profile_pic TEXT NOT NULL",
+        "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"
+    ]
+}
+```
+
+### Creating the Table `restaurant_profile`:
+Request:
+```ruby
+/createTable/restaurant_profile/restaurant_id/INTEGER/manager_id/INTEGER/restaurant_name/TEXT/address/TEXT/bio/TEXT/phone_number/TEXT/profile_pic/TEXT/entry_time/DATETIME
+```
+
+Response:
+```json
+{
+    "message": "1 table created",
+    "table": "restaurant_profile",
+    "columns": [
+        "restaurant_id INTEGER PRIMARY KEY",
+        "manager_id INTEGER NOT NULL",
+        "restaurant_name TEXT NOT NULL",
+        "address TEXT NOT NULL",
+        "bio TEXT NOT NULL",
+        "phone_number TEXT NOT NULL",
+        "profile_pic TEXT NOT NULL",
+        "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"
+    ]
+}
+```
+
+### Creating the Table `restaurant_photos`:
+Request:
+```ruby
+/createTable/restaurant_photos/photo_id/INTEGER/restaurant_id/INTEGER/photo_url/TEXT/entry_time/DATETIME
+```
+
+Response:
+```json
+{
+    "message": "1 table created",
+    "table": "restaurant_photos",
+    "columns": ["photo_id INTEGER PRIMARY KEY", "restaurant_id INTEGER NOT NULL", "photo_url TEXT NOT NULL", "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"]
+}
+```
+
+### Creating the Table `restaurant_schedule`:
+Request:
+```ruby
+/createTable/restaurant_schedule/schedule_id/INTEGER/restaurant_id/INTEGER/mon_open/DATETIME/mon_close/DATETIME/tue_open/DATETIME/tue_close/DATETIME/wed_open/DATETIME/wed_close/DATETIME/thu_open/DATETIME/thu_close/DATETIME/fri_open/DATE
+TIME/fri_close/DATETIME/sat_open/DATETIME/sat_close/DATETIME/sun_open/DATETIME/sun_close/DATETIME/entry_time/DATETIME
+```
+
+Response:
+```json
+{
+    "message": "1 table created",
+    "table": "restaurant_schedule",
+    "columns": [
+        "schedule_id INTEGER PRIMARY KEY",
+        "restaurant_id INTEGER NOT NULL",
+        "mon_open DATETIME NOT NULL",
+        "mon_close DATETIME NOT NULL",
+        "tue_open DATETIME NOT NULL",
+        "tue_close DATETIME NOT NULL",
+        "wed_open DATETIME NOT NULL",
+        "wed_close DATETIME NOT NULL",
+        "thu_open DATETIME NOT NULL",
+        "thu_close DATETIME NOT NULL",
+        "fri_open DATETIME NOT NULL",
+        "fri_close DATETIME NOT NULL",
+        "sat_open DATETIME NOT NULL",
+        "sat_close DATETIME NOT NULL",
+        "sun_open DATETIME NOT NULL",
+        "sun_close DATETIME NOT NULL",
+        "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"
+    ]
+}
+```
+
+### Creating the Table `restaurant_requests`:
+Request:
+```ruby
+/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/entry_time/DATETIME
+```
+
+Response:
+```json
+{
+    "message": "1 table created",
+    "table": "restaurant_requests",
+    "columns": [
+        "request_id INTEGER PRIMARY KEY",
+        "restaurant_id INTEGER NOT NULL",
+        "hourly_wage DOUBLE NOT NULL",
+        "shift_start DATETIME NOT NULL",
+        "shift_end DATETIME NOT NULL",
+        "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"
+    ]
+}
+```
+
+### Creating the Table `bartenders`:
+Request:
+```ruby
+/createTable/bartenders/bartender_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/address/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
+```
+
+Response:
+```json
+{
+    "message": "1 table created",
+    "table": "bartenders",
+    "columns": [
+        "bartender_id INTEGER PRIMARY KEY",
+        "user_id INTEGER NOT NULL",
+        "first_name TEXT NOT NULL",
+        "last_name TEXT NOT NULL",
+        "address TEXT NOT NULL",
+        "phone_number TEXT NOT NULL",
+        "email TEXT NOT NULL",
+        "profile_pic TEXT NOT NULL",
+        "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"
+    ]
+}
+```
+
 </details>
 
 ---
