@@ -458,7 +458,7 @@ Response:
         "phone_number TEXT NOT NULL",
         "email TEXT NOT NULL",
         "profile_pic TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"
+        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
     ]
 }
 ```
@@ -482,7 +482,7 @@ Response:
         "bio TEXT NOT NULL",
         "phone_number TEXT NOT NULL",
         "profile_pic TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"
+        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
     ]
 }
 ```
@@ -498,7 +498,7 @@ Response:
 {
     "message": "1 table created",
     "table": "restaurant_photos",
-    "columns": ["photo_id INTEGER PRIMARY KEY", "restaurant_id INTEGER NOT NULL", "photo_url TEXT NOT NULL", "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"]
+    "columns": ["photo_id INTEGER PRIMARY KEY", "restaurant_id INTEGER NOT NULL", "photo_url TEXT NOT NULL", "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"]
 }
 ```
 
@@ -531,7 +531,7 @@ Response:
         "sat_close DATETIME NOT NULL",
         "sun_open DATETIME NOT NULL",
         "sun_close DATETIME NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"
+        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
     ]
 }
 ```
@@ -553,7 +553,7 @@ Response:
         "hourly_wage DOUBLE NOT NULL",
         "shift_start DATETIME NOT NULL",
         "shift_end DATETIME NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"
+        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
     ]
 }
 ```
@@ -578,7 +578,7 @@ Response:
         "phone_number TEXT NOT NULL",
         "email TEXT NOT NULL",
         "profile_pic TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime("%Y-%m-%d %H:%M:%f", "now", "localtime"))"
+        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
     ]
 }
 ```
