@@ -199,7 +199,7 @@ returns:
 </tr>
 <td>
 
-```stylus +
+```Stylus
 /login/param_name/param_value
 ```
 
