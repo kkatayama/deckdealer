@@ -199,22 +199,6 @@ return: {"message": "missing parameters"}
 
 </td>
 </tr>
-<tr>
-<td>
-
-```jq
-/login/param_name/param_value
-```
-
-</td>
-<td>
-
-```rexx
-login with: 'param_name=param_value'
-```
-
-</td>
-</tr>
 </table>
 
 
