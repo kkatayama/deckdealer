@@ -199,6 +199,7 @@ return: {"message": "missing parameters"}
 
 </td>
 </tr>
+
 <tr>
 <td>
 
@@ -235,6 +236,8 @@ login with: 'param_name=param_value'
 </tr>
 
 </table>
+
+
 
 | Resource | Description |
 |:--|:--|
