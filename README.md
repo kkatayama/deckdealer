@@ -190,7 +190,6 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 ```
 
 </td>
-
 <td>
 
 ```rexx
@@ -199,7 +198,6 @@ return: {"message": "missing parameters"}
 
 </td>
 </tr>
-
 <tr>
 <td>
 
@@ -208,7 +206,6 @@ return: {"message": "missing parameters"}
 ```
 
 </td>
-
 <td>
 
 ```rexx
@@ -217,7 +214,6 @@ login with: 'param_name=param_value'
 
 </td>
 </tr>
-
 <tr>
 <td>
 
@@ -226,7 +222,6 @@ login with: 'param_name=param_value'
 ```
 
 </td>
-
 <td>
 
 ```rexx
@@ -235,7 +230,6 @@ login with: 'param_name=param_value'
 
 </td>
 </tr>
-
 </table>
 
 
