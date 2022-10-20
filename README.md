@@ -467,7 +467,7 @@ returns: {"message": "missing parameter", "required params": ["username", "passw
 <td>
 
 ```rexx
-returns: json {"message": "missing parameter", "required params": ["username", "password", "password2"]}
+returns: {"message": "missing parameter", "required params": ["username", "password", "password2"]}
 ```
 
 </td>
