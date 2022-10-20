@@ -249,7 +249,7 @@ username
 <td>
 
 ```rexx
-the user's username
+must match the users table
 ```
 
 </td>
@@ -266,7 +266,7 @@ password
 <td>
 
 ```rexx
-the user's password
+passwords are salted and pbkdf2 hmac sha256 hashed with 1000 iterations
 ```
 
 </td>
