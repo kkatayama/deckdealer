@@ -450,7 +450,7 @@ Register a new **`user`** to the `users` table.
 <td>
 
 ```rexx
-returns: {"message": "missing parameter", "required params": ["username", "password", "password2"]}
+returns: {"message": "missing parameters", "required params": ["username", "password", "password2"]}
 ```
 
 </td>
@@ -460,14 +460,14 @@ returns: {"message": "missing parameter", "required params": ["username", "passw
 <td>
 
 ```jq
-/register
+/register/usage
 ```
 
 </td>
 <td>
 
 ```rexx
-returns: {"message": "missing parameter", "required params": ["username", "password", "password2"]}
+returns: {"message": "usage_info"}
 ```
 
 </td>
@@ -477,14 +477,31 @@ returns: {"message": "missing parameter", "required params": ["username", "passw
 <td>
 
 ```jq
-/register
+/register/<param_name>/<param_value>
 ```
 
 </td>
 <td>
 
 ```rexx
-returns: {"message": "missing parameter", "required params": ["username", "password", "password2"]}
+register with url_paths: 'param_name=param_value'
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/register?param_name=param_value
+```
+
+</td>
+<td>
+
+```rexx
+register with params: 'param_name=param_value'
 ```
 
 </td>
