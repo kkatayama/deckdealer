@@ -167,7 +167,7 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 # Getting Started
 
 Try out `Workfows 1-4`
-- [x] [Worflow 1 - Login](#lets-log-in-as-the-user-admin)
+- [x] [Worflow 1 - Login](#workflow-1---login)
 
 
 # [User Functions](#User-Functions)
@@ -180,6 +180,20 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 > Only logged in users can call functions!
 
 ### Endpoints:
+<table>
+<tr><td> Resource </td> <td> Description</td></tr>
+<tr>
+<td>
+**`/login`**
+</td>
+
+```json
+{"message": "missing parameters", "required": [{"username": "TEXT", "password": "TEXT"}], "submitted": [{}]}
+```
+
+<td>
+</td>
+</table>
 | Resource | Description |
 |:--|:--|
 | **`/login`**  | |
