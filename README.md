@@ -165,8 +165,7 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 ---
 
 # Getting Started
----
-Try out `Workfows 1-4`
+## Try out `Workfows 1-4`
 - [x] [Worflow 1 - Login](#workflow-1---login)
 
 
