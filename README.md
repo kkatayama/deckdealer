@@ -164,9 +164,23 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 
 ---
 
-# Getting Started
-Workflows 1-4`
-  - [x] [Worflow 1 - Login](#workflow-1---login)
+# [Getting Started](#Getting-Started)
+Follow the [Setup Guide](SETUP.md) to install and configure the framework. <br />
+
+You can choose to run the server locally or connect with the server all ready running at:
+[https://bartender.hopto.org](https://bartender.hopto.org)
+
+To interact with the framework (locally or remote) you will need to first login. <br />
+I recommend starting with the [Workflows](#Workflows) provided to get comfortable with using this framework. <br />
+
+[Workflows](#Workflows):
+- [ ] [Workflow 1 - Login](#Workflow-1---Login)
+- [ ] [Workflow 2 - Register Users](#Workflow-2---Register-Users)
+- [ ] [Workflow 3 - Creating Tables](#Workflow-3---Creating-Tables)
+- [ ] [Workflow 4 - Insertin Data](#Workflow-4---Inserting-Data)
+- [ ] [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data)
+- [ ] [Workflow 6 - Editing Data](#Workflow-5---Editing-Data)
+- [ ] [Workflow 7 - Deleting Data](#Workflow-5---Deleting-Data)
 
 
 # [User Functions](#User-Functions)
@@ -662,8 +676,8 @@ user supplied paramater
 </table>
 
 ---
-<details><summary>Endpoint Background (click here to expand)
-</summary>
+
+<details><summary>Endpoint Background (click here to expand)</summary>
 
 ### Investigating the Endpoint `/register`
 Request:
@@ -742,16 +756,14 @@ Response:
 {'message': 'user exists', 'username': 'teddy'}
 ```
 
----
 </details>
+
+---
 
 
 ## Workflow 2 - Register Users (click here to expand):
 * Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`
 
-
-
----
 <details><summary>Workflow 1 - Login (click here to expand)
 </summary>
 
