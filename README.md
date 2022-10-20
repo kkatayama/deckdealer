@@ -164,6 +164,12 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 
 ---
 
+# Getting Started
+
+Try out `Workfows 1-4`
+- [x] [Worflow 1 - Login](###-Workflow-1-Login:)
+
+
 # [User Functions](#User-Functions)
 The examples listed below will cover the **3 user functions**.<br />
 All examples shown are executed via a **GET** request and can be tested with any browser. <br />
