@@ -203,11 +203,7 @@ return: {"message": "missing parameters"}
 </tr>
 <tr>
 <td>
-
-```jq
 /login/param_name/param_value
-```
-
 </td>
 <td>
 
