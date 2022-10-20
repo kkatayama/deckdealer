@@ -40,10 +40,10 @@ These functions represent the main endpoints of the framework and will handle th
 **1 Extra Function**
 1. [**`uploadImageUrl`**](#1-uploadImageUrl) - Upload an image to the backend via `image_url`
 
-
 ---
-<details><summary>Debugging Tip! (click me to expand)
-</summary>
+
+<details><summary>Debugging Tip! (click me to expand)</summary>
+<p>
 
 To see all of the available `tables` along with the `column_names` and the `column_types`, make a request to the root path of any core or admin function
 
@@ -159,7 +159,7 @@ Response:
 curl -b cookie.txt -c cookie.txt 'http://localhost:8888/login/username/admin/password/admin'
 curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 ```
-
+</p>
 </details>
 
 ---
