@@ -368,15 +368,8 @@ Response:
 
 ---
 
-## Workflow 1 - Login:
-* Let's log in as the user **`admin`** 
-
----
-
-# [Workflow 1 - Login (click here to expand)](#Workflow-1---Login--click-here-to-expand-)
-<details><summary>
-
-</summary>
+## [Workflow 1 - Login](#Workflow-1---Login--click-here-to-expand-)
+<details><summary>(click here to expand)</summary>
 
 ### Let's log in as the user `admin`
 Arguments:
