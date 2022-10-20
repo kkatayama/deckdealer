@@ -205,22 +205,6 @@ return: {"message": "missing parameters"}
 <td>
 
 ```jq
-/login
-```
-
-</td>
-<td>
-
-```rexx
-return: {"message": "missing parameters"}
-```
-
-</td>
-</tr>
-<tr>
-<td>
-
-```jq
 /login/param_name/param_value
 ```
 
@@ -252,7 +236,6 @@ login with: 'param_name=param_value'
 </table>
 
 ## Sample:
-
 <table>
 <tr>
 <td> Before </td> <td> After </td>
@@ -277,9 +260,6 @@ struct Hello {
 </td>
 </tr>
 <tr>
-<td> Before </td> <td> After </td>
-</tr>
-<tr>
 <td>
 
 ```swift
@@ -299,9 +279,6 @@ struct Hello {
 </td>
 </tr>
 <tr>
-<td> Before </td> <td> After </td>
-</tr>
-<tr>
 <td>
 
 ```swift
@@ -319,9 +296,6 @@ struct Hello {
 }
 ```
 </td>
-</tr>
-<tr>
-<td> Before </td> <td> After </td>
 </tr>
 <tr>
 <td>
@@ -343,8 +317,6 @@ struct Hello {
 </td>
 </tr>
 </table>
-
-
 
 ### Requirements:
 | Parameters | Description |
