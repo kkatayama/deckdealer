@@ -20,6 +20,6 @@ jobs:
         push-branch: 'main'
         commit-message: 'publish'
         force-add: 'true'
-        files: README.md SETUP.MD server.py tests/ utils/ db/ db/backend.db
+        files: README.md SETUP.md server.py tests/ utils/ db/ db/backend.db
         name: kkatayama
         email: katayama@udel.edu 
