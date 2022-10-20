@@ -1,2 +1,27 @@
-- name: Git Commit and Push
-  uses: github-actions-x/commit@v2.9
+name: publish
+
+on:
+  push:
+    branches:
+    - master
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+      with:
+        ref: master
+    - name: build
+      uses: github-actions-x/hugo@master
+    - name: push
+      uses: github-actions-x/commit@v2.9
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        push-branch: 'master'
+        commit-message: 'publish'
+        force-add: 'true'
+        files: a.txt b.txt c.txt dirA/ dirB/ dirC/a.txt
+        name: commiter name
+        email: my.github@email.com 
