@@ -450,7 +450,7 @@ Register a new **`user`** to the `users` table.
 <td>
 
 ```rexx
-returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>
+returns: {"message": "missing parameter", "required params": ["username", "password", "password2"]}
 ```
 
 </td>
@@ -484,19 +484,12 @@ returns: json {"message": "missing parameter", "required params": ["username", "
 <td>
 
 ```rexx
-returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>
+returns: {"message": "missing parameter", "required params": ["username", "password", "password2"]}
 ```
 
 </td>
 </tr>
 </table>
-
-
-| Resource | Description |
-|:--|:--|
-| **`/register`**  | returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>  |
-| **`/register`**  | returns: ```json {"message": "missing parameter", "required params": ["username", "password", "password2"]}```  |
-| **`/register`**  | returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>  |
 
 ---
 <details><summary>Endpoint Background (click here to expand)
