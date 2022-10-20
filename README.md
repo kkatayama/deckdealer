@@ -437,6 +437,61 @@ Response:
 Register a new **`user`** to the `users` table.
 
 ### Endpoints:
+<table>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/register
+```
+
+</td>
+<td>
+
+```rexx
+returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/register
+```
+
+</td>
+<td>
+
+```rexx
+returns: json {"message": "missing parameter", "required params": ["username", "password", "password2"]}
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/register
+```
+
+</td>
+<td>
+
+```rexx
+returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>
+```
+
+</td>
+</tr>
+</table>
+
+
 | Resource | Description |
 |:--|:--|
 | **`/register`**  | returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>  |
