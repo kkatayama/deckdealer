@@ -38,11 +38,13 @@ app.install(plugin)
 app.install(log_to_logger)
 app.install(ErrorsRestPlugin())
 
+
 # -- hook to strip trailing slash
 @hook('before_request')
 def strip_path():
     request.environ['PATH_INFO'] = request.environ['PATH_INFO'].rstrip('/')
     parseParams(secret_key)
+
 
 # -- index - response: available commands
 @route("/", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
@@ -62,6 +64,210 @@ def index():
             "/uploadImageUrl": usage_uploadImageUrl,
         }
     }
+    return clean(res)
+
+###############################################################################
+#                      User's Table: Additional Functions                     #
+###############################################################################
+@route("/status", method=["GET", "POST", "PUT", "DELETE"])
+@route("/status/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE"])
+def getStatus(db, url_paths=""):
+    user_id = request.get_cookie("user_id", secret=secret_key)
+    if not user_id:
+        res = {"message": "user is not logged in (no session found); try appending the token to the request..."}
+        return clean(res)
+    res = {"message": "user is logged in with valid session", "user_id": user_id, "cookies": dict(request.cookies)}
+    return clean(res)
+
+@route("/register", method=["GET", "POST", "PUT", "DELETE"])
+@route("/register/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE"])
+def register(db, url_paths=""):
+    # -- usage info
+    if url_paths == 'usage':
+        return usage_register
+
+    # -- parse "params" and "filters" from HTTP request
+    table = getTable(db, table_name="users")
+    required_columns = getColumns(db, table, required=True)
+    params, filters = parseUrlPaths(url_paths, request.params, required_columns)
+    params.update(dict(request.params))
+    print(f"request.params = {dict(request.params)}\nparams = {params}\nfilters = '{filters}'")
+
+    # -- minimum parameters needed to register a new account
+    try:
+        username = params["username"]
+        plaintext = params["password"]
+        password2 = params["password2"]
+    except KeyError:
+        res = {"message": "missing parameter", "required params": ["username", "password", "password2"]}
+        return clean(res)
+
+    if plaintext != password2:
+        res = {"message": "passwords do not match", "password1": plaintext, "password2": password2}
+        return clean(res)
+    params.update({"password": securePassword(params.pop("password"))})
+
+    # # -- check for required parameters
+    # missing_keys = (params.keys() ^ required_columns.keys())
+    # missing_params = {k: table["columns"][k] for k in required_columns if k in missing_keys}
+    # if missing_params:
+    #     res = {"message": "missing paramaters", "required": [required_columns],
+    #            "missing": [missing_params], "submitted": [params]}
+    #     return clean(res)
+
+    # -- check if user exists
+    if fetchRow(db, table=table, where="username=?", values=params["username"]):
+        res = {"message": "user exists", "username": params["username"]}
+        return clean(res)
+
+    # -- if user doesn't exist, create user
+    edit_items = {k: params[k] for k in required_columns if params.get(k)}
+    columns, col_values = list(edit_items.keys()), list(edit_items.values())
+    user_id = insertRow(db, table=table, columns=columns, col_values=col_values)
+    res = {"message": "new user created", "user_id": user_id, "username": username}
+    # res.update({"token": genToken("user_id", str(user_id), secret_key)})
+    return clean(res)
+
+@route("/login", method=["GET", "POST", "PUT", "DELETE"])
+@route("/login/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE"])
+def login(db, url_paths=""):
+    # -- usage info
+    if url_paths == 'usage':
+        return usage_login
+
+    # -- parse "params" and "filters" from HTTP request
+    table = getTable(db, table_name="users")
+    required_columns = getColumns(db, table, required=True)
+    params, filters = parseUrlPaths(url_paths, request.params, required_columns)
+    print(f"params = {params}\nfilters = '{filters}'")
+
+    # -- check for required parameters
+    if any(k not in params.keys() for k in required_columns):
+        res = {"message": "missing parameters", "required": [required_columns], "submitted": [params]}
+        return clean(res)
+
+    # -- check if user exists
+    row = fetchRow(db, table="users", where="username=?", values=params["username"])
+    if not row:
+        res = {"message": "user does not exist", "username": params["username"]}
+        return clean(res)
+
+    # -- check user submitted password against the one retrieved from the database
+    if not checkPassword(params["password"], row["password"]):
+        res = {"message": "incorrect password", "password": params["password"]}
+        return clean(res)
+
+    # -- send response message
+    response.set_cookie("user_id", str(row["user_id"]), secret=secret_key)
+    res = {"message": "user login success", "user_id": row["user_id"], "username": row["username"]}
+    res.update({"token": genToken("user_id", str(row["user_id"]), secret_key)})
+    return clean(res)
+
+@route("/logout", method=["GET", "POST", "PUT", "DELETE"])
+def logout(db):
+    user_id = request.get_cookie("user_id", secret=secret_key)
+    res = {"message": "user logged out", "user_id": user_id}
+    response.delete_cookie("user_id")
+    return clean(res)
+
+@route("/uploadImageUrl", method=["GET", "POST", "PUT", "DELETE"])
+@route("/uploadImageUrl/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE"])
+def uploadImageUrl(url_paths=""):
+    # -- usage info
+    if url_paths == 'usage':
+        return usage_uploadImageUrl
+
+    # -- only logged in users can access this endpoint
+    user_id = request.get_cookie("user_id", secret=secret_key)
+    if not user_id:
+        return({'message': 'invalid token'})
+    if request.params.get('token'):
+        del request.params["token"]
+
+    # -- parse "params" and "filters" from HTTP request
+    required_columns = ["url"]
+    p = map(str, url_paths.split('/', maxsplit=1))
+    params = dict(request.params)
+    params.update(dict(zip(p, p)))
+    # print(f"params = {params}\nurl_paths = {url_paths}")
+
+    # -- check for required parameters
+    if any(k not in params.keys() for k in required_columns):
+        res = {"message": "missing parameters", "required": [required_columns], "submitted": [params]}
+        return clean(res)
+
+    # -- fetch raw image data and save image
+    name = len(list(Path('static', 'img').iterdir())) + 1
+    url = params.get("url")
+    req = requests.get(url)
+    ext = re.search(r'image/(?P<ext>[a-z]+)', req.headers["Content-Type"].replace('x-icon', 'ico')).groupdict().get('ext')
+    with open(str(Path('static', 'img', f'{name}.{ext}')), 'wb') as f:
+        f.write(req.content)
+    res = {"message": "image url uploaded", "url": url, "filename": '/' + str(Path('static', 'img', f'{name}.{ext}'))}
+    return clean(res)
+
+
+###############################################################################
+#                          Database Admin Functions                           #
+###############################################################################
+@route("/createTable")
+@route("/createTable/<table_name>")
+@route("/createTable/<table_name>/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE"])
+def createTable(db, table_name="", url_paths=""):
+    # -- usage info
+    if table_name == 'usage':
+        return usage_create_table
+
+    user_id = request.get_cookie("user_id", secret=secret_key)
+    if not user_id:
+        return {'message': 'invalid token'}
+    if request.params.get('token'):
+        del request.params["token"]
+    required_columns = {"user_id": "INTEGER", "{ref}_id": "INTEGER", "{ref}_time": "DATETIME",
+                        "column_name": "column_type",
+                        "available_types": ["INTEGER", "DOUBLE", "TEXT", "DATETIME"]}
+    if (not table_name):
+        return clean({"message": "active tables in the database", "tables": getTables(db)})
+    if ((not url_paths) and (not request.params)):
+        res = {"message": "missing paramaters", "required": [required_columns],
+               "available_types": ["INTEGER", "DOUBLE", "TEXT", "DATETIME"],
+               "Exception": "\"{ref}_id\" not required when creating \"users\" table", "submitted": []}
+        return clean(res)
+
+    # -- parse "params" and "url_paths" from HTTP request
+    params, columns = mapUrlPaths(url_paths, request.params, table_name)
+
+    # if not checkCreateTable(params, columns):
+    #     res = {"message": "missing paramaters", "required": [required_columns],
+    #            "missing": [missing_params], "submitted": [params]}
+    #     return clean(res)
+
+    # -- CREATE TABLE <table>
+    res = addTable(db, table=table_name, columns=columns)
+    res.update({"table": table_name})
+    return clean(res)
+
+@route("/deleteTable")
+@route("/deleteTable/<table_name>")
+def dropTable(db, table_name=""):
+    # -- usage info
+    if table_name == 'usage':
+        return usage_delete_table
+
+    user_id = request.get_cookie("user_id", secret=secret_key)
+    if not user_id:
+        return {'message': 'invalid token'}
+    if request.params.get('token'):
+        del request.params["token"]
+
+    tables = getTables(db)
+    table = getTable(db, tables, table_name)
+    if not table:
+        return clean({"message": "active tables in the database", "tables": tables})
+
+    # -- DROP TABLE <table>
+    res = deleteTable(db, table=table_name)
+    res.update({"table": table_name})
     return clean(res)
 
 ###############################################################################
@@ -308,200 +514,6 @@ def delete(db, table_name="", url_paths=""):
 
     # -- send response message
     res = {"message": message, "submitted": [submitted]}
-    return clean(res)
-
-###############################################################################
-#                      User's Table: Additional Functions                     #
-###############################################################################
-@route("/register", method=["GET", "POST", "PUT", "DELETE"])
-@route("/register/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE"])
-def register(db, url_paths=""):
-    # -- usage info
-    if url_paths == 'usage':
-        return usage_register
-
-    # -- parse "params" and "filters" from HTTP request
-    table = getTable(db, table_name="users")
-    required_columns = getColumns(db, table, required=True)
-    params, filters = parseUrlPaths(url_paths, request.params, required_columns)
-    params.update(dict(request.params))
-    print(f"request.params = {dict(request.params)}\nparams = {params}\nfilters = '{filters}'")
-
-    # -- minimum parameters needed to register a new account
-    try:
-        username = params["username"]
-        plaintext = params["password"]
-        password2 = params["password2"]
-    except KeyError:
-        res = {"message": "missing parameter", "required params": ["username", "password", "password2"]}
-        return clean(res)
-
-    if plaintext != password2:
-        res = {"message": "passwords do not match", "password1": plaintext, "password2": password2}
-        return clean(res)
-    params.update({"password": securePassword(params.pop("password"))})
-
-    # # -- check for required parameters
-    # missing_keys = (params.keys() ^ required_columns.keys())
-    # missing_params = {k: table["columns"][k] for k in required_columns if k in missing_keys}
-    # if missing_params:
-    #     res = {"message": "missing paramaters", "required": [required_columns],
-    #            "missing": [missing_params], "submitted": [params]}
-    #     return clean(res)
-
-    # -- check if user exists
-    if fetchRow(db, table=table, where="username=?", values=params["username"]):
-        res = {"message": "user exists", "username": params["username"]}
-        return clean(res)
-
-    # -- if user doesn't exist, create user
-    edit_items = {k: params[k] for k in required_columns if params.get(k)}
-    columns, col_values = list(edit_items.keys()), list(edit_items.values())
-    user_id = insertRow(db, table=table, columns=columns, col_values=col_values)
-    res = {"message": "new user created", "user_id": user_id, "username": username}
-    # res.update({"token": genToken("user_id", str(user_id), secret_key)})
-    return clean(res)
-
-@route("/login", method=["GET", "POST", "PUT", "DELETE"])
-@route("/login/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE"])
-def login(db, url_paths=""):
-    # -- usage info
-    if url_paths == 'usage':
-        return usage_login
-
-    # -- parse "params" and "filters" from HTTP request
-    table = getTable(db, table_name="users")
-    required_columns = getColumns(db, table, required=True)
-    params, filters = parseUrlPaths(url_paths, request.params, required_columns)
-    print(f"params = {params}\nfilters = '{filters}'")
-
-    # -- check for required parameters
-    if any(k not in params.keys() for k in required_columns):
-        res = {"message": "missing parameters", "required": [required_columns], "submitted": [params]}
-        return clean(res)
-
-    # -- check if user exists
-    row = fetchRow(db, table="users", where="username=?", values=params["username"])
-    if not row:
-        res = {"message": "user does not exist", "username": params["username"]}
-        return clean(res)
-
-    # -- check user submitted password against the one retrieved from the database
-    if not checkPassword(params["password"], row["password"]):
-        res = {"message": "incorrect password", "password": params["password"]}
-        return clean(res)
-
-    # -- send response message
-    response.set_cookie("user_id", str(row["user_id"]), secret=secret_key)
-    res = {"message": "user login success", "user_id": row["user_id"], "username": row["username"]}
-    res.update({"token": genToken("user_id", str(row["user_id"]), secret_key)})
-    return clean(res)
-
-@route("/logout", method=["GET", "POST", "PUT", "DELETE"])
-def logout(db):
-    user_id = request.get_cookie("user_id", secret=secret_key)
-    res = {"message": "user logged out", "user_id": user_id}
-    response.delete_cookie("user_id")
-    return clean(res)
-
-@route("/uploadImageUrl", method=["GET", "POST", "PUT", "DELETE"])
-@route("/uploadImageUrl/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE"])
-def uploadImageUrl(url_paths=""):
-    # -- usage info
-    if url_paths == 'usage':
-        return usage_uploadImageUrl
-
-    # -- only logged in users can access this endpoint
-    user_id = request.get_cookie("user_id", secret=secret_key)
-    if not user_id:
-        return({'message': 'invalid token'})
-    if request.params.get('token'):
-        del request.params["token"]
-
-    # -- parse "params" and "filters" from HTTP request
-    required_columns = ["url"]
-    p = map(str, url_paths.split('/', maxsplit=1))
-    params = dict(request.params)
-    params.update(dict(zip(p, p)))
-    # print(f"params = {params}\nurl_paths = {url_paths}")
-
-    # -- check for required parameters
-    if any(k not in params.keys() for k in required_columns):
-        res = {"message": "missing parameters", "required": [required_columns], "submitted": [params]}
-        return clean(res)
-
-    # -- fetch raw image data and save image
-    name = len(list(Path('static', 'img').iterdir())) + 1
-    url = params.get("url")
-    req = requests.get(url)
-    ext = re.search(r'image/(?P<ext>[a-z]+)', req.headers["Content-Type"].replace('x-icon', 'ico')).groupdict().get('ext')
-    with open(str(Path('static', 'img', f'{name}.{ext}')), 'wb') as f:
-        f.write(req.content)
-    res = {"message": "image url uploaded", "url": url, "filename": '/' + str(Path('static', 'img', f'{name}.{ext}'))}
-    return clean(res)
-
-
-###############################################################################
-#                          Database Admin Functions                           #
-###############################################################################
-@route("/createTable")
-@route("/createTable/<table_name>")
-@route("/createTable/<table_name>/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE"])
-def createTable(db, table_name="", url_paths=""):
-    # -- usage info
-    if table_name == 'usage':
-        return usage_create_table
-
-    user_id = request.get_cookie("user_id", secret=secret_key)
-    if not user_id:
-        return {'message': 'invalid token'}
-    if request.params.get('token'):
-        del request.params["token"]
-    required_columns = {"user_id": "INTEGER", "{ref}_id": "INTEGER", "{ref}_time": "DATETIME",
-                        "column_name": "column_type",
-                        "available_types": ["INTEGER", "DOUBLE", "TEXT", "DATETIME"]}
-    if (not table_name):
-        return clean({"message": "active tables in the database", "tables": getTables(db)})
-    if ((not url_paths) and (not request.params)):
-        res = {"message": "missing paramaters", "required": [required_columns],
-               "available_types": ["INTEGER", "DOUBLE", "TEXT", "DATETIME"],
-               "Exception": "\"{ref}_id\" not required when creating \"users\" table", "submitted": []}
-        return clean(res)
-
-    # -- parse "params" and "url_paths" from HTTP request
-    params, columns = mapUrlPaths(url_paths, request.params, table_name)
-
-    # if not checkCreateTable(params, columns):
-    #     res = {"message": "missing paramaters", "required": [required_columns],
-    #            "missing": [missing_params], "submitted": [params]}
-    #     return clean(res)
-
-    # -- CREATE TABLE <table>
-    res = addTable(db, table=table_name, columns=columns)
-    res.update({"table": table_name})
-    return clean(res)
-
-@route("/deleteTable")
-@route("/deleteTable/<table_name>")
-def dropTable(db, table_name=""):
-    # -- usage info
-    if table_name == 'usage':
-        return usage_delete_table
-
-    user_id = request.get_cookie("user_id", secret=secret_key)
-    if not user_id:
-        return {'message': 'invalid token'}
-    if request.params.get('token'):
-        del request.params["token"]
-
-    tables = getTables(db)
-    table = getTable(db, tables, table_name)
-    if not table:
-        return clean({"message": "active tables in the database", "tables": tables})
-
-    # -- DROP TABLE <table>
-    res = deleteTable(db, table=table_name)
-    res.update({"table": table_name})
     return clean(res)
 
 ###############################################################################
