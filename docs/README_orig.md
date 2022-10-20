@@ -180,60 +180,6 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 > Only logged in users can call functions!
 
 ### Endpoints:
-<table>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
-
-```jq
-/login
-```
-
-</td>
-<td>
-
-```rexx
-return: {"message": "missing parameters"}
-```
-
-</td>
-</tr>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
-
-```jq
-/login/param_name/param_value
-```
-
-</td>
-<td>
-
-```rexx
-login with: 'param_name=param_value'
-```
-
-</td>
-</tr>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
-
-```jq
-/login/param_name=param_value
-```
-
-</td>
-<td>
-
-```rexx
-login with: 'param_name=param_value'
-```
-
-</td>
-</tr>
-</table>
-
 | Resource | Description |
 |:--|:--|
 | **`/login`**  | return: {"message": "missing parameters"} |
