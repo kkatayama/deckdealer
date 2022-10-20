@@ -7,7 +7,7 @@ Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 * [*User Functions*](#User-Functions) &nbsp;&nbsp; - [**`/login`**](#1-login), [**`/logout`**](#2-logout), [**`/register`**](#3-register)
 * [*Admin Functions*](#Admin-Functions)            - [**`/createTable`**](#1-createTable), [**`/deleteTable`**](#2-deleteTable)
 * [*Core Functions*](#Core-Functions) &nbsp;&nbsp; - [**`/add`**](#1-add), [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete)
-* [*Extra_Functions*](#Extra-Functions) ;&nbsp;    - [**`/uploadImageUrl`**](#1-uploadImageUrl)
+* [*Extra_Functions*](#Extra-Functions) &nbsp;    - [**`/uploadImageUrl`**](#1-uploadImageUrl)
 * Query and URL path parameter support
 * Additional **`filter`** parameter - enables SQLite expressions containing operators 
 * In-place column editing with SQLite3 expression support
@@ -302,7 +302,7 @@ Response:
 ---
 
 # 2. `/logout`
-**Log out a `user`**
+Register a new **`user`**
 
 ### Endpoints:
 | Resource | Description |
@@ -329,6 +329,36 @@ Response:
 
 ---
 </details>
+
+# 3. `/register`
+Register a new **`user`** to the `users` table.
+
+### Endpoints:
+| Resource | Description |
+|:--|:--|
+| **`/register`**  | returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>  |
+
+---
+<details><summary>Endpoint Background (click here to expand)
+</summary>
+
+### Investigating the Endpoint `/logout`
+Request:
+```ruby
+/logout
+```
+
+Response:
+```json
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+```
+
+---
+</details>
+
 
 # Admin Functions
 The examples listed below will cover the **2 admin functions**. <br />
@@ -715,20 +745,20 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE** 
 ### Requirements:x
 | Parameters | Exception  |
 |:--|:--|
-| `user_id` and all params not **`*_id`** or **`*_time`** | no `user_id` when adding to **`users`** table |
+| All params not **`{ref}_id`** or **`{ref}_time`** | **`{ref}_id`** required when not `PRIMARY KEY` |
 
 ### Response After Successful [`/add`](#1-add):
 | Variable | Comment |
 |:--|:--|
 | `user_id` | when entry added to **`users`** table |
-| `{ref}_id` | when entry added to any other table |  
+| `{ref}_id` | when entry added to any other table |
 
 ---
 <details><summary>Endpoint Background (click here to expand)
 </summary>
 
 ### Investigating the Endpoint: `/add`
-The endpoint for adding a user to the **`users`** is **`/add/users`**.
+The endpoint for adding a user to the **`users`** table is **`/add/users`**.
 Making a request to the endpoint without providing **parameters** returns a `missing parameters` message:
 
 Request:
