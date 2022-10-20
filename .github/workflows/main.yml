@@ -15,7 +15,7 @@ jobs:
       with:
         ref: main
     - name: build
-      uses: github-actions-x/hugo@main
+      uses: github-actions-x/hugo@master
     - name: push
       uses: github-actions-x/commit@v2.9
       with:
