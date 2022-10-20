@@ -199,7 +199,9 @@ returns:
 </tr>
 <td>
 
-**`/login/param_name/param_value`**
+```stylus +
+/login/param_name/param_value
+```
 
 </td>
 <td>
@@ -212,13 +214,15 @@ param_name=param_value
 </td>
 <td>
 
-**`/login/param_name=param_value`**
+```stylus
+/login/param_name=param_value
+```
 
 </td>
 <td>
 login with:
 
-```bash
+```ruby
 param_name=param_value
 ```
 
