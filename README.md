@@ -234,65 +234,6 @@ login with: 'param_name=param_value'
 </tr>
 </table>
 
-| Resource | Description |
-|:--|:--|
-| **`/login`**  | return: {"message": "missing parameters"} |
-| **`/login/param_name/param_value`**  | login with: 'param_name=param_value' |
-| **`/login/param_name=param_value`**  | login with: 'param_name=param_value' |
-
-<table>
-<tr>
-<td> Resource </td> <td> Description </td>
-</tr>
-<tr>
-<td>
-
-```jq
-/login
-```
-
-</td>
-<td>
-
-```rexx
-return: {"message": "missing parameters"}
-```
-
-</td>
-</tr>
-<tr>
-<td>
-
-```jq
-/login/param_name/param_value
-```
-
-</td>
-<td>
-
-```rexx
-login with: 'param_name=param_value'
-```
-
-</td>
-</tr>
-<tr>
-<td>
-
-```jq
-/login/param_name=param_value
-```
-
-</td>
-<td>
-
-```rexx
-login with: 'param_name=param_value'
-```
-
-</td>
-</tr>
-</table>
 
 ### Requirements:
 | Parameters | Description |
