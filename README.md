@@ -197,6 +197,8 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 </td>
 </tr>
 </table>
+
+
 | Resource | Description |
 |:--|:--|
 | **`/login`**  | |
