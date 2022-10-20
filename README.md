@@ -204,7 +204,23 @@ return: {"message": "missing parameters"}
 <tr>
 <td>
 
-```json
+```jq
+/login
+```
+
+</td>
+<td>
+
+```rexx
+return: {"message": "missing parameters"}
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+```jq
 /login/param_name/param_value
 ```
 
