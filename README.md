@@ -236,10 +236,42 @@ login with: 'param_name=param_value'
 
 
 ### Requirements:
-| Parameters | Description |
-|:--|:--|
-| username | the user's username |
-| password | the user's password |
+<table>
+<tr><td> Parameters </td><td> Description </td></tr>
+<tr>
+<td>
+
+```rexx
+username
+```
+
+</td>
+<td>
+
+```rexx
+the user's username
+```
+
+</td>
+</tr>
+<tr><td> Parameters </td><td> Description </td></tr>
+<tr>
+<td>
+
+```rexx
+password
+```
+
+</td>
+<td>
+
+```rexx
+the user's password
+```
+
+</td>
+</tr>
+</table>
 
 ---
 <details><summary>Endpoint Background (click here to expand)
