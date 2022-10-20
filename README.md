@@ -350,8 +350,9 @@ Response:
   "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
 ```
----
 </details>
+
+---
 
 ## Workflow 1 - Login:
 * Let's log in as the user **`admin`** 
