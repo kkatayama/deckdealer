@@ -389,12 +389,28 @@ Response:
 ---
 
 # 2. `/logout`
-Register a new **`user`**
+Terminate a logged in session
 
 ### Endpoints:
-| Resource | Description |
-|:--|:--|
-| **`/logout`**  | log out a user |
+<table>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/logout
+```
+
+</td>
+<td>
+
+```rexx
+log out a user
+```
+
+</td>
+</tr>
+</table>
 
 ---
 <details><summary>Endpoint Background (click here to expand)
