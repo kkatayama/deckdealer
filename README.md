@@ -412,6 +412,46 @@ log out a user
 </tr>
 </table>
 
+### Response After Successful [`/logout`](#2-logout)
+<table>
+<tr><td> Variable </td><td> Comment </td></tr>
+<tr>
+<td>
+
+```rexx
+message
+```
+
+</td>
+<td>
+
+```rexx
+'user logged out'
+```
+
+</td>
+</tr>
+<tr><td> Variable </td><td> Comment </td></tr>
+<tr>
+<td>
+
+```rexx
+user_id
+```
+
+</td>
+<td>
+
+```rexx
+the {ref}_id of the signed session cookie
+```
+
+</td>
+</tr>
+</table>
+
+
+
 ---
 <details><summary>Endpoint Background (click here to expand)
 </summary>
@@ -618,7 +658,6 @@ user supplied paramater
 </td>
 </tr>
 </table>
-
 
 ---
 <details><summary>Endpoint Background (click here to expand)
