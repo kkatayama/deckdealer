@@ -182,6 +182,7 @@ I recommend starting with the [Workflows](#Workflows) provided to get comfortabl
 - [ ] [Workflow 6 - Editing Data](#Workflow-5---Editing-Data)
 - [ ] [Workflow 7 - Deleting Data](#Workflow-5---Deleting-Data)
 
+---
 
 # [User Functions](#User-Functions)
 The examples listed below will cover the **3 user functions**.<br />
