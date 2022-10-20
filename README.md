@@ -744,6 +744,17 @@ Response:
 </details>
 
 
+## Workflow 2 - Register Users (click here to expand):
+* Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`
+
+
+
+---
+<details><summary>Workflow 1 - Login (click here to expand)
+</summary>
+
+</details>
+
 # Admin Functions
 The examples listed below will cover the **2 admin functions**. <br />
 All examples shown are executed via a **GET** request and can be tested with any browser. <br />
