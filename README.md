@@ -181,60 +181,65 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
 ### Endpoints:
 <table>
-<tr><td> Resource </td> <td> Description</td></tr>
+<tr><td> Resource </td> <td> Description </td> </tr>
+<tr></tr>
 <tr>
 <td>
 
-**`/login`**
+```jq
+/login
+```
 
 </td>
-<td>
-returns: 
 
-```json
-{"message": "missing parameters"}
+<td>
+
+```rexx
+return: {"message": "missing parameters"}
 ```
 
 </td>
 </tr>
+<tr>
 <td>
 
-```Stylus
+```jq
 /login/param_name/param_value
 ```
 
 </td>
-<td>
-login with:
 
-```ruby
-param_name=param_value
+<td>
+
+```rexx
+login with: 'param_name=param_value'
 ```
 
 </td>
+</tr>
+<tr>
 <td>
 
-```stylus
+```jq
 /login/param_name=param_value
 ```
 
 </td>
-<td>
-login with:
 
-```ruby
-param_name=param_value
+<td>
+
+```rexx
+login with: 'param_name=param_value'
 ```
 
-<td>
-
+</td>
 </tr>
-</table>
 
+</table>
 
 | Resource | Description |
 |:--|:--|
-| **`/login`**  | |
+| **`/login`**  | return: {"message": "missing parameters"} |
 | **`/login/param_name/param_value`**  | login with: 'param_name=param_value' |
 | **`/login/param_name=param_value`**  | login with: 'param_name=param_value' |
 
