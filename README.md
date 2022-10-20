@@ -1,4 +1,4 @@
-# Web Framework
+# [Web Framework](#Web-Framework)
 [https://bartender.hopto.org](https://bartender.hopto.org)
 
 Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
@@ -165,7 +165,7 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 ---
 
 # Getting Started
-  * `Workflows 1-4`
+Workflows 1-4`
   - [x] [Worflow 1 - Login](#workflow-1---login)
 
 
