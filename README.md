@@ -203,7 +203,7 @@ return: {"message": "missing parameters"}
 <td>
 
 ```jq
-/login/param_name=param_value
+/login/param_name/param_value
 ```
 
 </td>
