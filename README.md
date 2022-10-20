@@ -180,6 +180,7 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 > Only logged in users can call functions!
 
 ### Endpoints:
+
 <table>
 <tr><td> Resource </td> <td> Description </td> </tr>
 <tr>
@@ -233,12 +234,6 @@ login with: 'param_name=param_value'
 </table>
 
 
-
-| Resource | Description |
-|:--|:--|
-| **`/login`**  | return: {"message": "missing parameters"} |
-| **`/login/param_name/param_value`**  | login with: 'param_name=param_value' |
-| **`/login/param_name=param_value`**  | login with: 'param_name=param_value' |
 
 ### Requirements:
 | Parameters | Description |
