@@ -189,20 +189,40 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
 </td>
 <td>
+returns: 
 
 ```json
-returns: {"message": "missing parameters"}
+{"message": "missing parameters"}
 ```
 
 </td>
 </tr>
 <td>
-    **`/login/param_name/param_value`**
+
+**`/login/param_name/param_value`**
+
 </td>
+<td>
+login with:
+
+```ruby
+param_name=param_value
+```
+
+</td>
+<td>
+
+**`/login/param_name=param_value`**
+
+</td>
+<td>
+login with:
+
+```bash
+param_name=param_value
+```
 
 <td>
-    **`/login/param_name=param_value`**
-</td>
 
 </tr>
 </table>
