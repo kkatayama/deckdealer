@@ -336,7 +336,11 @@ Register a new **`user`** to the `users` table.
 ### Endpoints:
 | Resource | Description |
 |:--|:--|
+<<<<<<< HEAD
 | **`/register`**  | returns: ```json {"message": "missing parameter", "required params": ["username", "password", "password2"]}```  |
+=======
+| **`/register`**  | returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>  |
+>>>>>>> a16c6cf (test)
 
 ---
 <details><summary>Endpoint Background (click here to expand)
