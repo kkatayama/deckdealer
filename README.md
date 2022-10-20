@@ -165,7 +165,7 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 ---
 
 # Getting Started
-
+---
 Try out `Workfows 1-4`
 - [x] [Worflow 1 - Login](#workflow-1---login)
 
@@ -274,11 +274,12 @@ passwords are salted and pbkdf2 hmac sha256 hashed with 1000 iterations
 </table>
 
 ---
+
 <details><summary>Endpoint Background (click here to expand)
 </summary>
 
+
 ### Investigating the Endpoint: `/login`
----
 Request:
 ```ruby
 /login
@@ -291,7 +292,7 @@ Response:
   "required": [{"username": "TEXT", "password": "TEXT"}], "submitted": [{}]
 }
 ```
----
+
 Arguments:
 ```python
 username = admin
@@ -310,7 +311,7 @@ Response:
   "submitted": [{"username": "admin"}]
 }
 ```
----
+
 Arguments:
 ```python
 username = admin
@@ -329,7 +330,7 @@ Response:
   "password": "123"
 }
 ```
----
+
 Arguments:
 ```python
 username = admin
@@ -358,6 +359,7 @@ Response:
 * Let's log in as the user **`admin`** 
 
 ---
+
 <details><summary>Workflow 1 - Login (click here to expand)
 </summary>
 
