@@ -251,42 +251,98 @@ login with: 'param_name=param_value'
 </tr>
 </table>
 
+## Sample:
 
 <table>
 <tr>
-<td> Status </td> <td> Response </td>
+<td> Before </td> <td> After </td>
 </tr>
 <tr>
-<td> 200 </td>
 <td>
-    
-```json
-{
-  "id": 10,
-  "username": "marcoeidinger",
-  "created_at": "2021-02-097T20:45:26.433Z",
-  "updated_at": "2015-02-10T19:27:16.540Z"
+
+```swift
+struct Hello {
+   public var test: String = "World" // original
 }
 ```
 
 </td>
-</tr>
-<tr>
-<td> 400 </td>
 <td>
     
-**Error**, what the hell is going on?!?
-    
+```swift
+struct Hello {
+   public var test: String = "Universe" // changed
+}
+```
 </td>
 </tr>
 <tr>
-<td> 500 </td>
+<td> Before </td> <td> After </td>
+</tr>
+<tr>
 <td>
-Internal Server Error
+
+```swift
+struct Hello {
+   public var test: String = "World" // original
+}
+```
+
+</td>
+<td>
+    
+```swift
+struct Hello {
+   public var test: String = "Universe" // changed
+}
+```
+</td>
+</tr>
+<tr>
+<td> Before </td> <td> After </td>
+</tr>
+<tr>
+<td>
+
+```swift
+struct Hello {
+   public var test: String = "World" // original
+}
+```
+
+</td>
+<td>
+    
+```swift
+struct Hello {
+   public var test: String = "Universe" // changed
+}
+```
+</td>
+</tr>
+<tr>
+<td> Before </td> <td> After </td>
+</tr>
+<tr>
+<td>
+
+```swift
+struct Hello {
+   public var test: String = "World" // original
+}
+```
+
+</td>
+<td>
+    
+```swift
+struct Hello {
+   public var test: String = "Universe" // changed
+}
+```
 </td>
 </tr>
 </table>
-
 
 
 
