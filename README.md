@@ -761,8 +761,7 @@ Response:
 
 ---
 
-
-## Workflow 2 - Register Users (click here to expand):
+## [Workflow 2 - Register Users (click here to expand)](#Workflow-2---Register-Users)
 * Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`
 
 <details><summary>Workflow 1 - Login (click here to expand)
