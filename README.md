@@ -203,7 +203,11 @@ return: {"message": "missing parameters"}
 </tr>
 <tr>
 <td>
+
+```json
 /login/param_name/param_value
+```
+
 </td>
 <td>
 
