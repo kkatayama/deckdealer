@@ -486,8 +486,9 @@ Response:
 }
 ```
 
----
 </details>
+
+---
 
 # 3. `/register`
 Register a new **`user`** to the `users` table.
