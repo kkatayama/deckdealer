@@ -184,12 +184,16 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 <tr><td> Resource </td> <td> Description</td></tr>
 <tr>
 <td>
+
 **`/login`**
+
 </td>
 <td>
+
 ```json
 {"message": "missing parameters", "required": [{"username": "TEXT", "password": "TEXT"}], "submitted": [{}]}
 ```
+
 </td>
 </tr>
 </table>
