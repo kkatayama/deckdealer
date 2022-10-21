@@ -704,12 +704,12 @@ Response:
     "end_points": {
         "/register": {"returns": "missing paramaters"},
         "/register/<param_name>/<param_value>": {
-            "url_paths": "register with: "param_name=param_value"",
+            "url_paths": "register with: \"param_name=param_value\"",
             "example": "/register/username/admin/password/admin",
             "response": {"message": "new user created", "user_id": 2, "username": "teddy"}
         },
         "/register?param_name=param_value": {
-            "url_paths": "register with: "param_name=param_value"",
+            "url_paths": "register with: \"param_name=param_value\"",
             "example": "/register?username=teddy&password=teddy&password2=teddy",
             "response": {"message": "new user created", "user_id": 2, "username": "teddy"}
         },
@@ -850,6 +850,89 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 **Create a new `table`**
 
 ### Endpoints:
+<table>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/createTable
+```
+
+</td>
+<td>
+
+```rexx
+returns a list of all existing tables in the database
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/createTable/usage
+```
+
+</td>
+<td>
+
+```rexx
+returns a message for how to use this function
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<td> DEBUG: returns the required parameters </td><tr>
+<td>
+
+```jq
+/createTable/{table_name}
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<td> DEBUG: returns the required parameters </td><tr>
+<td>
+
+```jq
+/createTable/{table_name}/{column_name}/{column_type}
+```
+
+</td>
+<td>
+
+```rexx
+create a table with columns using path parameters
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<td> DEBUG: returns the required parameters </td><tr>
+<td>
+
+```erlang
+/createTable/{table_name}?column_name=column_type
+```
+
+</td>
+<td>
+
+```rexx
+create a table with columns using query parameters
+```
+
+</td>
+</tr>
+</table>
+
+
+
 | Resource | Description  |
 |:--|:--|
 | **`/createTable`**  | returns a list of all existing tables in the database |
