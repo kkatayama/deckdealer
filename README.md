@@ -368,8 +368,10 @@ Response:
 ---
 
 # [Workflow 1 - Login](#Workflow-1---Login)
-    
-<details markdown="1"><summary> (click here to expand) </summary>
+
+---
+
+<details><summary> (click here to expand) </summary>
 
 ### Let's log in as the user `admin`
 Arguments:
@@ -755,13 +757,11 @@ Response:
 
 ---
 
-[Workflow 2 - Register Users](#Workflow-2---Register-Users)
+# [Workflow 2 - Register Users](#Workflow-2---Register-Users)
 
-<details markdown="1"><summary>
+---
 
-Workflow 2 - 'Register Users' 
-
-</summary>
+<details><summary> (click here to expand) </summary>
 
 ### Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`
 Arguments:
@@ -1072,13 +1072,106 @@ Response:
 
 ---
 
-<details markdown="1" ><summary>
+<details><summary> (click here to expand) </summary>
 
-(click here to expand)
+---
 
-</summary>
+### Let's create a few tables!<br />
+<table>
+<tr><td> Table Name </td><td> Column Names </td></tr>
+<tr><td>
 
-### Let's create a few tables!<br /> 
+```rexx
+managers
+```
+
+</td><td>
+
+```jq
+['manager_id', 'user_id', 'restaurant_id', 'first_name', 'last_name', 'phone_number', 'email', 'profile_pic', 'entry_time']
+```
+
+</td></tr>
+<tr><td>
+
+```rexx
+restaurant_profile
+```
+
+</td><td>
+
+```jq
+['restaurant_id', 'manager_id', 'restaurant_name', 'address', 'bio', 'phone_number', 'profile_pic', 'entry_time']
+```
+
+</td></tr>
+<tr><td>
+
+```rexx
+restaurant_photos
+```
+
+</td><td>
+
+```jq
+['photo_id', 'restaurant_id', 'photo_path', 'entry_time']
+```
+
+</td></tr>
+<tr><td>
+
+```rexx
+restaurant_schedule
+```
+
+</td><td>
+
+```jq
+['schedule_id', 'restaurant_id', 'mon_open', 'mon_close', 'tue_open', 'tue_close', 'wed_open', 'wed_close', 'thu_open', 'thu_close', 'fri_open', 'fri_close', 'sat_open', 'sat_close', 'sun_open', 'sun_close', 'entry_time']
+```
+
+</td></tr>
+<tr><td>
+
+```rexx
+restaurant_requests
+```
+
+</td><td>
+
+```jq
+['request_id', 'restaurant_id', 'hourly_wage', 'shift_start', 'shift_end', 'entry_time']
+```
+
+</td></tr>
+<tr><td>
+
+```rexx
+bartenders
+```
+
+</td><td>
+
+```jq
+['bartender_id', 'user_id', 'first_name', 'last_name', 'address', 'phone_number', 'email', 'profile_pic', 'entry_time']
+```
+
+</td></tr>
+<tr><td>
+
+```rexx
+bartender_wages
+```
+
+</td><td>
+
+```jq
+['entry_id', 'bartender_id', 'restaurant_id', 'hourly_wage', 'tips', 'entry_time']
+```
+
+</td></tr>
+</table>
+
 * **`managers`**  <br />
 * **`restaurant_profile`**  <br />
 * **`restaurant_photos`**  <br />
@@ -1139,7 +1232,7 @@ Response:
 ### Creating the Table `restaurant_photos`:
 Request:
 ```ruby
-https://bartender.hopto.org/createTable/restaurant_photos/photo_id/INTEGER/restaurant_id/INTEGER/photo_url/TEXT/entry_time/DATETIME
+https://bartender.hopto.org/createTable/restaurant_photos/photo_id/INTEGER/restaurant_id/INTEGER/photo_path/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1154,8 +1247,7 @@ Response:
 ### Creating the Table `restaurant_schedule`:
 Request:
 ```ruby
-https://bartender.hopto.org/createTable/restaurant_schedule/schedule_id/INTEGER/restaurant_id/INTEGER/mon_open/DATETIME/mon_close/DATETIME/tue_open/DATETIME/tue_close/DATETIME/wed_open/DATETIME/wed_close/DATETIME/thu_open/DATETIME/thu_close/DATETIME/fri_open/DATE
-TIME/fri_close/DATETIME/sat_open/DATETIME/sat_close/DATETIME/sun_open/DATETIME/sun_close/DATETIME/entry_time/DATETIME
+https://bartender.hopto.org/createTable/restaurant_schedule/schedule_id/INTEGER/restaurant_id/INTEGER/mon_open/DATETIME/mon_close/DATETIME/tue_open/DATETIME/tue_close/DATETIME/wed_open/DATETIME/wed_close/DATETIME/thu_open/DATETIME/thu_close/DATETIME/fri_open/DATETIME/fri_close/DATETIME/sat_open/DATETIME/sat_close/DATETIME/sun_open/DATETIME/sun_close/DATETIME/entry_time/DATETIME
 ```
 
 Response:
@@ -1164,22 +1256,14 @@ Response:
     "message": "1 table created",
     "table": "restaurant_schedule",
     "columns": [
-        "schedule_id INTEGER PRIMARY KEY",
-        "restaurant_id INTEGER NOT NULL",
-        "mon_open DATETIME NOT NULL",
-        "mon_close DATETIME NOT NULL",
-        "tue_open DATETIME NOT NULL",
-        "tue_close DATETIME NOT NULL",
-        "wed_open DATETIME NOT NULL",
-        "wed_close DATETIME NOT NULL",
-        "thu_open DATETIME NOT NULL",
-        "thu_close DATETIME NOT NULL",
-        "fri_open DATETIME NOT NULL",
-        "fri_close DATETIME NOT NULL",
-        "sat_open DATETIME NOT NULL",
-        "sat_close DATETIME NOT NULL",
-        "sun_open DATETIME NOT NULL",
-        "sun_close DATETIME NOT NULL",
+        "schedule_id INTEGER PRIMARY KEY", "restaurant_id INTEGER NOT NULL",
+        "mon_open DATETIME NOT NULL", "mon_close DATETIME NOT NULL",
+        "tue_open DATETIME NOT NULL", "tue_close DATETIME NOT NULL",
+        "wed_open DATETIME NOT NULL", "wed_close DATETIME NOT NULL",
+        "thu_open DATETIME NOT NULL", "thu_close DATETIME NOT NULL",
+        "fri_open DATETIME NOT NULL", "fri_close DATETIME NOT NULL",
+        "sat_open DATETIME NOT NULL", "sat_close DATETIME NOT NULL",
+        "sun_open DATETIME NOT NULL", "sun_close DATETIME NOT NULL",
         "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
     ]
 }
@@ -1232,9 +1316,30 @@ Response:
 }
 ```
 
+### Creating the Table `bartender_wages`:
+Request:
+```jq
+https://bartender.hopto.org/createTable/bartender_wages/entry_id/INTEGER/bartender_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/tips/DOUBLE/entry_time/DATETIME
+```
+
+Response:
+```json
+{
+    'message': '1 table created',
+    'table': 'bartender_wages',
+    'columns': [
+        'entry_id INTEGER PRIMARY KEY',
+        'bartender_id INTEGER NOT NULL',
+        'restaurant_id INTEGER NOT NULL',
+        'hourly_wage DOUBLE NOT NULL',
+        'tips DOUBLE NOT NULL',
+        "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+    ]
+}
+```
+
 </details>
 
----
 
 # 2. `/deleteTable`
 **Delete `table`**

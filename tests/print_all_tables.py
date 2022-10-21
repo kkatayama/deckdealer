@@ -10,8 +10,10 @@ s.headers.update(load_headers())
 s.cookies.update(load_cookies())
 r = s.get(url)
 
+print('\n<table>\n<tr><td> Table Name </td><td> Column Names </td></tr>')
 for table in r.json().get("tables")[1:]:
     name = table["name"]
     cols = [t["name"] for t in table["columns"]]
-    print(f'  * **`{name}`** | `{cols}` <br />'.replace("'", '"'))
-    
+    # print(f'  * **`{name}`** | `{cols}` <br />'.replace("'", '"'))
+    print(f'<tr><td>\n\n```rexx\n{name}\n```\n\n</td><td>\n\n```jq\n{cols}\n```\n\n</td></tr>')
+    print('</table>')
