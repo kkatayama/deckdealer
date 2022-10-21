@@ -456,7 +456,7 @@ user_id
 <td>
 
 ```rexx
-the {ref}_id of the signed session cookie
+the user_id that was affiliated with the signed cookie session token 
 ```
 
 </td>
@@ -1174,6 +1174,7 @@ bartender_wages
 </td></tr>
 </table>
 
+---
 
 ### Creating the Table `managers`:
 Request:
@@ -1335,11 +1336,67 @@ Response:
 
 </details>
 
+---
+
 
 # 2. `/deleteTable`
 **Delete `table`**
 
 ### Endpoints:
+<table>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/deleteTable
+```
+
+</td>
+<td>
+
+```rexx
+returns a list of all existing tables in the database
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/deleteTable/usage
+```
+
+</td>
+<td>
+
+```rexx
+returns a message for how to use this function
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/deleteTable/{table_name}
+```
+
+</td>
+<td>
+
+```rexx
+debug: returns the required parameters
+```
+
+</td>
+</tr>
+</table>
+
 | Resource | Description |
 |:--|:--|
 | **`/deleteTable`**  | returns a list of all existing tables in the database |
@@ -1347,6 +1404,28 @@ Response:
 | **`/deleteTable/{table_name}`**  | debug: returns the required parameters |
 
 ### Requirements:
+<table>
+<tr><td> Parameters </td><td> Description </td></tr>
+<tr>
+<td>
+
+```rexx
+table_name
+```
+
+</td>
+<td>
+
+```rexx
+the name of the table you wish to delete
+```
+
+</td>
+</tr>
+</table>
+
+
+
 | Parameters | Description |
 |:--|:--|
 | table_name | the name of the **`table`** you wish to delete  |
