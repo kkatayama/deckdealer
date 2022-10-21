@@ -1851,7 +1851,7 @@ Response:
 </summary>
 
 ### Assigning `users` to `Roles` and creating `User Profiles`
-**[/uploadImageUrl](#/uploadImageUrl) allows us to upload image urls to the backend;**
+\[**[/uploadImageUrl](#/uploadImageUrl)\] allows us to upload image urls to the backend;**
 1. Lets upload profile pictures for the 4 users we added earlier and 2 reqtaurants...
 2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
 3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
@@ -1868,7 +1868,7 @@ Response:
 # 2. `/get`
 **Fetch a *single* entry or *multiple* entries from a `table`**
 
-MMMMMM### Endpoints:
+### Endpoints:
 <table>
 <tr><td> Resource </td><td> Description </td></tr>
 <tr><td>
@@ -2799,16 +2799,6 @@ edit entries: filter='
 </table>
 
 
-| Resource | Description  |
-|:--|:--|
-| **`/edit`** | returns all tables[] in the database |
-| **`/edit/usage`** | returns message: 'usage-info' |
-| **`/edit/{table_name}`** | returns message: 'missing a parameter' |
-| **`/edit/{table_name}/{param_name}/{param_value}`** | edit entries: 'param_name=param_value' |
-| **`/edit/{table_name}?param_name=param_value`**  | edit entries: 'param_name=param_value' |
-| **`/edit/{table_name}/filter/{filter_string}`**  | edit entries: filter=[query]' |
-| **`/edit/{table_name}?filter=filter_string`**  | edit entries: filter=[query]' |
-
 ### Requirements:
 <table>
 <tr><td> Parameters </td><td> Comment </td></tr>
@@ -2841,12 +2831,6 @@ any *_id or *_time parameter or filter
 </td></tr>
 </table>
 
-
-
-| Parameters | Comment  |
-|:--|:--|
-| at least 1 edit parameter | any parameter not **`*_id`** or **`*_time`** |
-| at least 1 reference parameter | any **`*_id`** or **`*_time`** parameter or **`filter`** |
 
 ### Response After Successful [`/edit`](#3-edit):
 <table>
@@ -2886,18 +2870,6 @@ the parameters that were submitted
 </tr>
 </table>
 
-
-
-| Variable | Comment |
-|:--|:--|
-| `message` | number of edits made |
-| `submitted[]` | the parameters that were submitted |
-
-Note:
-> The old functions `/editUser` and `/editSensorData` still work but are kept for backward compatibility.
-> `/editUser` has migrated to: `/edit/users`
-> `/editSensorData` has migrated to: `/edit/oximeter`
-> It is recommended to update the existing *mp32* and *swift* code to follow the new format
 
 ## Workflow Example:
 * Simulate `Restaurant Requests` and `Bartender Wage Reporting`...
