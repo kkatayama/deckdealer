@@ -1578,15 +1578,6 @@ add entry: 'param_name=param_value'
 </table>
 
 
-
-| Resource | Description  |
-|:--|:--|
-| **`/add`**  | returns all tables[] in the database |
-| **`/add/usage`**  | returns message: 'usage info' |
-| **`/add/{table_name}`**  | returns message: 'missing parameters' |
-| **`/add/{table_name}/{param_name}/{param_value}`**  | add entry: 'param_name=param_value' |
-| **`/add/{table_name}?param_name=param_value`**  | add entry: 'param_name=param_value' |
-
 ### Requirements:
 <table>
 <tr><td> Parameters </td><td> Exception </td></tr>
@@ -1607,12 +1598,6 @@ All params not {ref}_id or {ref}_time
 </td>
 </tr>
 </table>
-
-
-
-| Parameters | Exception  |
-|:--|:--|
-| All params not **`{ref}_id`** or **`{ref}_time`** | **`{ref}_id`** required when not `PRIMARY KEY` |
 
 ### Response After Successful [`/add`](#1-add):
 <table>
@@ -1652,13 +1637,8 @@ when entry added to any other table
 </tr>
 </table>
 
-
-| Variable | Comment |
-|:--|:--|
-| `user_id` | when entry added to **`users`** table |
-| `{ref}_id` | when entry added to any other table |
-
 ---
+
 <details><summary>Endpoint Background (click here to expand)
 </summary>
 
