@@ -405,7 +405,7 @@ Response:
 Terminate a logged in session
 
 ### Endpoints:
-<table width=100%>
+<table>
 <tr><td> Resource </td><td> Description </td></tr>
 <tr>
 <td>
@@ -1074,10 +1074,9 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
----
-
 ### Let's create a few tables!<br />
 <table>
+
 <tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
@@ -1088,10 +1087,12 @@ managers
 </td><td>
 
 ```jq
-['manager_id', 'user_id', 'restaurant_id', 'first_name', 'last_name', 'phone_number', 'email', 'profile_pic', 'entry_time']
+["manager_id", "user_id", "restaurant_id", "first_name", "last_name", "phone_number", "email", "profile_pic", "entry_time"]
 ```
 
 </td></tr>
+</table>
+<tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
 ```rexx
@@ -1101,23 +1102,12 @@ restaurant_profile
 </td><td>
 
 ```jq
-['restaurant_id', 'manager_id', 'restaurant_name', 'address', 'bio', 'phone_number', 'profile_pic', 'entry_time']
+["restaurant_id", "manager_id", "restaurant_name", "address", "bio", "phone_number", "profile_pic", "entry_time"]
 ```
 
 </td></tr>
-<tr><td>
-
-```rexx
-restaurant_photos
-```
-
-</td><td>
-
-```jq
-['photo_id', 'restaurant_id', 'photo_path', 'entry_time']
-```
-
-</td></tr>
+</table>
+<tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
 ```rexx
@@ -1127,10 +1117,12 @@ restaurant_schedule
 </td><td>
 
 ```jq
-['schedule_id', 'restaurant_id', 'mon_open', 'mon_close', 'tue_open', 'tue_close', 'wed_open', 'wed_close', 'thu_open', 'thu_close', 'fri_open', 'fri_close', 'sat_open', 'sat_close', 'sun_open', 'sun_close', 'entry_time']
+["schedule_id", "restaurant_id", "mon_open", "mon_close", "tue_open", "tue_close", "wed_open", "wed_close", "thu_open", "thu_close", "fri_open", "fri_close", "sat_open", "sat_close", "sun_open", "sun_close", "entry_time"]
 ```
 
 </td></tr>
+</table>
+<tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
 ```rexx
@@ -1140,10 +1132,12 @@ restaurant_requests
 </td><td>
 
 ```jq
-['request_id', 'restaurant_id', 'hourly_wage', 'shift_start', 'shift_end', 'entry_time']
+["request_id", "restaurant_id", "hourly_wage", "shift_start", "shift_end", "entry_time"]
 ```
 
 </td></tr>
+</table>
+<tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
 ```rexx
@@ -1153,10 +1147,27 @@ bartenders
 </td><td>
 
 ```jq
-['bartender_id', 'user_id', 'first_name', 'last_name', 'address', 'phone_number', 'email', 'profile_pic', 'entry_time']
+["bartender_id", "user_id", "first_name", "last_name", "address", "phone_number", "email", "profile_pic", "entry_time"]
 ```
 
 </td></tr>
+</table>
+<tr><td> Table Name </td><td> Column Names </td></tr>
+<tr><td>
+
+```rexx
+restaurant_photos
+```
+
+</td><td>
+
+```jq
+["photo_id", "restaurant_id", "photo_path", "entry_time"]
+```
+
+</td></tr>
+</table>
+<tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
 ```rexx
@@ -1166,11 +1177,12 @@ bartender_wages
 </td><td>
 
 ```jq
-['entry_id', 'bartender_id', 'restaurant_id', 'hourly_wage', 'tips', 'entry_time']
+["entry_id", "bartender_id", "restaurant_id", "hourly_wage", "tips", "entry_time"]
 ```
 
 </td></tr>
 </table>
+
 
 * **`managers`**  <br />
 * **`restaurant_profile`**  <br />
