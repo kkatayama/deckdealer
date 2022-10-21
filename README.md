@@ -852,178 +852,133 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 ### Endpoints:
 <table>
 <tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
+<tr><td>
 
 ```jq
 /createTable
 ```
 
-</td>
-<td>
+</td><td>
 
 ```rexx
 returns a list of all existing tables in the database
 ```
 
-</td>
-</tr>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
+</td></tr><tr><td> Resource </td><td> Description </td></tr><tr><td>
 
 ```jq
 /createTable/usage
 ```
 
-</td>
-<td>
+</td><td>
 
 ```rexx
 returns a message for how to use this function
 ```
 
-</td>
-</tr>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
+</td></tr><tr><td> Resource </td><td> Description </td></tr><tr><td>
 
 ```jq
 /createTable/{table_name}
 ```
 
-</td>
-<td>
+</td><td>
 
 ```rexx
 debug: returns the required parameters
 ```
 
-</td>
-</tr>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
+</td></tr><tr><td> Resource </td><td> Description </td></tr><tr><td>
 
 ```jq
 /createTable/{table_name}/{column_name}/{column_type}
 ```
 
-</td>
-<td>
+</td><td>
 
 ```rexx
 create a table with columns using path parameters
 ```
 
-</td>
-</tr>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
+</td></tr><tr><td> Resource </td><td> Description </td></tr><tr><td>
 
 ```erlang
 /createTable/{table_name}?column_name=column_type
 ```
 
-</td>
-<td>
+</td><td>
 
 ```rexx
 create a table with columns using query parameters
 ```
 
-</td>
-</tr>
+</td></tr>
 </table>
 
+
+### Requirements:
 <table>
-<tr><td> Parameters </td><td> Value </td></tr>
-<tr>
-<td>
+<tr><td> Parameters </td><td> Value </td></tr><tr><td>
 
 ```rexx
 user_id
 ```
 
-</td>
-<td>
+</td><td>
 
 ```rexx
 INTEGER
 ```
 
-</td>
-</tr>
-<tr><td> Parameters </td><td> Value </td></tr>
-<tr>
-<td>
+</td></tr><tr><td> Parameters </td><td> Value </td></tr><tr><td>
 
 ```rexx
 {ref}_id
 ```
 
-</td>
-<td>
+</td><td>
 
 ```rexx
 INTEGER
 ```
 
-</td>
-</tr>
-<tr><td> Parameters </td><td> Value </td></tr>
-<tr>
-<td>
+</td></tr><tr><td> Parameters </td><td> Value </td></tr><tr><td>
 
 ```rexx
 {ref}_time
 ```
 
-</td>
-<td>
+</td><td>
 
 ```rexx
 DATETIME
 ```
 
-</td>
-</tr>
-<tr><td> Parameters </td><td> Value </td></tr>
-<tr>
-<td>
+</td></tr><tr><td> Parameters </td><td> Value </td></tr><tr><td>
 
 ```rexx
 column_name
 ```
 
-</td>
-<td>
+</td><td>
 
 ```rexx
 lowercase with underscores where appropriate
 ```
 
-</td>
-</tr>
-<tr><td> Parameters </td><td> Value </td></tr>
-<tr>
-<td>
+</td></tr><tr><td> Parameters </td><td> Value </td></tr><tr><td>
 
 ```rexx
 column_type
 ```
 
-</td>
-<td>
+</td><td>
 
 ```rexx
 one of INTEGER, DOUBLE, TEXT, DATETIME
 ```
 
-</td>
-</tr>
+</td></tr>
 </table>
 
 
