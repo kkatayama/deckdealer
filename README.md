@@ -366,10 +366,10 @@ Response:
 </details>
 
 ---
-# [Workflow 1 - Login](#details)
-<details markdown="1"><summary> (click here to expand) </summary>
 
----
+# [Workflow 1 - Login](#Workflow-1---Login)
+    
+<details markdown="1"><summary> (click here to expand) </summary>
 
 ### Let's log in as the user `admin`
 Arguments:
@@ -755,13 +755,11 @@ Response:
 
 ---
 
-<!-- # [Workflow 2 - Register Users](#Workflow-2---Register-Users) -->
----
-  * [ ] 
+[Workflow 2 - Register Users](#Workflow-2---Register-Users)
 
 <details markdown="1"><summary>
 
-<a title="(click here to expand)" style="color: var(--color-accent-fg);"> Workflow 2 - Register Users </a> 
+Workflow 2 - 'Register Users' 
 
 </summary>
 
@@ -1076,8 +1074,7 @@ Response:
 
 <details markdown="1" ><summary>
 
-
-# [Workflow 3 - Create Tables](@) (click here to expand)
+(click here to expand)
 
 </summary>
 
