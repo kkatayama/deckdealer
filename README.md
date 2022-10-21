@@ -1869,20 +1869,8 @@ Response:
 
 ### Endpoints:
 <table>
+<tr><td> Resource </td><td> Description </td></tr>
 <tr><td>
-
-```rexx
-resource
-```
-
-</td><td>
-
-```rexx
-description
-```
-
-</td></tr>
-<tr></tr><tr><td>
 
 ```jq
 /get
@@ -1894,7 +1882,9 @@ description
 returns all tables[] in the database
 ```
 
-</td></tr><tr></tr><tr><td>
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
 
 ```jq
 /get/usage
@@ -1906,7 +1896,9 @@ returns all tables[] in the database
 returns a message for how to use this function
 ```
 
-</td></tr><tr></tr><tr><td>
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
 
 ```jq
 /get/{table_name}
@@ -1918,7 +1910,9 @@ returns a message for how to use this function
 returns all entries for the table: {table_name}
 ```
 
-</td></tr><tr></tr><tr><td>
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
 
 ```jq
 /get/{table_name}/{param_name}/{param_value}
@@ -1930,7 +1924,9 @@ returns all entries for the table: {table_name}
 match entries: 'param_name=param_value'
 ```
 
-</td></tr><tr></tr><tr><td>
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
 
 ```erlang
 /get/{table_name}?param_name=param_value
@@ -1942,7 +1938,9 @@ match entries: 'param_name=param_value'
 match entries: 'param_name=param_value'
 ```
 
-</td></tr><tr></tr><tr><td>
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
 
 ```jq
 /get/{table_name}/filter/{query}
@@ -1954,7 +1952,9 @@ match entries: 'param_name=param_value'
 match entries: 'filter='
 ```
 
-</td></tr><tr></tr><tr><td>
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
 
 ```erlang
 /get/{table_name}?filter=query
@@ -1970,8 +1970,7 @@ match entries: 'filter='
 </table>
 
 
-
-| resource | description  |
+| Resource | Description  |
 |:--|:--|
 | **`/get`** | returns all tables[] in the database |
 | **`/get/usage`** | returns a message for how to use this function |
