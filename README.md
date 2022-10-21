@@ -886,7 +886,7 @@ returns a message for how to use this function
 </td>
 </tr>
 <tr><td> Resource </td><td> Description </td></tr>
-<td> DEBUG: returns the required parameters </td><tr>
+<tr>
 <td>
 
 ```jq
@@ -894,9 +894,16 @@ returns a message for how to use this function
 ```
 
 </td>
+<td>
+
+```rexx
+debug: returns the required parameters
+```
+
+</td>
 </tr>
 <tr><td> Resource </td><td> Description </td></tr>
-<td> DEBUG: returns the required parameters </td><tr>
+<tr>
 <td>
 
 ```jq
@@ -913,7 +920,7 @@ create a table with columns using path parameters
 </td>
 </tr>
 <tr><td> Resource </td><td> Description </td></tr>
-<td> DEBUG: returns the required parameters </td><tr>
+<tr>
 <td>
 
 ```erlang
@@ -931,13 +938,100 @@ create a table with columns using query parameters
 </tr>
 </table>
 
+<table>
+<tr><td> Parameters </td><td> Value </td></tr>
+<tr>
+<td>
+
+```rexx
+user_id
+```
+
+</td>
+<td>
+
+```rexx
+INTEGER
+```
+
+</td>
+</tr>
+<tr><td> Parameters </td><td> Value </td></tr>
+<tr>
+<td>
+
+```rexx
+{ref}_id
+```
+
+</td>
+<td>
+
+```rexx
+INTEGER
+```
+
+</td>
+</tr>
+<tr><td> Parameters </td><td> Value </td></tr>
+<tr>
+<td>
+
+```rexx
+{ref}_time
+```
+
+</td>
+<td>
+
+```rexx
+DATETIME
+```
+
+</td>
+</tr>
+<tr><td> Parameters </td><td> Value </td></tr>
+<tr>
+<td>
+
+```rexx
+column_name
+```
+
+</td>
+<td>
+
+```rexx
+lowercase with underscores where appropriate
+```
+
+</td>
+</tr>
+<tr><td> Parameters </td><td> Value </td></tr>
+<tr>
+<td>
+
+```rexx
+column_type
+```
+
+</td>
+<td>
+
+```rexx
+one of INTEGER, DOUBLE, TEXT, DATETIME
+```
+
+</td>
+</tr>
+</table>
 
 
 | Resource | Description  |
 |:--|:--|
 | **`/createTable`**  | returns a list of all existing tables in the database |
 | **`/createTable/usage`**  | returns a message for how to use this function |
-| **`/createTable/{table_name}`**  | DEBUG: returns the required parameters |
+| **`/createTable/{table_name}`**  | debug: returns the required parameters |
 | **`/createTable/{table_name}/{column_name}/{column_type}`**  | create a table with columns using path parameters |
 | **`/createTable/{table_name}?column_name=column_type`**  | create a table with columns using query parameters |
 
@@ -1223,7 +1317,7 @@ Response:
 |:--|:--|
 | **`/deleteTable`**  | returns a list of all existing tables in the database |
 | **`/deleteTable/usage`**  | returns a message for how to use this function |
-| **`/deleteTable/{table_name}`**  | DEBUG: returns the required parameters |
+| **`/deleteTable/{table_name}`**  | debug: returns the required parameters |
 
 ### Requirements:
 | Parameters | Description |
