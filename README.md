@@ -367,8 +367,6 @@ Response:
 
 ---
 
-<details>
-
 # [Workflow 1 - Login](#details)
 <details><summary><strong> (click here to expand) </strong></summary>
 
@@ -397,8 +395,6 @@ Response:
 ```
 
 > Note: the `token` is only needed when api requests do not store session cookies.
-
-</details>
 
 </details>
 
