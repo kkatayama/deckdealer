@@ -418,7 +418,7 @@ Terminate a logged in session
 <td>
 
 ```rexx
-log a user out by deleting their signed cookie session token
+delete the user's signed cookie session token
 ```
 
 </td>
