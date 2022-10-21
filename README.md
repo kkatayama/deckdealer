@@ -761,7 +761,7 @@ Response:
 
 <details markdown="1"><summary>
 
-# ![Workflow 2 - Register Users](#Workflow-2---Register-Users) (click here to expand)
+# <a title="(click here to expand)">Workflow 2 - Register Users</a> 
 
 </summary>
 
