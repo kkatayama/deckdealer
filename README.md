@@ -405,7 +405,7 @@ Response:
 Terminate a logged in session
 
 ### Endpoints:
-<table width="100%">
+<table width="100%" align="center">
 <tr><td> Resource </td><td> Description </td></tr>
 <tr>
 <td>
