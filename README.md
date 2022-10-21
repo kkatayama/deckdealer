@@ -728,7 +728,7 @@ Request:
 
 Response:
 ```json
-{'message': 'passwords do not match', 'password1': 'teddy', 'password2': 'ted'}
+{"message": "passwords do not match", "password1": "teddy", "password2": "ted"}
 ```
 
 ---
@@ -740,7 +740,7 @@ Request:
 
 Response:
 ```json
-{'message': 'new user created', 'user_id': 2, 'username': 'teddy'}
+{"message": "new user created", "user_id": 2, "username": "teddy"}
 ```
 
 ---
@@ -752,7 +752,7 @@ Request:
 
 Response:
 ```json
-{'message': 'user exists', 'username': 'teddy'}
+{"message": "user exists", "username": "teddy"}
 ```
 
 </details>
@@ -780,7 +780,7 @@ Request:
 
 Response:
 ```json
-{'message': 'new user created', 'user_id': 2, 'username': 'alice'}
+{"message": "new user created", "user_id": 2, "username": "alice"}
 ```
 ---
 
@@ -798,7 +798,7 @@ Request:
 
 Response:
 ```json
-{'message': 'new user created', 'user_id': 3, 'username': 'bob'}
+{"message": "new user created", "user_id": 3, "username": "bob"}
 ```
 ---
 
@@ -816,7 +816,7 @@ Request:
 
 Response:
 ```json
-{'message': 'new user created', 'user_id': 4, 'username': 'anna'}
+{"message": "new user created", "user_id": 4, "username": "anna"}
 ```
 ---
 
@@ -834,7 +834,7 @@ Request:
 
 Response:
 ```json
-{'message': 'new user created', 'user_id': 5, 'username': 'steve'}
+{"message": "new user created", "user_id": 5, "username": "steve"}
 ```
 
 </details>
