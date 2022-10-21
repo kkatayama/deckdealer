@@ -765,7 +765,7 @@ Response:
 
 <details markdown="1"><summary>
 
-# <a title="(click here to expand)" style="color: var(--color-accent-fg);"> Workflow 2 - Register Users </a> 
+<a title="(click here to expand)" style="color: var(--color-accent-fg);"> Workflow 2 - Register Users </a> 
 
 </summary>
 
