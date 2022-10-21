@@ -366,9 +366,8 @@ Response:
 </details>
 
 ---
-<details markdown="1">
 # [Workflow 1 - Login](#details)
-<summary><strong> (click here to expand) </strong></summary>
+<details markdown="1"><summary> (click here to expand) </summary>
 
 ---
 
