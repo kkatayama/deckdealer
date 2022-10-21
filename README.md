@@ -372,6 +372,7 @@ Response:
 # [Workflow 1 - Login](#Workflow-1---Login)
 
 ---
+
 <details><summary>(click here to expand)</summary>
 
 ### Let's log in as the user `admin`
@@ -464,9 +465,8 @@ the {ref}_id of the signed session cookie
 </tr>
 </table>
 
-
-
 ---
+
 <details><summary>Endpoint Background (click here to expand)
 </summary>
 
@@ -759,13 +759,87 @@ Response:
 
 ---
 
-## [Workflow 2 - Register Users (click here to expand)](#Workflow-2---Register-Users)
-* Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`
+# [Workflow 2 - Register Users]([#Workflow-2---Register-Users)
 
-<details><summary>Workflow 1 - Login (click here to expand)
-</summary>
+---
+
+<details><summary>(click here to expand)</summary>
+
+### Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`
+Arguments:
+```rexx
+username = alice
+password = alice
+password2 = alice
+```
+
+Request:
+```jq
+/register/username/alice/password/alice/password2/alice
+```
+
+Response:
+```json
+{'message': 'new user created', 'user_id': 2, 'username': 'alice'}
+```
+---
+
+Arguments:
+```rexx
+username = bob
+password = bob
+password2 = bob
+```
+
+Request:
+```jq
+/register/username/bob/password/bob/password2/bob
+```
+
+Response:
+```json
+{'message': 'new user created', 'user_id': 3, 'username': 'bob'}
+```
+---
+
+Arguments:
+```rexx
+username = anna
+password = anna
+password2 = anna
+```
+
+Request:
+```jq
+/register/username/anna/password/anna/password2/anna
+```
+
+Response:
+```json
+{'message': 'new user created', 'user_id': 4, 'username': 'anna'}
+```
+---
+
+Arguments:
+```rexx
+username = steve
+password = steve
+password2 = steve
+```
+
+Request:
+```jq
+/register/username/steve/password/steve/password2/steve
+```
+
+Response:
+```json
+{'message': 'new user created', 'user_id': 5, 'username': 'steve'}
+```
 
 </details>
+
+---
 
 # Admin Functions
 The examples listed below will cover the **2 admin functions**. <br />

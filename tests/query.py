@@ -51,7 +51,12 @@ def load_headers(header_file="headers.pickle"):
     with open(header_file, "rb") as f:
         return pickle.load(f)
 
-
+def getCode(text):
+    if '?' in text:
+        return 'erlang'
+    if text.strip().startswith('/'):
+        return 'jq'
+    return 'rexx'
 
 def parseQuery(query):
     commands = [
@@ -61,7 +66,8 @@ def parseQuery(query):
         "delete",
         "login",
         "logout",
-        "register"
+        "status",
+        "register",
         "createTable",
         "deleteTable",
         "uploadImageUrl"
@@ -77,7 +83,7 @@ def parseQuery(query):
         "restaurant_schedule"
     ]
     regex = rf"""
-    /({'|'.join(commands)})/(tables) |  # catch /<cmd>/<table_name
+    /({'|'.join(commands)})/({'|'.join(tables)}) |  # catch /<cmd>/<table_name
     /({'|'.join(commands)})                      # catch only /<cmd>
     """
     m = re.compile(regex, re.VERBOSE)
@@ -103,6 +109,8 @@ def executeQuery(base_url, query):
     base_url = base_url.strip('/')
     url = f'{base_url}{query}'
     arguments = parseQuery(query)
+    arg_code = getCode(arguments)
+    req_code = getCode(query)
 
     s = requests.Session()
     s.headers.update(load_headers())
@@ -112,12 +120,12 @@ def executeQuery(base_url, query):
 
     output = f"""
 Arguments:
-```python
+```{arg_code}
 {arguments}
 ```
 
 Request:
-```ruby
+```{req_code}
 {query}
 ```
 
