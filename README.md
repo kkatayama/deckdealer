@@ -1850,14 +1850,15 @@ Response:
 <details><summary>(click here to expand)
 </summary>
 
-* Assigning `users` to `Roles` and creating `User Profiles`
-  **[/uploadImageUrl](#/uploadImageUrl) allows us to upload image urls to the backend;**
-  1. Lets upload profile pictures for the 4 users we added earlier and 2 reqtaurants...
-  2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
-  3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
-* Setting up the `Restaurant Tables`
-  1. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
-  2. Then add their schedules to the `restaurant_schedule` table
+### Assigning `users` to `Roles` and creating `User Profiles`
+**[/uploadImageUrl](#/uploadImageUrl) allows us to upload image urls to the backend;**
+1. Lets upload profile pictures for the 4 users we added earlier and 2 reqtaurants...
+2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
+3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
+
+## Setting up the `Restaurant Tables`
+1. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
+2. Then add their schedules to the `restaurant_schedule` table
 
 
 </details>
@@ -1867,7 +1868,7 @@ Response:
 # 2. `/get`
 **Fetch a *single* entry or *multiple* entries from a `table`**
 
-### Endpoints:
+MMMMMM### Endpoints:
 <table>
 <tr><td> Resource </td><td> Description </td></tr>
 <tr><td>
@@ -2045,14 +2046,6 @@ supports expressions, operators,  and functions
 </table>
 
 
-| Parameters | Comment  |
-|:--|:--|
-| *None* | submit no parameters (none required) |
-| /key/value | match is limited to 'column_name == column_value' |
-| ?key=value | match is limited to 'column_name == column_value' |
-| /filter/query | supports **expressions**, **operators**,  and **functions** | 
-| ?filter=query | supports **expressions**, **operators**,  and **functions** | 
-
 ### Response After Successful [`/get`](#2-get):
 <table>
 <tr><td> Variable </td><td> Comment </td></tr>
@@ -2086,35 +2079,16 @@ an array of objects matching the parameters
 </table>
 
 
-
-| Variable | Comment |
-|:--|:--|
-| `data = {obj}` | a single object matching the parameters |
-| `data = [{obj}]` | an array of objects matching the parameters |
-
-Note:
-> The old functions `/getUser`, `/getUsers`, `/getSensorData`, and `/getAllSensorData` still work but are kept for backward compatibility. <br />
-> `/getUser` has migrated to: `/get/users` <br />
-> `/getUsers` has migrated to: `/get/users` <br />
-> `/getSensorData` has migrated to: `/get/oximeter` <br />
-> `/getAllSensorData` has migrated to: `/get/oximeter` <br />
-> It is recommended to update the existing *mp32* and *swift* code to follow the new format
-
-## Workflow Example:
-* [Let's query the **`users`** table to find the 2 users we created earlier](#lets-try-out-the-filter-parameter-to-get-just-the-users-alice-and-bob)
-* [Next, we will query the **`oximeter`** table to retrieve the sensor data for each user](#get-sensor-data-for-alice-and-bob)
-* Finally, we will examine the **`filter`** parameter and test out a few **test cases**
-  * [Test Case](#test-case-fever): Determine which user possibly has a **fever**
-  * [Test Case](#test-case-min-max-temperature-range): What was the range of **`temperature`** for this user? **min**? **max**?
-  * [Test Case](#test-case-filter-users-created-after-a-start-date-but-before-an-end-date): Filter users created after a *start date* but before an *end date*.
-
 ---
-<details><summary>Show Workflow Example (click here to expand)
+
+<details><summary>Endpoint Background (click here to expand)
 </summary>
 
 ### Investigating the Endpoint: `/get`
 The endpoint for getting users from the **`users`** table is **`/get/users`**.
 
+
+### Let's query the **`users`** table to find the 2 users we created earlier
 Examine the **`users`** table
 Request:
 ```ruby
@@ -2298,6 +2272,8 @@ Response:
 }
 ```
 
+---
+
 ### Notes on {filter_string}:
 <table>
 <tr><td> Note </td><td> Comment </td></tr>
@@ -2372,21 +2348,10 @@ PATH EXAMPLE
 </td></tr>
 </table>
 
+---
 
 
-| Note | Comment |
-|:--|:--|
-| keyword | **`filter`** |
-| QUERY FORMAT | ?filter=(param_name > "param_value") |
-| QUERY EXAMPLE | **`/get/users?filter=(user_id = "7" OR username="bob")`** |
-| PATH FORMAT | /filter/(param_name="param_value" OR param_name="param_value") |
-| PATH EXAMPLE | /get/users/filter/(username="bob" OR username="alice") |
-* the **`param_name`** must never be wrapped in quotations as it is treated as a **variable**
-* the **`"param_value"`** is usually wrapped in **"single"** or **"double"** quotations.
-  * **NUMBERS** do not have to be wrapped in quotations
-* spaces are allowed within an *expression*
-                
-### `/get` sensor data for `alice` and `bob`
+### Next, we will query the **`oximeter`** table to retrieve the sensor data for each user: `alice` and `bob`
 
 Oximeter data for just `alice`:
 
@@ -2710,6 +2675,11 @@ Response:
 </details>
 
 ---
+
+
+
+
+
 
 # 3. `/edit`
 **Edit a single entry or multiple entries of a table**
