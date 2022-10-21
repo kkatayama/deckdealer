@@ -1134,6 +1134,20 @@ restaurant_requests
 <tr><td>
 
 ```rexx
+restaurant_photos
+```
+
+</td><td>
+
+```jq
+["photo_id", "restaurant_id", "photo_path", "entry_time"]
+```
+
+</td></tr>
+<tr><td> Table Name </td><td> Column Names </td></tr>
+<tr><td>
+
+```rexx
 bartenders
 ```
 
@@ -1148,13 +1162,13 @@ bartenders
 <tr><td>
 
 ```rexx
-restaurant_photos
+bartender_shifts
 ```
 
 </td><td>
 
 ```jq
-["photo_id", "restaurant_id", "photo_path", "entry_time"]
+["shift_id", "restaurant_id", "hourly_wage", "shift_start", "shift_end", "status", "entry_time"]
 ```
 
 </td></tr>
@@ -1268,7 +1282,7 @@ Response:
 ### Creating the Table `restaurant_requests`:
 Request:
 ```ruby
-https://bartender.hopto.org/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/entry_time/DATETIME
+https://bartender.hopto.org/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/status/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1282,6 +1296,7 @@ Response:
         "hourly_wage DOUBLE NOT NULL",
         "shift_start DATETIME NOT NULL",
         "shift_end DATETIME NOT NULL",
+        'status TEXT NOT NULL',
         "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
     ]
 }
@@ -1311,6 +1326,30 @@ Response:
     ]
 }
 ```
+
+### Creating the Table `bartender_shifts`:
+Request:
+```jq
+/createTable/bartender_shifts/shift_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/status/TEXT/entry_time/DATETIME
+```
+
+Response:
+```json
+{
+    'message': '1 table created',
+    'table': 'bartender_shifts',
+    'columns': [
+        'shift_id INTEGER PRIMARY KEY',
+        'restaurant_id INTEGER NOT NULL',
+        'hourly_wage DOUBLE NOT NULL',
+        'shift_start DATETIME NOT NULL',
+        'shift_end DATETIME NOT NULL',
+        'status TEXT NOT NULL',
+        "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+    ]
+}
+```
+
 
 ### Creating the Table `bartender_wages`:
 Request:
@@ -1821,15 +1860,6 @@ Response:
   2. Then add their schedules to the `restaurant_schedule` table
 
 
-* Simulate `Restaurant Requests` and `Bartender Wage Reporting`...
-  1. Create a `shift request` from a restaurant and insert it in the `restaurant_requests` table
-  2. 
-
-
-
-
-
-Now that we have added users and sensor data, let's take a look at the next **core function**: [**`/get`**](#2-get)
 </details>
 
 ---
@@ -1838,6 +1868,109 @@ Now that we have added users and sensor data, let's take a look at the next **co
 **Fetch a *single* entry or *multiple* entries from a `table`**
 
 ### Endpoints:
+<table>
+<tr><td>
+
+```rexx
+resource
+```
+
+</td><td>
+
+```rexx
+description
+```
+
+</td></tr>
+<tr></tr><tr><td>
+
+```jq
+/get
+```
+
+</td><td>
+
+```rexx
+returns all tables[] in the database
+```
+
+</td></tr><tr></tr><tr><td>
+
+```jq
+/get/usage
+```
+
+</td><td>
+
+```rexx
+returns a message for how to use this function
+```
+
+</td></tr><tr></tr><tr><td>
+
+```jq
+/get/{table_name}
+```
+
+</td><td>
+
+```rexx
+returns all entries for the table: {table_name}
+```
+
+</td></tr><tr></tr><tr><td>
+
+```jq
+/get/{table_name}/{param_name}/{param_value}
+```
+
+</td><td>
+
+```rexx
+match entries: 'param_name=param_value'
+```
+
+</td></tr><tr></tr><tr><td>
+
+```erlang
+/get/{table_name}?param_name=param_value
+```
+
+</td><td>
+
+```rexx
+match entries: 'param_name=param_value'
+```
+
+</td></tr><tr></tr><tr><td>
+
+```jq
+/get/{table_name}/filter/{query}
+```
+
+</td><td>
+
+```rexx
+match entries: 'filter='
+```
+
+</td></tr><tr></tr><tr><td>
+
+```erlang
+/get/{table_name}?filter=query
+```
+
+</td><td>
+
+```rexx
+match entries: 'filter='
+```
+
+</td></tr>
+</table>
+
+
+
 | resource | description  |
 |:--|:--|
 | **`/get`** | returns all tables[] in the database |
@@ -2440,14 +2573,15 @@ Note:
 > It is recommended to update the existing *mp32* and *swift* code to follow the new format
 
 ## Workflow Example:
-* [Let's edit bob's **`username`** from `bob` to `robert`](#get-sensor-data-for-alice-and-bob) 
-* [Then append `@gmail.com` to the **`username`** for both `robert` and `alice`](#appending-gmailcom-to-the-username-for-both-robert-and-alice)
-* Robert and Alice now want their **`username`** to have `@udel.edu`
-  * [Let's replace any **`username`** containing `@gmail.com` with `@udel.edu`](#replacing-all-users-with-username-containing-gmailcom-to-udeledu)
-* Alice would like her **`temperature`** data to be in celsius
-  * [Let's convert the **`temperature`** from **`farenheight`** to **`celsius`**](#converting-the-temperature-from-farenheight-to-celsius-for-alice)
+* Simulate `Restaurant Requests` and `Bartender Wage Reporting`...
+  1. Log in as a manager and create a `shift request` into the `restaurant_requests` table
+  2. Log in as a bartender and snag the `shift request` by editing the `status` from `available` to `taken`
+  3. Then (as bartender), add the `shift_request` to the `bartenders_shifts` with the `status` of `active`
+  4. Simulate the bartender completing their shift by setting the `status` from `active` to `completed` in the `bartender_shifts` table
+  5. Finally, as the bartender, submit an `entry` to `bartender_wages` 
 
 ---
+
 <details><summary>Show Workflow Example (click here to expand)
 </summary>
 
