@@ -761,7 +761,7 @@ Response:
 
 <details markdown="1"><summary>
 
-# [Workflow 2 - Register Users](#Workflow-2---Register-Users) (click here to expand)
+# [Workflow 2 - Register Users]() (click here to expand)
 
 </summary>
 
@@ -1074,9 +1074,9 @@ Response:
 
 ---
 
-<details markdown="1" id="3"><summary>
+<details markdown="1" ><summary>
 
-# [Workflow 3 - Create Tables](#3) (click here to expand)
+# [Workflow 3 - Create Tables](@) (click here to expand)
 
 </summary>
 
