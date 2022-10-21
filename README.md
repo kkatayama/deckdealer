@@ -1480,7 +1480,7 @@ Response:
 
 ---
 
-# Core Functions
+# [Core Functions](#Core Functions)
 The examples listed below will cover the **4 core functions** <br />
 All examples shown are executed via a **GET** request and can be tested with any browser. <br />
 All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE** <br />
