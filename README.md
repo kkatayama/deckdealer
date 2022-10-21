@@ -839,7 +839,7 @@ Response:
 
 ---
 
-# Admin Functions
+# [Admin Functions](#Admin Functions)
 The examples listed below will cover the **2 admin functions**. <br />
 All examples shown are executed via a **GET** request and can be tested with any browser. <br />
 All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
