@@ -369,6 +369,7 @@ Response:
 
 # [Workflow 1 - Login](#Workflow-1---Login)
 <details><summary>(click here to expand)</summary>
+
 ---
 
 ### Let's log in as the user `admin`
