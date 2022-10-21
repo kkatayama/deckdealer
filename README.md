@@ -1489,6 +1489,96 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE** 
 **Add a *single* entry to a `table`**
 
 ### Endpoints:
+<table>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/add
+```
+
+</td>
+<td>
+
+```rexx
+returns all tables[] in the database
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/add/usage
+```
+
+</td>
+<td>
+
+```rexx
+returns message: 'usage info'
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/add/{table_name}
+```
+
+</td>
+<td>
+
+```rexx
+returns message: 'missing parameters'
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/add/{table_name}/{param_name}/{param_value}
+```
+
+</td>
+<td>
+
+```rexx
+add entry: 'param_name=param_value'
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```erlang
+/add/{table_name}?param_name=param_value
+```
+
+</td>
+<td>
+
+```rexx
+add entry: 'param_name=param_value'
+```
+
+</td>
+</tr>
+</table>
+
+
+
 | Resource | Description  |
 |:--|:--|
 | **`/add`**  | returns all tables[] in the database |
@@ -1497,12 +1587,72 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE** 
 | **`/add/{table_name}/{param_name}/{param_value}`**  | add entry: 'param_name=param_value' |
 | **`/add/{table_name}?param_name=param_value`**  | add entry: 'param_name=param_value' |
 
-### Requirements:x
+### Requirements:
+<table>
+<tr><td> Parameters </td><td> Exception </td></tr>
+<tr>
+<td>
+
+```rexx
+All params not {ref}_id or {ref}_time
+```
+
+</td>
+<td>
+
+```rexx
+{ref}_id required when not PRIMARY KEY
+```
+
+</td>
+</tr>
+</table>
+
+
+
 | Parameters | Exception  |
 |:--|:--|
 | All params not **`{ref}_id`** or **`{ref}_time`** | **`{ref}_id`** required when not `PRIMARY KEY` |
 
 ### Response After Successful [`/add`](#1-add):
+<table>
+<tr><td> Variable </td><td> Comment </td></tr>
+<tr>
+<td>
+
+```rexx
+user_id
+```
+
+</td>
+<td>
+
+```rexx
+when entry added to users table
+```
+
+</td>
+</tr>
+<tr><td> Variable </td><td> Comment </td></tr>
+<tr>
+<td>
+
+```rexx
+{ref}_id
+```
+
+</td>
+<td>
+
+```rexx
+when entry added to any other table
+```
+
+</td>
+</tr>
+</table>
+
+
 | Variable | Comment |
 |:--|:--|
 | `user_id` | when entry added to **`users`** table |
