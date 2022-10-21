@@ -367,7 +367,7 @@ Response:
 
 ---
 
-[Workflow 1 - Login](#Workflow-1---Login) <details><summary> (click here to expand)
+[Workflow 1 - Login](#Workflow-1---Login) <details> (click here to expand) <summary>
 
 </summary>
 
