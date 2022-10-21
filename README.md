@@ -1175,14 +1175,6 @@ bartender_wages
 </table>
 
 
-* **`managers`**  <br />
-* **`restaurant_profile`**  <br />
-* **`restaurant_photos`**  <br />
-* **`restaurant_schedule`**  <br />
-* **`restaurant_requests`**  <br />
-* **`bartenders`**  <br />
-* **`bartender_wages`**  <br />
-
 ### Creating the Table `managers`:
 Request:
 ```ruby
@@ -1328,15 +1320,15 @@ https://bartender.hopto.org/createTable/bartender_wages/entry_id/INTEGER/bartend
 Response:
 ```json
 {
-    'message': '1 table created',
-    'table': 'bartender_wages',
-    'columns': [
-        'entry_id INTEGER PRIMARY KEY',
-        'bartender_id INTEGER NOT NULL',
-        'restaurant_id INTEGER NOT NULL',
-        'hourly_wage DOUBLE NOT NULL',
-        'tips DOUBLE NOT NULL',
-        "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+    "message": "1 table created",
+    "table": "bartender_wages",
+    "columns": [
+        "entry_id INTEGER PRIMARY KEY",
+        "bartender_id INTEGER NOT NULL",
+        "restaurant_id INTEGER NOT NULL",
+        "hourly_wage DOUBLE NOT NULL",
+        "tips DOUBLE NOT NULL",
+        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
     ]
 }
 ```
