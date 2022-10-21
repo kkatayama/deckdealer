@@ -380,7 +380,7 @@ password = admin
 
 Request:
 ```ruby
-/login/username/admin/password/admin
+https://bartender.hopto.org/login/username/admin/password/admin
 ```
 
 Response:
@@ -771,7 +771,7 @@ password2 = alice
 
 Request:
 ```jq
-/register/username/alice/password/alice/password2/alice
+https://bartender.hopto.org/register/username/alice/password/alice/password2/alice
 ```
 
 Response:
@@ -789,7 +789,7 @@ password2 = bob
 
 Request:
 ```jq
-/register/username/bob/password/bob/password2/bob
+https://bartender.hopto.org/register/username/bob/password/bob/password2/bob
 ```
 
 Response:
