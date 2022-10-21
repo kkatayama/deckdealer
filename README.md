@@ -1970,17 +1970,81 @@ match entries: 'filter='
 </table>
 
 
-| Resource | Description  |
-|:--|:--|
-| **`/get`** | returns all tables[] in the database |
-| **`/get/usage`** | returns a message for how to use this function |
-| **`/get/{table_name}`** | returns all entries for the table: `{table_name}` |
-| **`/get/{table_name}/{param_name}/{param_value}`** | match entries: 'param_name=param_value' |
-| **`/get/{table_name}?param_name=param_value`**  | match entries: 'param_name=param_value' |
-| **`/get/{table_name}/filter/{query}`**  | match entries: 'filter=[query]' |
-| **`/get/{table_name}?filter=query`**  | match entries: 'filter=[query]' |
-
 ### Options:
+<table>
+<tr><td> Parameters </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+*None*
+```
+
+</td><td>
+
+```rexx
+submit no parameters (none required)
+```
+
+</td></tr>
+<tr><td> Parameters </td><td> Comment </td></tr>
+<tr><td>
+
+```jq
+/key/value
+```
+
+</td><td>
+
+```rexx
+match is limited to 'column_name == column_value'
+```
+
+</td></tr>
+<tr><td> Parameters </td><td> Comment </td></tr>
+<tr><td>
+
+```erlang
+?key=value
+```
+
+</td><td>
+
+```rexx
+match is limited to 'column_name == column_value'
+```
+
+</td></tr>
+<tr><td> Parameters </td><td> Comment </td></tr>
+<tr><td>
+
+```jq
+/filter/query
+```
+
+</td><td>
+
+```rexx
+supports expressions, operators,  and functions
+```
+
+</td></tr>
+<tr><td> Parameters </td><td> Comment </td></tr>
+<tr><td>
+
+```erlang
+?filter=query
+```
+
+</td><td>
+
+```rexx
+supports expressions, operators,  and functions
+```
+
+</td></tr>
+</table>
+
+
 | Parameters | Comment  |
 |:--|:--|
 | *None* | submit no parameters (none required) |
@@ -1990,6 +2054,39 @@ match entries: 'filter='
 | ?filter=query | supports **expressions**, **operators**,  and **functions** | 
 
 ### Response After Successful [`/get`](#2-get):
+<table>
+<tr><td> Variable </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+data = {obj}
+```
+
+</td><td>
+
+```rexx
+a single object matching the parameters
+```
+
+</td></tr>
+<tr><td> Variable </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+data = [{obj}]
+```
+
+</td><td>
+
+```rexx
+an array of objects matching the parameters
+```
+
+</td></tr>
+</table>
+
+
+
 | Variable | Comment |
 |:--|:--|
 | `data = {obj}` | a single object matching the parameters |
@@ -2202,6 +2299,81 @@ Response:
 ```
 
 ### Notes on {filter_string}:
+<table>
+<tr><td> Note </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+keyword
+```
+
+</td><td>
+
+```rexx
+filter
+```
+
+</td></tr>
+<tr><td> Note </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+QUERY FORMAT
+```
+
+</td><td>
+
+```erlang
+?filter=(param_name > "param_value")
+```
+
+</td></tr>
+<tr><td> Note </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+QUERY EXAMPLE
+```
+
+</td><td>
+
+```erlang
+/get/users?filter=(user_id = "7" OR username="bob")
+```
+
+</td></tr>
+<tr><td> Note </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+PATH FORMAT
+```
+
+</td><td>
+
+```jq
+/filter/(param_name="param_value" OR param_name="param_value")
+```
+
+</td></tr>
+<tr><td> Note </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+PATH EXAMPLE
+```
+
+</td><td>
+
+```jq
+/get/users/filter/(username="bob" OR username="alice")
+```
+
+</td></tr>
+</table>
+
+
+
 | Note | Comment |
 |:--|:--|
 | keyword | **`filter`** |
