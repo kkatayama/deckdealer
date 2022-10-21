@@ -807,7 +807,7 @@ password2 = anna
 
 Request:
 ```jq
-/register/username/anna/password/anna/password2/anna
+https://bartender.hopto.org/register/username/anna/password/anna/password2/anna
 ```
 
 Response:
@@ -825,7 +825,7 @@ password2 = steve
 
 Request:
 ```jq
-/register/username/steve/password/steve/password2/steve
+https://bartender.hopto.org/register/username/steve/password/steve/password2/steve
 ```
 
 Response:
@@ -1066,7 +1066,7 @@ Response:
 
 ---
 
-## Workflow 2 - Create Tables:
+# [Workflow 3 - Create Tables](Workflow-3---Create-Table)
 * Let's create a few tables!<br /> 
   * **`managers`**  <br />
   * **`restaurant_profile`**  <br />
@@ -1083,7 +1083,7 @@ Response:
 ### Creating the Table `managers`:
 Request:
 ```ruby
-/createTable/managers/manager_id/INTEGER/user_id/INTEGER/restaurant_id/INTEGER/first_name/TEXT/last_name/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
+https://bartender.hopto.org/createTable/managers/manager_id/INTEGER/user_id/INTEGER/restaurant_id/INTEGER/first_name/TEXT/last_name/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
 ```
 
 Response:
