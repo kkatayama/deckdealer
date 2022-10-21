@@ -9,7 +9,7 @@ def register(users=False):
         for user in ['alice', 'bob', 'anna', 'steve']:
             q = f'/register/username/{user}/password/{user}/password2/{user}'
             print('---')
-            query.executeQuery(base_url='https://bartender.hopto.org/', query=q)
+            query.executeQuery(base_url=base_url, query=q)
         print('---')
 
 def delete(users=False):
@@ -18,14 +18,21 @@ def delete(users=False):
         for user in ['alice', 'bob', 'anna', 'steve']:
             q = f'/delete/users/username/{user}'
             print('---')
-            query.executeQuery(base_url='https://bartender.hopto.org/', query=q)
+            query.executeQuery(base_url=base_url, query=q)
         print('---')
+
+def examine():
+    table_names = [t['name'] for t in query.executeQuery(base_url=base_url, query='/get')["tables"]]
+    for name in table_names:
+        query.executeQuery(base_url=base_url, query=f'/get/{name}')
 
 
 if __name__ == '__main__':
+    base_url='https://bartender.hopto.org/'
     ap = argparse.ArgumentParser()
     ap.add_argument('-r', '--register', default=False, action="store_true", help="call /register")
     ap.add_argument('-d', '--delete', default=False, action="store_true", help="call /delete")
+    ap.add_argument('-e', '--examine', default=False, action="store_true", help="call /get")
     ap.add_argument('-u', '--users', required=False, action="store_true", help="table to perform action on")
     args = ap.parse_args()
 
@@ -33,3 +40,5 @@ if __name__ == '__main__':
         register(users=args.users)
     if args.delete:
         delete(users=args.users)
+    if args.examine:
+        examine()

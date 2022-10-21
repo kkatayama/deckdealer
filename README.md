@@ -2676,15 +2676,129 @@ Response:
 
 ---
 
+# [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data)
 
+---
 
+<details><summary> (click here to expand) </summary>
 
+### Let's examine all the tables we added and modified in the previous workflows
+
+```rexx
+./query_register_multiple_users.py --examine
+```
+
+### TODO: Filter Data, etc...
+
+</details>
 
 
 # 3. `/edit`
 **Edit a single entry or multiple entries of a table**
 
 ### Endpoints:
+<table>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
+
+```jq
+/edit
+```
+
+</td><td>
+
+```rexx
+returns all tables[] in the database
+```
+
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
+
+```jq
+/edit/usage
+```
+
+</td><td>
+
+```rexx
+returns message: 'usage-info'
+```
+
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
+
+```jq
+/edit/{table_name}
+```
+
+</td><td>
+
+```rexx
+returns message: 'missing a parameter'
+```
+
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
+
+```jq
+/edit/{table_name}/{param_name}/{param_value}
+```
+
+</td><td>
+
+```rexx
+edit entries: 'param_name=param_value'
+```
+
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
+
+```erlang
+/edit/{table_name}?param_name=param_value
+```
+
+</td><td>
+
+```rexx
+edit entries: 'param_name=param_value'
+```
+
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
+
+```jq
+/edit/{table_name}/filter/{filter_string}
+```
+
+</td><td>
+
+```rexx
+edit entries: filter='
+```
+
+</td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
+
+```erlang
+/edit/{table_name}?filter=filter_string
+```
+
+</td><td>
+
+```rexx
+edit entries: filter='
+```
+
+</td></tr>
+</table>
+
+
 | Resource | Description  |
 |:--|:--|
 | **`/edit`** | returns all tables[] in the database |
@@ -2696,12 +2810,84 @@ Response:
 | **`/edit/{table_name}?filter=filter_string`**  | edit entries: filter=[query]' |
 
 ### Requirements:
+<table>
+<tr><td> Parameters </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+at least 1 edit parameter
+```
+
+</td><td>
+
+```rexx
+any parameter not *_id or *_time
+```
+
+</td></tr>
+<tr><td> Parameters </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+at least 1 reference parameter
+```
+
+</td><td>
+
+```rexx
+any *_id or *_time parameter or filter
+```
+
+</td></tr>
+</table>
+
+
+
 | Parameters | Comment  |
 |:--|:--|
 | at least 1 edit parameter | any parameter not **`*_id`** or **`*_time`** |
 | at least 1 reference parameter | any **`*_id`** or **`*_time`** parameter or **`filter`** |
 
 ### Response After Successful [`/edit`](#3-edit):
+<table>
+<tr><td> Variable </td><td> Comment </td></tr>
+<tr>
+<td>
+
+```rexx
+message
+```
+
+</td>
+<td>
+
+```rexx
+number of edits made
+```
+
+</td>
+</tr>
+<tr><td> Variable </td><td> Comment </td></tr>
+<tr>
+<td>
+
+```rexx
+submitted[]
+```
+
+</td>
+<td>
+
+```rexx
+the parameters that were submitted
+```
+
+</td>
+</tr>
+</table>
+
+
+
 | Variable | Comment |
 |:--|:--|
 | `message` | number of edits made |
