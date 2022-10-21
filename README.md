@@ -1067,18 +1067,17 @@ Response:
 ---
 
 # [Workflow 3 - Create Tables](Workflow-3---Create-Table)
-* Let's create a few tables!<br /> 
-  * **`managers`**  <br />
-  * **`restaurant_profile`**  <br />
-  * **`restaurant_photos`**  <br />
-  * **`restaurant_schedule`**  <br />
-  * **`restaurant_requests`**  <br />
-  * **`bartenders`**  <br />
-  * **`bartender_wages`**  <br />
 
 ---
-<details><summary>Workflow 2 - Create Tables (click here to expand)
-</summary>
+<details><summary>Workflow 2 - Create Tables (click here to expand)</summary>
+### Let's create a few tables!<br /> 
+* **`managers`**  <br />
+* **`restaurant_profile`**  <br />
+* **`restaurant_photos`**  <br />
+* **`restaurant_schedule`**  <br />
+* **`restaurant_requests`**  <br />
+* **`bartenders`**  <br />
+* **`bartender_wages`**  <br />
 
 ### Creating the Table `managers`:
 Request:
