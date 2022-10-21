@@ -17,4 +17,4 @@ for table in r.json().get("tables")[1:]:
     # print(f'  * **`{name}`** | `{cols}` <br />'.replace("'", '"'))
     print('<tr><td> Table Name </td><td> Column Names </td></tr>')
     print(f'<tr><td>\n\n```rexx\n{name}\n```\n\n</td><td>\n\n```jq\n{cols}\n```\n\n</td></tr>'.replace("'", '"'))
-    print('</table>')
+print('</table>')

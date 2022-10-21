@@ -1088,7 +1088,6 @@ managers
 ```
 
 </td></tr>
-</table>
 <tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
@@ -1103,7 +1102,6 @@ restaurant_profile
 ```
 
 </td></tr>
-</table>
 <tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
@@ -1118,7 +1116,6 @@ restaurant_schedule
 ```
 
 </td></tr>
-</table>
 <tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
@@ -1133,7 +1130,6 @@ restaurant_requests
 ```
 
 </td></tr>
-</table>
 <tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
@@ -1148,7 +1144,6 @@ bartenders
 ```
 
 </td></tr>
-</table>
 <tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
@@ -1163,7 +1158,6 @@ restaurant_photos
 ```
 
 </td></tr>
-</table>
 <tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
