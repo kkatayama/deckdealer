@@ -1108,7 +1108,7 @@ Response:
 ### Creating the Table `restaurant_profile`:
 Request:
 ```ruby
-/createTable/restaurant_profile/restaurant_id/INTEGER/manager_id/INTEGER/restaurant_name/TEXT/address/TEXT/bio/TEXT/phone_number/TEXT/profile_pic/TEXT/entry_time/DATETIME
+https://bartender.hopto.org/createTable/restaurant_profile/restaurant_id/INTEGER/manager_id/INTEGER/restaurant_name/TEXT/address/TEXT/bio/TEXT/phone_number/TEXT/profile_pic/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1132,7 +1132,7 @@ Response:
 ### Creating the Table `restaurant_photos`:
 Request:
 ```ruby
-/createTable/restaurant_photos/photo_id/INTEGER/restaurant_id/INTEGER/photo_url/TEXT/entry_time/DATETIME
+https://bartender.hopto.org/createTable/restaurant_photos/photo_id/INTEGER/restaurant_id/INTEGER/photo_url/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1147,7 +1147,7 @@ Response:
 ### Creating the Table `restaurant_schedule`:
 Request:
 ```ruby
-/createTable/restaurant_schedule/schedule_id/INTEGER/restaurant_id/INTEGER/mon_open/DATETIME/mon_close/DATETIME/tue_open/DATETIME/tue_close/DATETIME/wed_open/DATETIME/wed_close/DATETIME/thu_open/DATETIME/thu_close/DATETIME/fri_open/DATE
+https://bartender.hopto.org/createTable/restaurant_schedule/schedule_id/INTEGER/restaurant_id/INTEGER/mon_open/DATETIME/mon_close/DATETIME/tue_open/DATETIME/tue_close/DATETIME/wed_open/DATETIME/wed_close/DATETIME/thu_open/DATETIME/thu_close/DATETIME/fri_open/DATE
 TIME/fri_close/DATETIME/sat_open/DATETIME/sat_close/DATETIME/sun_open/DATETIME/sun_close/DATETIME/entry_time/DATETIME
 ```
 
@@ -1181,7 +1181,7 @@ Response:
 ### Creating the Table `restaurant_requests`:
 Request:
 ```ruby
-/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/entry_time/DATETIME
+https://bartender.hopto.org/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/entry_time/DATETIME
 ```
 
 Response:
@@ -1203,7 +1203,7 @@ Response:
 ### Creating the Table `bartenders`:
 Request:
 ```ruby
-/createTable/bartenders/bartender_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/address/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
+https://bartender.hopto.org/createTable/bartenders/bartender_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/address/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1245,8 +1245,11 @@ Response:
 | table_name | the name of the **`table`** you wish to delete  |
 
 ---
-<details><summary>Endpoint Background (click here to expand)
-</summary>
+
+<details>
+<summary>Endpoint Background (click here to expand)</summary>
+
+
 
 ### Investigating the Endpoint: `/deleteTable`
 The endpoint for deleting a **`table`** with a **`table_name`** is **`/deleteTable/{table_name}`**.
