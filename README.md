@@ -1069,7 +1069,9 @@ Response:
 # [Workflow 3 - Create Tables](Workflow-3---Create-Table)
 
 ---
+
 <details><summary>Workflow 2 - Create Tables (click here to expand)</summary>
+
 ### Let's create a few tables!<br /> 
 * **`managers`**  <br />
 * **`restaurant_profile`**  <br />
