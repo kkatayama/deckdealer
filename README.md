@@ -1068,15 +1068,12 @@ Response:
 
 ---
 
-# [Workflow 3 - Create Tables](Workflow-3---Create-Table)
-
----
+# [Workflow 3 - Creating Tables](Workflow-3---Creating-Tables)
 
 <details><summary> (click here to expand) </summary>
 
 ### Let's create a few tables!<br />
 <table>
-
 <tr><td> Table Name </td><td> Column Names </td></tr>
 <tr><td>
 
