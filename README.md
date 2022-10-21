@@ -1074,7 +1074,7 @@ Response:
 
 ---
 
-<details><summary>
+<details markdown="1"><summary>
 
 # [Workflow 3 - Create Tables] (click here to expand)
 
