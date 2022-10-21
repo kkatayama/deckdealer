@@ -341,7 +341,6 @@ usage_register = {
                 "user_id": 2,
                 "username": "teddy"
             },
-
         },
         "/register?param_name=param_value": {
             "url_paths": "register with: 'param_name=param_value'",
@@ -429,6 +428,9 @@ usage_uploadImageUrl = {
         "/uploadImageUrl": {
             "returns": "missing paramaters",
         },
+        "/uploadImageUrl/usage": {
+            "returns": "message: 'usage-info'",
+        },
         "/uploadImageUrl/<param_name>/<param_value>": {
             "url_paths": "upload with: 'param_name=param_value'",
             "example": "/uploadImageUrl/url/https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
@@ -437,7 +439,6 @@ usage_uploadImageUrl = {
                 "url": "https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
                 "filename": "/static/img/2.png"
             },
-
         },
         "/uploadImageUrl?param_name=param_value": {
             "url_paths": "upload with: 'param_name=param_value'",
@@ -447,7 +448,6 @@ usage_uploadImageUrl = {
                 "url": "https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
                 "filename": "/static/img/2.png"
             },
-
         },
         "Required": {
             "Parameters": {

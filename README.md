@@ -1481,9 +1481,8 @@ Response:
 ---
 
 # [Core Functions](#Core-Functions)
-The examples listed below will cover the **4 core functions** <br />
 All examples shown are executed via a **GET** request and can be tested with any browser. <br />
-All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE** <br />
+All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE** <br />
 
 # 1. `/add`
 **Add a *single* entry to a `table`**
@@ -1800,10 +1799,18 @@ Response:
 {"message": "data added to {oximeter}", "entry_id": 58, "user_id": "8"}
 ```
 
----
 </details>
 
-## Workflow Example:
+---
+
+
+# [Workflow 4 - Inserting Data](#Workflow-Example-4---Inserting-Data)
+* Assigning `users` to `Roles` and creating `User Profiles`
+  1. []()
+  2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
+  3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
+  
+* 
 * [Let's add 2 users to the **`users`** table: `alice` and `bob`](#adding-alice-to-the-users-table)
 * [Then, add sensor data to the **`oximeter`** table for both users](#adding-sensor-data-for-the-user-alice-to-the-oximeter-table)
 
@@ -2788,3 +2795,202 @@ Response:
 
 ---
 
+
+# [Extra Functions](#Extra-Functions)
+The examples listed below will cover the **1 extra function**.<br />
+All examples shown are executed via a **GET** request and can be tested with any browser. <br />
+All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
+
+# 1. `/uploadImageUrl`
+**Upload an image to the backend via image url** 
+
+### Endpoints:
+<table>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/uploadImageUrl
+```
+
+</td>
+<td>
+
+```rexx
+returns: {"message": "missing parameters", "required params": ["url"]}
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/uploadImageUrl/usage
+```
+
+</td>
+<td>
+
+```rexx
+returns: {"message": "usage_info"}
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/uploadImageUrl/<param_name>/<param_value>
+```
+
+</td>
+<td>
+
+```rexx
+upload with url_paths: 'param_name=param_value'
+```
+
+</td>
+</tr>
+<tr><td> Resource </td><td> Description </td></tr>
+<tr>
+<td>
+
+```jq
+/uploadImageUrl?param_name=param_value
+```
+
+</td>
+<td>
+
+```rexx
+upload with params: 'param_name=param_value'
+```
+
+</td>
+</tr>
+</table>
+
+
+### Requirements:
+<table>
+<tr><td> Parameters </td><td> Description </td></tr>
+<tr>
+<td>
+
+```rexx
+username
+```
+
+</td>
+<td>
+
+```rexx
+must match the users table
+```
+
+</td>
+</tr>
+<tr><td> Parameters </td><td> Description </td></tr>
+<tr>
+<td>
+
+```rexx
+password
+```
+
+</td>
+<td>
+
+```rexx
+passwords are salted and pbkdf2 hmac sha256 hashed with 1000 iterations
+```
+
+</td>
+</tr>
+</table>
+
+---
+
+<details><summary>Endpoint Background (click here to expand)</summary>
+
+### Investigating the Endpoint: `/login`
+Request:
+```ruby
+/login
+```
+
+Response:
+```json
+{
+  "message": "missing parameters", 
+  "required": [{"username": "TEXT", "password": "TEXT"}], "submitted": [{}]
+}
+```
+
+Arguments:
+```python
+username = admin
+```
+
+Request:
+```ruby
+/login/username/admin
+```
+
+Response:
+```json
+{
+  "message": "missing parameters",
+  "required": [{"username": "TEXT", "password": "TEXT"}],
+  "submitted": [{"username": "admin"}]
+}
+```
+
+Arguments:
+```python
+username = admin
+password = 123
+```
+
+Request:
+```ruby
+/login?username=admin&password=123
+```
+
+Response:
+```json
+{
+  "message": "incorrect password",
+  "password": "123"
+}
+```
+
+Arguments:
+```python
+username = admin
+password = admin
+```
+
+Request:
+```ruby
+/login?username=admin&password=admin
+```
+
+Response:
+```json
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+```
+</details>
+
+---
