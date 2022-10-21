@@ -1850,9 +1850,9 @@ Response:
 <details><summary>(click here to expand)
 </summary>
 
-### Assigning `users` to `Roles` and creating `User Profiles`
+## Assigning `users` to `Roles` and creating `User Profiles`
 ``` rexx
-"/uploadImageUrl/<URL>" - allows us to upload image urls to the backend;**
+"/uploadImageUrl/<URL>" - allows us to upload image urls to the backend;
 ```
 1. Lets upload profile pictures for the 4 users we added earlier and 2 reqtaurants...
 2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
@@ -2872,19 +2872,11 @@ the parameters that were submitted
 </tr>
 </table>
 
-
-## Workflow Example:
-* Simulate `Restaurant Requests` and `Bartender Wage Reporting`...
-  1. Log in as a manager and create a `shift request` into the `restaurant_requests` table
-  2. Log in as a bartender and snag the `shift request` by editing the `status` from `available` to `taken`
-  3. Then (as bartender), add the `shift_request` to the `bartenders_shifts` with the `status` of `active`
-  4. Simulate the bartender completing their shift by setting the `status` from `active` to `completed` in the `bartender_shifts` table
-  5. Finally, as the bartender, submit an `entry` to `bartender_wages` 
-
 ---
 
-<details><summary>Show Workflow Example (click here to expand)
+<details><summary>Endpint Background (click here to expand)
 </summary>
+
 
 ### Investigating the Endpoint: `/edit`
 The endpoint to edit a user from the **`users`** is **`/edit/users`**.
@@ -3125,14 +3117,123 @@ Response:
     ]
 }
 ```
+
 </details>
 
 ---
+
+# [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data)
+
+---
+
+<details><summary> (click here to expand) </summary>
+
+### Simulate `Restaurant Requests` and `Bartender Wage Reporting`...
+1. Log in as a manager and create a `shift request` into the `restaurant_requests` table
+2. Log in as a bartender and snag the `shift request` by editing the `status` from `available` to `taken`
+3. Then (as bartender), add the `shift_request` to the `bartenders_shifts` with the `status` of `active`
+
+### Let's say some time has passed and now the bartender has completed their shift
+1. Simulate the bartender completing their shift by setting the `status` from `active` to `completed` in the `bartender_shifts` table
+2. Finally, as the bartender, submit an `entry` to `bartender_wages` 
+
+</detail>
+
+--
 
 # 4. `/delete`
 **Delete a single entry or multiple entries of a table**
 
 ### Endpoints:
+<table>
+<tr><td> Resource </td><td> Description </td></tr><tr><td>
+
+```jq
+/delete
+```
+
+</td>
+<td>
+
+```rexx
+returns all tables[] in the database
+```
+
+</td></tr><tr><td> Resource </td><td> Description </td></tr><tr><td>
+
+```jq
+/delete/usage
+```
+
+</td><td>
+
+```rexx
+returns message: 'usage-info'
+```
+
+</td></tr><tr><td> Resource </td><td> Description </td></tr><tr><td>
+
+```jq
+/delete/{table_name}
+```
+
+</td><td>
+
+```rexx
+returns message: 'missing a parameter'
+```
+
+</td></tr><tr><td> Resource </td><td> Description </td></tr><tr><td>
+
+```jq
+/delete/{table_name}/{param_name}/{param_value}
+```
+
+</td><td>
+
+```rexx
+delete entries: 'param_name=param_value'
+```
+
+</td></tr><tr><td> Resource </td><td> Description </td></tr><tr><td>
+
+```erlang
+/delete/{table_name}?param_name=param_value
+```
+
+</td><td>
+
+```rexx
+delete entries: 'param_name=param_value'
+```
+
+</td></tr><tr><td> Resource </td><td> Description </td></tr><tr><td>
+
+```jq
+/delete/{table_name}/filter/{filter_string}
+```
+
+</td><td>
+
+```rexx
+delete entries: filter='
+```
+
+</td></tr><tr><td> Resource </td><td> Description </td></tr><tr><td>
+
+```erlang
+/delete/{table_name}?filter=filter_string
+```
+
+</td><td>
+
+```rexx
+delete entries: filter='
+```
+
+</td></tr>
+</table>
+
 | Resource | Description  |
 |:--|:--|
 | **`/delete`** | returns all tables[] in the database |
@@ -3144,11 +3245,59 @@ Response:
 | **`/delete/{table_name}?filter=filter_string`**  | delete entries: filter=[query]' |
 
 ### Requirements:
+<table>
+<tr><td> Parameters </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+at least 1 reference parameter
+```
+
+</td><td>
+
+```rexx
+any *_id or *_time parameter or filter
+```
+
+</td></tr>
+</table>
+
+
 | Parameters | Comment  |
 |:--|:--|
 | at least 1 reference parameter | any **`*_id`** or **`*_time`** parameter or **`filter`** |
 
 ### Response After Successful [`/delete`](#4-delete):
+<table>
+<tr><td> Variable </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+message
+```
+
+</td><td>
+
+```rexx
+number of deletes made
+```
+
+</td></tr><tr><td> Variable </td><td> Comment </td></tr><tr><td>
+
+```rexx
+submitted[]
+```
+
+</td><td>
+
+```rexx
+the parameters that were submitted
+```
+
+</td></tr>
+</table>
+
+
 | Variable | Comment |
 |:--|:--|
 | `message` | number of deletes made |
