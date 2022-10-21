@@ -1,4 +1,4 @@
-# coding: utf-8
+#!/usr/bin/env python3
 from query import load_cookies, load_headers, print
 import requests
 import json

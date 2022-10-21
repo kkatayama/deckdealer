@@ -1805,20 +1805,26 @@ Response:
 
 
 # [Workflow 4 - Inserting Data](#Workflow-Example-4---Inserting-Data)
-* Assigning `users` to `Roles` and creating `User Profiles`
-  1. []()
-  2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
-  3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
-  
-* 
-* [Let's add 2 users to the **`users`** table: `alice` and `bob`](#adding-alice-to-the-users-table)
-* [Then, add sensor data to the **`oximeter`** table for both users](#adding-sensor-data-for-the-user-alice-to-the-oximeter-table)
-
-
 
 ---
-<details><summary>Show Workflow Example (click here to expand)
+
+<details><summary>(click here to expand)
 </summary>
+
+* Assigning `users` to `Roles` and creating `User Profiles`
+  **[/uploadImageUrl](#/uploadImageUrl) allows us to upload image urls to the backend;**
+  1. Lets upload profile pictures for the 4 users we added earlier and 2 reqtaurants...
+  2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
+  3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
+* Setting up the `Restaurant Tables`
+  1. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
+  2. Then add their schedules to the `restaurant_schedule` table
+
+
+* Simulate `Restaurant Requests` and `Bartender Wage Reporting`...
+  1. Create a `shift request` from a restaurant and insert it in the `restaurant_requests` table
+  2. 
+
 
 
 
@@ -2884,31 +2890,14 @@ upload with params: 'param_name=param_value'
 <td>
 
 ```rexx
-username
+url
 ```
 
 </td>
 <td>
 
 ```rexx
-must match the users table
-```
-
-</td>
-</tr>
-<tr><td> Parameters </td><td> Description </td></tr>
-<tr>
-<td>
-
-```rexx
-password
-```
-
-</td>
-<td>
-
-```rexx
-passwords are salted and pbkdf2 hmac sha256 hashed with 1000 iterations
+the full url path of the image you wish to upload and save into the backend
 ```
 
 </td>
@@ -2919,78 +2908,89 @@ passwords are salted and pbkdf2 hmac sha256 hashed with 1000 iterations
 
 <details><summary>Endpoint Background (click here to expand)</summary>
 
-### Investigating the Endpoint: `/login`
+### Investigating the Endpoint: `/uploadImageUrl`
 Request:
 ```ruby
-/login
+/uploadImageUrl
 ```
 
 Response:
 ```json
 {
-  "message": "missing parameters", 
-  "required": [{"username": "TEXT", "password": "TEXT"}], "submitted": [{}]
+  'message': 'missing parameters', 
+  'required': [['url']], 
+  'submitted': [{}]
+}
+```
+
+Request:
+```ruby
+/uploadImageUrl/usage
+```
+
+Response:
+```json
+{
+  "message": "usage info: /uploadImageUrl",
+  "description": "upload an image to the backend via image url",
+  "end_points": {
+    "/uploadImageUrl": {
+      "returns": "missing paramaters"
+    },
+    "/uploadImageUrl/usage": {
+      "returns": "message: 'usage-info'"
+    },
+    "/uploadImageUrl/<param_name>/<param_value>": {
+      "url_paths": "upload with: 'param_name=param_value'",
+      "example": "/uploadImageUrl/url/https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
+      "response": {
+        "message": "image url uploaded",
+        "url": "https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
+        "filename": "/static/img/2.png"
+      }
+    },
+    "/uploadImageUrl?param_name=param_value": {
+      "url_paths": "upload with: 'param_name=param_value'",
+      "example": "/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
+      "response": {
+        "message": "image url uploaded",
+        "url": "https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
+        "filename": "/static/img/2.png"
+      }
+    },
+    "Required": {
+      "Parameters": {
+        "url": "TEXT"
+      }
+    },
+    "Response": {
+      "message": "image url uploaded",
+      "url": "TEXT",
+      "filename": "TEXT"
+    }
+  }
 }
 ```
 
 Arguments:
 ```python
-username = admin
+url = "https://bartender.hopto.org/uploadImageUrl/url/https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png"
 ```
 
 Request:
 ```ruby
-/login/username/admin
+https://bartender.hopto.org/uploadImageUrl/url/https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
 ```
 
 Response:
 ```json
 {
-  "message": "missing parameters",
-  "required": [{"username": "TEXT", "password": "TEXT"}],
-  "submitted": [{"username": "admin"}]
+  "message": "image url uploaded",
+  "url": "https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
+  "filename": "/static/img/1.png"
 }
 ```
 
-Arguments:
-```python
-username = admin
-password = 123
-```
-
-Request:
-```ruby
-/login?username=admin&password=123
-```
-
-Response:
-```json
-{
-  "message": "incorrect password",
-  "password": "123"
-}
-```
-
-Arguments:
-```python
-username = admin
-password = admin
-```
-
-Request:
-```ruby
-/login?username=admin&password=admin
-```
-
-Response:
-```json
-{
-  "message": "user login success",
-  "user_id": 1,
-  "username": "admin",
-  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
-}
-```
 </details>
 
 ---
