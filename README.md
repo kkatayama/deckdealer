@@ -919,12 +919,20 @@ create a table with columns using query parameters
 ### Requirements:
 <table>
 <tr><td> Parameters </td><td> Value </td></tr><tr><td>
+
 ```rexx
 user_id
 ```
+```rexx
+user_name
+```
+
 </td><td>
+
 ```rexx
 INTEGER
+
+STRING
 ```
 
 </td></tr><tr><td> Parameters </td><td> Value </td></tr><tr><td>
