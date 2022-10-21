@@ -1397,12 +1397,6 @@ debug: returns the required parameters
 </tr>
 </table>
 
-| Resource | Description |
-|:--|:--|
-| **`/deleteTable`**  | returns a list of all existing tables in the database |
-| **`/deleteTable/usage`**  | returns a message for how to use this function |
-| **`/deleteTable/{table_name}`**  | debug: returns the required parameters |
-
 ### Requirements:
 <table>
 <tr><td> Parameters </td><td> Description </td></tr>
@@ -1423,12 +1417,6 @@ the name of the table you wish to delete
 </td>
 </tr>
 </table>
-
-
-
-| Parameters | Description |
-|:--|:--|
-| table_name | the name of the **`table`** you wish to delete  |
 
 ---
 
