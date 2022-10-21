@@ -756,12 +756,16 @@ Response:
 ---
 
 <!-- # [Workflow 2 - Register Users](#Workflow-2---Register-Users) -->
-
 ---
+
+
+<!--[Workflow 2 - Register Users](#Workflow-2---Register-Users)
+<A> [Workflow 2 - Register Users](#Workflow-2---Register-Users) >
+
 
 <details markdown="1"><summary>
 
-# <a title="(click here to expand)">Workflow 2 - Register Users</a> 
+# <a title="(click here to expand)" style="color: var(--color-accent-fg);"> Workflow 2 - Register Users </a> 
 
 </summary>
 
@@ -1075,6 +1079,10 @@ Response:
 ---
 
 <details markdown="1" ><summary>
+
+```html
+
+```
 
 # [Workflow 3 - Create Tables](@) (click here to expand)
 
