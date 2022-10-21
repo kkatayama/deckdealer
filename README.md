@@ -759,7 +759,9 @@ Response:
 
 ---
 
-<details><summary>(click here to expand)</summary>
+<details  markdown="1"><summary>
+# [Workflow 2 - Register Users]([#Workflow-2---Register-Users) (click here to expand)
+</summary>
 
 ### Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`
 Arguments:
@@ -1070,7 +1072,11 @@ Response:
 
 ---
 
-<details><summary>Workflow 2 - Create Tables (click here to expand)</summary>
+<details><summary>
+
+# Workflow 3 - Create Tables (click here to expand)
+
+</summary>
 
 ### Let's create a few tables!<br /> 
 * **`managers`**  <br />
