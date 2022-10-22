@@ -177,7 +177,7 @@ I recommend starting with the [Workflows](#Workflows) provided to get comfortabl
 - [ ] [Workflow 1 - Login](#Workflow-1---Login)
 - [ ] [Workflow 2 - Register Users](#Workflow-2---Register-Users)
 - [ ] [Workflow 3 - Creating Tables](#Workflow-3---Creating-Tables)
-- [ ] [Workflow 4 - Insertin Data](#Workflow-4---Inserting-Data)
+- [ ] [Workflow 4 - Inserting Data](#Workflow-4---Inserting-Data)
 - [ ] [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data)
 - [ ] [Workflow 6 - Editing Data](#Workflow-5---Editing-Data)
 - [ ] [Workflow 7 - Deleting Data](#Workflow-5---Deleting-Data)
@@ -3122,7 +3122,7 @@ Response:
 
 ---
 
-# [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data)
+# [Workflow 6 - Editing Data](#Workflow-6---Editing-Data)
 
 ---
 
@@ -3234,15 +3234,6 @@ delete entries: filter='
 </td></tr>
 </table>
 
-| Resource | Description  |
-|:--|:--|
-| **`/delete`** | returns all tables[] in the database |
-| **`/delete/usage`** | returns message: 'usage-info' |
-| **`/delete/{table_name}`** | returns message: 'missing a parameter' |
-| **`/delete/{table_name}/{param_name}/{param_value}`** | delete entries: 'param_name=param_value' |
-| **`/delete/{table_name}?param_name=param_value`**  | delete entries: 'param_name=param_value' |
-| **`/delete/{table_name}/filter/{filter_string}`**  | delete entries: filter=[query]' |
-| **`/delete/{table_name}?filter=filter_string`**  | delete entries: filter=[query]' |
 
 ### Requirements:
 <table>
@@ -3262,10 +3253,6 @@ any *_id or *_time parameter or filter
 </td></tr>
 </table>
 
-
-| Parameters | Comment  |
-|:--|:--|
-| at least 1 reference parameter | any **`*_id`** or **`*_time`** parameter or **`filter`** |
 
 ### Response After Successful [`/delete`](#4-delete):
 <table>
@@ -3297,26 +3284,9 @@ the parameters that were submitted
 </td></tr>
 </table>
 
-
-| Variable | Comment |
-|:--|:--|
-| `message` | number of deletes made |
-| `submitted[]` | the parameters that were submitted |
-
-
-Note:
-> The old functions `/deleteUser` and `/deleteSensorData` still work but are kept for backward compatibility.
-> `/deleteUser` has migrated to: `/delete/users`
-> `/deleteSensorData` has migrated to: `/delete/oximeter`
-> It is recommended to update the existing *mp32* and *swift* code to follow the new format
-
-## Workflow Example:
-* Robert wasn't too happy that we were able to detect that he had a fever
-  * [Let's delete all entries for `Robert` with **`temperature`** in the fever range](#deleting-all-entries-for-robert-with-temperature-in-the-fever-range)
-
 ---
-<details><summary>Show Workflow Example (click here to expand)
-</summary>
+
+<details><summary>Endpoint Background (click here to expand)</summary>
 
 ### Investigating the Endpoint: `/delete`
 The endpoint for deleting an entry from the **`oximeter`** table is **`/delete/oximeter`**.
@@ -3381,6 +3351,20 @@ Response:
     ]
 }
 ```
+</details>
+
+---
+
+# [Workflow 7 - Deleting Data](#Workflow-7---Deleting-Data)
+
+---
+
+<details><summary> (click me to exapnd) </summary>
+
+## Let's delete some data !!!
+1. stuff
+2. stuff
+
 </details>
 
 ---
