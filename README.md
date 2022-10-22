@@ -3137,9 +3137,9 @@ Response:
 1. Simulate the bartender completing their shift by setting the `status` from `active` to `completed` in the `bartender_shifts` table
 2. Finally, as the bartender, submit an `entry` to `bartender_wages` 
 
-</detail>
+</details>
 
---
+---
 
 # 4. `/delete`
 **Delete a single entry or multiple entries of a table**
