@@ -189,7 +189,7 @@ The examples listed below will cover the **3 user functions**.<br />
 All examples shown are executed via a **GET** request and can be tested with any browser. <br />
 All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
-# 1. `/login`
+## 1. `/login`
 **Login `user`** 
 > Only logged in users can call functions!
 
@@ -367,7 +367,7 @@ Response:
 
 ---
 
-# [Workflow 1 - Login](#Workflow-1---Login)
+## [Workflow 1 - Login](#Workflow-1---Login)
 
 <details><summary> (click here to expand) </summary>
 
@@ -760,6 +760,8 @@ Response:
 <details><summary> (click here to expand) </summary>
 
 ### Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`
+---
+
 Arguments:
 ```rexx
 username = alice
