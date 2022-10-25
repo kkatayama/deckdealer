@@ -1865,8 +1865,7 @@ Response:
 
 ### 4.1 Uploading Profile Pictures
 
-<details><summary> (click here to expand)
-</summary>
+<details><summary> (click here to expand) </summary>
 
 <br />We can use the endpoint `/uploadImageUrl/url/<url>` to upload profile pictures...
 
