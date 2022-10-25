@@ -1997,7 +1997,7 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-To assign `alice` and `bob` as managers, we will need their `user_id`.
+<br />To assign `alice` and `bob` as managers, we will need their `user_id`.
 
 To do this, make a request to the `users` table:
 
@@ -2094,6 +2094,35 @@ Response:
 </details>
 
 ---
+
+#### Adding `alice` to `managers` table
+
+---
+Arguments:
+```rexx
+user_id = 2
+first_name = "Alice"
+last_name = "Alice"
+phone_number = "(302) 555-5555"
+email = alice@udel.edu
+profile_pic = "
+static = img/1.png"
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/managers/user_id/2/first_name/"Alice"/last_name/"Alice"/phone_number/"(302)
+555-5555"/email/alice@udel.edu/profile_pic/"/static/img/1.png"
+```
+
+Response:
+```json
+{
+  "message": "data added to <managers>",
+  "manager_id": 1,
+  "user_id": "2"
+}
+```
 
 
 
