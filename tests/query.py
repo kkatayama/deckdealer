@@ -20,6 +20,7 @@ import http.cookiejar
 import argparse
 import requests
 import pickle
+import json
 import sys
 import re
 
@@ -132,7 +133,7 @@ Request:
 Response:
 ```json"""
     print(output)
-    print(res)
+    print_json(data=res)
     print('```')
     return res
 

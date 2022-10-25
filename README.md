@@ -1886,7 +1886,11 @@ https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3image
 
 Response:
 ```json
-{'message': 'image url uploaded', 'url': 'https://www.w3schools.com/w3images/avatar4.png', 'filename': '/static/img/1.png'}
+{
+  "message": "image url uploaded",
+  "url": "https://www.w3schools.com/w3images/avatar4.png",
+  "filename": "/static/img/1.png"
+}
 ```
 ---
 
@@ -1904,7 +1908,11 @@ https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3image
 
 Response:
 ```json
-{'message': 'image url uploaded', 'url': 'https://www.w3schools.com/w3images/avatar2.png', 'filename': '/static/img/2.png'}
+{
+  "message": "image url uploaded",
+  "url": "https://www.w3schools.com/w3images/avatar2.png",
+  "filename": "/static/img/2.png"
+}
 ```
 ---
 
@@ -1922,7 +1930,11 @@ https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3image
 
 Response:
 ```json
-{'message': 'image url uploaded', 'url': 'https://www.w3schools.com/w3images/avatar5.png', 'filename': '/static/img/3.png'}
+{
+  "message": "image url uploaded",
+  "url": "https://www.w3schools.com/w3images/avatar5.png",
+  "filename": "/static/img/3.png"
+}
 ```
 ---
 
@@ -1940,7 +1952,11 @@ https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3image
 
 Response:
 ```json
-{'message': 'image url uploaded', 'url': 'https://www.w3schools.com/w3images/avatar3.png', 'filename': '/static/img/4.png'}
+{
+  "message": "image url uploaded",
+  "url": "https://www.w3schools.com/w3images/avatar3.png",
+  "filename": "/static/img/4.png"
+}
 ```
 ---
 
