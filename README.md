@@ -1847,7 +1847,7 @@ Response:
 
 ---
 
-<details><summary>(click here to expand)
+<details><summary> (click here to expand)
 </summary>
 
 ## Assigning `users` to `Roles` and creating `User Profiles`
@@ -1862,6 +1862,91 @@ Response:
 1. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
 2. Then add their schedules to the `restaurant_schedule` table
 
+
+### 4.1 Uploading Profile Pictures
+
+---
+
+<details><summary> (click here to expand)
+</summary>
+
+We can use the endpoint `/uploadImageUrl/url/<url>` to upload profile pictures...
+
+Uploading profile picture for `alice`
+---
+Arguments:
+```rexx
+url = https://www.w3schools.com/w3images/avatar4.png
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar4.png
+```
+
+Response:
+```json
+{'message': 'image url uploaded', 'url': 'https://www.w3schools.com/w3images/avatar4.png', 'filename': '/static/img/1.png'}
+```
+---
+
+Uploading profile picture for `bob`
+---
+Arguments:
+```rexx
+url = https://www.w3schools.com/w3images/avatar2.png
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar2.png
+```
+
+Response:
+```json
+{'message': 'image url uploaded', 'url': 'https://www.w3schools.com/w3images/avatar2.png', 'filename': '/static/img/2.png'}
+```
+---
+
+Uploading profile picture for `anna`
+---
+Arguments:
+```rexx
+url = https://www.w3schools.com/w3images/avatar5.png
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar5.png
+```
+
+Response:
+```json
+{'message': 'image url uploaded', 'url': 'https://www.w3schools.com/w3images/avatar5.png', 'filename': '/static/img/3.png'}
+```
+---
+
+Uploading profile picture for `steve`
+---
+Arguments:
+```rexx
+url = https://www.w3schools.com/w3images/avatar3.png
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar3.png
+```
+
+Response:
+```json
+{'message': 'image url uploaded', 'url': 'https://www.w3schools.com/w3images/avatar3.png', 'filename': '/static/img/4.png'}
+```
+---
+
+</details>
+
+---
 
 </details>
 

@@ -126,7 +126,7 @@ Arguments:
 
 Request:
 ```{req_code}
-{query}
+{base_url+query}
 ```
 
 Response:
