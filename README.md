@@ -1296,7 +1296,7 @@ Response:
         "hourly_wage DOUBLE NOT NULL",
         "shift_start DATETIME NOT NULL",
         "shift_end DATETIME NOT NULL",
-        'status TEXT NOT NULL',
+        "status TEXT NOT NULL",
         "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
     ]
 }
@@ -1345,7 +1345,7 @@ Response:
         "shift_start DATETIME NOT NULL",
         "shift_end DATETIME NOT NULL",
         "status TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now", \"localtime\"))"
+        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
     ]
 }
 ```
