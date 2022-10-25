@@ -1845,6 +1845,7 @@ Response:
 
 <details><summary> (click here to expand)
 </summary>
+<br />
 
 **Assigning `users` to `Roles` and creating `User Profiles`**
 ``` rexx
