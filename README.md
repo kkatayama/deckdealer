@@ -1857,8 +1857,8 @@ Response:
 3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
 
 ## Setting up the `Restaurant Tables`
-1. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
-2. Then add their schedules to the `restaurant_schedule` table
+4. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
+5. Then add their schedules to the `restaurant_schedule` table
 
 
 ### 4.1 Uploading Profile Pictures
