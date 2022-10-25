@@ -1955,8 +1955,48 @@ Response:
 }
 ```
 ---
+#### Uploading profile picture for `Iron Hill`
 
+Arguments:
+```rexx
+url = https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
+```
 
+Request:
+```erlang
+https://bartender.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
+```
+
+Response:
+```json
+{
+  "message": "image url uploaded",
+  "url": "https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
+  "filename": "/static/img/5.png"
+}
+```
+---
+#### Uploading profile picture for `Deer Park`
+
+Arguments:
+```rexx
+url = https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44-4f35-bdf9-b0a855c09328.jpg
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/uploadImageUrl?url=https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44
+-4f35-bdf9-b0a855c09328.jpg
+```
+
+Response:
+```json
+{
+  "message": "image url uploaded",
+  "url": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44-4f35-bdf9-b0a855c09328.jpg",
+  "filename": "/static/img/6.jpeg"
+}
+```
 
 </details>
 
