@@ -1865,14 +1865,12 @@ Response:
 
 ### 4.1 Uploading Profile Pictures
 
----
-
 <details><summary> (click here to expand)
 </summary>
 
 <br />We can use the endpoint `/uploadImageUrl/url/<url>` to upload profile pictures...
 
-#### Uploading profile picture for `alice`
+Uploading profile picture for `alice`
 ---
 Arguments:
 ```rexx
