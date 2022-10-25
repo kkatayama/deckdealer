@@ -1840,12 +1840,9 @@ Response:
 
 ---
 
-
 ## [Workflow 4 - Inserting Data](#Workflow-Example-4---Inserting-Data)
 
-<details><summary> (click here to expand)
-</summary>
-<br />
+<details><summary> (click here to expand) </summary>
 
 ### Assigning `users` to `Roles` and creating `User Profiles`
 ``` rexx
