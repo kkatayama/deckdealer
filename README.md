@@ -1870,8 +1870,7 @@ Response:
 <details><summary> (click here to expand)
 </summary>
 
-
-We can use the endpoint `/uploadImageUrl/url/<url>` to upload profile pictures...
+<br />We can use the endpoint `/uploadImageUrl/url/<url>` to upload profile pictures...
 
 Uploading profile picture for `alice`
 ---
