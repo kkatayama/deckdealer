@@ -1336,16 +1336,16 @@ Request:
 Response:
 ```json
 {
-    'message': '1 table created',
-    'table': 'bartender_shifts',
-    'columns': [
-        'shift_id INTEGER PRIMARY KEY',
-        'restaurant_id INTEGER NOT NULL',
-        'hourly_wage DOUBLE NOT NULL',
-        'shift_start DATETIME NOT NULL',
-        'shift_end DATETIME NOT NULL',
-        'status TEXT NOT NULL',
-        "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+    "message": "1 table created",
+    "table": "bartender_shifts",
+    "columns": [
+        "shift_id INTEGER PRIMARY KEY",
+        "restaurant_id INTEGER NOT NULL",
+        "hourly_wage DOUBLE NOT NULL",
+        "shift_start DATETIME NOT NULL",
+        "shift_end DATETIME NOT NULL",
+        "status TEXT NOT NULL",
+        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now", \"localtime\"))"
     ]
 }
 ```
