@@ -369,8 +369,6 @@ Response:
 
 # [Workflow 1 - Login](#Workflow-1---Login)
 
----
-
 <details><summary> (click here to expand) </summary>
 
 ### Let's log in as the user `admin`
@@ -1860,6 +1858,7 @@ Response:
 4. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
 5. Then add their schedules to the `restaurant_schedule` table
 
+---
 
 ### 4.1 Uploading Profile Pictures
 
