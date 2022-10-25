@@ -484,7 +484,7 @@ Response:
 
 ---
 
-# 3. `/register`
+## 3. `/register`
 Register a new **`user`** to the `users` table.
 
 ### Endpoints:
@@ -755,7 +755,7 @@ Response:
 
 ---
 
-# [Workflow 2 - Register Users](#Workflow-2---Register-Users)
+## [Workflow 2 - Register Users](#Workflow-2---Register-Users)
 
 <details><summary> (click here to expand) </summary>
 
@@ -842,7 +842,7 @@ The examples listed below will cover the **2 admin functions**. <br />
 All examples shown are executed via a **GET** request and can be tested with any browser. <br />
 All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
-# 1. `/createTable`
+## 1. `/createTable`
 **Create a new `table`**
 
 ### Endpoints:
@@ -1066,7 +1066,7 @@ Response:
 
 ---
 
-# [Workflow 3 - Creating Tables](#Workflow-3---Creating-Tables)
+## [Workflow 3 - Creating Tables](#Workflow-3---Creating-Tables)
 
 <details><summary> (click here to expand) </summary>
 
@@ -1376,7 +1376,7 @@ Response:
 ---
 
 
-# 2. `/deleteTable`
+## 2. `/deleteTable`
 **Delete `table`**
 
 ### Endpoints:
@@ -1521,7 +1521,7 @@ Response:
 All examples shown are executed via a **GET** request and can be tested with any browser. <br />
 All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE** <br />
 
-# 1. `/add`
+## 1. `/add`
 **Add a *single* entry to a `table`**
 
 ### Endpoints:
@@ -1841,20 +1841,20 @@ Response:
 ---
 
 
-# [Workflow 4 - Inserting Data](#Workflow-Example-4---Inserting-Data)
+## [Workflow 4 - Inserting Data](#Workflow-Example-4---Inserting-Data)
 
 <details><summary> (click here to expand)
 </summary>
 
-## Assigning `users` to `Roles` and creating `User Profiles`
+**Assigning `users` to `Roles` and creating `User Profiles`**
 ``` rexx
-"/uploadImageUrl/<URL>" - allows us to upload image urls to the backend;
+> "/uploadImageUrl/<URL>" - allows us to upload image urls to the backend;
 ```
 1. Lets upload profile pictures for the 4 users we added earlier and 2 reqtaurants...
 2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
 3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
 
-## Setting up the `Restaurant Tables`
+**Setting up the `Restaurant Tables`****
 4. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
 5. Then add their schedules to the `restaurant_schedule` table
 
