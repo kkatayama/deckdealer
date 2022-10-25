@@ -1991,6 +1991,144 @@ Response:
 
 </details>
 
+---
+
+### 4.2 Adding `alice` and `bob` to `managers` table
+
+<details><summary> (click here to expand) </summary>
+
+To assign `alice` and `bob` as managers, we will need their `user_id`.
+
+To do this, make a request to the `users` table:
+
+---
+Request:
+```jq
+https://bartender.hopto.org/get/users
+```
+
+Response:
+```json
+{
+  "message": "found 5 user entries",
+  "data": [
+    {
+      "user_id": 1,
+      "username": "admin",
+      "password": "a2025bd8b86a53fccf6f42eae008ccbf65dcf6aa55e0e6a477b57c5d74b1e611e5902fe9673d8cddb84896005e125d589e39e258a7fbeb3e7208b866e7746e60",
+      "create_time": "2022-10-19 00:23:52.930"
+    },
+    {
+      "user_id": 2,
+      "username": "alice",
+      "password": "b71dab3e13191834f1f0dd53c8b4be30da005ee7eea47ec8673d41c5ee959be34881a9ac99d473bec40b2de489e83694e5e532babbdcfc16c93d137872cffa96",
+      "create_time": "2022-10-21 10:06:45.643"
+    },
+    {
+      "user_id": 3,
+      "username": "bob",
+      "password": "7e6c183ddaf351a96fc6541b6ece83ea130c34ff8151a7e219d7bebace3398d685809c999065a54c7c1c785a4ae5b230f247cae5c97b958c7b881c86e81c3e07",
+      "create_time": "2022-10-21 10:06:45.830"
+    },
+    {
+      "user_id": 4,
+      "username": "anna",
+      "password": "a0d7bf58601f8f515eb56fb80ec986e49e40eb96572f33abab6ce924c7b3cd0d3cadeb7d15ea3075487a48d17412c62b112d7e0cdcc72a269e75d358a75d9af5",
+      "create_time": "2022-10-21 10:06:45.955"
+    },
+    {
+      "user_id": 5,
+      "username": "steve",
+      "password": "d30aa6f4422040cee131efa311c73dd42dd9f2cb6424f23ac9caf403bec2e4289066e846c3df109f612ef2572f95e17f2eddedc36786ba1eb0f50da571ebcac2",
+      "create_time": "2022-10-21 10:06:46.099"
+    }
+  ]
+}
+```
+---
+
+We see that `alice` has a `user_id` of `2` and `bob` is `3` 
+
+Let's add `alice` to `managers`:
+
+> NOTE: If you forget what the `required parameters` are for the `managers` table, make a request to `/add/managers`
+
+<details><summary> (click here to expand) </summary>
+
+---
+Request:
+```jq
+https://bartender.hopto.org/add/managers
+```
+
+Response:
+```json
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "user_id": "INTEGER",
+      "first_name": "TEXT",
+      "last_name": "TEXT",
+      "phone_number": "TEXT",
+      "email": "TEXT",
+      "profile_pic": "TEXT"
+    }
+  ],
+  "missing": [
+    {
+      "user_id": "INTEGER",
+      "first_name": "TEXT",
+      "last_name": "TEXT",
+      "phone_number": "TEXT",
+      "email": "TEXT",
+      "profile_pic": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+```
+
+</details>
+
+---
+
+
+
+</details>
+
+---
+
+### 4.3 Adding `anna` and `steve` to `bartenders` table
+
+<details><summary> (click here to expand) </summary>
+
+
+
+</details>
+
+---
+
+### 4.4 Adding `Iron Hill` and `Deer Park` to `restaurant_profile` and `restaurant_photos` table
+
+<details><summary> (click here to expand) </summary>
+
+
+
+</details>
+
+---
+
+### 4.5 Adding `Iron Hill` and `Deer Park` schedules to the `restaurant_schedule` table
+
+<details><summary> (click here to expand) </summary>
+
+
+
+</details>
+
 </details>
 
 ---
