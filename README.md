@@ -1873,6 +1873,7 @@ Response:
 <br />We can use the endpoint `/uploadImageUrl/url/<url>` to upload profile pictures...
 
 #### Uploading profile picture for `alice`
+---
 Arguments:
 ```rexx
 url = https://www.w3schools.com/w3images/avatar4.png
