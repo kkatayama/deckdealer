@@ -1871,7 +1871,6 @@ Response:
 <br />We can use the endpoint `/uploadImageUrl/url/<url>` to upload profile pictures...
 
 ---
-
 #### Uploading profile picture for `alice`
 
 Arguments:
@@ -1892,9 +1891,7 @@ Response:
   "filename": "/static/img/1.png"
 }
 ```
-
 ---
-
 #### Uploading profile picture for `bob`
 
 Arguments:
@@ -1916,7 +1913,6 @@ Response:
 }
 ```
 ---
-
 #### Uploading profile picture for `anna`
 
 Arguments:
@@ -1938,7 +1934,6 @@ Response:
 }
 ```
 ---
-
 #### Uploading profile picture for `steve`
 
 Arguments:
@@ -1959,12 +1954,8 @@ Response:
   "filename": "/static/img/4.png"
 }
 ```
-
 ---
 
-***
-
-___
 
 
 </details>
