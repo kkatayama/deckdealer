@@ -399,7 +399,7 @@ Response:
 
 ---
 
-# 2. `/logout`
+## 2. `/logout`
 Terminate a logged in session
 
 ### Endpoints:
