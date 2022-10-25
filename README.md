@@ -1870,8 +1870,10 @@ Response:
 
 <br />We can use the endpoint `/uploadImageUrl/url/<url>` to upload profile pictures...
 
-#### Uploading profile picture for `alice`
 ---
+
+#### Uploading profile picture for `alice`
+
 Arguments:
 ```rexx
 url = https://www.w3schools.com/w3images/avatar4.png
@@ -1890,10 +1892,11 @@ Response:
   "filename": "/static/img/1.png"
 }
 ```
+
 ---
 
-Uploading profile picture for `bob`
----
+#### Uploading profile picture for `bob`
+
 Arguments:
 ```rexx
 url = https://www.w3schools.com/w3images/avatar2.png
@@ -1914,9 +1917,8 @@ Response:
 ```
 ---
 
-Uploading profile picture for `anna`
+#### Uploading profile picture for `anna`
 
----
 Arguments:
 ```rexx
 url = https://www.w3schools.com/w3images/avatar5.png
@@ -1937,8 +1939,8 @@ Response:
 ```
 ---
 
-Uploading profile picture for `steve`
----
+#### Uploading profile picture for `steve`
+
 Arguments:
 ```rexx
 url = https://www.w3schools.com/w3images/avatar3.png
@@ -1957,11 +1959,10 @@ Response:
   "filename": "/static/img/4.png"
 }
 ```
+
 ---
 
 </details>
-
----
 
 </details>
 
