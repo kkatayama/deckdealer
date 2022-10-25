@@ -1847,16 +1847,15 @@ Response:
 </summary>
 <br />
 
-**Assigning `users` to `Roles` and creating `User Profiles`**
-> ``` rexx
-> "/uploadImageUrl/<URL>" - allows us to upload image urls to the backend;
-> ```
-
+### Assigning `users` to `Roles` and creating `User Profiles`
+``` rexx
+"/uploadImageUrl/<URL>" - allows us to upload image urls to the backend;
+```
 1. Lets upload profile pictures for the 4 users we added earlier and 2 reqtaurants...
 2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
 3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
 
-**Setting up the `Restaurant Tables`****
+### Setting up the `Restaurant Tables`
 4. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
 5. Then add their schedules to the `restaurant_schedule` table
 
