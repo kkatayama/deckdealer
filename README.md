@@ -1845,9 +1845,6 @@ Response:
 <details><summary> (click here to expand) </summary>
 
 ### Assigning `users` to `Roles` and creating `User Profiles`
-``` rexx
-"/uploadImageUrl/<URL>" - allows us to upload image urls to the backend;
-```
 1. Lets upload profile pictures for the 4 users we added earlier and 2 reqtaurants...
 2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
 3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
