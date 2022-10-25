@@ -1917,6 +1917,7 @@ Response:
 ---
 
 Uploading profile picture for `anna`
+
 ---
 Arguments:
 ```rexx
