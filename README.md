@@ -2844,7 +2844,7 @@ match is limited to 'column_name == column_value'
 </td><td>
 
 ```rexx
-supports expressions, operators,  and functions
+supports expressions, operators, and functions
 ```
 
 </td></tr>
@@ -2858,11 +2858,86 @@ supports expressions, operators,  and functions
 </td><td>
 
 ```rexx
-supports expressions, operators,  and functions
+supports expressions, operators, and functions
 ```
 
 </td></tr>
 </table>
+
+### Notes on `filter` options:
+<table>
+<tr><td> Note </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+keyword
+```
+
+</td><td>
+
+```rexx
+filter
+```
+
+</td></tr>
+<tr><td> Note </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+QUERY FORMAT
+```
+
+</td><td>
+
+```erlang
+?filter=(param_name > "param_value")
+```
+
+</td></tr>
+<tr><td> Note </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+QUERY EXAMPLE
+```
+
+</td><td>
+
+```erlang
+/get/users?filter=(user_id = "7" OR username="bob")
+```
+
+</td></tr>
+<tr><td> Note </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+PATH FORMAT
+```
+
+</td><td>
+
+```jq
+/filter/(param_name="param_value" OR param_name="param_value")
+```
+
+</td></tr>
+<tr><td> Note </td><td> Comment </td></tr>
+<tr><td>
+
+```rexx
+PATH EXAMPLE
+```
+
+</td><td>
+
+```jq
+/get/users/filter/(username="bob" OR username="alice")
+```
+
+</td></tr>
+</table>
+
 
 
 ### Response After Successful [`/get`](#2-get):
