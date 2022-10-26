@@ -1365,78 +1365,52 @@ Response:
 
 ### Endpoints:
 <table>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
+<tr><td> Resource </td><td> Description </td></tr><tr><td>
 
 ```jq
 /deleteTable
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 returns a list of all existing tables in the database
 ```
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /deleteTable/usage
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 returns a message for how to use this function
 ```
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /deleteTable/{table_name}
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 debug: returns the required parameters
 ```
-
-</td>
-</tr>
+</td></tr>
 </table>
 
 ### Requirements:
 <table>
-<tr><td> Parameters </td><td> Description </td></tr>
-<tr>
-<td>
+<tr><td> Parameters </td><td> Description </td></tr><tr><td>
 
 ```rexx
 table_name
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 the name of the table you wish to delete
 ```
-
-</td>
-</tr>
+</td></tr>
 </table>
 
 ---
