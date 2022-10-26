@@ -1110,6 +1110,15 @@ Response:
 ```
 
 ### Creating the Table `restaurant_requests`:
+> NOTE: `status` is used to indicate the current state of a `request`
+> **`status` states**
+> |     State | Description   |
+> |---:|:---|
+> |      open | Available for snagging... no bartender has picked this shift up yet. |
+> |   snagged | A bartender has snagged this shift but not yet completed it... see table [bartender_shifts](#Creating-the-Table-bartender_shifts) |
+> | completed | The bartender that snagged the request has worked the shift... see table [bartender_wages](#Creating-the-Table-bartender_wages)  |
+
+
 Request:
 ```ruby
 https://bartender.hopto.org/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/status/TEXT/entry_time/DATETIME
