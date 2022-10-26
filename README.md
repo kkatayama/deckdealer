@@ -362,6 +362,23 @@ Response:
 
 > Note: the `token` is only needed when api requests do not store session cookies.
 
+### Verify session
+Request:
+```jq
+https://bartender.hopto.org/status
+```
+
+Response:
+```json
+{
+  "message": "user is logged in with valid session",
+  "user_id": "3",
+  "cookies": {
+    "user_id": "!Immfx4DNO8Eu23dwT1qvIA==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAEzlIaULg=="
+  }
+}
+```
+
 </details>
 
 ---
@@ -2683,7 +2700,6 @@ Response:
 ```
 ---
 #### Confirm that the manager with `maneger_id` of `2` is an `Deer Park` manager:
-
 Arguments:
 ```rexx
 manager_id = 2
