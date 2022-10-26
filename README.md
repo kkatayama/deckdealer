@@ -207,7 +207,7 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 return: {"message": "missing parameters"}
 ```
 </td></tr>
-<tr><td></td><td></td></tr>
+<tr></tr>
 <tr><td>
 
 ```jq
