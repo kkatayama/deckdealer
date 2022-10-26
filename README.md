@@ -2680,172 +2680,127 @@ Response:
 ```jq
 /get
 ```
-
 </td><td>
 
 ```rexx
 returns all tables[] in the database
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /get/usage
 ```
-
 </td><td>
 
 ```rexx
 returns a message for how to use this function
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /get/{table_name}
 ```
-
 </td><td>
 
 ```rexx
 returns all entries for the table: {table_name}
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /get/{table_name}/{param_name}/{param_value}
 ```
-
 </td><td>
 
 ```rexx
 match entries: 'param_name=param_value'
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```erlang
 /get/{table_name}?param_name=param_value
 ```
-
 </td><td>
 
 ```rexx
 match entries: 'param_name=param_value'
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /get/{table_name}/filter/{query}
 ```
-
 </td><td>
 
 ```rexx
 match entries: 'filter='
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```erlang
 /get/{table_name}?filter=query
 ```
-
 </td><td>
 
 ```rexx
 match entries: 'filter='
 ```
-
 </td></tr>
 </table>
 
 
 ### Options:
 <table>
-<tr><td> Parameters </td><td> Comment </td></tr>
-<tr><td>
+<tr><td> Parameters </td><td> Comment </td></tr><tr><td>
 
 ```rexx
 *None*
 ```
-
 </td><td>
 
 ```rexx
 submit no parameters (none required)
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /get/{table_name}/key/value
 ```
-
 </td><td>
 
 ```rexx
 match is limited to 'column_name == column_value'
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```erlang
 /get/{table_name}?key=value
 ```
-
 </td><td>
 
 ```rexx
 match is limited to 'column_name == column_value'
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /get/{table_name}/filter/query
 ```
-
 </td><td>
 
 ```rexx
 supports expressions, operators, and functions
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```erlang
 /get/{table_name}?filter=query
 ```
-
 </td><td>
 
 ```rexx
 supports expressions, operators, and functions
 ```
-
 </td></tr>
 </table>
 
