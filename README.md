@@ -2293,8 +2293,8 @@ Response:
 ---
 
 #### Adding `Iron Hill` to `restaurant_profile` table
-> Remember that `alice` with `manager_id` of `1` is the manager of `Iron Hill`.
----
+> **Remember that `alice` with `manager_id` of `1` is the manager of `Iron Hill`**
+
 Arguments:
 ```rexx
 manager_id = 1
