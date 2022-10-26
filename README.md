@@ -3819,8 +3819,8 @@ Response:
 
 ### Let's examine all the tables we created and inserted data from the previous workflows
 1. Show Tables: `users`, `bartenders`, `managers`, `restaurant_profile`, `restaurant_photos`, `restaurant_schedule`, `restaurant_requests`, `bartender_shifts`, `bartender_wages`
-2. Examine the table `bartender_wages` by `tips`, `total_earnings`, and `hours_worked`
-3. Filter `shifts` where the `bartender` arrived `late` and order by `time late`
+2. Examine the table `bartender_wages` by `tips`, `total_earnings`, `hours_worked`, `etc...`
+3. Filter `bartenders` that were late to their shift; order by `time late`
 4. Find `shifts` that exceed the `requested hours` and group by `restaurant`
 
 ---
@@ -4001,11 +4001,57 @@ Response:
 
 ---
 
-### 5.2 - Examing the Table `bartender_wages` by `tips`, `total_earnings`, and `hours_worked`
+### 5.2 - Examining the Table `bartender_wages`
 
 <details><summary> (click here to expand) </summary>
 
-#### Filter `barternder_wages` by `tips < 100.00`:
+#### Filter `bartender_wages` by `bartender_id` (alice == 1):
+Arguments:
+```rexx
+bartender_id = 1
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_wages/bartender_id/1
+```
+
+Response:
+```json
+{
+  "message": "found 2 bartender_wage entries",
+  "data": [
+    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 15:54:31.321"},
+    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 16:00:15.348"},
+  ],
+}
+```
+
+
+#### Filter `bartender_wages` by `restaurant_id` (Iron Hill == 1) and sort by `tips`:
+Arguments:
+```rexx
+filter = (restaurant_id = 1) ORDER BY tips DESC
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_wages/filter/(restaurant_id = 1) ORDER BY tips DESC
+```
+
+Response:
+```json
+{
+  "message": "found 2 bartender_wage entries",
+  "data": [
+    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 15:57:21.838"},
+    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 15:54:31.321"},
+  ],
+}
+```
+
+
+#### Filter `bartender_wages` by `tips < 100.00`:
 Arguments:
 ```rexx
 filter = (tips < 100.00)
@@ -4021,55 +4067,7 @@ Response:
 {
   "message": "1 bartender_wage entry found",
   "data": [
-    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 14:25:33.418"},
-  ],
-}
-```
-
-#### Sort `bartender_wages` by `tips`:
-Arguments:
-```rexx
-filter = (tips > 0.00) ORDER BY tips DESC
-```
-
-Request:
-```jq
-https://bartender.hopto.org/get/bartender_wages/filter/(tips > 0.00) ORDER BY tips DESC
-```
-
-Response:
-```json
-{
-  "message": "found 4 bartender_wage entries",
-  "data": [
-    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 14:28:16.410"},
-    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 14:26:24.754"},
-    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 14:29:00.207"},
-    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 14:25:33.418"},
-  ],
-}
-```
-
-#### Filter `bartender_wages` where `total_earnings > 50.00`, sort by `total_earnings`
-Arguments:
-```rexx
-filter = (total_earnings > 50.00) ORDER BY total_earnings DESC
-```
-
-Request:
-```jq
-https://bartender.hopto.org/get/bartender_wages/filter/(total_earnings > 50.00) ORDER BY total_earnings DESC
-```
-
-Response:
-```json
-{
-  "message": "found 4 bartender_wage entries",
-  "data": [
-    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 14:28:16.410"},
-    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 14:26:24.754"},
-    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 14:29:00.207"},
-    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 14:25:33.418"},
+    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 15:54:31.321"},
   ],
 }
 ```
@@ -4090,12 +4088,10 @@ Response:
 {
   "message": "1 bartender_wage entry found",
   "data": [
-    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 14:29:00.207"},
+    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 16:02:35.836"},
   ],
 }
 ```
-
-
 
 </details>
 
