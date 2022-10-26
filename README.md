@@ -2716,7 +2716,6 @@ match entries: 'filter='
 
 </td></tr>
 <tr><td>
-
 ```jq
 /get
 /get/usage
@@ -2726,7 +2725,6 @@ match entries: 'filter='
 /get/{table_name}/filter/{query}
 /get/{table_name}?filter=query
 ```
-
 </td><td>
 
 ```rexx
