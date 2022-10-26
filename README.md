@@ -1861,7 +1861,7 @@ Response:
 <br />We can use the endpoint `/uploadImageUrl/url/<url>` to upload profile pictures...
 
 ---
-#### Uploading profile picture for `alice`
+#### Uploading profile picture for `alice`:
 
 Arguments:
 ```rexx
@@ -1883,7 +1883,7 @@ Response:
 }
 ```
 ---
-#### Uploading profile picture for `bob`
+#### Uploading profile picture for `bob`:
 
 Arguments:
 ```rexx
@@ -1905,7 +1905,7 @@ Response:
 }
 ```
 ---
-#### Uploading profile picture for `anna`
+#### Uploading profile picture for `anna`:
 
 Arguments:
 ```rexx
@@ -1927,7 +1927,7 @@ Response:
 }
 ```
 ---
-#### Uploading profile picture for `steve`
+#### Uploading profile picture for `steve`:
 
 Arguments:
 ```rexx
@@ -1949,7 +1949,7 @@ Response:
 }
 ```
 ---
-#### Uploading profile picture for `Iron Hill`
+#### Uploading profile picture for `Iron Hill`:
 
 Arguments:
 ```rexx
@@ -1971,7 +1971,7 @@ Response:
 }
 ```
 ---
-#### Uploading profile picture for `Deer Park`
+#### Uploading profile picture for `Deer Park`:
 
 Arguments:
 ```rexx
@@ -1992,6 +1992,90 @@ Response:
   "file_name": "6.jpeg"
 }
 ```
+---
+#### Uploading photos for `Iron Hill`:
+
+Arguments:
+```rexx
+url = https://www.ironhillbrewery.com/assets/craft/_locationPic1x/locations_0005_newark.jpg
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/_locationPic1x/locations_0005_newark.jpg
+```
+
+Response:
+```json
+{
+  "message": "image url uploaded",
+  "url": "https://www.ironhillbrewery.com/assets/craft/_locationPic1x/locations_0005_newark.jpg",
+  "full_path": "/static/img/7.jpeg",
+  "file_name": "7.jpeg"
+}
+```
+
+Arguments:
+```rexx
+url = https://www.ironhillbrewery.com/assets/craft/IMG_7690-2.jpg
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/IMG_7690-2.jpg
+```
+
+Response:
+```json
+{
+  "message": "image url uploaded",
+  "url": "https://www.ironhillbrewery.com/assets/craft/IMG_7690-2.jpg",
+  "full_path": "/static/img/8.jpeg",
+  "file_name": "8.jpeg"
+}
+```
+---
+#### Uploading photos for `Deer Park`:
+
+Arguments:
+```rexx
+url = https://popmenucloud.com/jciwfypa/865660db-c7fd-4d06-bf3b-0ee4843caa25.jpg
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/uploadImageUrl?url=https://popmenucloud.com/jciwfypa/865660db-c7fd-4d06-bf3b-0ee4843caa25.jpg
+```
+
+Response:
+```json
+{
+  "message": "image url uploaded",
+  "url": "https://popmenucloud.com/jciwfypa/865660db-c7fd-4d06-bf3b-0ee4843caa25.jpg",
+  "full_path": "/static/img/9.jpeg",
+  "file_name": "9.jpeg"
+}
+```
+
+Arguments:
+```rexx
+url = https://popmenucloud.com/jciwfypa/0a3a3426-0fc1-42bd-8fd8-5e4ec7250aff.jpg
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/uploadImageUrl?url=https://popmenucloud.com/jciwfypa/0a3a3426-0fc1-42bd-8fd8-5e4ec7250aff.jpg
+```
+
+Response:
+```json
+{
+  "message": "image url uploaded",
+  "url": "https://popmenucloud.com/jciwfypa/0a3a3426-0fc1-42bd-8fd8-5e4ec7250aff.jpg",
+  "full_path": "/static/img/10.jpeg",
+  "file_name": "10.jpeg"
+}
+```
 
 </details>
 
@@ -2004,7 +2088,7 @@ Response:
 <br />To assign `alice` and `bob` as managers, we will need their `user_id`.
 
 ---
-> NOTE: to get info of all users, make a request to the `users` table
+To get info of all users, make a request to the `users` table
 
 Request:
 ```jq
@@ -2054,7 +2138,7 @@ Response:
 We see that `alice` has a `user_id` of `2` and `bob` has a `user_id` of `3` 
 
 ---
-> NOTE: To see what the `required parameters` are for the `managers` table, make a request to `/add/managers`
+To see what the `required parameters` are for the `managers` table, make a request to `/add/managers`
 
 Request:
 ```jq
@@ -2091,7 +2175,7 @@ Response:
 }
 ```
 ---
-#### Adding `alice` to `managers` table
+#### Adding `alice` to `managers` table:
 
 Arguments:
 ```rexx
@@ -2117,7 +2201,7 @@ Response:
 }
 ```
 ---
-#### Adding `bob` to `managers` table
+#### Adding `bob` to `managers` table:
 
 Arguments:
 ```rexx
@@ -2152,7 +2236,7 @@ Response:
 <details><summary> (click here to expand) </summary>
 
 ---
-> NOTE: To see what the `required parameters` are for the `bartenders` table, make a request to `/add/bartenders`
+To see what the `required parameters` are for the `bartenders` table, make a request to `/add/bartenders`
 
 Request:
 ```jq
@@ -2191,7 +2275,7 @@ Response:
 }
 ```
 ---
-#### Adding `anna` to `bartenders` table
+#### Adding `anna` to `bartenders` table:
 
 Arguments:
 ```rexx
@@ -2218,7 +2302,7 @@ Response:
 }
 ```
 ---
-#### Adding `steve` to `bartenders` table
+#### Adding `steve` to `bartenders` table:
 
 Arguments:
 ```rexx
@@ -2291,7 +2375,6 @@ Response:
 }
 ```
 ---
-
 #### Adding `Iron Hill` to `restaurant_profile` table:
 > Recall that `alice` with `manager_id` of `1` is the manager of `Iron Hill`
 
@@ -2319,10 +2402,64 @@ Response:
 }
 ```
 ---
+#### Adding `Deer Park` to `restaurant_profile` table:
+> Recall that `bob` with `manager_id` of `2` is the manager of `Deer Park`
 
+Arguments:
+```rexx
+manager_id = 2
+restaurant_name = Deer Park Tavern
+address = 108 West Main Street, Newark, DE 19711
+bio = Good food and spirits!
+phone_number = (302) 368-9414
+profile_pic = 6.jpeg
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_profile/manager_id/2/restaurant_name/Deer Park Tavern/address/108 West Main Street, Newark, DE 19711/bio/Good food and spirits!/phone_number/(302) 368-9414/profile_pic/6.jpeg
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_profile>",
+  "restaurant_id": 2,
+  "manager_id": "2"
+}
+```
+
+---
 To see what the `required parameters` are for the `restaurant_photos` table, make a request to `/add/restaurant_photos`
 
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_photos
+```
 
+Response:
+```json
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "restaurant_id": "INTEGER",
+      "file_name": "TEXT"
+    }
+  ],
+  "missing": [
+    {
+      "restaurant_id": "INTEGER",
+      "file_name": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+```
+---
+#### Adding `Iron Hill` photos to the `restaurant_photos` table:
 
 </details>
 
