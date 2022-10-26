@@ -1878,7 +1878,8 @@ Response:
 {
   "message": "image url uploaded",
   "url": "https://www.w3schools.com/w3images/avatar4.png",
-  "filename": "/static/img/1.png"
+  "full_path": "/static/img/1.png",
+  "file_name": "1.png"
 }
 ```
 ---
@@ -1899,7 +1900,8 @@ Response:
 {
   "message": "image url uploaded",
   "url": "https://www.w3schools.com/w3images/avatar2.png",
-  "filename": "/static/img/2.png"
+  "full_path": "/static/img/2.png",
+  "file_name": "2.png"
 }
 ```
 ---
@@ -1920,7 +1922,8 @@ Response:
 {
   "message": "image url uploaded",
   "url": "https://www.w3schools.com/w3images/avatar5.png",
-  "filename": "/static/img/3.png"
+  "full_path": "/static/img/3.png",
+  "file_name": "3.png"
 }
 ```
 ---
@@ -1941,7 +1944,8 @@ Response:
 {
   "message": "image url uploaded",
   "url": "https://www.w3schools.com/w3images/avatar3.png",
-  "filename": "/static/img/4.png"
+  "full_path": "/static/img/4.png",
+  "file_name": "4.png"
 }
 ```
 ---
@@ -1962,7 +1966,8 @@ Response:
 {
   "message": "image url uploaded",
   "url": "https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
-  "filename": "/static/img/5.png"
+  "full_path": "/static/img/5.png",
+  "file_name": "5.png"
 }
 ```
 ---
@@ -1984,7 +1989,8 @@ Response:
 {
   "message": "image url uploaded",
   "url": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44-4f35-bdf9-b0a855c09328.jpg",
-  "filename": "/static/img/6.jpeg"
+  "full_path": "/static/img/6.jpeg",
+  "file_name": "6.jpeg"
 }
 ```
 
