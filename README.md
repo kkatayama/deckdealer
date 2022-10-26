@@ -1510,91 +1510,57 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE** <
 
 ### Endpoints:
 <table>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
+<tr><td> Resource </td><td> Description </td></tr><tr><td>
 
 ```jq
 /add
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 returns all tables[] in the database
 ```
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /add/usage
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 returns message: 'usage info'
 ```
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /add/{table_name}
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 returns message: 'missing parameters'
 ```
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /add/{table_name}/{param_name}/{param_value}
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 add entry: 'param_name=param_value'
 ```
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
+</td></tr><tr></tr><tr><td>
 
 ```erlang
 /add/{table_name}?param_name=param_value
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 add entry: 'param_name=param_value'
 ```
-
-</td>
-</tr>
+</td></tr>
 </table>
 
 
