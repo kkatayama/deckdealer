@@ -1987,7 +1987,7 @@ Response:
 
 ---
 
-### 4.3 Adding `anna` and `steve` to `bartenders` table
+### 4.3 - Adding `anna` and `steve` to `bartenders` table
 
 <details><summary> (click here to expand) </summary>
 
@@ -2089,7 +2089,7 @@ Response:
 
 ---
 
-### 4.4 Adding `Iron Hill` and `Deer Park` to `restaurant_profile` and `restaurant_photos` table
+### 4.4 - Adding `Iron Hill` and `Deer Park` to `restaurant_profile` and `restaurant_photos` table
 
 <details><summary> (click here to expand) </summary>
 
@@ -2303,7 +2303,7 @@ Response:
 
 ---
 
-### 4.5 Adding `Iron Hill` and `Deer Park` schedules to the `restaurant_schedule` table
+### 4.5 - Adding `Iron Hill` and `Deer Park` schedules to the `restaurant_schedule` table
 
 <details><summary> (click here to expand) </summary>
 
