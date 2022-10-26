@@ -2053,10 +2053,7 @@ Response:
 
 We see that `alice` has a `user_id` of `2` and `bob` is `3` 
 
-> NOTE: If you forget what the `required parameters` are for the `managers` table, make a request to `/add/managers`
-
-<details><summary> (click here to expand) </summary>
-
+> NOTE: To see what the `required parameters` are for the `managers` table, make a request to `/add/managers`
 ---
 Request:
 ```jq
@@ -2092,9 +2089,6 @@ Response:
   ]
 }
 ```
-
-</details>
-
 ---
 #### Adding `alice` to `managers` table
 
