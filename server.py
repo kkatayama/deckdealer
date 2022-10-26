@@ -332,7 +332,7 @@ def add(db, table_name="", url_paths=""):
     # -- send response message
     col_ref = getColumns(db, table, ref=True)  # -- get (.*_id) name for table
     res = {"message": f"data added to <{table_name}>", col_ref: col_id}
-    for r in re.findall(r"(.*_id)", " ".join(required_columns)):
+    for r in re.findall(r"(\w*_id)", " ".join(required_columns)):
         res[r] = params.get(r)
 
     return clean(res)

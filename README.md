@@ -972,7 +972,7 @@ restaurant_requests
 </td><td>
 
 ```jq
-["request_id", "restaurant_id", "hourly_wage", "shift_start", "shift_end", "entry_time"]
+["request_id", "restaurant_id", "hourly_wage", "shift_start", "shift_end", "status", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
@@ -1003,7 +1003,7 @@ bartender_shifts
 </td><td>
 
 ```jq
-["shift_id", "bartender_id", "restaurant_id", "hourly_wage", "shift_start", "shift_end", "status", "entry_time"]
+["shift_id", "bartender_id", "request_id", "entry_time"]
 ```
 </td></tr>
 <tr></tr><tr><td>
@@ -1014,7 +1014,7 @@ bartender_wages
 </td><td>
 
 ```jq
-["entry_id", "bartender_id", "restaurant_id", "hourly_wage", "hours_worked", "tips", "total_earnings", "entry_time"]
+["wage_id", "bartender_id", "shift_id", "hourly_wage", "clock_in", "clock_out", "hours_worked", "tips", "total_earnings", "entry_time"]
 ```
 </td></tr>
 </table>
@@ -1118,26 +1118,25 @@ Response:
 > |   snagged | A bartender has snagged this shift but not yet completed it... see table [bartender_shifts](#Creating-the-Table-bartender_shifts) |
 > | completed | The bartender that snagged the request has worked the shift... see table [bartender_wages](#Creating-the-Table-bartender_wages)  |
 
-
 Request:
-```ruby
+```jq
 https://bartender.hopto.org/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/status/TEXT/entry_time/DATETIME
 ```
 
 Response:
 ```json
 {
-    "message": "1 table created",
-    "table": "restaurant_requests",
-    "columns": [
-        "request_id INTEGER PRIMARY KEY",
-        "restaurant_id INTEGER NOT NULL",
-        "hourly_wage DOUBLE NOT NULL",
-        "shift_start DATETIME NOT NULL",
-        "shift_end DATETIME NOT NULL",
-        "status TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
+  "message": "1 table created",
+  "table": "restaurant_requests",
+  "columns": [
+    "request_id INTEGER PRIMARY KEY",
+    "restaurant_id INTEGER NOT NULL",
+    "hourly_wage DOUBLE NOT NULL",
+    "shift_start DATETIME NOT NULL",
+    "shift_end DATETIME NOT NULL",
+    "status TEXT NOT NULL",
+    "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+  ]
 }
 ```
 
@@ -1169,7 +1168,7 @@ Response:
 ### Creating the Table `bartender_shifts`:
 Request:
 ```jq
-https://bartender.hopto.org/createTable/bartender_shifts/shift_id/INTEGER/bartender_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/status/TEXT/entry_time/DATETIME
+https://bartender.hopto.org/createTable/bartender_shifts/shift_id/INTEGER/bartender_id/INTEGER/request_id/INTEGER/entry_time/DATETIME
 ```
 
 Response:
@@ -1180,11 +1179,7 @@ Response:
   "columns": [
     "shift_id INTEGER PRIMARY KEY",
     "bartender_id INTEGER NOT NULL",
-    "restaurant_id INTEGER NOT NULL",
-    "hourly_wage DOUBLE NOT NULL",
-    "shift_start DATETIME NOT NULL",
-    "shift_end DATETIME NOT NULL",
-    "status TEXT NOT NULL",
+    "request_id INTEGER NOT NULL",
     "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
   ]
 }
@@ -1193,7 +1188,7 @@ Response:
 ### Creating the Table `bartender_wages`:
 Request:
 ```jq
-https://bartender.hopto.org/createTable/bartender_wages/wage_id/INTEGER/bartender_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/hours_worked/DOUBLE/tips/DOUBLE/total_earnings/DOUBLE/entry_time/DATETIME
+https://bartender.hopto.org/createTable/bartender_wages/wage_id/INTEGER/bartender_id/INTEGER/shift_id/INTEGER/hourly_wage/DOUBLE/hours_worked/DOUBLE/tips/DOUBLE/total_earnings/DOUBLE/entry_time/DATETIME
 ```
 
 Response:
@@ -1204,7 +1199,7 @@ Response:
   "columns": [
     "wage_id INTEGER PRIMARY KEY",
     "bartender_id INTEGER NOT NULL",
-    "restaurant_id INTEGER NOT NULL",
+    "shift_id INTEGER NOT NULL",
     "hourly_wage DOUBLE NOT NULL",
     "hours_worked DOUBLE NOT NULL",
     "tips DOUBLE NOT NULL",
