@@ -2254,7 +2254,7 @@ Response:
 <details><summary> (click here to expand) </summary>
 
 ---
-> NOTE: To see what the `required parameters` are for the `restaurant_profile` table, make a request to `/add/restaurant_profile`
+To see what the `required parameters` are for the `restaurant_profile` table, make a request to `/add/restaurant_profile`
 
 Request:
 ```jq
@@ -2293,7 +2293,7 @@ Response:
 ---
 
 #### Adding `Iron Hill` to `restaurant_profile` table:
-> Remember that **`alice`** with `manager_id` of `1` is the manager of `Iron Hill`
+> Recall that `alice` with `manager_id` of `1` is the manager of `Iron Hill`
 
 Arguments:
 ```rexx
@@ -2318,11 +2318,9 @@ Response:
   "manager_id": "1"
 }
 ```
-
-
-
 ---
-> NOTE: To see what the `required parameters` are for the `restaurant_photos` table, make a request to `/add/restaurant_photos`
+
+To see what the `required parameters` are for the `restaurant_photos` table, make a request to `/add/restaurant_photos`
 
 
 
