@@ -1191,7 +1191,7 @@ bartender_wages
 ### Creating the Table `managers`:
 Request:
 ```ruby
-https://bartender.hopto.org/createTable/managers/manager_id/INTEGER/user_id/INTEGER/restaurant_id/INTEGER/first_name/TEXT/last_name/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
+https://bartender.hopto.org/createTable/managers/manager_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1202,7 +1202,6 @@ Response:
     "columns": [
         "manager_id INTEGER PRIMARY KEY",
         "user_id INTEGER NOT NULL",
-        "restaurant_id INTEGER NOT NULL",
         "first_name TEXT NOT NULL",
         "last_name TEXT NOT NULL",
         "phone_number TEXT NOT NULL",

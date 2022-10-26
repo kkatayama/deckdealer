@@ -203,7 +203,7 @@ def uploadImageUrl(url_paths=""):
     ext = re.search(r'image/(?P<ext>[a-z]+)', req.headers["Content-Type"].replace('x-icon', 'ico')).groupdict().get('ext')
     with open(str(Path('static', 'img', f'{name}.{ext}')), 'wb') as f:
         f.write(req.content)
-    res = {"message": "image url uploaded", "url": url, "filename": '/' + str(Path('static', 'img', f'{name}.{ext}'))}
+    res = {"message": "image url uploaded", "url": url, "full_path": '/' + str(Path('static', 'img', f'{name}.{ext}')), 'file_name': f'{name}.{ext}'}
     return clean(res)
 
 
@@ -528,6 +528,11 @@ def send_css(filename):
     return static_file(filename, root=f'{dirname}/static/css/')
 
 @app.route('/static/img/<filename:re:.*\.*>')
+def send_img(filename):
+    dirname = sys.path[0]
+    return static_file(filename, root=f'{dirname}/static/img/')
+
+@app.route('<filename:re:.*\.*>')
 def send_img(filename):
     dirname = sys.path[0]
     return static_file(filename, root=f'{dirname}/static/img/')
