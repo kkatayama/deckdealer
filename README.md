@@ -206,7 +206,8 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 <td>
 
 ```rexx
-return: {"message": "missing parameters"}```
+return: {"message": "missing parameters"}
+```
 </td>
 </tr>
 <tr><td></td><td></td></tr>
