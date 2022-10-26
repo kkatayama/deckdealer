@@ -4023,91 +4023,76 @@ Response:
 
 ### Endpoints:
 <table>
-<tr></tr><tr><td>
+<tr><td> Resource </td><td> Description </td></tr>
 
 ```jq
 /delete
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 returns all tables[] in the database
 ```
-
 </td></tr><tr></tr><tr><td>
 
 ```jq
 /delete/usage
 ```
-
 </td><td>
 
 ```rexx
 returns message: 'usage-info'
 ```
-
 </td></tr><tr></tr><tr><td>
 
 ```jq
 /delete/{table_name}
 ```
-
 </td><td>
 
 ```rexx
 returns message: 'missing a parameter'
 ```
-
 </td></tr><tr></tr><tr><td>
 
 ```jq
 /delete/{table_name}/{param_name}/{param_value}
 ```
-
 </td><td>
 
 ```rexx
 delete entries: 'param_name=param_value'
 ```
-
 </td></tr><tr></tr><tr><td>
 
 ```erlang
 /delete/{table_name}?param_name=param_value
 ```
-
 </td><td>
 
 ```rexx
 delete entries: 'param_name=param_value'
 ```
-
 </td></tr><tr></tr><tr><td>
 
 ```jq
 /delete/{table_name}/filter/{filter_string}
 ```
-
 </td><td>
 
 ```rexx
 delete entries: filter='
 ```
-
 </td></tr><tr></tr><tr><td>
 
 ```erlang
 /delete/{table_name}?filter=filter_string
 ```
-
 </td><td>
 
 ```rexx
 delete entries: filter='
 ```
-
 </td></tr>
 </table>
 
