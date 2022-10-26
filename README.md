@@ -2715,7 +2715,7 @@ match entries: 'filter='
 ```
 
 </td></tr>
-<tr><td> </td><td> </td></tr>
+<tr><td></td><td></td></tr>
 <tr><td>
 
 ```jq
