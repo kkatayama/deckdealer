@@ -3577,7 +3577,7 @@ Response:
 
 ### Endpoints:
 <table>
-<tr></tr>
+<tr><td> Resource </td><td> Description </td></tr>
 <tr><td>
 
 ```jq
