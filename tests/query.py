@@ -148,14 +148,16 @@ def main():
     ap.add_argument('query', help="api endpoint to query")
     ap.add_argument('-u', '--url', default="https://bartender.hopto.org/", help='base url of web framework')
     ap.add_argument('-l', '--login', default=False, action="store_true", help="login and save session cookies...")
+    ap.add_argument('--username', default='admin', help="used with [--login]")
+    ap.add_argument('--password', default='admin', help="used with [--login]")
     args = ap.parse_args()
 
     if args.login:
         s = requests.Session()
-        r = s.post('https://bartender.hopto.org/login', data={"username": "admin", "password": "admin"})
+        r = s.post('https://bartender.hopto.org/login', data={"username": args.username, "password": args.password})
         export_headers(s)
         export_cookies(s)
-
+        args.query = f"/login/username/{args.username}/password/{args.password}"
 
     executeQuery(base_url=args.url, query=args.query)
     # print(out)

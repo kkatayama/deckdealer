@@ -2449,6 +2449,21 @@ Response:
 <details><summary> (click here to expand) </summary>
 
 ---
+#### First: log out (current user should be: `admin` with `user_id` of `1`)
+
+Request:
+```jq
+https://bartender.hopto.org/logout
+```
+
+Response:
+```json
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+```
+---
 #### Log in as `alice` - the manager of `Iron Hill`:
 
 Arguments:
@@ -2606,6 +2621,98 @@ Response:
   "restaurant_id": "1"
 }
 ```
+---
+#### Now, log out (current user should be: `alice` with `user_id` of `2`)
+
+```jq
+https://bartender.hopto.org/logout
+```
+
+Response:
+```json
+{
+  "message": "user logged out",
+  "user_id": "2"
+}
+```
+---
+#### Log in as `bob` - the manager of `Deer Park`:
+
+Request:
+```jq
+https://bartender.hopto.org/login/username/bob/password/bob
+```
+
+Response:
+```json
+{
+  "message": "user login success",
+  "user_id": 3,
+  "username": "bob",
+  "token": "IUltbWZ4NEROTzhFdTIzZHdUMXF2SUE9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+```
+---
+#### Verify that the user `bob` with `user_id` of `3` is a `manager`:
+
+Arguments:
+```rexx
+user_id = 3
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/managers/user_id/3
+```
+
+Response:
+```json
+{
+  "message": "1 manager entry found",
+  "data": {
+    "manager_id": 2,
+    "user_id": 3,
+    "first_name": "Bob",
+    "last_name": "Bob",
+    "phone_number": "(215) 555-5555",
+    "email": "bob@udel.edu",
+    "profile_pic": "2.png",
+    "entry_time": "2022-10-25 20:44:47.063"
+  }
+}
+```
+---
+#### Confirm that the manager with `maneger_id` of `2` is an `Deer Park` manager:
+
+Arguments:
+```rexx
+manager_id = 2
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_profile/manager_id/2
+```
+
+Response:
+```json
+{
+  "message": "1 restaurant_profile entry found",
+  "data": {
+    "restaurant_id": 2,
+    "manager_id": 2,
+    "restaurant_name": "Deer Park Tavern",
+    "address": "108 West Main Street, Newark, DE 19711",
+    "bio": "Good food and spirits!",
+    "phone_number": "(302) 368-9414",
+    "profile_pic": "6.jpeg",
+    "entry_time": "2022-10-25 23:16:31.603"
+  }
+}
+```
+---
+#### Let's simulate a few `Restaurant Requests` from `Deer Park`:
+
 
 
 </details>
