@@ -1020,7 +1020,7 @@ bartender_shifts
 </td><td>
 
 ```jq
-["shift_id", "bartender_id", "restaurant_id", "request_id", "entry_time"]
+["shift_id", "bartender_id", "restaurant_id", "request_id", "shift_start", "shift_end", "entry_time"]
 ```
 </td></tr>
 <tr></tr><tr><td>
@@ -1185,7 +1185,7 @@ Response:
 ### Creating the Table `bartender_shifts`:
 Request:
 ```jq
-https://bartender.hopto.org/createTable/bartender_shifts/shift_id/INTEGER/bartender_id/INTEGER/restaurant_id/INTEGER/request_id/INTEGER/entry_time/DATETIME
+https://bartender.hopto.org/createTable/bartender_shifts/shift_id/INTEGER/bartender_id/INTEGER/restaurant_id/INTEGER/request_id/INTEGER/shift_start/DATETIME/shift_end/DATETIME/entry_time/DATETIME
 ```
 
 Response:
@@ -1198,6 +1198,8 @@ Response:
     "bartender_id INTEGER NOT NULL",
     "restaurant_id INTEGER NOT NULL",
     "request_id INTEGER NOT NULL",
+    "shift_start DATETIME NOT NULL",
+    "shift_end DATETIME NOT NULL",
     "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
   ]
 }
@@ -2579,11 +2581,13 @@ Arguments:
 bartender_id = 1
 request_id = 1
 restaurant_id = 1
+shift_start = 2022-10-20 10:00:00
+shift_end = 2022-10-20 14:30:00
 ```
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_shifts/bartender_id/1/request_id/1/restaurant_id/1
+https://bartender.hopto.org/add/bartender_shifts/bartender_id/1/request_id/1/restaurant_id/1/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00
 ```
 
 Response:
@@ -2604,6 +2608,8 @@ bartender_id = 1
 shift_id = 1
 restaurant_id = 1
 hourly_wage = 2.33
+shift_start = 2022-10-20 10:00:00
+shift_end = 2022-10-20 14:30:00
 clock_in = 2022-10-20 09:45:00
 clock_out = 2022-10-20 14:10:00
 hours_worked = 4.42
@@ -2613,7 +2619,8 @@ total_earnings = 95.30
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_wages/bartender_id/1/shift_id/1/restaurant_id/1/hourly_wage/2.33/clock_in/2022-10-20 09:45:00/clock_out/2022-10-20 14:10:00/hours_worked/4.42/tips/85.00/total_earnings/95.30
+https://bartender.hopto.org/add/bartender_wages/bartender_id/1/shift_id/1/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00/clock_in/2022-10-20 09:45:00/clock_out/2022-10-20
+14:10:00/hours_worked/4.42/tips/85.00/total_earnings/95.30
 ```
 
 Response:
@@ -2657,11 +2664,13 @@ Arguments:
 bartender_id = 2
 request_id = 2
 restaurant_id = 1
+shift_start = 2022-10-21 16:00:00
+shift_end = 2022-10-22 00:30:00
 ```
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_shifts/bartender_id/2/request_id/2/restaurant_id/1
+https://bartender.hopto.org/add/bartender_shifts/bartender_id/2/request_id/2/restaurant_id/1/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00
 ```
 
 Response:
@@ -2682,6 +2691,8 @@ bartender_id = 2
 shift_id = 2
 restaurant_id = 1
 hourly_wage = 2.33
+shift_start = 2022-10-21 16:00:00
+shift_end = 2022-10-22 00:30:00
 clock_in = 2022-10-21 16:05:00
 clock_out = 2022-10-22 01:03:00
 hours_worked = 8.97
@@ -2691,7 +2702,8 @@ total_earnings = 167.90
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_wages/bartender_id/2/shift_id/2/restaurant_id/1/hourly_wage/2.33/clock_in/2022-10-21 16:05:00/clock_out/2022-10-22 01:03:00/hours_worked/8.97/tips/147.00/total_earnings/167.90
+https://bartender.hopto.org/add/bartender_wages/bartender_id/2/shift_id/2/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00/clock_in/2022-10-21 16:05:00/clock_out/2022-10-22
+01:03:00/hours_worked/8.97/tips/147.00/total_earnings/167.90
 ```
 
 Response:
@@ -2847,11 +2859,13 @@ Arguments:
 bartender_id = 1
 request_id = 4
 restaurant_id = 2
+shift_start = 2022-10-23 08:00:00
+shift_end = 2022-10-23 14:00:00
 ```
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_shifts/bartender_id/1/request_id/4/restaurant_id/2
+https://bartender.hopto.org/add/bartender_shifts/bartender_id/1/request_id/4/restaurant_id/2/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00
 ```
 
 Response:
@@ -2872,6 +2886,8 @@ bartender_id = 1
 shift_id = 3
 restaurant_id = 2
 hourly_wage = 3.50
+shift_start = 2022-10-23 08:00:00
+shift_end = 2022-10-23 14:00:00
 clock_in = 2022-10-23 07:40:00
 clock_out = 2022-10-23 15:25:00
 hours_worked = 7.75
@@ -2881,7 +2897,8 @@ total_earnings = 192.12
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_wages/bartender_id/1/shift_id/3/restaurant_id/2/hourly_wage/3.50/clock_in/2022-10-23 07:40:00/clock_out/2022-10-23 15:25:00/hours_worked/7.75/tips/165.00/total_earnings/192.12
+https://bartender.hopto.org/add/bartender_wages/bartender_id/1/shift_id/3/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00/clock_in/2022-10-23 07:40:00/clock_out/2022-10-23
+15:25:00/hours_worked/7.75/tips/165.00/total_earnings/192.12
 ```
 
 Response:
@@ -2925,11 +2942,13 @@ Arguments:
 bartender_id = 2
 request_id = 5
 restaurant_id = 2
+shift_start = 2022-10-24 16:00:00
+shift_end = 2022-10-25 02:00:00
 ```
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_shifts/bartender_id/2/request_id/5/restaurant_id/2
+https://bartender.hopto.org/add/bartender_shifts/bartender_id/2/request_id/5/restaurant_id/2/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00
 ```
 
 Response:
@@ -2950,6 +2969,8 @@ bartender_id = 2
 shift_id = 4
 restaurant_id = 2
 hourly_wage = 3.50
+shift_start = 2022-10-24 16:00:00
+shift_end = 2022-10-25 02:00:00
 clock_in = 2022-10-24 16:05:00
 clock_out = 2022-10-25 02:13:00
 hours_worked = 10.13
@@ -2959,7 +2980,8 @@ total_earnings = 143.46
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_wages/bartender_id/2/shift_id/4/restaurant_id/2/hourly_wage/3.50/clock_in/2022-10-24 16:05:00/clock_out/2022-10-25 02:13:00/hours_worked/10.13/tips/108.00/total_earnings/143.46
+https://bartender.hopto.org/add/bartender_wages/bartender_id/2/shift_id/4/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00/clock_in/2022-10-24 16:05:00/clock_out/2022-10-25
+02:13:00/hours_worked/10.13/tips/108.00/total_earnings/143.46
 ```
 
 Response:
@@ -3929,6 +3951,11 @@ Response:
 }
 ```
 #### Table: `bartender_shifts`
+Arguments:
+```rexx
+
+```
+
 Request:
 ```jq
 https://bartender.hopto.org/get/bartender_shifts
@@ -3939,14 +3966,19 @@ Response:
 {
   "message": "found 4 bartender_shift entries",
   "data": [
-    {"shift_id": 1, "bartender_id": 1, "restaurant_id": 1, "request_id": 1, "entry_time": "2022-10-26 14:19:06.715"},
-    {"shift_id": 2, "bartender_id": 2, "restaurant_id": 1, "request_id": 2, "entry_time": "2022-10-26 14:20:14.473"},
-    {"shift_id": 3, "bartender_id": 1, "restaurant_id": 2, "request_id": 4, "entry_time": "2022-10-26 14:21:11.377"},
-    {"shift_id": 4, "bartender_id": 2, "restaurant_id": 2, "request_id": 5, "entry_time": "2022-10-26 14:21:44.352"},
+    {"shift_id": 1, "bartender_id": 1, "restaurant_id": 1, "request_id": 1, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "entry_time": "2022-10-26 15:52:36.722"},
+    {"shift_id": 2, "bartender_id": 2, "restaurant_id": 1, "request_id": 2, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "entry_time": "2022-10-26 15:56:26.438"},
+    {"shift_id": 3, "bartender_id": 1, "restaurant_id": 2, "request_id": 4, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "entry_time": "2022-10-26 15:59:05.430"},
+    {"shift_id": 4, "bartender_id": 2, "restaurant_id": 2, "request_id": 5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "entry_time": "2022-10-26 16:01:33.182"},
   ],
 }
 ```
 #### Table: `bartender_wages`
+Arguments:
+```rexx
+
+```
+
 Request:
 ```jq
 https://bartender.hopto.org/get/bartender_wages
@@ -3957,10 +3989,10 @@ Response:
 {
   "message": "found 4 bartender_wage entries",
   "data": [
-    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 14:25:33.418"},
-    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 14:26:24.754"},
-    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 14:28:16.410"},
-    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 14:29:00.207"},
+    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 15:54:31.321"},
+    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 15:57:21.838"},
+    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 16:00:15.348"},
+    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 16:02:35.836"},
   ],
 }
 ```
