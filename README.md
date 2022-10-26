@@ -2695,6 +2695,11 @@ Response:
 ```jq
 /get
 /get/usage
+/get/{table_name}
+/get/{table_name}/{param_name}/{param_value}
+/get/{table_name}?param_name=param_value
+/get/{table_name}/filter/{query}
+/get/{table_name}?filter=query
 ```
 
 </td><td>
@@ -2702,6 +2707,11 @@ Response:
 ```rexx
 returns all tables[] in the database
 returns a message for how to use this function
+returns all entries for the table: {table_name}
+match entries: 'param_name=param_value'
+match entries: 'param_name=param_value'
+match entries: 'filter='
+match entries: 'filter='
 ```
 
 </td></tr>
