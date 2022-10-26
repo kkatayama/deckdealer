@@ -1980,8 +1980,7 @@ url = https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fi
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44
--4f35-bdf9-b0a855c09328.jpg
+https://bartender.hopto.org/uploadImageUrl?url=https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44-4f35-bdf9-b0a855c09328.jpg
 ```
 
 Response:
@@ -2054,8 +2053,6 @@ Response:
 
 We see that `alice` has a `user_id` of `2` and `bob` is `3` 
 
-Let's add `alice` to `managers`:
-
 > NOTE: If you forget what the `required parameters` are for the `managers` table, make a request to `/add/managers`
 
 <details><summary> (click here to expand) </summary>
@@ -2099,25 +2096,21 @@ Response:
 </details>
 
 ---
-
 #### Adding `alice` to `managers` table
 
----
 Arguments:
 ```rexx
 user_id = 2
-first_name = "Alice"
-last_name = "Alice"
-phone_number = "(302) 555-5555"
+first_name = Alice
+last_name = Alice
+phone_number = (302) 555-5555
 email = alice@udel.edu
-profile_pic = "
-static = img/1.png"
+profile_pic = 1.png
 ```
 
 Request:
 ```jq
-https://bartender.hopto.org/add/managers/user_id/2/first_name/"Alice"/last_name/"Alice"/phone_number/"(302)
-555-5555"/email/alice@udel.edu/profile_pic/"/static/img/1.png"
+https://bartender.hopto.org/add/managers/user_id/2/first_name/Alice/last_name/Alice/phone_number/(302) 555-5555/email/alice@udel.edu/profile_pic/1.png
 ```
 
 Response:
@@ -2128,8 +2121,32 @@ Response:
   "user_id": "2"
 }
 ```
+---
+#### Adding `bob` to `managers` table
 
+Arguments:
+```rexx
+user_id = 3
+first_name = Bob
+last_name = Bob
+phone_number = (215) 555-5555
+email = bob@udel.edu
+profile_pic = 2.png
+```
 
+Request:
+```erlang
+https://bartender.hopto.org/add/managers?user_id=3&first_name=Bob&last_name=Bob&phone_number=(215) 555-5555&email=bob@udel.edu&profile_pic=2.png
+```
+
+Response:
+```json
+{
+  "message": "data added to <managers>",
+  "manager_id": 2,
+  "user_id": "3"
+}
+```
 
 </details>
 
@@ -2139,7 +2156,60 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
+---
+#### Adding `anna` to `bartenders` table
 
+Arguments:
+```rexx
+user_id = 4
+first_name = Anna
+last_name = Anna
+address = 555 N. Chapel St., Newark, DE 19711
+phone_number = (555) 555-5555
+email = anna@udel.edu
+profile_pic = 3.png
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartenders/user_id/4/first_name/Anna/last_name/Anna/address/555 N. Chapel St., Newark, DE 19711/phone_number/(555) 555-5555/email/anna@udel.edu/profile_pic/3.png
+```
+
+Response:
+```json
+{
+  "message": "data added to <bartenders>",
+  "bartender_id": 1,
+  "user_id": "4"
+}
+```
+---
+#### Adding `steve` to `bartenders` table
+
+Arguments:
+```rexx
+user_id = 5
+first_name = Steve
+last_name = Steve
+address = 555 S. Main St., Newark, DE 19711
+phone_number = (610) 555-5555
+email = steve@udel.edu
+profile_pic = 4.png
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartenders/user_id/5/first_name/Steve/last_name/Steve/address/555 S. Main St., Newark, DE 19711/phone_number/(610) 555-5555/email/steve@udel.edu/profile_pic/4.png
+```
+
+Response:
+```json
+{
+  "message": "data added to <bartenders>",
+  "bartender_id": 2,
+  "user_id": "5"
+}
+```
 
 </details>
 
