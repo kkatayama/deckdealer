@@ -2810,7 +2810,7 @@ submit no parameters (none required)
 <tr><td>
 
 ```jq
-/key/value
+/get/{table_name}/key/value
 ```
 
 </td><td>
@@ -2824,7 +2824,7 @@ match is limited to 'column_name == column_value'
 <tr><td>
 
 ```erlang
-?key=value
+/get/{table_name}?key=value
 ```
 
 </td><td>
@@ -2838,7 +2838,7 @@ match is limited to 'column_name == column_value'
 <tr><td>
 
 ```jq
-/filter/query
+/get/{table_name}/filter/query
 ```
 
 </td><td>
@@ -2852,7 +2852,7 @@ supports expressions, operators, and functions
 <tr><td>
 
 ```erlang
-?filter=query
+/get/{table_name}?filter=query
 ```
 
 </td><td>
@@ -2890,7 +2890,7 @@ QUERY FORMAT
 </td><td>
 
 ```erlang
-?filter=(param_name > "param_value")
+/get/{table_name}?filter=(param_name > "param_value")
 ```
 
 </td></tr>
@@ -2918,7 +2918,7 @@ PATH FORMAT
 </td><td>
 
 ```jq
-/filter/(param_name="param_value" OR param_name="param_value")
+/get/{table_name}/filter/(param_name="param_value" OR param_name="param_value")
 ```
 
 </td></tr>
