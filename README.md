@@ -3789,7 +3789,7 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-#### `users` table:
+#### Table: `users`
 Request:
 ```jq
 https://bartender.hopto.org/get/users
@@ -3807,7 +3807,7 @@ Response:
     {"user_id": 5, "username": "steve", "password": "d30aa6f4422040cee131efa311c73dd42dd9f2cb6424f23ac9caf403bec2e4289066e846c3df109f612ef2572f95e17f2eddedc36786ba1eb0f50da571ebcac2", "create_time": "2022-10-21 10:06:46.099"},
   ]
 ```
-#### `bartenders` table:
+#### Table: `bartenders`
 Request:
 ```jq
 https://bartender.hopto.org/get/bartenders
@@ -3822,7 +3822,7 @@ Response:
     {"bartender_id": 2, "user_id": 5, "first_name": "Steve", "last_name": "Steve", "address": "555 S. Main St., Newark, DE 19711", "phone_number": "(610) 555-5555", "email": "steve@udel.edu", "profile_pic": "4.png", "entry_time": "2022-10-25 20:54:39.146"},
   ]
 ```
-#### `managers` table:
+#### Table: `managers`
 Request:
 ```jq
 https://bartender.hopto.org/get/managers
@@ -3837,7 +3837,7 @@ Response:
     {"manager_id": 2, "user_id": 3, "first_name": "Bob", "last_name": "Bob", "phone_number": "(215) 555-5555", "email": "bob@udel.edu", "profile_pic": "2.png", "entry_time": "2022-10-25 20:44:47.063"},
   ]
 ```
-#### `restaurant_profile` table:
+#### Table: `restaurant_profile`
 Request:
 ```jq
 https://bartender.hopto.org/get/restaurant_profile
@@ -3852,7 +3852,7 @@ Response:
     {"restaurant_id": 2, "manager_id": 2, "restaurant_name": "Deer Park Tavern", "address": "108 West Main Street, Newark, DE 19711", "bio": "Good food and spirits!", "phone_number": "(302) 368-9414", "profile_pic": "6.jpeg", "entry_time": "2022-10-25 23:16:31.603"},
   ]
 ```
-#### `restaurant_photos` table:
+#### Table: `restaurant_photos`
 Request:
 ```jq
 https://bartender.hopto.org/get/restaurant_photos
@@ -3869,7 +3869,7 @@ Response:
     {"photo_id": 4, "restaurant_id": 2, "file_name": "10.jpeg", "entry_time": "2022-10-25 23:30:35.574"},
   ]
 ```
-#### `restaurant_schedule` table:
+#### Table: `restaurant_schedule`
 Request:
 ```jq
 https://bartender.hopto.org/get/restaurant_schedule
@@ -3884,7 +3884,7 @@ Response:
     {"schedule_id": 2, "restaurant_id": 2, "mon_open": "11:30", "mon_close": "01:00", "tue_open": "11:30", "tue_close": "01:00", "wed_open": "11:30", "wed_close": "01:00", "thu_open": "11:30", "thu_close": "01:00", "fri_open": "11:30", "fri_close": "01:00", "sat_open": "10:00", "sat_close": "01:00", "sun_open": "09:00", "sun_close": "01:00", "entry_time": "2022-10-26 06:14:44.158"},
   ]
 ```
-#### `bartender_shifts` table:
+#### Table: `bartender_shifts`
 Request:
 ```jq
 https://bartender.hopto.org/get/bartender_shifts
@@ -3901,7 +3901,7 @@ Response:
     {"shift_id": 4, "bartender_id": 2, "request_id": 5, "entry_time": "2022-10-26 11:37:47.440"},
   ]
 ```
-#### `restaurant_requests` table:
+#### Table: `restaurant_requests`
 Request:
 ```jq
 https://bartender.hopto.org/get/restaurant_requests
@@ -3920,7 +3920,7 @@ Response:
     {"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "open", "entry_time": "2022-10-26 09:42:25.607"},
   ]
 ```
-#### `bartender_wages` table:
+#### Table: `bartender_wages`
 Request:
 ```jq
 https://bartender.hopto.org/get/bartender_wages
