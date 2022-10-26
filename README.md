@@ -4257,7 +4257,7 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
 ### Endpoints:
 <table>
-<tr><tr><td> Resource </td><td> Description </td></tr>
+<tr><td> Resource </td><td> Description </td></tr>
 <tr><td>
 
 ```jq
