@@ -3778,7 +3778,7 @@ Response:
 
 ### Let's examine all the tables we created and inserted data from the previous workflows
 1. Show Tables: `users`, `bartenders`, `managers`, `restaurant_profile`, `restaurant_photos`, `restaurant_schedule`, `restaurant_requests`, `bartender_shifts`, `bartender_wages`
-2. Order the table `bartender_wages` by `tips`, `total_wages`, and `hours_worked`
+2. Examine the table `bartender_wages` by `tips`, `total_wages`, and `hours_worked`
 3. Filter `shifts` where the `bartender` arrived `late` and order by `time late`
 4. Find `shifts` that exceed the `requested hours` and group by `restaurant`
 
@@ -3804,7 +3804,8 @@ Response:
     {"user_id": 3, "username": "bob", "password": "7e6c183ddaf351a96fc6541b6ece83ea130c34ff8151a7e219d7bebace3398d685809c999065a54c7c1c785a4ae5b230f247cae5c97b958c7b881c86e81c3e07", "create_time": "2022-10-21 10:06:45.830"},
     {"user_id": 4, "username": "anna", "password": "a0d7bf58601f8f515eb56fb80ec986e49e40eb96572f33abab6ce924c7b3cd0d3cadeb7d15ea3075487a48d17412c62b112d7e0cdcc72a269e75d358a75d9af5", "create_time": "2022-10-21 10:06:45.955"},
     {"user_id": 5, "username": "steve", "password": "d30aa6f4422040cee131efa311c73dd42dd9f2cb6424f23ac9caf403bec2e4289066e846c3df109f612ef2572f95e17f2eddedc36786ba1eb0f50da571ebcac2", "create_time": "2022-10-21 10:06:46.099"},
-  ]
+  ],
+}
 ```
 #### Table: `bartenders`
 Request:
@@ -3819,7 +3820,8 @@ Response:
   "data": [
     {"bartender_id": 1, "user_id": 4, "first_name": "Anna", "last_name": "Anna", "address": "555 N. Chapel St., Newark, DE 19711", "phone_number": "(555) 555-5555", "email": "anna@udel.edu", "profile_pic": "3.png", "entry_time": "2022-10-25 20:52:59.861"},
     {"bartender_id": 2, "user_id": 5, "first_name": "Steve", "last_name": "Steve", "address": "555 S. Main St., Newark, DE 19711", "phone_number": "(610) 555-5555", "email": "steve@udel.edu", "profile_pic": "4.png", "entry_time": "2022-10-25 20:54:39.146"},
-  ]
+  ],
+}
 ```
 #### Table: `managers`
 Request:
@@ -3834,7 +3836,8 @@ Response:
   "data": [
     {"manager_id": 1, "user_id": 2, "first_name": "Alice", "last_name": "Alice", "phone_number": "(302) 555-5555", "email": "alice@udel.edu", "profile_pic": "1.png", "entry_time": "2022-10-25 20:39:58.215"},
     {"manager_id": 2, "user_id": 3, "first_name": "Bob", "last_name": "Bob", "phone_number": "(215) 555-5555", "email": "bob@udel.edu", "profile_pic": "2.png", "entry_time": "2022-10-25 20:44:47.063"},
-  ]
+  ],
+}
 ```
 #### Table: `restaurant_profile`
 Request:
@@ -3849,7 +3852,8 @@ Response:
   "data": [
     {"restaurant_id": 1, "manager_id": 1, "restaurant_name": "Iron Hill Brewery & Restaurant", "address": "147 EAST MAIN ST. NEWARK, DE 19711", "bio": "Craft Beer and Food", "phone_number": "(302) 266-9000", "profile_pic": "5.png", "entry_time": "2022-10-25 23:00:39.921"},
     {"restaurant_id": 2, "manager_id": 2, "restaurant_name": "Deer Park Tavern", "address": "108 West Main Street, Newark, DE 19711", "bio": "Good food and spirits!", "phone_number": "(302) 368-9414", "profile_pic": "6.jpeg", "entry_time": "2022-10-25 23:16:31.603"},
-  ]
+  ],
+}
 ```
 #### Table: `restaurant_photos`
 Request:
@@ -3866,7 +3870,8 @@ Response:
     {"photo_id": 2, "restaurant_id": 1, "file_name": "8.jpeg", "entry_time": "2022-10-25 23:29:01.316"},
     {"photo_id": 3, "restaurant_id": 2, "file_name": "9.jpeg", "entry_time": "2022-10-25 23:30:24.726"},
     {"photo_id": 4, "restaurant_id": 2, "file_name": "10.jpeg", "entry_time": "2022-10-25 23:30:35.574"},
-  ]
+  ],
+}
 ```
 #### Table: `restaurant_schedule`
 Request:
@@ -3881,7 +3886,8 @@ Response:
   "data": [
     {"schedule_id": 1, "restaurant_id": 1, "mon_open": "11:30", "mon_close": "21:00", "tue_open": "11:30", "tue_close": "21:00", "wed_open": "11:30", "wed_close": "22:00", "thu_open": "11:30", "thu_close": "22:00", "fri_open": "11:30", "fri_close": "23:00", "sat_open": "11:30", "sat_close": "23:00", "sun_open": "11:30", "sun_close": "21:00", "entry_time": "2022-10-26 06:11:56.158"},
     {"schedule_id": 2, "restaurant_id": 2, "mon_open": "11:30", "mon_close": "01:00", "tue_open": "11:30", "tue_close": "01:00", "wed_open": "11:30", "wed_close": "01:00", "thu_open": "11:30", "thu_close": "01:00", "fri_open": "11:30", "fri_close": "01:00", "sat_open": "10:00", "sat_close": "01:00", "sun_open": "09:00", "sun_close": "01:00", "entry_time": "2022-10-26 06:14:44.158"},
-  ]
+  ],
+}
 ```
 #### Table: `restaurant_requests`
 Request:
@@ -3900,7 +3906,8 @@ Response:
     {"request_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "status": "closed", "entry_time": "2022-10-26 09:37:41.581"},
     {"request_id": 5, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "status": "closed", "entry_time": "2022-10-26 09:40:46.969"},
     {"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "open", "entry_time": "2022-10-26 09:42:25.607"},
-  ]
+  ],
+}
 ```
 #### Table: `bartender_shifts`
 Request:
@@ -3917,7 +3924,8 @@ Response:
     {"shift_id": 2, "bartender_id": 2, "request_id": 2, "entry_time": "2022-10-26 11:29:19.106"},
     {"shift_id": 3, "bartender_id": 1, "request_id": 4, "entry_time": "2022-10-26 11:34:08.182"},
     {"shift_id": 4, "bartender_id": 2, "request_id": 5, "entry_time": "2022-10-26 11:37:47.440"},
-  ]
+  ],
+}
 ```
 #### Table: `bartender_wages`
 Request:
@@ -3934,16 +3942,19 @@ Response:
     {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "hourly_wage": 2.33, "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 11:31:31.271"},
     {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "hourly_wage": 3.5, "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 11:36:38.815"},
     {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "hourly_wage": 3.5, "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 11:40:10.193"},
-  ]
+  ],
+}
 ```
 
 </details>
 
 ---
 
-### 5.2 - Ordering Table `bartender_wages` by `tips`, `total_wages`, and `hours_worked`
+### 5.2 - Examing the Table `bartender_wages` by `tips`, `total_wages`, and `hours_worked`
 
 <details><summary> (click here to expand) </summary>
+
+#### Filter `barternder_wages` by `tips < 100.00`
 
 
 

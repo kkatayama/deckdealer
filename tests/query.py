@@ -144,9 +144,11 @@ Response:
         output += f'\n{{\n  "message": "{res.get("message")}",\n'
         if res.get('data'):
             output += '  "data": [\n'
+            if not isinstance(res["data"], list):
+                res["data"] = [res["data"]]
             for item in res['data']:
                 output += f'    {item},\n'.replace("'", '"')
-            output += '  ]\n'
+            output += '  ],\n}\n'
         output += '```'
         print(output)
 
