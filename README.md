@@ -1608,6 +1608,9 @@ Response:
 4. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
 5. Then add their schedules to the `restaurant_schedule` table
 
+### Simulate `Restaurant Requests`
+6. Log in as a `manager` and create a `shift request` into the `restaurant_requests` table
+
 ---
 
 ### 4.1 - Uploading Profile Pictures
@@ -2368,25 +2371,26 @@ Response:
 Arguments:
 ```rexx
 restaurant_id = 1
-mon_open = 11:30 AM
-mon_close = 9:00 PM
-tue_open = 11:30 AM
-tue_close = 9:00 PM
-wed_open = 11:30 AM
-wed_close = 10:00 PM
-thu_open = 11:30 AM
-thu_close = 10:00 PM
-fri_open = 11:30 AM
-fri_close = 11:00 PM
-sat_open = 11:30 AM
-sat_close = 11:00 PM
-sun_open = 11:30 AM
-sun_close = 9:00 PM
+mon_open = 11:30
+mon_close = 21:00
+tue_open = 11:30
+tue_close = 21:00
+wed_open = 11:30
+wed_close = 22:00
+thu_open = 11:30
+thu_close = 22:00
+fri_open = 11:30
+fri_close = 23:00
+sat_open = 11:30
+sat_close = 23:00
+sun_open = 11:30
+sun_close = 21:00
 ```
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_schedule/restaurant_id/1/mon_open/11:30 AM/mon_close/9:00 PM/tue_open/11:30 AM/tue_close/9:00 PM/wed_open/11:30 AM/wed_close/10:00 PM/thu_open/11:30 AM/thu_close/10:00 PM/fri_open/11:30 AM/fri_close/11:00 PM/sat_open/11:30 AM/sat_close/11:00 PM/sun_open/11:30 AM/sun_close/9:00 PM
+https://bartender.hopto.org/add/restaurant_schedule/restaurant_id/1/mon_open/11:30/mon_close/21:00/tue_open/11:30/tue_close/21:00/wed_open/11:30/wed_close/22:00/thu_open/11:30/thu_close/22:00/fri_open/11:30/fri_close/23:00/sat_open/11:3
+0/sat_close/23:00/sun_open/11:30/sun_close/21:00
 ```
 
 Response:
@@ -2403,26 +2407,26 @@ Response:
 Arguments:
 ```rexx
 restaurant_id = 2
-mon_open = 11:30 AM
-mon_close = 1:00 AM
-tue_open = 11:30 AM
-tue_close = 1:00 AM
-wed_open = 11:30 AM
-wed_close = 1:00 AM
-thu_open = 11:30 AM
-thu_close = 1:00 AM
-fri_open = 11:30 AM
-fri_close = 1:00 AM
-sat_open = 10:00 AM
-sat_close = 1:00 AM
-sun_open = 9:00 AM
-sun_close = 1:00 AM
+mon_open = 11:30
+mon_close = 01:00
+tue_open = 11:30
+tue_close = 01:00
+wed_open = 11:30
+wed_close = 01:00
+thu_open = 11:30
+thu_close = 01:00
+fri_open = 11:30
+fri_close = 01:00
+sat_open = 10:00
+sat_close = 01:00
+sun_open = 09:00
+sun_close = 01:00
 ```
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_schedule/restaurant_id/2/mon_open/11:30 AM/mon_close/1:00 AM/tue_open/11:30 AM/tue_close/1:00 AM/wed_open/11:30 AM/wed_close/1:00 AM/thu_open/11:30 AM/thu_close/1:00 AM/fri_open/11:30
-AM/fri_close/1:00 AM/sat_open/10:00 AM/sat_close/1:00 AM/sun_open/9:00 AM/sun_close/1:00 AM
+https://bartender.hopto.org/add/restaurant_schedule/restaurant_id/2/mon_open/11:30/mon_close/01:00/tue_open/11:30/tue_close/01:00/wed_open/11:30/wed_close/01:00/thu_open/11:30/thu_close/01:00/fri_open/11:30/fri_close/01:00/sat_open/10:0
+0/sat_close/01:00/sun_open/09:00/sun_close/01:00
 ```
 
 Response:
@@ -2433,6 +2437,172 @@ Response:
   "restaurant_id": "2"
 }
 ```
+
+</details>
+
+### 4.6 - Simulate Restaurant Requests
+
+<details><summary> (click here to expand) </summary>
+
+---
+#### Log in as `alice` - the manager of `Iron Hill`:
+
+Arguments:
+```rexx
+username = alice
+password = alice
+```
+
+Request:
+```jq
+https://bartender.hopto.org/login/username/alice/password/alice
+```
+
+Response:
+```json
+{
+  "message": "user login success",
+  "user_id": 2,
+  "username": "alice",
+  "token": "IXp5ZGc4cVUvS1VKNTUzRy9nOEpBOXc9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeWxJYVVMZz09"
+}
+```
+---
+#### Verify that the user `alice` with `user_id` of `2` is a `manager`:
+
+Arguments:
+```rexx
+user_id = 2
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/managers/user_id/2
+```
+
+Response:
+```json
+{
+  "message": "1 manager entry found",
+  "data": {
+    "manager_id": 1,
+    "user_id": 2,
+    "first_name": "Alice",
+    "last_name": "Alice",
+    "phone_number": "(302) 555-5555",
+    "email": "alice@udel.edu",
+    "profile_pic": "1.png",
+    "entry_time": "2022-10-25 20:39:58.215"
+  }
+}
+```
+---
+#### Confirm that the manager with `maneger_id` of `1` is an `Iron Hill` manager:
+
+Arguments:
+```rexx
+manager_id = 1
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_profile/manager_id/1
+```
+
+Response:
+```json
+{
+  "message": "1 restaurant_profile entry found",
+  "data": {
+    "restaurant_id": 1,
+    "manager_id": 1,
+    "restaurant_name": "Iron Hill Brewery & Restaurant",
+    "address": "147 EAST MAIN ST. NEWARK, DE 19711",
+    "bio": "Craft Beer and Food",
+    "phone_number": "(302) 266-9000",
+    "profile_pic": "5.png",
+    "entry_time": "2022-10-25 23:00:39.921"
+  }
+}
+```
+---
+#### Let's simulate a few `Restaurant Requests` from `Iron Hill`:
+
+A Thursday Lunch Shift:
+
+Arguments:
+```rexx
+restaurant_id = 1
+hourly_wage = 2.33
+shift_start = 2022-10-20 10:00:00
+shift_end = 2022-10-20 14:30:00
+status = completed
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00/status/completed
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_requests>",
+  "request_id": 1,
+  "restaurant_id": "1"
+}
+```
+
+#### A Friday Dinner-Close Shift:
+
+Arguments:
+```rexx
+restaurant_id = 1
+hourly_wage = 2.33
+shift_start = 2022-10-21 16:00:00
+shift_end = 2022-10-22 00:30:00
+status = completed
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00/status/completed
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_requests>",
+  "request_id": 2,
+  "restaurant_id": "1"
+}
+```
+
+#### A Saturday Cocktail Shift:
+
+Arguments:
+```rexx
+restaurant_id = 1
+hourly_wage = 2.33
+shift_start = 2022-10-29 18:00:00
+shift_end = 2022-10-29 23:00:00
+status = open
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00/status/open
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_requests>",
+  "request_id": 3,
+  "restaurant_id": "1"
+}
+```
+
 
 </details>
 
