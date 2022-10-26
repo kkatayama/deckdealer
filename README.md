@@ -2570,7 +2570,7 @@ Response:
 }
 ```
 
-##### Simulate `anna` had `snagged` shift:
+#### Simulate `anna` had `snagged` shift:
 Arguments:
 ```rexx
 bartender_id = 1
@@ -2592,9 +2592,33 @@ Response:
 }
 ```
 
-##### Simulate `anna` had `completed` shift:
+#### Simulate `anna` had `completed` shift:
+Arguments:
+```rexx
+bartender_id = 1
+shift_id = 1
+hourly_wage = 2.33
+clock_in = 2022-10-20 09:45:00
+clock_out = 2022-10-20 14:10:00
+hours_worked = 4.42
+tips = 85.00
+total_earnings = 95.30
+```
 
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_wages/bartender_id/1/shift_id/1/hourly_wage/2.33/clock_in/2022-10-20 09:45:00/clock_out/2022-10-20 14:10:00/hours_worked/4.42/tips/85.00/total_earnings/95.30
+```
 
+Response:
+```json
+{
+  "message": "data added to <bartender_wages>",
+  "wage_id": 1,
+  "bartender_id": "1",
+  "shift_id": "1"
+}
+```
 
 #### A Friday Dinner-Close Shift:
 Arguments:
@@ -2617,6 +2641,56 @@ Response:
   "message": "data added to <restaurant_requests>",
   "request_id": 2,
   "restaurant_id": "1"
+}
+```
+
+#### Simulate `steve` snagged `shift`:
+Arguments:
+```rexx
+bartender_id = 2
+request_id = 2
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_shifts/bartender_id/2/request_id/2
+```
+
+Response:
+```json
+{
+  "message": "data added to <bartender_shifts>",
+  "shift_id": 2,
+  "bartender_id": "2",
+  "request_id": "2"
+}
+```
+
+#### Simulate `steve` had completed `shift`:
+Arguments:
+```rexx
+bartender_id = 2
+shift_id = 2
+hourly_wage = 2.33
+clock_in = 2022-10-21 16:05:00
+clock_out = 2022-10-22 01:03:00
+hours_worked = 8.97
+tips = 147.00
+total_earnings = 167.90
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_wages/bartender_id/2/shift_id/2/hourly_wage/2.33/clock_in/2022-10-21 16:05:00/clock_out/2022-10-22 01:03:00/hours_worked/8.97/tips/147.00/total_earnings/167.90
+```
+
+Response:
+```json
+{
+  "message": "data added to <bartender_wages>",
+  "wage_id": 2,
+  "bartender_id": "2",
+  "shift_id": "2"
 }
 ```
 
@@ -2756,6 +2830,56 @@ Response:
 }
 ```
 
+#### Simulate `anna` had `snagged` shift:
+Arguments:
+```rexx
+bartender_id = 1
+request_id = 4
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_shifts/bartender_id/1/request_id/4
+```
+
+Response:
+```json
+{
+  "message": "data added to <bartender_shifts>",
+  "shift_id": 3,
+  "bartender_id": "1",
+  "request_id": "4"
+}
+```
+
+#### Simulate `anna` had `completed` shift:
+Arguments:
+```rexx
+bartender_id = 1
+shift_id = 3
+hourly_wage = 3.50
+clock_in = 2022-10-23 07:40:00
+clock_out = 2022-10-23 15:25:00
+hours_worked = 7.75
+tips = 165.00
+total_earnings = 192.12
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_wages/bartender_id/1/shift_id/3/hourly_wage/3.50/clock_in/2022-10-23 07:40:00/clock_out/2022-10-23 15:25:00/hours_worked/7.75/tips/165.00/total_earnings/192.12
+```
+
+Response:
+```json
+{
+  "message": "data added to <bartender_wages>",
+  "wage_id": 3,
+  "bartender_id": "1",
+  "shift_id": "3"
+}
+```
+
 #### A Monday Dinner-Close Shift:
 Arguments:
 ```rexx
@@ -2777,6 +2901,56 @@ Response:
   "message": "data added to <restaurant_requests>",
   "request_id": 5,
   "restaurant_id": "2"
+}
+```
+
+#### Simulate `steve` snagged `shift`:
+Arguments:
+```rexx
+bartender_id = 2
+request_id = 5
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_shifts/bartender_id/2/request_id/5
+```
+
+Response:
+```json
+{
+  "message": "data added to <bartender_shifts>",
+  "shift_id": 4,
+  "bartender_id": "2",
+  "request_id": "5"
+}
+```
+
+#### Simulate `steve` had completed `shift`:
+Arguments:
+```rexx
+bartender_id = 2
+shift_id = 4
+hourly_wage = 3.50
+clock_in = 2022-10-24 16:05:00
+clock_out = 2022-10-25 02:13:00
+hours_worked = 10.13
+tips = 108.00
+total_earnings = 143.46
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_wages/bartender_id/2/shift_id/4/hourly_wage/3.50/clock_in/2022-10-24 16:05:00/clock_out/2022-10-25 02:13:00/hours_worked/10.13/tips/108.00/total_earnings/143.46
+```
+
+Response:
+```json
+{
+  "message": "data added to <bartender_wages>",
+  "wage_id": 4,
+  "bartender_id": "2",
+  "shift_id": "4"
 }
 ```
 
