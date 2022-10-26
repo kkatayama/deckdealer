@@ -4024,6 +4024,7 @@ Response:
 ### Endpoints:
 <table>
 <tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
 
 ```jq
 /delete
