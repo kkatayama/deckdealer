@@ -1600,61 +1600,42 @@ add entry: 'param_name=param_value'
 
 ### Requirements:
 <table>
-<tr><td> Parameters </td><td> Exception </td></tr>
-<tr>
-<td>
+<tr><td> Parameters </td><td> Exception </td></tr><tr><td>
 
 ```rexx
 All params not {ref}_id or {ref}_time
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 {ref}_id required when not PRIMARY KEY
 ```
-
-</td>
-</tr>
+</td></tr>
 </table>
 
 ### Response After Successful [`/add`](#1-add):
 <table>
-<tr><td> Variable </td><td> Comment </td></tr>
-<tr>
-<td>
+<tr><td> Variable </td><td> Comment </td></tr><tr><td>
 
 ```rexx
 user_id
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 when entry added to users table
 ```
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 {ref}_id
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 when entry added to any other table
 ```
-
-</td>
-</tr>
+</td></tr>
 </table>
 
 ---
@@ -2674,8 +2655,7 @@ Response:
 
 ### Endpoints:
 <table>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr><td>
+<tr><td> Resource </td><td> Description </td></tr><tr><td>
 
 ```jq
 /get
