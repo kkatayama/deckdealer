@@ -3883,23 +3883,6 @@ Response:
     {"schedule_id": 2, "restaurant_id": 2, "mon_open": "11:30", "mon_close": "01:00", "tue_open": "11:30", "tue_close": "01:00", "wed_open": "11:30", "wed_close": "01:00", "thu_open": "11:30", "thu_close": "01:00", "fri_open": "11:30", "fri_close": "01:00", "sat_open": "10:00", "sat_close": "01:00", "sun_open": "09:00", "sun_close": "01:00", "entry_time": "2022-10-26 06:14:44.158"},
   ]
 ```
-#### Table: `bartender_shifts`
-Request:
-```jq
-https://bartender.hopto.org/get/bartender_shifts
-```
-
-Response:
-```json
-{
-  "message": "found 4 bartender_shift entries",
-  "data": [
-    {"shift_id": 1, "bartender_id": 1, "request_id": 1, "entry_time": "2022-10-26 10:45:57.627"},
-    {"shift_id": 2, "bartender_id": 2, "request_id": 2, "entry_time": "2022-10-26 11:29:19.106"},
-    {"shift_id": 3, "bartender_id": 1, "request_id": 4, "entry_time": "2022-10-26 11:34:08.182"},
-    {"shift_id": 4, "bartender_id": 2, "request_id": 5, "entry_time": "2022-10-26 11:37:47.440"},
-  ]
-```
 #### Table: `restaurant_requests`
 Request:
 ```jq
@@ -3917,6 +3900,23 @@ Response:
     {"request_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "status": "closed", "entry_time": "2022-10-26 09:37:41.581"},
     {"request_id": 5, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "status": "closed", "entry_time": "2022-10-26 09:40:46.969"},
     {"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "open", "entry_time": "2022-10-26 09:42:25.607"},
+  ]
+```
+#### Table: `bartender_shifts`
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_shifts
+```
+
+Response:
+```json
+{
+  "message": "found 4 bartender_shift entries",
+  "data": [
+    {"shift_id": 1, "bartender_id": 1, "request_id": 1, "entry_time": "2022-10-26 10:45:57.627"},
+    {"shift_id": 2, "bartender_id": 2, "request_id": 2, "entry_time": "2022-10-26 11:29:19.106"},
+    {"shift_id": 3, "bartender_id": 1, "request_id": 4, "entry_time": "2022-10-26 11:34:08.182"},
+    {"shift_id": 4, "bartender_id": 2, "request_id": 5, "entry_time": "2022-10-26 11:37:47.440"},
   ]
 ```
 #### Table: `bartender_wages`
