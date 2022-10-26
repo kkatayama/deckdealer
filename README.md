@@ -202,8 +202,8 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 ```jq
 /login
 ```
-</td>
-<td>
+</td><td>
+
 ```rexx
 return: {"message": "missing parameters"}
 ```
