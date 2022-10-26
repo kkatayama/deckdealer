@@ -1205,7 +1205,8 @@ Response:
 ### Creating the Table `bartender_wages`:
 Request:
 ```jq
-https://bartender.hopto.org/createTable/bartender_wages/wage_id/INTEGER/bartender_id/INTEGER/shift_id/INTEGER/hourly_wage/DOUBLE/hours_worked/DOUBLE/tips/DOUBLE/total_earnings/DOUBLE/entry_time/DATETIME
+https://bartender.hopto.org/createTable/bartender_wages/wage_id/INTEGER/bartender_id/INTEGER/shift_id/INTEGER/hourly_wage/DOUBLE/clock_in/DATETIME/clock_out/DATETIME/hours_worked/DOUBLE/tips/DOUBLE/total_earnings/DOUBLE/entry_time/DATETIM
+E
 ```
 
 Response:
@@ -1218,6 +1219,8 @@ Response:
     "bartender_id INTEGER NOT NULL",
     "shift_id INTEGER NOT NULL",
     "hourly_wage DOUBLE NOT NULL",
+    "clock_in DATETIME NOT NULL",
+    "clock_out DATETIME NOT NULL",
     "hours_worked DOUBLE NOT NULL",
     "tips DOUBLE NOT NULL",
     "total_earnings DOUBLE NOT NULL",
@@ -1642,7 +1645,6 @@ Response:
 
 ---
 #### Uploading profile picture for `alice`:
-
 Arguments:
 ```rexx
 url = https://www.w3schools.com/w3images/avatar4.png
@@ -1664,7 +1666,6 @@ Response:
 ```
 ---
 #### Uploading profile picture for `bob`:
-
 Arguments:
 ```rexx
 url = https://www.w3schools.com/w3images/avatar2.png
@@ -1686,7 +1687,6 @@ Response:
 ```
 ---
 #### Uploading profile picture for `anna`:
-
 Arguments:
 ```rexx
 url = https://www.w3schools.com/w3images/avatar5.png
@@ -1708,7 +1708,6 @@ Response:
 ```
 ---
 #### Uploading profile picture for `steve`:
-
 Arguments:
 ```rexx
 url = https://www.w3schools.com/w3images/avatar3.png
@@ -1730,7 +1729,6 @@ Response:
 ```
 ---
 #### Uploading profile picture for `Iron Hill`:
-
 Arguments:
 ```rexx
 url = https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
@@ -1752,7 +1750,6 @@ Response:
 ```
 ---
 #### Uploading profile picture for `Deer Park`:
-
 Arguments:
 ```rexx
 url = https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44-4f35-bdf9-b0a855c09328.jpg
@@ -1774,7 +1771,6 @@ Response:
 ```
 ---
 #### Uploading photos for `Iron Hill`:
-
 Arguments:
 ```rexx
 url = https://www.ironhillbrewery.com/assets/craft/_locationPic1x/locations_0005_newark.jpg
@@ -1816,7 +1812,6 @@ Response:
 ```
 ---
 #### Uploading photos for `Deer Park`:
-
 Arguments:
 ```rexx
 url = https://popmenucloud.com/jciwfypa/865660db-c7fd-4d06-bf3b-0ee4843caa25.jpg
@@ -1862,7 +1857,6 @@ Response:
 ---
 
 ### 4.2 - Adding `alice` and `bob` to `managers` table
-
 <details><summary> (click here to expand) </summary>
 
 <br />To assign `alice` and `bob` as managers, we will need their `user_id`.
@@ -1956,7 +1950,6 @@ Response:
 ```
 ---
 #### Adding `alice` to `managers` table:
-
 Arguments:
 ```rexx
 user_id = 2
@@ -1982,7 +1975,6 @@ Response:
 ```
 ---
 #### Adding `bob` to `managers` table:
-
 Arguments:
 ```rexx
 user_id = 3
@@ -2056,7 +2048,6 @@ Response:
 ```
 ---
 #### Adding `anna` to `bartenders` table:
-
 Arguments:
 ```rexx
 user_id = 4
@@ -2083,7 +2074,6 @@ Response:
 ```
 ---
 #### Adding `steve` to `bartenders` table:
-
 Arguments:
 ```rexx
 user_id = 5
@@ -2240,7 +2230,6 @@ Response:
 ```
 ---
 #### Adding `Iron Hill` photos to the `restaurant_photos` table:
-
 Arguments:
 ```rexx
 restaurant_id = 1
@@ -2282,7 +2271,6 @@ Response:
 ```
 ---
 #### Adding `Deer Park` photos to the `restaurant_photos` table:
-
 Arguments:
 ```rexx
 restaurant_id = 2
@@ -2388,7 +2376,6 @@ Response:
 ```
 ---
 #### Adding `Iron Hill` schedule to the `restaurant_schedule` table:
-
 Arguments:
 ```rexx
 restaurant_id = 1
@@ -2424,7 +2411,6 @@ Response:
 ```
 ---
 #### Adding `Deer Park` schedule to the `restaurant_schedule` table:
-
 Arguments:
 ```rexx
 restaurant_id = 2
@@ -2467,7 +2453,6 @@ Response:
 
 ---
 #### First: log out (current user should be: `admin` with `user_id` of `1`)
-
 Request:
 ```jq
 https://bartender.hopto.org/logout
@@ -2482,7 +2467,6 @@ Response:
 ```
 ---
 #### Log in as `alice` - the manager of `Iron Hill`:
-
 Arguments:
 ```rexx
 username = alice
@@ -2562,7 +2546,7 @@ Response:
 ---
 ### Let's simulate a few `Restaurant Requests` from `Iron Hill`
 
-#### A Thursday Lunch Shift:
+#### A Thursday Lunch Shift (completed by `anna`):
 Arguments:
 ```rexx
 restaurant_id = 1
@@ -2585,6 +2569,32 @@ Response:
   "restaurant_id": "1"
 }
 ```
+
+##### Simulate `anna` had `snagged` shift:
+Arguments:
+```rexx
+bartender_id = 1
+request_id = 1
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_shifts/bartender_id/1/request_id/1
+```
+
+Response:
+```json
+{
+  "message": "data added to <bartender_shifts>",
+  "shift_id": 1,
+  "bartender_id": "1",
+  "request_id": "1"
+}
+```
+
+##### Simulate `anna` had `completed` shift:
+
+
 
 #### A Friday Dinner-Close Shift:
 Arguments:
@@ -2720,9 +2730,79 @@ Response:
 }
 ```
 ---
-#### Let's simulate a few `Restaurant Requests` from `Deer Park`:
+### Let's simulate a few `Restaurant Requests` from `Deer Park`
 
+#### A Sunday Brunch Shift:
+Arguments:
+```rexx
+restaurant_id = 2
+hourly_wage = 3.50
+shift_start = 2022-10-23 08:00:00
+shift_end = 2022-10-23 14:00:00
+status = closed
+```
 
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00/status/closed
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_requests>",
+  "request_id": 4,
+  "restaurant_id": "2"
+}
+```
+
+#### A Monday Dinner-Close Shift:
+Arguments:
+```rexx
+restaurant_id = 2
+hourly_wage = 3.50
+shift_start = 2022-10-24 16:00:00
+shift_end = 2022-10-25 02:00:00
+status = closed
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00/status/closed
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_requests>",
+  "request_id": 5,
+  "restaurant_id": "2"
+}
+```
+
+#### A Wednesday Lunch Shift:
+Arguments:
+```rexx
+restaurant_id = 2
+hourly_wage = 3.50
+shift_start = 2022-10-26 10:30:00
+shift_end = 2022-10-26 15:00:00
+status = open
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00/status/open
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_requests>",
+  "request_id": 6,
+  "restaurant_id": "2"
+}
+```
 
 </details>
 
@@ -2907,9 +2987,7 @@ PATH FORMAT
 ```jq
 /get/{table_name}/filter/(param_name="param_value" OR param_name="param_value")
 ```
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 PATH EXAMPLE
@@ -2922,45 +3000,34 @@ PATH EXAMPLE
 </td></tr>
 </table>
 
-
-
 ### Response After Successful [`/get`](#2-get):
 <table>
-<tr><td> Variable </td><td> Comment </td></tr>
-<tr><td>
+<tr><td> Variable </td><td> Comment </td></tr><tr><td>
 
 ```rexx
 data = {obj}
 ```
-
 </td><td>
 
 ```rexx
 a single object matching the parameters
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 data = [{obj}]
 ```
-
 </td><td>
 
 ```rexx
 an array of objects matching the parameters
 ```
-
 </td></tr>
 </table>
 
-
 ---
 
-<details><summary>Endpoint Background (click here to expand)
-</summary>
+<details><summary>Endpoint Background (click here to expand)</summary>
 
 ### Investigating the Endpoint: `/get`
 The endpoint for getting users from the **`users`** table is **`/get/users`**.
@@ -3149,88 +3216,64 @@ Response:
     ]
 }
 ```
-
 ---
-
 ### Notes on {filter_string}:
 <table>
-<tr><td> Note </td><td> Comment </td></tr>
-<tr><td>
+<tr><td> Note </td><td> Comment </td></tr><tr><td>
 
 ```rexx
 keyword
 ```
-
 </td><td>
 
 ```rexx
 filter
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 QUERY FORMAT
 ```
-
 </td><td>
 
 ```erlang
 ?filter=(param_name > "param_value")
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 QUERY EXAMPLE
 ```
-
 </td><td>
 
 ```erlang
 /get/users?filter=(user_id = "7" OR username="bob")
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 PATH FORMAT
 ```
-
 </td><td>
 
 ```jq
 /filter/(param_name="param_value" OR param_name="param_value")
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 PATH EXAMPLE
 ```
-
 </td><td>
 
 ```jq
 /get/users/filter/(username="bob" OR username="alice")
 ```
-
-</td></tr>
-</table>
+</td></tr></table>
 
 ---
 
-
 ### Next, we will query the **`oximeter`** table to retrieve the sensor data for each user: `alice` and `bob`
-
 Oximeter data for just `alice`:
 
 Arguments:
@@ -3554,13 +3597,15 @@ Response:
 
 ---
 
-# [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data)
+## [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data)
 
 ---
 
 <details><summary> (click here to expand) </summary>
 
 ### Let's examine all the tables we added and modified in the previous workflows
+1. Show tables: `users`, `bartenders`, `managers`, `restaurant_profile`, `restaurant_photos`, `restaurant_schedule`, `bartender_shifts`
+
 
 ```rexx
 ./query_register_multiple_users.py --examine
@@ -3998,7 +4043,7 @@ Response:
 
 ---
 
-# [Workflow 6 - Editing Data](#Workflow-6---Editing-Data)
+## [Workflow 6 - Editing Data](#Workflow-6---Editing-Data)
 
 ---
 
@@ -4217,7 +4262,7 @@ Response:
 
 ---
 
-# [Workflow 7 - Deleting Data](#Workflow-7---Deleting-Data)
+## [Workflow 7 - Deleting Data](#Workflow-7---Deleting-Data)
 
 ---
 

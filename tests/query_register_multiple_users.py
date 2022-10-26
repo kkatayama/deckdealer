@@ -22,9 +22,10 @@ def delete(users=False):
         print('---')
 
 def examine():
-    table_names = [t['name'] for t in query.executeQuery(base_url=base_url, query='/get')["tables"]]
+    table_names = [t['name'] for t in query.executeQuery(base_url=base_url, query='/get', stdout=False)["tables"]]
     for name in table_names:
-        query.executeQuery(base_url=base_url, query=f'/get/{name}')
+        print(f'#### `{name}` table:')
+        query.executeQuery(base_url=base_url, query=f'/get/{name}', short=False)
 
 
 if __name__ == '__main__':
