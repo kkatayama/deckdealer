@@ -76,6 +76,7 @@ def parseQuery(query):
     tables = [
         "users",
         "bartenders",
+        "bartender_shifts",
         "bartender_wages",
         "managers",
         "restaurant_photos",

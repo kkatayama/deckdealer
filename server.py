@@ -538,8 +538,8 @@ def send_img(filename):
     dirname = sys.path[0]
     return static_file(filename, root=f'{dirname}/static/img/')
 
-@app.route('<filename:re:.*\.*>')
-def send_img(filename):
+@app.route('<filename:path>')
+def send_root_img(filename):
     dirname = sys.path[0]
     return static_file(filename, root=f'{dirname}/static/img/')
 
