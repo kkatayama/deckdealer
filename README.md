@@ -2505,7 +2505,6 @@ Response:
 ```
 ---
 #### Verify that the user `alice` with `user_id` of `2` is a `manager`:
-
 Arguments:
 ```rexx
 user_id = 2
@@ -2534,7 +2533,6 @@ Response:
 ```
 ---
 #### Confirm that the manager with `maneger_id` of `1` is an `Iron Hill` manager:
-
 Arguments:
 ```rexx
 manager_id = 1
@@ -2562,10 +2560,9 @@ Response:
 }
 ```
 ---
-#### Let's simulate a few `Restaurant Requests` from `Iron Hill`:
+### Let's simulate a few `Restaurant Requests` from `Iron Hill`
 
-A Thursday Lunch Shift:
-
+#### A Thursday Lunch Shift:
 Arguments:
 ```rexx
 restaurant_id = 1
@@ -2590,7 +2587,6 @@ Response:
 ```
 
 #### A Friday Dinner-Close Shift:
-
 Arguments:
 ```rexx
 restaurant_id = 1
@@ -2615,7 +2611,6 @@ Response:
 ```
 
 #### A Saturday Cocktail Shift:
-
 Arguments:
 ```rexx
 restaurant_id = 1
@@ -2640,7 +2635,7 @@ Response:
 ```
 ---
 #### Now, log out (current user should be: `alice` with `user_id` of `2`)
-
+Request:
 ```jq
 https://bartender.hopto.org/logout
 ```
@@ -2654,7 +2649,6 @@ Response:
 ```
 ---
 #### Log in as `bob` - the manager of `Deer Park`:
-
 Request:
 ```jq
 https://bartender.hopto.org/login/username/bob/password/bob
@@ -2671,7 +2665,6 @@ Response:
 ```
 ---
 #### Verify that the user `bob` with `user_id` of `3` is a `manager`:
-
 Arguments:
 ```rexx
 user_id = 3
