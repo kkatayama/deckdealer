@@ -46,9 +46,15 @@ def strip_path():
     parseParams(secret_key)
 
 
-# -- index - response: available commands
+# -- index - response: running
 @route("/", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 def index():
+    res = {"message": "running..."}
+    return clean(res)
+
+# -- usage - response: available commands
+@route("/usage", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
+def usage():
     res = {
         "message": "API_Endpoints",
         "User_Functions": {

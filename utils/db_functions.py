@@ -94,7 +94,7 @@ def insertRow(db, query="", **kwargs):
         columns = kwargs["columns"]
         col_values = kwargs["col_values"]
         query = f"INSERT INTO {table} ({','.join(columns)}) VALUES ({', '.join(['?']*len(columns))});"
-    print(query, col_values) if col_values else print(query)
+    logger.debug(query), logger.debug(col_values) if col_values else logger.debug(query)
 
     try:
         cur = db.execute(query, col_values) if col_values else db.execute(query)
@@ -112,7 +112,7 @@ def insertRow(db, query="", **kwargs):
             },
             'SQLite Traceback': tb_msgs
         }
-        print(err)
+        logger.error(err)
         return err
 
     return cur.lastrowid
@@ -165,7 +165,7 @@ def fetchRow(db, query="", **kwargs):
         condition = "1" if not kwargs.get("where") else f'{kwargs["where"]}'
         values = [kwargs.get("values")] if isinstance(kwargs.get("values"), str) else kwargs.get("values")
         query = f"SELECT {columns} FROM {table} WHERE {condition};"
-    print(query, values) if values else print(query)
+    logger.debug(query), logger.debug(values) if values else logger.debug(query)
 
     try:
         row = db.execute(query, values).fetchone() if values else db.execute(query).fetchone()
@@ -183,7 +183,7 @@ def fetchRow(db, query="", **kwargs):
             },
             'SQLite Traceback': tb_msgs
         }
-        print(err)
+        logger.error(err)
         return err
 
     if row:
@@ -236,7 +236,7 @@ def fetchRows(db, query="", **kwargs):
         condition = "1" if not kwargs.get("where") else f'{kwargs["where"]}'
         values = [kwargs.get("values")] if isinstance(kwargs.get("values"), str) else kwargs.get("values")
         query = f"SELECT {columns} FROM {table} WHERE {condition};"
-    print(query, values) if values else print(query)
+    logger.debug(query), logger.debug(values) if values else logger.debug(query)
 
     try:
         rows = db.execute(query, values).fetchall() if values else db.execute(query).fetchall()
@@ -254,7 +254,7 @@ def fetchRows(db, query="", **kwargs):
             },
             'SQLite Traceback': tb_msgs
         }
-        print(err)
+        logger.error(err)
         return err
 
     if rows:
@@ -317,7 +317,7 @@ def updateRow(db, query="", **kwargs):
         condition = f'({kwargs["where"]})'
         values = [kwargs["values"]] if isinstance(kwargs["values"], str) else kwargs["values"]
         query = f"UPDATE {table} SET {columns} WHERE {condition};"
-    print(query, col_values, values) if (col_values and values) else print(query)
+    logger.debug(query), logger.debug(col_values), logger.debug(values) if (col_values and values) else logger.debug(query)
 
     try:
         cur = db.execute(query, col_values+values) if (col_values or values) else db.execute(query)
@@ -338,7 +338,7 @@ def updateRow(db, query="", **kwargs):
             },
             'SQLite Traceback': tb_msgs
         }
-        print(err)
+        logger.error(err)
         return err
 
     return cur.rowcount
@@ -387,7 +387,7 @@ def deleteRow(db, query="", **kwargs):
         condition = f'({kwargs["where"]})'
         values = [kwargs["values"]] if isinstance(kwargs["values"], str) else kwargs["values"]
         query = f"DELETE FROM {table} WHERE {condition};"
-    print(query, values) if values else print(query)
+    logger.debug(query), logger.debug(values) if values else logger.debug(query)
 
     try:
         cur = db.execute(query, values)
@@ -407,7 +407,7 @@ def deleteRow(db, query="", **kwargs):
             },
             'SQLite Traceback': tb_msgs
         }
-        print(err)
+        logger.error(err)
         return err
 
     return cur.rowcount
@@ -422,11 +422,11 @@ def addTable(db, query="", **kwargs):
         table = kwargs["table"]["name"] if isinstance(kwargs.get("table"), dict) else kwargs.get("table")
         columns = kwargs.get("columns")
         query = f'CREATE TABLE {table} ({", ".join(columns)});'
-    print(query)
+    logger.debug(query)
     try:
         cur = db.execute(query)
     except (sqlite3.ProgrammingError, sqlite3.OperationalError) as e:
-        print(e.args)
+        logger.error(e.args)
         return {"SQLite_Error": e.args, "query": query, "columns": columns, "kwargs": kwargs}
     return {"message": f"{abs(cur.rowcount)} table created", "table": table, "columns": columns}
 
@@ -435,11 +435,11 @@ def deleteTable(db, query="", **kwargs):
         # table = kwargs.get("table")
         table = kwargs["table"]["name"] if isinstance(kwargs.get("table"), dict) else kwargs.get("table")
         query = f"DROP TABLE {table};"
-    print(query)
+    logger.debug(query)
     try:
         cur = db.execute(query)
     except (sqlite3.ProgrammingError, sqlite3.OperationalError) as e:
-        print(e.args)
+        logger.error(e.args)
         return {"SQLite_Error": e.args, "query": query, "kwargs": kwargs}
     return {"message": f"{abs(cur.rowcount)} table deleted!"}
 
@@ -449,6 +449,7 @@ def getTable(db, tables=[], table_name=''):
     # table = next((filter(lambda t: t["name"] == table_name, tables)), None)
     table = dict(*filter(lambda t: t["name"] == table_name, tables))
     if table:
+        table["info"] = {c["name"]: c["type"] for c in table["columns"]}
         table["columns"] = {c["name"]: c["type"].split()[0] for c in table["columns"]}
     return table
 
@@ -480,9 +481,12 @@ def getColumns(db, table, required=False, editable=False, non_editable=False, re
             col_info.append(info)
         return col_info
 
-    regex = r"(_id|_time)" if table["name"] == "users" else r"((?<!user)_id|_time)"
-    editable_columns = {key: table["columns"][key] for key in table["columns"] if not re.search(regex, key)}
-    non_editable_columns = {key: table["columns"][key] for key in table["columns"] if re.search(regex, key)}
+    # regex = r"(_id|_time)" if table["name"] == "users" else r"((?<!user)_id|_time)"
+    # editable_columns = {key: table["columns"][key] for key in table["columns"] if not re.search(regex, key)}
+    # non_editable_columns = {key: table["columns"][key] for key in table["columns"] if re.search(regex, key)}
+    regex = r"(PRIMARY KEY|DEFAULT)"
+    editable_columns = {key: table["columns"][key] for key in table["columns"] if not re.search(regex, table["info"][key])}
+    non_editable_columns = {key: table["columns"][key] for key in table["columns"] if re.search(regex, table["info"][key])}
 
     if required or editable:
         return editable_columns
@@ -545,7 +549,8 @@ def clean(data):
     # if checkUserAgent():
     #     return template("templates/prettify.tpl", data=str_data)
     cleaned = json.loads(str_data)
-    print(cleaned)
+    logger.info(cleaned)
+    # print(cleaned)
     return cleaned
 
 def clean2(data):
@@ -555,7 +560,8 @@ def clean2(data):
                 data.update({k: dict(v)})
 
     str_data = json.dumps(data, default=str, indent=2)
-    print(str_data)
+    logger.info(str_data)
+    # print(str_data)
     return str_data
 
 
@@ -593,7 +599,7 @@ def mapUrlPaths(url_paths, req_items, table=""):
             reject.append({k: v})
 
     columns = id_cols + non_cols + time_cols
-    print("__params__\n", params, "\n__columns__\n", columns)
+    logger.debug("__params__\n", params, "\n__columns__\n", columns)
     return params, columns
 
 def parseURI(url_paths):
@@ -643,8 +649,8 @@ def parseFilters(filters, conditions, values):
 
     filter_conditions = f_conditions if not conditions else " AND ".join([conditions, f_conditions])
     filter_values = values + [m.groupdict()["val"] for m in r.finditer(filters)]
-    print(f'filter_conditions: "{filter_conditions}"')
-    print(f'filter_values: {filter_values}')
+    logger.debug(f'filter_conditions: "{filter_conditions}"')
+    logger.debug(f'filter_values: {filter_values}')
 
     return filter_conditions, filter_values
 
@@ -660,8 +666,8 @@ def parseColumnValues(cols, vals):
             col_values.append(vals[i])
     columns = columns.strip(", ")
 
-    print(f"columns: '{columns}'")
-    print(f"col_values: {col_values}")
+    logger.debug(f"columns: '{columns}'")
+    logger.debug(f"col_values: {col_values}")
     return columns, col_values
 
 secret_key = Path.cwd().parent.name
@@ -716,7 +722,7 @@ def getLogger():
     project = Path.cwd().parent.name
 
     logger = logging.getLogger(f'logs/{project}.py')
-    logger.setLevel(logging.INFO)
+    logger.setLevel(logging.DEBUG)
     file_handler = TimedRotatingFileHandler(f'logs/{project}.log', when='midnight')
     formatter = logging.Formatter('%(msg)s')
     file_handler.setLevel(logging.DEBUG)
@@ -739,6 +745,7 @@ def log_to_logger(fn):
             or request.remote_addr
         )
         logger.info('%s %s %s %s %s' % (ip_address, request_time, request.method, request.url, response.status))
+        print('%s %s %s %s %s' % (ip_address, request_time, request.method, request.url, response.status))
 
         if isinstance(actual_response, dict):
             if not actual_response.get("message") == "available commands":

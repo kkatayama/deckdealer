@@ -2154,11 +2154,6 @@ Response:
 ---
 > NOTE: To see what the `required parameters` are for the `bartenders` table, make a request to `/add/bartenders`
 
-Arguments:
-```rexx
-
-```
-
 Request:
 ```jq
 https://bartender.hopto.org/add/bartenders
@@ -2258,6 +2253,77 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
+---
+> NOTE: To see what the `required parameters` are for the `restaurant_profile` table, make a request to `/add/restaurant_profile`
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_profile
+```
+
+Response:
+```json
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "manager_id": "INTEGER",
+      "restaurant_name": "TEXT",
+      "address": "TEXT",
+      "bio": "TEXT",
+      "phone_number": "TEXT",
+      "profile_pic": "TEXT"
+    }
+  ],
+  "missing": [
+    {
+      "manager_id": "INTEGER",
+      "restaurant_name": "TEXT",
+      "address": "TEXT",
+      "bio": "TEXT",
+      "phone_number": "TEXT",
+      "profile_pic": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+```
+---
+
+#### Adding `Iron Hill` to `restaurant_profile` table
+> Remember that `alice` with `manager_id` of `1` is the manager of `Iron Hill`.
+---
+Arguments:
+```rexx
+manager_id = 1
+restaurant_name = Iron Hill Brewery & Restaurant
+address = 147 EAST MAIN ST. NEWARK, DE 19711
+bio = Craft Beer and Food
+phone_number = (302) 266-9000
+profile_pic = 5.png
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_profile/manager_id/1/restaurant_name/Iron Hill Brewery & Restaurant/address/147 EAST MAIN ST. NEWARK, DE 19711/bio/Craft Beer and Food/phone_number/(302) 266-9000/profile_pic/5.png
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_profile>",
+  "restaurant_id": 1,
+  "manager_id": "1"
+}
+```
+
+
+
+---
+> NOTE: To see what the `required parameters` are for the `restaurant_photos` table, make a request to `/add/restaurant_photos`
+
 
 
 </details>
@@ -2267,6 +2333,14 @@ Response:
 ### 4.5 Adding `Iron Hill` and `Deer Park` schedules to the `restaurant_schedule` table
 
 <details><summary> (click here to expand) </summary>
+
+---
+> NOTE: To see what the `required parameters` are for the `restaurant_schedule` table, make a request to `/add/restaurant_schedule`
+
+
+
+---
+> NOTE: To see what the `required parameters` are for the `bartenders` table, make a request to `/add/bartenders`
 
 
 
