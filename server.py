@@ -212,7 +212,6 @@ def uploadImageUrl(url_paths=""):
     res = {"message": "image url uploaded", "url": url, "full_path": '/' + str(Path('static', 'img', f'{name}.{ext}')), 'file_name': f'{name}.{ext}'}
     return clean(res)
 
-
 ###############################################################################
 #                          Database Admin Functions                           #
 ###############################################################################
@@ -354,7 +353,6 @@ def get(db, table_name="", url_paths=""):
         return {'message': 'invalid token'}
     if request.params.get('token'):
         del request.params["token"]
-
 
     tables = getTables(db)
     table = getTable(db, tables, table_name)
