@@ -4257,74 +4257,52 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
 ### Endpoints:
 <table>
-<tr></tr>
-<tr>
-<td>
+<tr><tr><td> Resource </td><td> Description </td></tr>
+<tr><td>
 
 ```jq
 /uploadImageUrl
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 returns: {"message": "missing parameters", "required params": ["url"]}
 ```
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
+</td></tr>
+<tr></tr><tr><td>
 
 ```jq
 /uploadImageUrl/usage
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 returns: {"message": "usage_info"}
 ```
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
+</td></tr>
+<tr></tr><tr><td>
 
 ```jq
 /uploadImageUrl/<param_name>/<param_value>
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 upload with url_paths: 'param_name=param_value'
 ```
-
-</td>
-</tr>
+</td></tr>
 <tr></tr>
-<tr>
-<td>
+<tr><td>
 
 ```jq
 /uploadImageUrl?param_name=param_value
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 upload with params: 'param_name=param_value'
 ```
-
-</td>
-</tr>
+</td></tr>
 </table>
 
 
