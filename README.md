@@ -2694,12 +2694,14 @@ Response:
 
 ```jq
 /get
+/get/usage
 ```
 
 </td><td>
 
 ```rexx
 returns all tables[] in the database
+returns a message for how to use this function
 ```
 
 </td></tr>
@@ -2864,7 +2866,7 @@ supports expressions, operators, and functions
 </td></tr>
 </table>
 
-### Notes on `filter` options:
+### Notes on `filter` option:
 <table>
 <tr><td> Note </td><td> Comment </td></tr>
 <tr><td>
