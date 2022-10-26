@@ -1599,18 +1599,18 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-### A) Assigning `users` to `Roles` and creating `User Profiles`
+### Assigning `users` to `Roles` and creating `User Profiles`
 1. Lets upload profile pictures for the 4 users we added earlier and 2 reqtaurants...
 2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
 3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
 
-### B) Setting up the `Restaurant Tables`
-1. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
-2. Then add their schedules to the `restaurant_schedule` table
+### Setting up the `Restaurant Tables`
+4. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
+5. Then add their schedules to the `restaurant_schedule` table
 
 ---
 
-### 4.A.1 Uploading Profile Pictures
+### 4.1 Uploading Profile Pictures
 
 <details><summary> (click here to expand) </summary>
 
@@ -1837,7 +1837,7 @@ Response:
 
 ---
 
-### 4.A.2 Adding `alice` and `bob` to `managers` table
+### 4.2 Adding `alice` and `bob` to `managers` table
 
 <details><summary> (click here to expand) </summary>
 
@@ -1987,7 +1987,7 @@ Response:
 
 ---
 
-### 4.A.3 Adding `anna` and `steve` to `bartenders` table
+### 4.3 Adding `anna` and `steve` to `bartenders` table
 
 <details><summary> (click here to expand) </summary>
 
