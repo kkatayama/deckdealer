@@ -1610,7 +1610,7 @@ Response:
 
 ---
 
-### 4.1 Uploading Profile Pictures
+### 4.1 - Uploading Profile Pictures
 
 <details><summary> (click here to expand) </summary>
 
@@ -1837,7 +1837,7 @@ Response:
 
 ---
 
-### 4.2 Adding `alice` and `bob` to `managers` table
+### 4.2 - Adding `alice` and `bob` to `managers` table
 
 <details><summary> (click here to expand) </summary>
 
