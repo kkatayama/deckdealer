@@ -141,7 +141,7 @@ Response:
         print_json(data=res)
         print('```')
     else:
-        output += f'\n{{\n  "message": {res.get("message")},\n'
+        output += f'\n{{\n  "message": "{res.get("message")}",\n'
         if res.get('data'):
             output += '  "data": [\n'
             for item in res['data']:

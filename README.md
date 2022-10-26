@@ -3145,7 +3145,6 @@ QUERY FORMAT
 ```rexx
 QUERY EXAMPLE
 ```
-
 </td><td>
 
 ```erlang
@@ -3798,7 +3797,7 @@ https://bartender.hopto.org/get/users
 Response:
 ```json
 {
-  "message": found 5 user entries,
+  "message": "found 5 user entries",
   "data": [
     {"user_id": 1, "username": "admin", "password": "a2025bd8b86a53fccf6f42eae008ccbf65dcf6aa55e0e6a477b57c5d74b1e611e5902fe9673d8cddb84896005e125d589e39e258a7fbeb3e7208b866e7746e60", "create_time": "2022-10-19 00:23:52.930"},
     {"user_id": 2, "username": "alice", "password": "b71dab3e13191834f1f0dd53c8b4be30da005ee7eea47ec8673d41c5ee959be34881a9ac99d473bec40b2de489e83694e5e532babbdcfc16c93d137872cffa96", "create_time": "2022-10-21 10:06:45.643"},
@@ -3816,7 +3815,7 @@ https://bartender.hopto.org/get/bartenders
 Response:
 ```json
 {
-  "message": found 2 bartender entries,
+  "message": "found 2 bartender entries",
   "data": [
     {"bartender_id": 1, "user_id": 4, "first_name": "Anna", "last_name": "Anna", "address": "555 N. Chapel St., Newark, DE 19711", "phone_number": "(555) 555-5555", "email": "anna@udel.edu", "profile_pic": "3.png", "entry_time": "2022-10-25 20:52:59.861"},
     {"bartender_id": 2, "user_id": 5, "first_name": "Steve", "last_name": "Steve", "address": "555 S. Main St., Newark, DE 19711", "phone_number": "(610) 555-5555", "email": "steve@udel.edu", "profile_pic": "4.png", "entry_time": "2022-10-25 20:54:39.146"},
@@ -3831,7 +3830,7 @@ https://bartender.hopto.org/get/managers
 Response:
 ```json
 {
-  "message": found 2 manager entries,
+  "message": "found 2 manager entries",
   "data": [
     {"manager_id": 1, "user_id": 2, "first_name": "Alice", "last_name": "Alice", "phone_number": "(302) 555-5555", "email": "alice@udel.edu", "profile_pic": "1.png", "entry_time": "2022-10-25 20:39:58.215"},
     {"manager_id": 2, "user_id": 3, "first_name": "Bob", "last_name": "Bob", "phone_number": "(215) 555-5555", "email": "bob@udel.edu", "profile_pic": "2.png", "entry_time": "2022-10-25 20:44:47.063"},
@@ -3846,7 +3845,7 @@ https://bartender.hopto.org/get/restaurant_profile
 Response:
 ```json
 {
-  "message": found 2 restaurant_profile entries,
+  "message": "found 2 restaurant_profile entries",
   "data": [
     {"restaurant_id": 1, "manager_id": 1, "restaurant_name": "Iron Hill Brewery & Restaurant", "address": "147 EAST MAIN ST. NEWARK, DE 19711", "bio": "Craft Beer and Food", "phone_number": "(302) 266-9000", "profile_pic": "5.png", "entry_time": "2022-10-25 23:00:39.921"},
     {"restaurant_id": 2, "manager_id": 2, "restaurant_name": "Deer Park Tavern", "address": "108 West Main Street, Newark, DE 19711", "bio": "Good food and spirits!", "phone_number": "(302) 368-9414", "profile_pic": "6.jpeg", "entry_time": "2022-10-25 23:16:31.603"},
@@ -3861,7 +3860,7 @@ https://bartender.hopto.org/get/restaurant_photos
 Response:
 ```json
 {
-  "message": found 4 restaurant_photo entries,
+  "message": "found 4 restaurant_photo entries",
   "data": [
     {"photo_id": 1, "restaurant_id": 1, "file_name": "7.jpeg", "entry_time": "2022-10-25 23:28:54.850"},
     {"photo_id": 2, "restaurant_id": 1, "file_name": "8.jpeg", "entry_time": "2022-10-25 23:29:01.316"},
@@ -3878,7 +3877,7 @@ https://bartender.hopto.org/get/restaurant_schedule
 Response:
 ```json
 {
-  "message": found 2 restaurant_schedule entries,
+  "message": "found 2 restaurant_schedule entries",
   "data": [
     {"schedule_id": 1, "restaurant_id": 1, "mon_open": "11:30", "mon_close": "21:00", "tue_open": "11:30", "tue_close": "21:00", "wed_open": "11:30", "wed_close": "22:00", "thu_open": "11:30", "thu_close": "22:00", "fri_open": "11:30", "fri_close": "23:00", "sat_open": "11:30", "sat_close": "23:00", "sun_open": "11:30", "sun_close": "21:00", "entry_time": "2022-10-26 06:11:56.158"},
     {"schedule_id": 2, "restaurant_id": 2, "mon_open": "11:30", "mon_close": "01:00", "tue_open": "11:30", "tue_close": "01:00", "wed_open": "11:30", "wed_close": "01:00", "thu_open": "11:30", "thu_close": "01:00", "fri_open": "11:30", "fri_close": "01:00", "sat_open": "10:00", "sat_close": "01:00", "sun_open": "09:00", "sun_close": "01:00", "entry_time": "2022-10-26 06:14:44.158"},
@@ -3893,7 +3892,7 @@ https://bartender.hopto.org/get/bartender_shifts
 Response:
 ```json
 {
-  "message": found 4 bartender_shift entries,
+  "message": "found 4 bartender_shift entries",
   "data": [
     {"shift_id": 1, "bartender_id": 1, "request_id": 1, "entry_time": "2022-10-26 10:45:57.627"},
     {"shift_id": 2, "bartender_id": 2, "request_id": 2, "entry_time": "2022-10-26 11:29:19.106"},
@@ -3910,7 +3909,7 @@ https://bartender.hopto.org/get/restaurant_requests
 Response:
 ```json
 {
-  "message": found 6 restaurant_request entries,
+  "message": "found 6 restaurant_request entries",
   "data": [
     {"request_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "status": "completed", "entry_time": "2022-10-26 08:37:03.649"},
     {"request_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "status": "completed", "entry_time": "2022-10-26 08:37:37.271"},
@@ -3929,7 +3928,7 @@ https://bartender.hopto.org/get/bartender_wages
 Response:
 ```json
 {
-  "message": found 4 bartender_wage entries,
+  "message": "found 4 bartender_wage entries",
   "data": [
     {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "hourly_wage": 2.33, "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 11:13:30.853"},
     {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "hourly_wage": 2.33, "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 11:31:31.271"},
@@ -3978,130 +3977,97 @@ Response:
 
 ### Endpoints:
 <table>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr><td>
+<tr><td> Resource </td><td> Description </td></tr><tr><td>
 
 ```jq
 /edit
 ```
-
 </td><td>
 
 ```rexx
 returns all tables[] in the database
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /edit/usage
 ```
-
 </td><td>
 
 ```rexx
 returns message: 'usage-info'
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /edit/{table_name}
 ```
-
 </td><td>
 
 ```rexx
 returns message: 'missing a parameter'
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /edit/{table_name}/{param_name}/{param_value}
 ```
-
 </td><td>
 
 ```rexx
 edit entries: 'param_name=param_value'
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```erlang
 /edit/{table_name}?param_name=param_value
 ```
-
 </td><td>
 
 ```rexx
 edit entries: 'param_name=param_value'
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```jq
 /edit/{table_name}/filter/{filter_string}
 ```
-
 </td><td>
 
 ```rexx
 edit entries: filter='
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```erlang
 /edit/{table_name}?filter=filter_string
 ```
-
 </td><td>
 
 ```rexx
 edit entries: filter='
 ```
-
 </td></tr>
 </table>
 
 
 ### Requirements:
 <table>
-<tr><td> Parameters </td><td> Comment </td></tr>
-<tr><td>
+<tr><td> Parameters </td><td> Comment </td></tr><tr><td>
 
 ```rexx
 at least 1 edit parameter
 ```
-
 </td><td>
 
 ```rexx
 any parameter not *_id or *_time
 ```
-
-</td></tr>
-<tr></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 at least 1 reference parameter
 ```
-
 </td><td>
 
 ```rexx
@@ -4114,40 +4080,27 @@ any *_id or *_time parameter or filter
 
 ### Response After Successful [`/edit`](#3-edit):
 <table>
-<tr><td> Variable </td><td> Comment </td></tr>
-<tr>
-<td>
+<tr><td> Variable </td><td> Comment </td></tr><tr><td>
 
 ```rexx
 message
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 number of edits made
 ```
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 submitted[]
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 the parameters that were submitted
 ```
-
-</td>
-</tr>
+</td></tr>
 </table>
 
 ---
@@ -4424,8 +4377,7 @@ Response:
 
 ### Endpoints:
 <table>
-<tr><td> Resource </td><td> Description </td></tr>
-<tr><td>
+<tr><td> Resource </td><td> Description </td></tr><tr><td>
 
 ```jq
 /delete
@@ -4501,19 +4453,16 @@ delete entries: filter='
 
 ### Requirements:
 <table>
-<tr><td> Parameters </td><td> Comment </td></tr>
-<tr><td>
+<tr><td> Parameters </td><td> Comment </td></tr><tr><td>
 
 ```rexx
 at least 1 reference parameter
 ```
-
 </td><td>
 
 ```rexx
 any *_id or *_time parameter or filter
 ```
-
 </td></tr>
 </table>
 
