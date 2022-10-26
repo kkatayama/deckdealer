@@ -2461,6 +2461,88 @@ Response:
 ---
 #### Adding `Iron Hill` photos to the `restaurant_photos` table:
 
+Arguments:
+```rexx
+restaurant_id = 1
+file_name = 7.jpeg
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_photos/restaurant_id/1/file_name/7.jpeg
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_photos>",
+  "photo_id": 1,
+  "restaurant_id": "1"
+}
+```
+
+Arguments:
+```rexx
+restaurant_id = 1
+file_name = 8.jpeg
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_photos/restaurant_id/1/file_name/8.jpeg
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_photos>",
+  "photo_id": 2,
+  "restaurant_id": "1"
+}
+```
+---
+#### Adding `Deer Park` photos to the `restaurant_photos` table:
+
+Arguments:
+```rexx
+restaurant_id = 2
+file_name = 9.jpeg
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_photos/restaurant_id/2/file_name/9.jpeg
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_photos>",
+  "photo_id": 3,
+  "restaurant_id": "2"
+}
+```
+
+Arguments:
+```rexx
+restaurant_id = 2
+file_name = 10.jpeg
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_photos/restaurant_id/2/file_name/10.jpeg
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_photos>",
+  "photo_id": 4,
+  "restaurant_id": "2"
+}
+```
+
 </details>
 
 ---
@@ -2470,14 +2552,131 @@ Response:
 <details><summary> (click here to expand) </summary>
 
 ---
-> NOTE: To see what the `required parameters` are for the `restaurant_schedule` table, make a request to `/add/restaurant_schedule`
+To see what the `required parameters` are for the `restaurant_schedule` table, make a request to `/add/restaurant_schedule`
 
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_schedule
+```
 
-
+Response:
+```json
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "restaurant_id": "INTEGER",
+      "mon_open": "DATETIME",
+      "mon_close": "DATETIME",
+      "tue_open": "DATETIME",
+      "tue_close": "DATETIME",
+      "wed_open": "DATETIME",
+      "wed_close": "DATETIME",
+      "thu_open": "DATETIME",
+      "thu_close": "DATETIME",
+      "fri_open": "DATETIME",
+      "fri_close": "DATETIME",
+      "sat_open": "DATETIME",
+      "sat_close": "DATETIME",
+      "sun_open": "DATETIME",
+      "sun_close": "DATETIME"
+    }
+  ],
+  "missing": [
+    {
+      "restaurant_id": "INTEGER",
+      "mon_open": "DATETIME",
+      "mon_close": "DATETIME",
+      "tue_open": "DATETIME",
+      "tue_close": "DATETIME",
+      "wed_open": "DATETIME",
+      "wed_close": "DATETIME",
+      "thu_open": "DATETIME",
+      "thu_close": "DATETIME",
+      "fri_open": "DATETIME",
+      "fri_close": "DATETIME",
+      "sat_open": "DATETIME",
+      "sat_close": "DATETIME",
+      "sun_open": "DATETIME",
+      "sun_close": "DATETIME"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+```
 ---
-> NOTE: To see what the `required parameters` are for the `bartenders` table, make a request to `/add/bartenders`
+#### Adding `Iron Hill` schedule to the `restaurant_schedule` table:
 
+Arguments:
+```rexx
+restaurant_id = 1
+mon_open = 11:30 AM
+mon_close = 9:00 PM
+tue_open = 11:30 AM
+tue_close = 9:00 PM
+wed_open = 11:30 AM
+wed_close = 10:00 PM
+thu_open = 11:30 AM
+thu_close = 10:00 PM
+fri_open = 11:30 AM
+fri_close = 11:00 PM
+sat_open = 11:30 AM
+sat_close = 11:00 PM
+sun_open = 11:30 AM
+sun_close = 9:00 PM
+```
 
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_schedule/restaurant_id/1/mon_open/11:30 AM/mon_close/9:00 PM/tue_open/11:30 AM/tue_close/9:00 PM/wed_open/11:30 AM/wed_close/10:00 PM/thu_open/11:30 AM/thu_close/10:00 PM/fri_open/11:30 AM/fri_close/11:00 PM/sat_open/11:30 AM/sat_close/11:00 PM/sun_open/11:30 AM/sun_close/9:00 PM
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_schedule>",
+  "schedule_id": 1,
+  "restaurant_id": "1"
+}
+```
+---
+#### Adding `Deer Park` schedule to the `restaurant_schedule` table:
+
+Arguments:
+```rexx
+restaurant_id = 2
+mon_open = 11:30 AM
+mon_close = 1:00 AM
+tue_open = 11:30 AM
+tue_close = 1:00 AM
+wed_open = 11:30 AM
+wed_close = 1:00 AM
+thu_open = 11:30 AM
+thu_close = 1:00 AM
+fri_open = 11:30 AM
+fri_close = 1:00 AM
+sat_open = 10:00 AM
+sat_close = 1:00 AM
+sun_open = 9:00 AM
+sun_close = 1:00 AM
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/restaurant_schedule/restaurant_id/2/mon_open/11:30 AM/mon_close/1:00 AM/tue_open/11:30 AM/tue_close/1:00 AM/wed_open/11:30 AM/wed_close/1:00 AM/thu_open/11:30 AM/thu_close/1:00 AM/fri_open/11:30
+AM/fri_close/1:00 AM/sat_open/10:00 AM/sat_close/1:00 AM/sun_open/9:00 AM/sun_close/1:00 AM
+```
+
+Response:
+```json
+{
+  "message": "data added to <restaurant_schedule>",
+  "schedule_id": 2,
+  "restaurant_id": "2"
+}
+```
 
 </details>
 
