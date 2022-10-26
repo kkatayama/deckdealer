@@ -2003,9 +2003,9 @@ Response:
 
 <br />To assign `alice` and `bob` as managers, we will need their `user_id`.
 
-To do this, make a request to the `users` table:
-
 ---
+> NOTE: to get info of all users, make a request to the `users` table
+
 Request:
 ```jq
 https://bartender.hopto.org/get/users
@@ -2051,10 +2051,11 @@ Response:
 ```
 ---
 
-We see that `alice` has a `user_id` of `2` and `bob` is `3` 
+We see that `alice` has a `user_id` of `2` and `bob` has a `user_id` of `3` 
 
-> NOTE: To see what the `required parameters` are for the `managers` table, make a request to `/add/managers`
 ---
+> NOTE: To see what the `required parameters` are for the `managers` table, make a request to `/add/managers`
+
 Request:
 ```jq
 https://bartender.hopto.org/add/managers
@@ -2150,6 +2151,50 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
+---
+> NOTE: To see what the `required parameters` are for the `bartenders` table, make a request to `/add/bartenders`
+
+Arguments:
+```rexx
+
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartenders
+```
+
+Response:
+```json
+{
+  "message": "missing paramaters",
+  "required": [
+    {
+      "user_id": "INTEGER",
+      "first_name": "TEXT",
+      "last_name": "TEXT",
+      "address": "TEXT",
+      "phone_number": "TEXT",
+      "email": "TEXT",
+      "profile_pic": "TEXT"
+    }
+  ],
+  "missing": [
+    {
+      "user_id": "INTEGER",
+      "first_name": "TEXT",
+      "last_name": "TEXT",
+      "address": "TEXT",
+      "phone_number": "TEXT",
+      "email": "TEXT",
+      "profile_pic": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+```
 ---
 #### Adding `anna` to `bartenders` table
 
