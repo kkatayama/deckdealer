@@ -2851,36 +2851,27 @@ supports expressions, operators, and functions
 
 ### Notes on `filter` option:
 <table>
-<tr><td> Note </td><td> Comment </td></tr>
-<tr><td>
+<tr><td> Note </td><td> Comment </td></tr><tr><td>
 
 ```rexx
 keyword
 ```
-
 </td><td>
 
 ```rexx
 filter
 ```
-
-</td></tr>
-<tr><td> Note </td><td> Comment </td></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 QUERY FORMAT
 ```
-
 </td><td>
 
 ```erlang
 /get/{table_name}?filter=(param_name > "param_value")
 ```
-
-</td></tr>
-<tr><td> Note </td><td> Comment </td></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 QUERY EXAMPLE
@@ -2891,35 +2882,28 @@ QUERY EXAMPLE
 ```erlang
 /get/users?filter=(user_id = "7" OR username="bob")
 ```
-
-</td></tr>
-<tr><td> Note </td><td> Comment </td></tr>
-<tr><td>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 PATH FORMAT
 ```
-
 </td><td>
 
 ```jq
 /get/{table_name}/filter/(param_name="param_value" OR param_name="param_value")
 ```
-
 </td></tr>
-<tr><td> Note </td><td> Comment </td></tr>
+<tr></tr>
 <tr><td>
 
 ```rexx
 PATH EXAMPLE
 ```
-
 </td><td>
 
 ```jq
 /get/users/filter/(username="bob" OR username="alice")
 ```
-
 </td></tr>
 </table>
 
@@ -3169,7 +3153,7 @@ filter
 ```
 
 </td></tr>
-<tr><td> Note </td><td> Comment </td></tr>
+<tr></tr>
 <tr><td>
 
 ```rexx
@@ -3183,7 +3167,7 @@ QUERY FORMAT
 ```
 
 </td></tr>
-<tr><td> Note </td><td> Comment </td></tr>
+<tr></tr>
 <tr><td>
 
 ```rexx
@@ -3197,7 +3181,7 @@ QUERY EXAMPLE
 ```
 
 </td></tr>
-<tr><td> Note </td><td> Comment </td></tr>
+<tr></tr>
 <tr><td>
 
 ```rexx
@@ -3211,7 +3195,7 @@ PATH FORMAT
 ```
 
 </td></tr>
-<tr><td> Note </td><td> Comment </td></tr>
+<tr></tr>
 <tr><td>
 
 ```rexx
