@@ -196,8 +196,7 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 ### Endpoints:
 <table>
 <tr><td> Resource </td><td> Description </td></tr>
-<tr>
-<td>
+<tr><td>
 
 ```jq
 /login
@@ -207,42 +206,31 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 ```rexx
 return: {"message": "missing parameters"}
 ```
-</td>
-</tr>
+</td></tr>
 <tr><td></td><td></td></tr>
-<tr>
-<td>
+<tr><td>
 
 ```jq
 /login/<param_name>/<param_value>
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 login with url_paths: 'param_name=param_value'
 ```
-
-</td>
-</tr>
+</td></tr>
 <tr><td></td><td></td></tr>
-<tr>
-<td>
+<tr><td>
 
 ```jq
 /login/param_name=param_value
 ```
-
-</td>
-<td>
+</td><td>
 
 ```rexx
 login with params: 'param_name=param_value'
 ```
-
-</td>
-</tr>
+</td></tr>
 </table>
 
 
