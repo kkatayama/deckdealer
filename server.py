@@ -541,11 +541,12 @@ def send_img(filename):
     dirname = sys.path[0]
     return static_file(filename, root=f'{dirname}/static/img/')
 
-@app.route('<filename:re:.*\(jpg|jpeg|png|gif|ico|svg|bmp|cgm|g3fax|)\)>')
+@app.route(f"<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
 def send_root_img(filename):
     dirname = sys.path[0]
     return static_file(filename, root=f'{dirname}/static/img/')
 
 # -- Run Web Server
+mimetypes.init()
 port = int(os.environ.get("PORT", 8888))
 run(app, host="0.0.0.0", port=port, reloader=True, debug=False)
