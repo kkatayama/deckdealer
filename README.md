@@ -4636,9 +4636,9 @@ Response:
 }
 ```
 
-There are `2 open requests` available.  
+There are `2 open requests` available. 
 
-To map the `restaurant_id` with a restaurant profile, query the `restaurant_profiles` table.
+To map the `restaurant_id` with a restaurant profile, query the `restaurant_profile` table.
 
 Arguments:
 ```rexx
@@ -4667,45 +4667,214 @@ Response:
 
 #### 1. Change the `status` of the `restaurant_request` from `open` to `snagged`
 Arguments:
+Arguments:
 ```rexx
 status = snagged
-filter = (request_id = 1)
+filter = (request_id=3)
 ```
 
 Request:
 ```erlang
-https://bartender.hopto.org/edit/restaurant_requests/status/snagged?filter=(request_id = 1)
+https://bartender.hopto.org/edit/restaurant_requests/status/snagged?filter=(request_id=3)
 ```
 
 Response:
 ```json
 {
   "message": "edited 1 restaurant_request entry",
+  "submitted": [{"filter": "(request_id=3)", "status": "snagged"}],
 }
 ```
-#### 1.a Verify the `status` change:
+#### Verify the `status` change:
 Arguments:
 ```rexx
-request_id = 1
+request_id = 3
 ```
 
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_requests/request_id/1
+https://bartender.hopto.org/get/restaurant_requests/request_id/3
 ```
 
 Response:
 ```json
 {
   "message": "1 restaurant_request entry found",
-  "data": [
-    {"request_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "status": "snagged", "entry_time": "2022-10-26 08:37:03.649"},
-  ],
+  "data": "{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "snagged", "entry_time": "2022-10-26
+08:37:55.831"}",
 }
 ```
 #### 2. Add the `restaurant_request` to `bartender_shifts`:
+Arguments:
+```rexx
+bartender_id = 1
+restaurant_id = 1
+request_id = 3
+shift_start = 2022-10-29 18:00:00
+shift_end = 2022-10-29 23:00:00
+```
 
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_shifts/bartender_id/1/restaurant_id/1/request_id/3/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00
+```
 
+Response:
+```json
+{
+  "message": "data added to <bartender_shifts>",
+  "shift_id": "5",
+  "bartender_id": "1",
+  "restaurant_id": "1",
+  "request_id": "3",
+}
+```
+#### Verify the `shift` add:
+Arguments:
+```rexx
+request_id = 3
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_shifts/request_id/3
+```
+
+Response:
+```json
+{
+  "message": "1 bartender_shift entry found",
+  "data": "{"shift_id": 5, "bartender_id": 1, "restaurant_id": 1, "request_id": 3, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "entry_time": "2022-10-27 14:30:08.661"}",
+}
+```
+
+#### Now let's have `steve` snag a `restaurant request`
+
+To get available `open` requests, query the `/get` endpoint
+
+Arguments:
+```rexx
+status = open
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_requests/status/open
+```
+
+Response:
+```json
+{
+  "message": "1 restaurant_request entry found",
+  "data": "{"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "open", "entry_time": "2022-10-26 09:42:25.607"}",
+}
+```
+
+There is `1 open request` available. 
+
+To map the `restaurant_id` with a restaurant profile, query the `restaurant_profile` table.
+
+Arguments:
+```rexx
+filter = (restaurant_id=2)
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/get/restaurant_profile/?filter=(restaurant_id=2)
+```
+
+Response:
+```json
+{
+  "message": "1 restaurant_profile entry found",
+  "data": "{"restaurant_id": 2, "manager_id": 2, "restaurant_name": "Deer Park Tavern", "address": "108 West Main Street, Newark, DE 19711", "bio": "Good food and spirits!", "phone_number": "(302) 368-9414", "profile_pic": "6.jpeg", "entry_time": "2022-10-25 23:16:31.603"}",
+}
+```
+
+#### Snagging a Restaurant Request for `Deer Park`
+
+#### 1. Change the `status` of the `restaurant_request` from `open` to `snagged`
+Arguments:
+```rexx
+status = snagged
+filter = (request_id=6)
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/edit/restaurant_requests/status/snagged?filter=(request_id=6)
+```
+
+Response:
+```json
+{
+  "message": "edited 1 restaurant_request entry",
+  "submitted": [{"filter": "(request_id=6)", "status": "snagged"}],
+}
+```
+#### Verify the `status` change:
+Arguments:
+```rexx
+request_id = 6
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_requests/request_id/6
+```
+
+Response:
+```json
+{
+  "message": "1 restaurant_request entry found",
+  "data": "{"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "snagged", "entry_time": "2022-10-26 09:42:25.607"}",
+}
+```
+
+#### 2. Add the `restaurant_request` to `bartender_shifts`:
+Arguments:
+```rexx
+bartender_id = 2
+restaurant_id = 2
+request_id = 6
+shift_start = 2022-10-26 10:30:00
+shift_end = 2022-10-26 15:00:00
+```
+
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_shifts/bartender_id/2/restaurant_id/2/request_id/6/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00
+```
+
+Response:
+```json
+{
+  "message": "data added to <bartender_shifts>",
+  "shift_id": "6",
+  "bartender_id": "2",
+  "restaurant_id": "2",
+  "request_id": "6",
+}
+```
+#### Verify the `shift` add:
+Arguments:
+```rexx
+request_id = 6
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_shifts/request_id/6
+```
+
+Response:
+```json
+{
+  "message": "1 bartender_shift entry found",
+  "data": "{"shift_id": 6, "bartender_id": 2, "restaurant_id": 2, "request_id": 6, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "entry_time": "2022-10-27 14:41:34.785"}",
+}
+```
 
 </details>
 
@@ -4715,6 +4884,101 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
+Alice just finished working her shift!
+
+#### 1. Update the `restaurant_request` from `status=snagged` to `status=completed` 
+Arguments:
+```rexx
+status = completed
+filter = (request_id=3)
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/edit/restaurant_requests/status/completed?filter=(request_id=3)
+```
+
+Response:
+```json
+{
+  "message": "edited 1 restaurant_request entry",
+  "submitted": [{"filter": "(request_id=3)", "status": "completed"}],
+}
+#### Verify `shift` completed:
+Arguments:
+```rexx
+request_id = 3
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_requests/request_id/3
+```
+
+Response:
+```json
+{
+  "message": "1 restaurant_request entry found",
+  "data": "{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "completed", "entry_time": "2022-10-26 08:37:55.831"}",
+}
+```
+#### 2. Report the `wages_earned` and `hours_worked` to `bartender_wages`
+
+
+#### Verify the `reporting`:
+
+
+
+
+
+
+
+Steve just finished working his shift!
+
+Let's update the `restaurant_request` from `status=snagged` to `status=completed` 
+
+#### 1. Update the `restaurant_request` from `status=snagged` to `status=completed`
+Arguments:
+```rexx
+status = completed
+filter = (request_id=6)
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/edit/restaurant_requests/status/completed?filter=(request_id=6)
+```
+
+Response:
+```json
+{
+  "message": "edited 1 restaurant_request entry",
+  "submitted": [{"filter": "(request_id=6)", "status": "completed"}],
+}
+```
+#### Verify `shift` completed:
+Arguments:
+```rexx
+request_id = 6
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_requests/request_id/6
+```
+
+Response:
+```json
+{
+  "message": "1 restaurant_request entry found",
+  "data": "{"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "completed", "entry_time": "2022-10-26 09:42:25.607"}",
+}
+```
+
+#### 2. Report the `wages_earned` and `hours_worked` to `bartender_wages`
+
+
+#### Verify the `reporting`:
 
 
 </details>
