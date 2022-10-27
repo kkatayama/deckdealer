@@ -5013,7 +5013,7 @@ Response:
 ```json
 {
   "message": "1 restaurant_request entry found",
-  "data": "{"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "completed", "entry_time": "2022-10-26 09:42:25.607"}",
+  "data": [{"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "completed", "entry_time": "2022-10-26 09:42:25.607"}],
 }
 ```
 
