@@ -4700,8 +4700,7 @@ Response:
 ```json
 {
   "message": "1 restaurant_request entry found",
-  "data": [{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "snagged", "entry_time": "2022-10-26
-08:37:55.831"}],
+  "data": [{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "snagged", "entry_time": "2022-10-26 08:37:55.831"}],
 }
 ```
 #### 2. Add the `restaurant_request` to `bartender_shifts`:
