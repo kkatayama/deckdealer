@@ -5290,7 +5290,7 @@ Response:
 ```json
 {
   "message": "edited 1 bartender_wage entry",
-  "submitted": [{"filter": "(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")", "hourly_wage": "2.50", "total_earnings": "135.68"}],
+  "submitted": [{"filter": "(restaurant_id = \"1\" AND shift_end > \"2022-10-29 00:00:01\")", "hourly_wage": "2.50", "total_earnings": "135.68"}],
 }
 ```
 
