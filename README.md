@@ -5088,7 +5088,7 @@ Response:
 ```json
 {
   "message": "found 5 user entries",
-  "data: [
+  "data": [
     {"user_id": 1, "username": "admin", "password": "a2025bd8b86a53fccf6f42eae008ccbf65dcf6aa55e0e6a477b57c5d74b1e611e5902fe9673d8cddb84896005e125d589e39e258a7fbeb3e7208b866e7746e60", "create_time": "2022-10-19 00:23:52.930"},
     {"user_id": 2, "username": "alice", "password": "b71dab3e13191834f1f0dd53c8b4be30da005ee7eea47ec8673d41c5ee959be34881a9ac99d473bec40b2de489e83694e5e532babbdcfc16c93d137872cffa96", "create_time": "2022-10-21 10:06:45.643"},
     {"user_id": 3, "username": "bob", "password": "7e6c183ddaf351a96fc6541b6ece83ea130c34ff8151a7e219d7bebace3398d685809c999065a54c7c1c785a4ae5b230f247cae5c97b958c7b881c86e81c3e07", "create_time": "2022-10-21 10:06:45.830"},
@@ -5254,12 +5254,12 @@ Response:
 Arguments:
 ```rexx
 hourly_wage = 2.5
-filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+filter = (restaurant_id = '1' AND shift_end > '2022-10-29 00:00:01')
 ```
 
 Request:
 ```erlang
-https://bartender.hopto.org/edit/restaurant_requests/hourly_wage/2.5/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+https://bartender.hopto.org/edit/restaurant_requests/hourly_wage/2.5/?filter=(restaurant_id = '1' AND shift_end > '2022-10-29 00:00:01')
 ```
 
 Response:
