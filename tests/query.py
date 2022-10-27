@@ -157,7 +157,7 @@ Response:
                 if len(obj) == 1:
                     output += f'  "{key}": {obj},\n'.replace("'", '"')
                 else:
-                    output += f'  "{key}: [\n'
+                    output += f'  "{key}": [\n'
                     for item in obj:
                         output += f'    {item},\n'.replace("'", '"')
                     output += '  ],\n'
