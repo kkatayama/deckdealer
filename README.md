@@ -4700,8 +4700,8 @@ Response:
 ```json
 {
   "message": "1 restaurant_request entry found",
-  "data": "{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "snagged", "entry_time": "2022-10-26
-08:37:55.831"}",
+  "data": [{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "snagged", "entry_time": "2022-10-26
+08:37:55.831"}],
 }
 ```
 #### 2. Add the `restaurant_request` to `bartender_shifts`:
@@ -4744,7 +4744,7 @@ Response:
 ```json
 {
   "message": "1 bartender_shift entry found",
-  "data": "{"shift_id": 5, "bartender_id": 1, "restaurant_id": 1, "request_id": 3, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "entry_time": "2022-10-27 14:30:08.661"}",
+  "data": [{"shift_id": 5, "bartender_id": 1, "restaurant_id": 1, "request_id": 3, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "entry_time": "2022-10-27 14:30:08.661"}],
 }
 ```
 
@@ -4766,7 +4766,7 @@ Response:
 ```json
 {
   "message": "1 restaurant_request entry found",
-  "data": "{"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "open", "entry_time": "2022-10-26 09:42:25.607"}",
+  "data": [{"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "open", "entry_time": "2022-10-26 09:42:25.607"}],
 }
 ```
 
@@ -4788,7 +4788,7 @@ Response:
 ```json
 {
   "message": "1 restaurant_profile entry found",
-  "data": "{"restaurant_id": 2, "manager_id": 2, "restaurant_name": "Deer Park Tavern", "address": "108 West Main Street, Newark, DE 19711", "bio": "Good food and spirits!", "phone_number": "(302) 368-9414", "profile_pic": "6.jpeg", "entry_time": "2022-10-25 23:16:31.603"}",
+  "data": [{"restaurant_id": 2, "manager_id": 2, "restaurant_name": "Deer Park Tavern", "address": "108 West Main Street, Newark, DE 19711", "bio": "Good food and spirits!", "phone_number": "(302) 368-9414", "profile_pic": "6.jpeg", "entry_time": "2022-10-25 23:16:31.603"}],
 }
 ```
 
