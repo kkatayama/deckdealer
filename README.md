@@ -4884,7 +4884,7 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-#### Alice just finished working her shift!
+#### Anna just finished working her shift!
 
 #### 1. Update the `restaurant_request` from `status=snagged` to `status=completed` 
 Arguments:
