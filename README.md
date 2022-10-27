@@ -4884,7 +4884,7 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-Alice just finished working her shift!
+#### Alice just finished working her shift!
 
 #### 1. Update the `restaurant_request` from `status=snagged` to `status=completed` 
 Arguments:
@@ -4975,10 +4975,9 @@ Response:
 }
 ```
 
+#### Steve just finished working his shift!
 
-Steve just finished working his shift!
-
-Let's update the `restaurant_request` from `status=snagged` to `status=completed` 
+#### Let's update the `restaurant_request` from `status=snagged` to `status=completed` 
 
 #### 1. Update the `restaurant_request` from `status=snagged` to `status=completed`
 Arguments:
