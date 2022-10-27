@@ -3820,7 +3820,7 @@ Response:
 ### Let's examine all the tables we created and inserted data from the previous workflows
 1. Show Tables: `users`, `bartenders`, `managers`, `restaurant_profile`, `restaurant_photos`, `restaurant_schedule`, `restaurant_requests`, `bartender_shifts`, `bartender_wages`
 2. Examine the table `bartender_wages` by `tips`, `total_earnings`, `hours_worked`, `etc...`
-3. Filter `bartenders` that were late to their shift; order by `time late`
+3. Investigate `bartenders` that were late or early to their shift
 4. Find `shifts` that exceed the `requested hours` and group by `restaurant`
 
 ---
@@ -4097,21 +4097,113 @@ Response:
 
 ---
 
-### 5.3 - Filtering `shifts` with Late Arrivals 
+### 5.3 - Investigate `bartenders` that were late or early to their shift
 
 <details><summary> (click here to expand) </summary>
 
+#### Filtering `bartenders` that were late to their `shift`:
+Arguments:
+```rexx
+filter = (shift_start < clock_in) GROUP BY bartender_id
+```
 
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_wages/filter/(shift_start < clock_in) GROUP BY bartender_id
+```
+
+Response:
+```json
+{
+  "message": "1 bartender_wage entry found",
+  "data": [
+    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 15:57:21.838"},
+  ],
+}
+```
+
+Bartender `bob` is the only bartender to show up `late` to a shift.
+
+#### Sort by the `largest` time `late`:
+Arguments:
+```rexx
+filter = (shift_start < clock_in)
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_wages/filter/(shift_start < clock_in)
+```
+
+Response:
+```json
+{
+  "message": "found 2 bartender_wage entries",
+  "data": [
+    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 15:57:21.838"},
+    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 16:02:35.836"},
+  ],
+}
+```
+
+Bartender `bob` is consistantly `5 minutes` late.
+
+#### Filtering `bartenders` that were early to their `shift`, sort by `eariest time`:
+Arguments:
+```rexx
+filter = (shift_start >= clock_in) ORDER BY (strftime('%H:%M', time(strftime('%s', shift_start) - strftime('%s', clock_in), 'unixepoch'))) DESC
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_wages/filter/(shift_start >= clock_in) ORDER BY (strftime('%H:%M', time(strftime('%s', shift_start) - strftime('%s', clock_in), 'unixepoch'))) DESC
+```
+
+Response:
+```json
+{
+  "message": "found 2 bartender_wage entries",
+  "data": [
+    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 16:00:15.348"},
+    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 15:54:31.321"},
+  ],
+}
+```
+
+Bartender `alice` is consistantly early.  The earliest was `20 mins`, followed by `15 mins`.
 
 </details>
 
 ---
 
-### 5.4 - Filtering `shifts` Exceeding `Requested Hours`
+### 5.4 - Bartender `shifts` Exceeding `Requested Hours`
 
 <details><summary> (click here to expand) </summary>
 
+#### Filtering `shifts` exceeding `requested hours`:
+Arguments:
+```rexx
+filter = (strftime('%H:%M', time(strftime('%s', clock_out) - strftime('%s', clock_in), 'unixepoch')) >= strftime('%H:%M', time(strftime('%s', shift_end) - strftime('%s', shift_start), 'unixepoch')))
+```
 
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_wages/filter/(strftime('%H:%M', time(strftime('%s', clock_out) - strftime('%s', clock_in), 'unixepoch')) >= strftime('%H:%M', time(strftime('%s', shift_end) - strftime('%s', shift_start), 'unixepoch')))
+```
+
+Response:
+```json
+{
+  "message": "found 3 bartender_wage entries",
+  "data": [
+    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 15:57:21.838"},
+    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 16:00:15.348"},
+    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 16:02:35.836"},
+  ],
+}
+```
+
+There were `3 shifts` that exceeded the `requested hours`
 
 </details>
 
@@ -4505,18 +4597,153 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-### Simulate `Restaurant Requests` and `Bartender Wage Reporting`...
-1. Log in as a manager and create a `shift request` into the `restaurant_requests` table
-2. Log in as a bartender and snag the `shift request` by editing the `status` from `available` to `taken`
-3. Then (as bartender), add the `shift_request` to the `bartenders_shifts` with the `status` of `active`
+### Simulate Snagging a `Restaurant Request` and Reporting `Bartender Wages`...
+1. Help `anna` and `steve` find an `open shift` by snagging a `restaurant request`
+2. Simulate the `completion` of a shift by reporting to `bartender_wages`
 
-### Let's say some time has passed and now the bartender has completed their shift
-1. Simulate the bartender completing their shift by setting the `status` from `active` to `completed` in the `bartender_shifts` table
-2. Finally, as the bartender, submit an `entry` to `bartender_wages` 
+### Executing Profile Edits and Updating Restaurant Wages
+3. `anna` and `steve` would like to edit their `username` to use their `email` and update their `password`
+4. `Iron Hill` would like to increase their `hourly_wage` from `$2.33` to `$2.50` effective `2022-10-29 00:00:01 AM` 
+
+---
+
+### 6.1 Simulate Snagging a Restaurant Request
+
+<details><summary> (click here to expand) </summary>
+
+#### Let's have `anna` snag a `restaurant request`
+
+To get available `open` requests, query the `/get` endpoint
+
+Arguments:
+```rexx
+status = open
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_requests/status/open
+```
+
+Response:
+```json
+{
+  "message": "found 2 restaurant_request entries",
+  "data": [
+    {"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "open", "entry_time": "2022-10-26 08:37:55.831"},
+    {"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "open", "entry_time": "2022-10-26 09:42:25.607"},
+  ],
+}
+```
+
+There are `2 open requests` available.  
+
+To map the `restaurant_id` with a restaurant profile, query the `restaurant_profiles` table.
+
+Arguments:
+```rexx
+filter = (restaurant_id = 1 or restaurant_id = 2)
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_profile/filter/(restaurant_id = 1 or restaurant_id = 2)
+```
+
+Response:
+```json
+{
+  "message": "found 2 restaurant_profile entries",
+  "data": [
+    {"restaurant_id": 1, "manager_id": 1, "restaurant_name": "Iron Hill Brewery & Restaurant", "address": "147 EAST MAIN ST. NEWARK, DE 19711", "bio": "Craft Beer and Food", "phone_number": "(302) 266-9000", "profile_pic": "5.png", "entry_time": "2022-10-25 23:00:39.921"},
+    {"restaurant_id": 2, "manager_id": 2, "restaurant_name": "Deer Park Tavern", "address": "108 West Main Street, Newark, DE 19711", "bio": "Good food and spirits!", "phone_number": "(302) 368-9414", "profile_pic": "6.jpeg", "entry_time": "2022-10-25 23:16:31.603"},
+  ],
+}
+```
+
+`anna` would like to work the dinner shift at `Iron Hill`
+
+#### Snagging a Restaurant Request for `Iron Hill`
+
+#### 1. Change the `status` of the `restaurant_request` from `open` to `snagged`
+Arguments:
+```rexx
+status = snagged
+filter = (request_id = 1)
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/edit/restaurant_requests/status/snagged?filter=(request_id = 1)
+```
+
+Response:
+```json
+{
+  "message": "edited 1 restaurant_request entry",
+}
+```
+#### 1.a Verify the `status` change:
+Arguments:
+```rexx
+request_id = 1
+```
+
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_requests/request_id/1
+```
+
+Response:
+```json
+{
+  "message": "1 restaurant_request entry found",
+  "data": [
+    {"request_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "status": "snagged", "entry_time": "2022-10-26 08:37:03.649"},
+  ],
+}
+```
+#### 2. Add the `restaurant_request` to `bartender_shifts`:
+
+
 
 </details>
 
 ---
+
+### 6.2 Simulate Completion of a Bartender Shift
+
+<details><summary> (click here to expand) </summary>
+
+
+
+</details>
+
+---
+
+### 6.3 Making Changes to `username` and `password`
+
+<details><summary> (click here to expand) </summary>
+
+
+
+</details>
+
+---
+
+### 6.4 Updating `hourly_wage` of a Restaurant via an Effective Date
+
+<details><summary> (click here to expand) </summary>
+
+
+
+</details>
+
+
+</details>
+
+---
+
 
 # 4. `/delete`
 **Delete a single entry or multiple entries of a table**

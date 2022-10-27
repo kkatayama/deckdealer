@@ -143,21 +143,27 @@ Request:
 ```
 
 Response:
-```json"""
+```json
+"""
     if short:
         print(output)
         print_json(data=res)
         print('```')
     else:
-        output += f'\n{{\n  "message": "{res.get("message")}",\n'
-        if res.get('data'):
-            output += '  "data": [\n'
-            if not isinstance(res["data"], list):
-                res["data"] = [res["data"]]
-            for item in res['data']:
-                output += f'    {item},\n'.replace("'", '"')
-            output += '  ],\n}\n'
-        output += '```'
+        output += '{\n'
+        for key in res.keys():
+            obj = res.get(key)
+            if isinstance(obj, list):
+                if len(obj) == 1:
+                    output += f'  "{key}": {obj},\n'.replace("'", '"')
+                else:
+                    output += f'  "{key}: [\n'
+                    for item in obj:
+                        output += f'    {item},\n'.replace("'", '"')
+                    output += '  ],\n'
+            else:
+                output += f'  "{key}": "{obj}",\n'.replace("'", '"')
+        output += '}\n```'
         print(output)
 
 def main():
