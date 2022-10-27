@@ -5251,6 +5251,7 @@ Response:
 1 entry for each table needs to be updated
 
 #### Updating the `restaurant_requests` table:
+
 Arguments:
 ```rexx
 hourly_wage = 2.5
@@ -5266,7 +5267,7 @@ Response:
 ```json
 {
   "message": "edited 1 restaurant_request entry",
-  "submitted": [{"filter": "(restaurant_id = \\"1\\" AND shift_end > \\"2022-10-29 00:00:01\\")", "hourly_wage": "2.5"}],
+  "submitted": [{"filter": "(restaurant_id = \"1\" AND shift_end > \"2022-10-29 00:00:01\")", "hourly_wage": "2.5"}],
 }
 ```
 

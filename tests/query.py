@@ -153,9 +153,6 @@ Response:
         output += '{\n'
         for key in res.keys():
             obj = res.get(key)
-            if key == 'submitted':
-                if obj[0].get('filter'):
-                    obj[0]["filter"] = obj[0]["filter"].replace("'", '"').replace('"', '\\"')
             if isinstance(obj, list):
                 if len(obj) == 1:
                     output += f'  "{key}": {obj},\n'.replace("'", '"')
