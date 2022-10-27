@@ -4872,7 +4872,7 @@ Response:
 ```json
 {
   "message": "1 bartender_shift entry found",
-  "data": "{"shift_id": 6, "bartender_id": 2, "restaurant_id": 2, "request_id": 6, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "entry_time": "2022-10-27 14:41:34.785"}",
+  "data": [{"shift_id": 6, "bartender_id": 2, "restaurant_id": 2, "request_id": 6, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "entry_time": "2022-10-27 14:41:34.785"}],
 }
 ```
 
@@ -4904,6 +4904,8 @@ Response:
   "message": "edited 1 restaurant_request entry",
   "submitted": [{"filter": "(request_id=3)", "status": "completed"}],
 }
+```
+
 #### Verify `shift` completed:
 Arguments:
 ```rexx
