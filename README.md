@@ -4919,18 +4919,59 @@ Response:
 ```json
 {
   "message": "1 restaurant_request entry found",
-  "data": "{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "completed", "entry_time": "2022-10-26 08:37:55.831"}",
+  "data": [{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "completed", "entry_time": "2022-10-26 08:37:55.831"}],
 }
 ```
+
 #### 2. Report the `wages_earned` and `hours_worked` to `bartender_wages`
+Arguments:
+```rexx
+bartender_id = 1
+shift_id = 5
+restaurant_id = 1
+hourly_wage = 2.33
+shift_start = 2022-10-29 18:00:00
+shift_end = 2022-10-29 23:00:00
+clock_in = 2022-10-29 17:50:00
+clock_out = 2022-10-29 22:30:00
+hours_worked = 4.67
+tips = 124.00
+total_earnings = 134.88
+```
 
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_wages/bartender_id/1/shift_id/5/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00/clock_in/2022-10-29 17:50:00/clock_out/2022-10-29 22:30:00/hours_worked/4.67/tips/124.00/total_earnings/134.88
+```
 
+Response:
+```json
+{
+  "message": "data added to <bartender_wages>",
+  "wage_id": "5",
+  "bartender_id": "1",
+  "shift_id": "5",
+  "restaurant_id": "1",
+}
+```
 #### Verify the `reporting`:
+Arguments:
+```rexx
+shift_id = 5
+```
 
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_wages/shift_id/5
+```
 
-
-
-
+Response:
+```json
+{
+  "message": "1 bartender_wage entry found",
+  "data": [{"wage_id": 5, "bartender_id": 1, "shift_id": 5, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "clock_in": "2022-10-29 17:50:00", "clock_out": "2022-10-29 22:30:00", "hours_worked": 4.67, "tips": 124.0, "total_earnings": 134.88, "entry_time": "2022-10-27 15:12:05.665"}],
+}
+```
 
 
 Steve just finished working his shift!
@@ -4976,10 +5017,54 @@ Response:
 ```
 
 #### 2. Report the `wages_earned` and `hours_worked` to `bartender_wages`
+Arguments:
+```rexx
+bartender_id = 2
+shift_id = 6
+restaurant_id = 2
+hourly_wage = 3.50
+shift_start = 2022-10-26 10:30:00
+shift_end = 2022-10-26 15:00:00
+clock_in = 2022-10-26 10:15:00
+clock_out = 2022-10-26 15:20:00
+hours_worked = 5.08
+tips = 87.00
+total_earnings = 104.78
+```
 
+Request:
+```jq
+https://bartender.hopto.org/add/bartender_wages/bartender_id/2/shift_id/6/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00/clock_in/2022-10-26 10:15:00/clock_out/2022-10-26 15:20:00/hours_worked/5.08/tips/87.00/total_earnings/104.78
+```
 
+Response:
+```json
+{
+  "message": "data added to <bartender_wages>",
+  "wage_id": "6",
+  "bartender_id": "2",
+  "shift_id": "6",
+  "restaurant_id": "2",
+}
+```
 #### Verify the `reporting`:
+Arguments:
+```rexx
+shift_id = 6
+```
 
+Request:
+```jq
+https://bartender.hopto.org/get/bartender_wages/shift_id/6
+```
+
+Response:
+```json
+{
+  "message": "1 bartender_wage entry found",
+  "data": [{"wage_id": 6, "bartender_id": 2, "shift_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "clock_in": "2022-10-26 10:15:00", "clock_out": "2022-10-26 15:20:00", "hours_worked": 5.08, "tips": 87.0, "total_earnings": 104.78, "entry_time": "2022-10-27 15:16:46.651"}],
+}
+```
 
 </details>
 

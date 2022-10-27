@@ -161,6 +161,8 @@ Response:
                     for item in obj:
                         output += f'    {item},\n'.replace("'", '"')
                     output += '  ],\n'
+            elif isinstance(obj, dict):
+                output += f'  "{key}": [{obj}],\n'.replace("'", '"')
             else:
                 output += f'  "{key}": "{obj}",\n'.replace("'", '"')
         output += '}\n```'
