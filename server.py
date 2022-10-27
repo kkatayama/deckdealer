@@ -3,6 +3,7 @@ from bottle import hook, route, run, request, response, redirect, urlencode, tem
 from bottle_sqlite import SQLitePlugin, sqlite3
 import bottle
 import requests
+import mimetypes
 
 # -- /utils/db_functions.py
 from utils.db_functions import (
@@ -203,11 +204,15 @@ def uploadImageUrl(url_paths=""):
         return clean(res)
 
     # -- fetch raw image data and save image
+    mimetypes.init()
     name = len(list(Path('static', 'img').iterdir())) + 1
     url = params.get("url")
     req = requests.get(url)
-    ext = re.search(r'image/(?P<ext>[a-z]+)', req.headers["Content-Type"].replace('x-icon', 'ico')).groupdict().get('ext')
-    with open(str(Path('static', 'img', f'{name}.{ext}')), 'wb') as f:
+    ext = mimetypes.guess_extension(req.headers["Content-Type"])
+    if not ext:
+        ext = next((m for m in mimetypes.guess_all_extensions(req.headers["Content-Type"])), ".image")
+    # ext = re.search(r'image/(?P<ext>[a-z]+)', req.headers["Content-Type"].replace('x-icon', 'ico')).groupdict().get('ext')
+    with open(str(Path('static', 'img', f'{name}{ext}')), 'wb') as f:
         f.write(req.content)
     res = {"message": "image url uploaded", "url": url, "full_path": '/' + str(Path('static', 'img', f'{name}.{ext}')), 'file_name': f'{name}.{ext}'}
     return clean(res)
@@ -536,7 +541,7 @@ def send_img(filename):
     dirname = sys.path[0]
     return static_file(filename, root=f'{dirname}/static/img/')
 
-@app.route('<filename:path>')
+@app.route('<filename:re:.*\(jpg|jpeg|png|gif|ico|svg|bmp|cgm|g3fax|)\)>')
 def send_root_img(filename):
     dirname = sys.path[0]
     return static_file(filename, root=f'{dirname}/static/img/')
