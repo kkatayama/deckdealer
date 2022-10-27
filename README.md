@@ -5074,17 +5074,261 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
+#### Let's start with `anna`
 
+#### `anna` would like to change her `username` from `anna` to `anna@udel.edu` and her `password` from `anna` to `Anna1234`
 
+#### Query the `users` table to see all of the current `users`:
+Request:
+```jq
+https://bartender.hopto.org/get/users
+```
+
+Response:
+```json
+{
+  "message": "found 5 user entries",
+  "data: [
+    {"user_id": 1, "username": "admin", "password": "a2025bd8b86a53fccf6f42eae008ccbf65dcf6aa55e0e6a477b57c5d74b1e611e5902fe9673d8cddb84896005e125d589e39e258a7fbeb3e7208b866e7746e60", "create_time": "2022-10-19 00:23:52.930"},
+    {"user_id": 2, "username": "alice", "password": "b71dab3e13191834f1f0dd53c8b4be30da005ee7eea47ec8673d41c5ee959be34881a9ac99d473bec40b2de489e83694e5e532babbdcfc16c93d137872cffa96", "create_time": "2022-10-21 10:06:45.643"},
+    {"user_id": 3, "username": "bob", "password": "7e6c183ddaf351a96fc6541b6ece83ea130c34ff8151a7e219d7bebace3398d685809c999065a54c7c1c785a4ae5b230f247cae5c97b958c7b881c86e81c3e07", "create_time": "2022-10-21 10:06:45.830"},
+    {"user_id": 4, "username": "anna", "password": "a0d7bf58601f8f515eb56fb80ec986e49e40eb96572f33abab6ce924c7b3cd0d3cadeb7d15ea3075487a48d17412c62b112d7e0cdcc72a269e75d358a75d9af5", "create_time": "2022-10-21 10:06:45.955"},
+    {"user_id": 5, "username": "steve", "password": "d30aa6f4422040cee131efa311c73dd42dd9f2cb6424f23ac9caf403bec2e4289066e846c3df109f612ef2572f95e17f2eddedc36786ba1eb0f50da571ebcac2", "create_time": "2022-10-21 10:06:46.099"},
+  ],
+}
+```
+
+#### Changing the `username` and `password` for `anna`:
+Arguments:
+```rexx
+username = anna@udel.edu
+password = Anna1234
+filter = (user_id=4)
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/edit/users/username/anna@udel.edu/password/Anna1234/?filter=(user_id=4)
+```
+
+Response:
+```json
+
+{
+  "message": "edited 1 user entry",
+  "submitted": [
+    {
+      "filter": "(user_id=4)",
+      "username": "anna@udel.edu",
+      "password": "ec02990bdcf740a8199c04381671dc07b915f901886c7b54b963e7dbd31fe637aec1d503072c3b8867724589280b477420293430f7c43fcf4bd3d578035dfe2d"
+    }
+  ]
+}
+```
+
+#### Verify by logging in with the new `username` and `password`:
+Arguments:
+```rexx
+username = anna@udel.edu
+password = Anna1234
+```
+
+Request:
+```jq
+https://bartender.hopto.org/login/username/anna@udel.edu/password/Anna1234
+```
+
+Response:
+```json
+
+{
+  "message": "user login success",
+  "user_id": 4,
+  "username": "anna@udel.edu",
+  "token": "IUd4bkYyTnpGWStUdmJnYlpYcHBqOEE9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFMGxJYVVMZz09"
+}
+```
+
+#### `steve` would like to change his `username` to `steve@gmail.com` and his `password` to `St3ve4321`
+
+#### Changing the `username` and `password` for `steve`:
+Arguments:
+```rexx
+username = steve@gmail.com
+password = St3ve4321
+filter = (user_id=5)
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/edit/users/username/steve@gmail.com/password/St3ve4321/?filter=(user_id=5)
+```
+
+Response:
+```json
+
+{
+  "message": "edited 1 user entry",
+  "submitted": [
+    {
+      "filter": "(user_id=5)",
+      "username": "steve@gmail.com",
+      "password": "2a36242977e07c434ebbb9057e004c8748de5332f8a9acd11343900af03c10069ff21c15c6965d5b60d4f31c148dddee179c1af9895d95f872890bbb73adcb27"
+    }
+  ]
+}
+```
+
+#### Verify by logging in with the new `username` and `password`:
+Arguments:
+```rexx
+username = steve@gmail.com
+password = St3ve4321
+```
+
+Request:
+```jq
+https://bartender.hopto.org/login/username/steve@gmail.com/password/St3ve4321
+```
+
+Response:
+```json
+
+{
+  "message": "user login success",
+  "user_id": 5,
+  "username": "steve@gmail.com",
+  "token": "IWVoZEFuTXAxbjlmWmFSWUtmWlAza3c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFMWxJYVVMZz09"
+}
+```
 </details>
 
 ---
 
-### 6.4 Updating `hourly_wage` of a Restaurant via an Effective Date
+### 6.4 `Iron Hill` would like to increase their `hourly_wage` from `$2.33` to `$2.50` for all shifts after `2022-10-29 00:00:01 AM`
 
 <details><summary> (click here to expand) </summary>
 
+#### The `hourly_wage` parameter exists in the `bartender_wages` and `restaurant_requests` tables
 
+#### Before `editing` a table, let's determine the number of updates we need to make for each table:
+Arguments:
+```rexx
+filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/get/restaurant_requests/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Response:
+```json
+{
+  "message": "1 restaurant_request entry found",
+  "data": [{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "completed", "entry_time": "2022-10-26 08:37:55.831"}],
+}
+```
+
+Arguments:
+```rexx
+filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/get/bartender_wages/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Response:
+```json
+{
+  "message": "1 bartender_wage entry found",
+  "data": [{"wage_id": 5, "bartender_id": 1, "shift_id": 5, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "clock_in": "2022-10-29 17:50:00", "clock_out": "2022-10-29 22:30:00", "hours_worked": 4.67, "tips": 124.0, "total_earnings": 134.88, "entry_time": "2022-10-27 15:12:05.665"}],
+}
+```
+
+1 entry for each table needs to be updated
+
+#### Updating the `restaurant_requests` table:
+Arguments:
+```rexx
+hourly_wage = 2.5
+filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/edit/restaurant_requests/hourly_wage/2.5/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Response:
+```json
+{
+  "message": "edited 1 restaurant_request entry",
+  "submitted": [{"filter": "(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")", "hourly_wage": "2.5"}],
+}
+```
+
+#### Updating the `bartender_wages` table:
+> Note: We should also update the `total_earning` when updating the `hourly_wage` in this table
+
+Arguments:
+```rexx
+hourly_wage = 2.50
+total_earnings = 135.68
+filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/edit/bartender_wages/hourly_wage/2.50/total_earnings/135.68/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Response:
+```json
+{
+  "message": "edited 1 bartender_wage entry",
+  "submitted": [{"filter": "(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")", "hourly_wage": "2.50", "total_earnings": "135.68"}],
+}
+```
+
+#### Verify the changes:
+Arguments:
+```rexx
+filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/get/restaurant_requests/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Response:
+```json
+{
+  "message": "1 restaurant_request entry found",
+  "data": [{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.5, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "completed", "entry_time": "2022-10-26 08:37:55.831"}],
+}
+```
+
+Arguments:
+```rexx
+filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/get/bartender_wages/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+```
+
+Response:
+```json
+{
+  "message": "1 bartender_wage entry found",
+  "data": [{"wage_id": 5, "bartender_id": 1, "shift_id": 5, "restaurant_id": 1, "hourly_wage": 2.5, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "clock_in": "2022-10-29 17:50:00", "clock_out": "2022-10-29 22:30:00", "hours_worked": 4.67, "tips": 124.0, "total_earnings": 135.68, "entry_time": "2022-10-27 15:12:05.665"}],
+}
+```
 
 </details>
 
