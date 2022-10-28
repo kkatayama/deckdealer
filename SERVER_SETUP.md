@@ -59,5 +59,5 @@ python3 server.py
 
 Documentation and Usage Examples are located at the [README.md](README.md).
 
-I recommend completing the [7 Workflows](README.md#Workflows) to get comfortable with using this framework.
+I recommend completing the [7 Workflows](README.md#getting-started) to get comfortable with using this framework.
 

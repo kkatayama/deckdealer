@@ -173,7 +173,7 @@ To interact with the framework (locally or remote) you will need to first login.
 
 I recommend starting with the [Workflows](#Workflows) provided to get comfortable with using this framework. <br />
 
-[Workflows](#Workflows):
+## [Workflows](#Workflows):
 - [ ] [Workflow 1 - Login](#Workflow-1---Login)
 - [ ] [Workflow 2 - Register Users](#Workflow-2---Register-Users)
 - [ ] [Workflow 3 - Creating Tables](#Workflow-3---Creating-Tables)
