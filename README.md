@@ -22,7 +22,7 @@ Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 * All tables must have a **`{ref}_time`** `column` 
 
 **4 User Functions:**
-1. [**`/login`**](#1-login)       - Login a user
+1. [**`/login`**](#1-login) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Login a user
 2. [**`/logout`**](#2-logout)     - Logout a user
 3. [**`/register`**](#3-register) - Register a new user
 4. [**`/status`**](#4-status)     - Verify signed session cookies
@@ -32,7 +32,6 @@ Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 2. [**`/deleteTable`**](#2-deleteTable) - Delete an existing `table`
 
 **4 Core Functions:**
-These functions represent the main endpoints of the framework and will handle the majority of all requests. 
 1. [**`/add`**](#1-add)       - Add a *single* entry to a `table`
 2. [**`/get`**](#2-get)       - Fetch a *single* entry or *multiple* entries from a `table`
 3. [**`/edit`**](#3-edit)     - Edit a *single* entry or *multiple* entries in a `table`
