@@ -775,7 +775,7 @@ user_id
 ```rexx
 'the user_id of the logged in user with a signed cookie session token' 
 ```
-</td></tr>
+</td></tr><tr></tr><tr><td>
 
 ```rexx
 cookies
