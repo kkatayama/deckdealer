@@ -675,8 +675,8 @@ def parseParams(secret_key):
     # print(request.get_cookie('user_id', secret_key))
     # -- TODO: Enable this to enforce session tokens
     # if request.get_cookie('user_id', secret=secret_key) is not None:
-        # print(dict(request.cookies))
-        # print(dict(request.environ['bottle.request.cookies']))
+        print(dict(request.cookies))
+        print(dict(request.environ['bottle.request.cookies']))
         params = {}
         if request.json:
             params.update(request.json)
@@ -697,20 +697,20 @@ def parseParams(secret_key):
         for k, v in request.params.items():
             if k == "token":
                 try:
-                    # print(f'cookie_info = {cookie_decode(b64decode(v), secret_key)}')
+                    print(f'cookie_info = {cookie_decode(b64decode(v), secret_key)}')
                     logger.info(f'cookie_info = {cookie_decode(b64decode(v), secret_key)}')
                     cookie_info = dict([cookie_decode(b64decode(v), secret_key)])
                     for kk, vv in cookie_info.items():
                         request.cookies.update({kk: b64decode(v).decode()})
                     # request.headers.update({"Cookie": f'user_id="{b64decode(v)}"'})
                 except Exception as e:
-                    # print(f'ERROR: {k} = {v}')
+                    print(f'ERROR: {k} = {v}')
                     logger.error(e)
                     logger.error(f'ERROR: {k} = {v}')
-        # print(dict(request.cookies))
-        # print(request.get_cookie('user_id', secret=secret_key))
-        # print(dict(request.cookies))
-        # print(dict(request.environ['bottle.request.cookies']))
+        print(dict(request.cookies))
+        print(request.get_cookie('user_id', secret=secret_key))
+        print(dict(request.cookies))
+        print(dict(request.environ['bottle.request.cookies']))
 
 
 def genToken(name='', value='', secret_key=Path.cwd().parent.name):
