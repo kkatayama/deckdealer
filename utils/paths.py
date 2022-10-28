@@ -18,4 +18,6 @@ def get_py_path(verbose=False):
             print('Next time run with:\n  ipython -i -- <File.py>')
             print('using cwd()')
         return Path(env["_dh"][0])
+    if verbose:
+        print(f'env = {env}')
     return Path(env["__file__"]).resolve().parent

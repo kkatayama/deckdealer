@@ -25,7 +25,7 @@ import sys
 import re
 
 # -- for importing parent module
-sys.path.append(str(Path('.').absolute().parent))
+sys.path.append(str(Path(sys.path[0]).parent))
 
 # -- Helper Modules -- #
 from utils.db_functions import parseUrlPaths
@@ -33,25 +33,21 @@ from utils.paths import get_py_path
 from rich import print, print_json
 
 
-def export_cookies(session, cookie_file="cookies.pickle"):
+def export_cookies(session='', cookie_file="cookies.pickle", py_path=''):
     """Export Session Cookies"""
-    with open(cookie_file, "wb") as f:
-        pickle.dump(session.cookies, f)
+    pickle.dump(session.cookies, py_path.joinpath(cookie_file).open('wb'))
 
-def export_headers(session, header_file="headers.pickle"):
+def export_headers(session='', header_file="headers.pickle", py_path=''):
     """Export Session Headers"""
-    with open(header_file, "wb") as f:
-        pickle.dump(session.headers, f)
+    pickle.dump(session.headers, py_path.joinpath(header_file).open('wb'))
 
-def load_cookies(cookie_file="cookies.pickle"):
+def load_cookies(cookie_file="cookies.pickle", py_path=''):
     """Load External Cookies"""
-    with open(cookie_file, "rb") as f:
-        return pickle.load(f)
+    return pickle.load(py_path.joinpath(cookie_file).open('rb'))
 
-def load_headers(header_file="headers.pickle"):
+def load_headers(header_file="headers.pickle", py_path=''):
     """Load External Headers"""
-    with open(header_file, "rb") as f:
-        return pickle.load(f)
+    return pickle.load(py_path.joinpath(header_file).open('rb'))
 
 def getCode(text):
     if '?' in text:
@@ -126,8 +122,8 @@ def executeQuery(base_url, query, short=True, stdout=True):
         req_code = getCode(query)
 
     s = requests.Session()
-    s.headers.update(load_headers())
-    s.cookies.update(load_cookies())
+    s.headers.update(load_headers(py_path=py_path))
+    s.cookies.update(load_cookies(py_path=py_path))
     r = s.get(url)
     res = r.json() if r.status_code == 200 else r.text
 
@@ -181,7 +177,7 @@ Response:
         if not tables:
             print(output)
 
-def main():
+def main(py_path):
     examples = '''example usage:
     ./%(prog)s '/get/users'
     ./%(prog)s '/get/users' --url 'http://localhost:8888'
@@ -203,8 +199,8 @@ def main():
     if args.login:
         s = requests.Session()
         r = s.post(f'{base_url}/login', data={"username": args.username, "password": args.password})
-        export_headers(s)
-        export_cookies(s)
+        export_headers(session=s, py_path=py_path)
+        export_cookies(session=s, py_path=py_path)
         args.query = f"/login/username/{args.username}/password/{args.password}"
 
     print(args.url)
@@ -212,5 +208,5 @@ def main():
     # print(out)
 
 if __name__ == '__main__':
-    sys.exit(main())
-    # print(get_py_path())
+    py_path = get_py_path()
+    sys.exit(main(py_path))
