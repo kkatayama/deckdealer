@@ -83,7 +83,7 @@ def getStatus(db, url_paths=""):
     if not user_id:
         res = {"message": "user is not logged in (no session found); try appending the token to the request..."}
         return clean(res)
-    res = {"message": "user is logged in with valid session", "user_id": user_id, "cookies": dict(request.cookies)}
+    res = {"message": "user is logged in with valid session cookie", "user_id": user_id, "cookies": dict(request.cookies)}
     return clean(res)
 
 @route("/register", method=["GET", "POST", "PUT", "DELETE"])

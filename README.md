@@ -9,7 +9,7 @@ Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 * [*Core Functions*](#Core-Functions) &nbsp;&nbsp; - [**`/add`**](#1-add), [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete)
 * [*Extra_Functions*](#Extra-Functions) &nbsp;    - [**`/uploadImageUrl`**](#1-uploadImageUrl)
 * Query and URL path parameter support
-* Additional **`filter`** parameter - enables SQLite expressions containing operators 
+* Additional [**`filter`**](#notes-on-filter-option) parameter - enables SQLite expressions containing operators 
 * In-place column editing with SQLite3 expression support
 * [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete) supports single and multiple simultaneous table transactions
 * Changes made to the **backend.db** database are now automatically updated to the GitHub repo in *real-time*
@@ -21,10 +21,11 @@ Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 * All tables must have a **`{ref}_id`** `column` to be used as `PRIMARY KEY`
 * All tables must have a **`{ref}_time`** `column` 
 
-**3 User Functions:**
+**4 User Functions:**
 1. [**`/login`**](#1-login)       - Login a user
 2. [**`/logout`**](#2-logout)     - Logout a user
 3. [**`/register`**](#3-register) - Register a new user
+4. [**`/status`**](#4-status)     - Verify signed session cookies
 
 **2 Admin Functions**
 1. [**`/createTable`**](#1-createTable) - Create a new `table` 
@@ -362,7 +363,7 @@ Response:
 
 > Note: the `token` is only needed when api requests do not store session cookies.
 
-### Verify session
+### Verify session by making a request to `/status`
 Request:
 ```jq
 https://bartender.hopto.org/status
@@ -732,6 +733,61 @@ Response:
 ```
 
 </details>
+
+---
+
+## 4. `/status`
+Verify signed cookie sessions
+
+### Endpoints:
+<table>
+<tr><td> Resource </td><td> Description </td></tr><tr><td>
+
+```jq
+/status
+```
+</td><td>
+
+```rexx
+Verify the session cookie is signed with a valid token
+```
+</td></tr>
+</table>
+
+### Response After Successful [`/status`](#2-logout)
+<table>
+<tr><td> Variable </td><td> Comment </td></tr><tr><td>
+
+```rexx
+message
+```
+</td><td>
+
+```rexx
+'user is logged in with valid session cookie'
+```
+</td></tr><tr></tr><tr><td>
+
+```rexx
+user_id
+```
+</td><td>
+
+```rexx
+'the user_id of the logged in user with a signed cookie session token' 
+```
+</td></tr>
+
+```rexx
+cookies
+```
+</td><td>
+
+```rexx
+'the session token'
+```
+</td><td>
+</table>
 
 ---
 
@@ -4607,7 +4663,7 @@ Response:
 
 ---
 
-### 6.1 Simulate Snagging a Restaurant Request
+#### 6.1 Simulate Snagging a Restaurant Request
 
 <details><summary> (click here to expand) </summary>
 
@@ -4879,7 +4935,7 @@ Response:
 
 ---
 
-### 6.2 Simulate Completion of a Bartender Shift
+#### 6.2 Simulate Completion of a Bartender Shift
 
 <details><summary> (click here to expand) </summary>
 
@@ -5070,7 +5126,7 @@ Response:
 
 ---
 
-### 6.3 Making Changes to `username` and `password`
+#### 6.3 Making Changes to `username` and `password`
 
 <details><summary> (click here to expand) </summary>
 
@@ -5205,7 +5261,7 @@ Response:
 
 ---
 
-### 6.4 `Iron Hill` would like to increase their `hourly_wage` from `$2.33` to `$2.50` for all shifts after `2022-10-29 00:00:01 AM`
+#### 6.4 `Iron Hill` would like to increase their `hourly_wage` from `$2.33` to `$2.50` for all shifts after `2022-10-29 00:00:01 AM`
 
 <details><summary> (click here to expand) </summary>
 
