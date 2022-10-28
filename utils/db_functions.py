@@ -675,8 +675,11 @@ def parseParams(secret_key):
     # print(request.get_cookie('user_id', secret_key))
     # -- TODO: Enable this to enforce session tokens
     # if request.get_cookie('user_id', secret=secret_key) is not None:
+        print(f'secret_key: {secret_key}')
+        print(f'headers: {dict(request.headers)}')
         print(dict(request.cookies))
         print(dict(request.environ['bottle.request.cookies']))
+        print(dict(request.environ))
         params = {}
         if request.json:
             params.update(request.json)
