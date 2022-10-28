@@ -5261,7 +5261,7 @@ Response:
 
 ---
 
-#### 6.4 `Iron Hill` is increasing the `hourly_wage` from `$2.33` to `$2.50` staring `2022-10-29 00:00:01`
+#### 6.4 `Iron Hill` is increasing the `hourly_wage` from `$2.33` to `$2.50` effective `2022-10-29 00:00:01`
 
 <details><summary> (click here to expand) </summary>
 
