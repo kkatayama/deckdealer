@@ -32,8 +32,8 @@ Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 2. [**`/deleteTable`**](#2-deleteTable) - Delete an existing `table`
 
 **4 Core Functions:**
-1. [**`/add`**](#1-add) &nbsp;&nbsp;&nbsp;&nbsp; - Add a *single* entry to a `table`
-2. [**`/get`**](#2-get) &nbsp;&nbsp;&nbsp;&nbsp; - Fetch a *single* entry or *multiple* entries from a `table`
+1. [**`/add`**](#1-add) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Add a *single* entry to a `table`
+2. [**`/get`**](#2-get) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Fetch a *single* entry or *multiple* entries from a `table`
 3. [**`/edit`**](#3-edit) &nbsp;&nbsp;&nbsp; - Edit a *single* entry or *multiple* entries in a `table`
 4. [**`/delete`**](#4-delete) - Delete a *single* entry or *multiple* entries from a `table`
 
