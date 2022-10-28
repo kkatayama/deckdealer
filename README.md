@@ -5757,15 +5757,15 @@ the full url path of the image you wish to upload and save into the backend
 ### Investigating the Endpoint: `/uploadImageUrl`
 Request:
 ```ruby
-/uploadImageUrl
+https://bartender.hopto.org/uploadImageUrl
 ```
 
 Response:
 ```json
 {
-  'message': 'missing parameters', 
-  'required': [['url']], 
-  'submitted': [{}]
+  "message": "missing parameters",
+  "required": [["url"]],
+  "submitted": [{}],
 }
 ```
 
