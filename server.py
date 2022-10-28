@@ -82,6 +82,8 @@ def getStatus(db, url_paths=""):
     user_id = request.get_cookie("user_id", secret=secret_key)
     if not user_id:
         res = {"message": "user is not logged in (no session found); try appending the token to the request..."}
+        res.update({"cookies": dict(request.cookies)})
+        res.update({"headers": dict(request.headers)})
         return clean(res)
     res = {"message": "user is logged in with valid session cookie", "user_id": user_id, "cookies": dict(request.cookies)}
     return clean(res)
