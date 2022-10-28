@@ -29,6 +29,7 @@ sys.path.append(str(Path('.').absolute().parent))
 
 # -- Helper Modules -- #
 from utils.db_functions import parseUrlPaths
+from utils.paths import get_py_path
 from rich import print, print_json
 
 
@@ -186,9 +187,12 @@ def main():
     ./%(prog)s '/get/users' --url 'http://localhost:8888'
     '''
 
+    domain = re.search(r'[a-z]+', get_py_path().parent.name).group()
+    base_url = f'https://{domain}.hopto.org'
+
     ap = argparse.ArgumentParser(epilog=examples, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('query', help="api endpoint to query")
-    ap.add_argument('-u', '--url', default="https://bartender.hopto.org/", help='base url of web framework')
+    ap.add_argument('-u', '--url', default=f"{base_url}/", help='base url of web framework')
     ap.add_argument('-s', '--short', default=True, action="store_false", help='json output length')
     ap.add_argument('--stdout', default=True, action="store_false", help="print output")
     ap.add_argument('-l', '--login', default=False, action="store_true", help="login and save session cookies...")
@@ -198,13 +202,14 @@ def main():
 
     if args.login:
         s = requests.Session()
-        r = s.post('https://bartender.hopto.org/login', data={"username": args.username, "password": args.password})
+        r = s.post(f'{base_url}/login', data={"username": args.username, "password": args.password})
         export_headers(s)
         export_cookies(s)
-        args.query = f"/login/username/{args.username}/password/{args.passwordMMM}"
+        args.query = f"/login/username/{args.username}/password/{args.password}"
 
     executeQuery(base_url=args.url, query=args.query, short=args.short, stdout=args.stdout)
     # print(out)
 
 if __name__ == '__main__':
     sys.exit(main())
+    # print(get_py_path())
