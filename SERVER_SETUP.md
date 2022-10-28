@@ -1,6 +1,6 @@
 # Server Setup Guide
 
-You can choose to run the server locally or connect with the server all ready running at:
+You can choose to run the server locally or connect with the server all ready running at: <br />
 [https://bartender.hopto.org](https://bartender.hopto.org)
 
 These steps are to run the back-end locally.
