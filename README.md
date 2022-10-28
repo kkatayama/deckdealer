@@ -4659,7 +4659,7 @@ Response:
 
 ### Executing Profile Edits and Updating Restaurant Wages
 3. `anna` and `steve` would like to edit their `username` to use their `email` and update their `password`
-4. `Iron Hill` would like to increase their `hourly_wage` from `$2.33` to `$2.50` effective `2022-10-29 00:00:01 AM` 
+4. `Iron Hill` is increasing the `hourly_wage` from `$2.33` to `$2.50` effective `2022-10-29 00:00:01` 
 
 ---
 
@@ -5261,7 +5261,7 @@ Response:
 
 ---
 
-#### 6.4 `Iron Hill` is increase their `hourly_wage` from `$2.33` to `$2.50` staring `2022-10-29 00:00:01`
+#### 6.4 `Iron Hill` is increasing the `hourly_wage` from `$2.33` to `$2.50` staring `2022-10-29 00:00:01`
 
 <details><summary> (click here to expand) </summary>
 
