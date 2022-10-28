@@ -4653,7 +4653,7 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-### Simulate Snagging a `Restaurant Request` and Reporting `Bartender Wages`...
+### Simulate Snagging a `Restaurant Request` and Reporting `Bartender Wages`
 1. Help `anna` and `steve` find an `open shift` by snagging a `restaurant request`
 2. Simulate the `completion` of a shift by reporting to `bartender_wages`
 
