@@ -1,10 +1,10 @@
 [Unit]
-Description=BarTender BackEnd Database GitHub Sync
+Description=DeckDealer Database GitHub Sync
 After=network.target
 
 [Service]
 User=katayama
-WorkingDirectory=/home/katayama/Documents/BarTender/bartend_backend/systemd
+WorkingDirectory=/home/katayama/Documents/DeckDealer/deckdealer/systemd
 ExecStart=/bin/bash git_db.sh
 RestartSec=10
 

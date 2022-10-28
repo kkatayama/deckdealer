@@ -1,0 +1,13 @@
+[Unit]
+Description=DeckDealer BackEnd Web Framework
+After=network.target
+
+[Service]
+User=katayama
+WorkingDirectory=/home/katayama/Documents/DeckDealer/deckdealer
+ExecStart=/usr/bin/python3 server.py
+EnvironmentFile=/home/katayama/Documents/DeckDealer/deckdealer/systemd/deckdealer_service.conf
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
