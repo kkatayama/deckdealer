@@ -22,8 +22,8 @@ Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 * All tables must have a **`{ref}_time`** `column` 
 
 **4 User Functions:**
-1. [**`/login`**](#1-login) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Login a user
-2. [**`/logout`**](#2-logout)     - Logout a user
+1. [**`/login`**](#1-login) &nbsp;&nbsp;&nbsp;&nbsp; - Login a user
+2. [**`/logout`**](#2-logout) &nbsp;&nbsp;&nbsp; - Logout a user
 3. [**`/register`**](#3-register) - Register a new user
 4. [**`/status`**](#4-status)     - Verify signed session cookies
 
