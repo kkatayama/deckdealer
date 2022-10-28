@@ -45,7 +45,7 @@ Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 <details><summary>Debugging Tip! (click me to expand)</summary>
 <p>
 
-To see all of the available `tables` along with the `column_names` and the `column_types`, make a request to the root path of any core or admin function
+To see all of the available `tables` along with the `column_names` and the `column_types`, make a request to the root path of any `core` or `admin` function:
 
 Request:
 ```ruby
