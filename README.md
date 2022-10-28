@@ -107,7 +107,7 @@ Response:
 }
 ```
 
-### But all requests return `invalid toke`
+### All requests returning `invalid token`?
 Request:
 ```ruby
 /add
@@ -167,10 +167,10 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 # [Getting Started](#Getting-Started)
 Follow the [Setup Guide](SETUP.md) to install and configure the framework. <br />
 
-You can choose to run the server locally or connect with the server all ready running at:
-[https://bartender.hopto.org](https://bartender.hopto.org)
+You can choose to run the server locally or connect with the server all ready running at: [https://bartender.hopto.org](https://bartender.hopto.org)
 
 To interact with the framework (locally or remote) you will need to first login. <br />
+
 I recommend starting with the [Workflows](#Workflows) provided to get comfortable with using this framework. <br />
 
 [Workflows](#Workflows):
@@ -185,13 +185,13 @@ I recommend starting with the [Workflows](#Workflows) provided to get comfortabl
 ---
 
 # [User Functions](#User-Functions)
-The examples listed below will cover the **3 user functions**.<br />
-All examples shown are executed via a **GET** request and can be tested with any browser. <br />
+The examples listed below will cover the **4 user functions**.<br />
+All examples were executed with a **GET** request and can be tested in any browser. <br />
 All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
 ## 1. `/login`
 **Login `user`** 
-> Only logged in users can call functions!
+> NOTE: Only logged in users can call functions!
 
 ### Endpoints:
 <table>
@@ -5596,9 +5596,74 @@ Response:
 
 <details><summary> (click me to exapnd) </summary>
 
-## Let's delete some data !!!
-1. stuff
-2. stuff
+### 1. Let's Delete all of the Entries in the `restaurant_photos` table since we didn't use it.
+### 2. Then, let's delete the `restaurant_photos` table.
+
+#### Before we delete anything, let's take a quick look at the `restaurant_photos` table:
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_photos
+```
+
+Response:
+```json
+{
+  "message": "found 4 restaurant_photo entries",
+  "data": [
+    {"photo_id": 1, "restaurant_id": 1, "file_name": "7.jpeg", "entry_time": "2022-10-25 23:28:54.850"},
+    {"photo_id": 2, "restaurant_id": 1, "file_name": "8.jpeg", "entry_time": "2022-10-25 23:29:01.316"},
+    {"photo_id": 3, "restaurant_id": 2, "file_name": "9.jpeg", "entry_time": "2022-10-25 23:30:24.726"},
+    {"photo_id": 4, "restaurant_id": 2, "file_name": "10.jpeg", "entry_time": "2022-10-25 23:30:35.574"},
+  ],
+}
+```
+
+#### 7.1 Deleting all of the Entries in the `restaurant_photos` table:
+Arguments:
+```rexx
+filter = (photo_id > 0)
+```
+
+Request:
+```erlang
+https://bartender.hopto.org/delete/restaurant_photos/?filter=(photo_id > 0)
+```
+
+Response:
+```json
+{
+  "message": "4 restaurant_photo entries deleted",
+  "submitted": [{"filter": "(photo_id > 0)"}],
+}
+```
+
+#### Verify the entries have been deleted:
+Request:
+```jq
+https://bartender.hopto.org/get/restaurant_photos
+```
+
+Response:
+```json
+{
+  "message": "0 restaurant_photo entries found using submitted parameters",
+  "data": [{"submitted": [{}, {"filter": ""}]}],
+}
+```
+
+#### 7.2 Deleting the `restaurant_photos` table:
+Request:
+```jq
+https://bartender.hopto.org/deleteTable/restaurant_photos
+```
+
+Response:
+```json
+{
+  "message": "1 table deleted!",
+  "table": "restaurant_photos",
+}
+```
 
 </details>
 

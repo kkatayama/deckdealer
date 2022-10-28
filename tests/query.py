@@ -150,6 +150,9 @@ Response:
         print_json(data=res)
         print('```')
     else:
+        tables = False
+        if query in {'/get', '/add', '/edit', '/delete', '/createTable', '/deleteTable'}:
+            tables = True
         output += '{\n'
         for key in res.keys():
             obj = res.get(key)
@@ -159,6 +162,8 @@ Response:
                 else:
                     output += f'  "{key}": [\n'
                     for item in obj:
+                        if tables:
+                            print(item)
                         output += f'    {item},\n'.replace("'", '"')
                     output += '  ],\n'
             elif isinstance(obj, dict):
@@ -166,7 +171,8 @@ Response:
             else:
                 output += f'  "{key}": "{obj}",\n'.replace("'", '"')
         output += '}\n```'
-        print(output)
+        if not tables:
+            print(output)
 
 def main():
     examples = '''example usage:
