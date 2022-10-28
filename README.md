@@ -5756,7 +5756,7 @@ the full url path of the image you wish to upload and save into the backend
 
 ### Investigating the Endpoint: `/uploadImageUrl`
 Request:
-```ruby
+```jq
 https://bartender.hopto.org/uploadImageUrl
 ```
 
