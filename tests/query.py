@@ -187,7 +187,7 @@ def main():
     ./%(prog)s '/get/users' --url 'http://localhost:8888'
     '''
 
-    domain = re.search(r'[a-z]+', get_py_path().parent.name).group()
+    domain = re.search(r'[a-z]+', get_py_path().parent.name).group().replace('bartend', 'bartender')
     base_url = f'https://{domain}.hopto.org'
 
     ap = argparse.ArgumentParser(epilog=examples, formatter_class=argparse.RawDescriptionHelpFormatter)
