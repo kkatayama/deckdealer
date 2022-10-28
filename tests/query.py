@@ -118,15 +118,21 @@ def parseQuery(query):
 def executeQuery(base_url, query, short=True, stdout=True):
     base_url = base_url.strip('/')
     url = f'{base_url}{query}'
-    arguments = parseQuery(query)
-    arg_code = getCode(arguments)
-    req_code = getCode(query)
+
+    if '/usage' not in query:
+        arguments = parseQuery(query)
+        arg_code = getCode(arguments)
+        req_code = getCode(query)
 
     s = requests.Session()
     s.headers.update(load_headers())
     s.cookies.update(load_cookies())
     r = s.get(url)
     res = r.json() if r.status_code == 200 else r.text
+
+    if '/usage' in query:
+        print(res)
+        return
 
     if not stdout:
         return res
