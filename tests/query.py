@@ -207,6 +207,7 @@ def main():
         export_cookies(s)
         args.query = f"/login/username/{args.username}/password/{args.password}"
 
+    print(args.url)
     executeQuery(base_url=args.url, query=args.query, short=args.short, stdout=args.stdout)
     # print(out)
 
