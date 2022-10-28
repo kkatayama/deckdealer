@@ -5261,7 +5261,7 @@ Response:
 
 ---
 
-#### 6.4 `Iron Hill` would like to increase their `hourly_wage` from `$2.33` to `$2.50` staring `2022-10-29 00:00:01 AM`
+#### 6.4 `Iron Hill` to increase their `hourly_wage` from `$2.33` to `$2.50` staring `2022-10-29 00:00:01 AM`
 
 <details><summary> (click here to expand) </summary>
 
