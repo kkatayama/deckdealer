@@ -1,0 +1,13 @@
+[Unit]
+Description=BarTender BackEnd Web Framework
+After=network.target
+
+[Service]
+User=katayama
+WorkingDirectory=/home/katayama/Documents/BarTender/bartend_backend
+ExecStart=/usr/bin/python3 server.py
+EnvironmentFile=/home/katayama/Documents/BarTender/bartend_backend/systemd/bartender_backend_service.conf
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

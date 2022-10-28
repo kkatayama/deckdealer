@@ -1,0 +1,12 @@
+[Unit]
+Description=BarTender BackEnd Database GitHub Sync
+After=network.target
+
+[Service]
+User=katayama
+WorkingDirectory=/home/katayama/Documents/BarTender/bartend_backend/systemd
+ExecStart=/bin/bash git_db.sh
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
