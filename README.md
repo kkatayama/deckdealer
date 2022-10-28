@@ -1,5 +1,5 @@
 # [Web Framework](#Web-Framework)
-[https://bartender.hopto.org](https://bartender.hopto.org)
+[https://deckdealer.hopto.org](https://deckdealer.hopto.org)
 
 Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 
@@ -49,12 +49,12 @@ To see all of the available `tables` along with the `column_names` and the `colu
 
 Request:
 ```ruby
-https://bartender.hopto.org/add
-https://bartender.hopto.org/get
-https://bartender.hopto.org/edit
-https://bartender.hopto.org/delete
-https://bartender.hopto.org/createTable
-https://bartender.hopto.org/deleteTable
+https://deckdealer.hopto.org/add
+https://deckdealer.hopto.org/get
+https://deckdealer.hopto.org/edit
+https://deckdealer.hopto.org/delete
+https://deckdealer.hopto.org/createTable
+https://deckdealer.hopto.org/deleteTable
 ```
 
 Response:
@@ -168,7 +168,7 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 Follow the [Setup Guide](SERVER_SETUP.md) to install and configure the framework. <br />
 
 You can choose to run the server locally or connect with the server all ready running at: <br />
-[https://bartender.hopto.org](https://bartender.hopto.org)
+[https://deckdealer.hopto.org](https://deckdealer.hopto.org)
 
 To interact with the framework (locally or remote) you will need to first login. <br />
 
@@ -348,7 +348,7 @@ password = admin
 
 Request:
 ```ruby
-https://bartender.hopto.org/login/username/admin/password/admin
+https://deckdealer.hopto.org/login/username/admin/password/admin
 ```
 
 Response:
@@ -366,7 +366,7 @@ Response:
 ### Verify session by making a request to `/status`
 Request:
 ```jq
-https://bartender.hopto.org/status
+https://deckdealer.hopto.org/status
 ```
 
 Response:
@@ -670,7 +670,7 @@ password2 = alice
 
 Request:
 ```jq
-https://bartender.hopto.org/register/username/alice/password/alice/password2/alice
+https://deckdealer.hopto.org/register/username/alice/password/alice/password2/alice
 ```
 
 Response:
@@ -688,7 +688,7 @@ password2 = bob
 
 Request:
 ```jq
-https://bartender.hopto.org/register/username/bob/password/bob/password2/bob
+https://deckdealer.hopto.org/register/username/bob/password/bob/password2/bob
 ```
 
 Response:
@@ -706,7 +706,7 @@ password2 = anna
 
 Request:
 ```jq
-https://bartender.hopto.org/register/username/anna/password/anna/password2/anna
+https://deckdealer.hopto.org/register/username/anna/password/anna/password2/anna
 ```
 
 Response:
@@ -724,7 +724,7 @@ password2 = steve
 
 Request:
 ```jq
-https://bartender.hopto.org/register/username/steve/password/steve/password2/steve
+https://deckdealer.hopto.org/register/username/steve/password/steve/password2/steve
 ```
 
 Response:
@@ -1097,7 +1097,7 @@ bartender_wages
 ### Creating the Table `managers`:
 Request:
 ```ruby
-https://bartender.hopto.org/createTable/managers/manager_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/managers/manager_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1121,7 +1121,7 @@ Response:
 ### Creating the Table `restaurant_profile`:
 Request:
 ```ruby
-https://bartender.hopto.org/createTable/restaurant_profile/restaurant_id/INTEGER/manager_id/INTEGER/restaurant_name/TEXT/address/TEXT/bio/TEXT/phone_number/TEXT/profile_pic/TEXT/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/restaurant_profile/restaurant_id/INTEGER/manager_id/INTEGER/restaurant_name/TEXT/address/TEXT/bio/TEXT/phone_number/TEXT/profile_pic/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1145,7 +1145,7 @@ Response:
 ### Creating the Table `restaurant_photos`:
 Request:
 ```ruby
-https://bartender.hopto.org/createTable/restaurant_photos/photo_id/INTEGER/restaurant_id/INTEGER/file_name/TEXT/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/restaurant_photos/photo_id/INTEGER/restaurant_id/INTEGER/file_name/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1160,7 +1160,7 @@ Response:
 ### Creating the Table `restaurant_schedule`:
 Request:
 ```ruby
-https://bartender.hopto.org/createTable/restaurant_schedule/schedule_id/INTEGER/restaurant_id/INTEGER/mon_open/DATETIME/mon_close/DATETIME/tue_open/DATETIME/tue_close/DATETIME/wed_open/DATETIME/wed_close/DATETIME/thu_open/DATETIME/thu_close/DATETIME/fri_open/DATETIME/fri_close/DATETIME/sat_open/DATETIME/sat_close/DATETIME/sun_open/DATETIME/sun_close/DATETIME/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/restaurant_schedule/schedule_id/INTEGER/restaurant_id/INTEGER/mon_open/DATETIME/mon_close/DATETIME/tue_open/DATETIME/tue_close/DATETIME/wed_open/DATETIME/wed_close/DATETIME/thu_open/DATETIME/thu_close/DATETIME/fri_open/DATETIME/fri_close/DATETIME/sat_open/DATETIME/sat_close/DATETIME/sun_open/DATETIME/sun_close/DATETIME/entry_time/DATETIME
 ```
 
 Response:
@@ -1193,7 +1193,7 @@ Response:
 
 Request:
 ```jq
-https://bartender.hopto.org/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/status/TEXT/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/status/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1216,7 +1216,7 @@ Response:
 ### Creating the Table `bartenders`:
 Request:
 ```ruby
-https://bartender.hopto.org/createTable/bartenders/bartender_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/address/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/bartenders/bartender_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/address/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1241,7 +1241,7 @@ Response:
 ### Creating the Table `bartender_shifts`:
 Request:
 ```jq
-https://bartender.hopto.org/createTable/bartender_shifts/shift_id/INTEGER/bartender_id/INTEGER/restaurant_id/INTEGER/request_id/INTEGER/shift_start/DATETIME/shift_end/DATETIME/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/bartender_shifts/shift_id/INTEGER/bartender_id/INTEGER/restaurant_id/INTEGER/request_id/INTEGER/shift_start/DATETIME/shift_end/DATETIME/entry_time/DATETIME
 ```
 
 Response:
@@ -1264,7 +1264,7 @@ Response:
 ### Creating the Table `bartender_wages`:
 Request:
 ```jq
-https://bartender.hopto.org/createTable/bartender_wages/wage_id/INTEGER/bartender_id/INTEGER/shift_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/clock_in/DATETIME/clock_out/DATETIME/hours_worked/DOUBLE/tips/DOUBLE/total_earnings/DOUBLE/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/bartender_wages/wage_id/INTEGER/bartender_id/INTEGER/shift_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/clock_in/DATETIME/clock_out/DATETIME/hours_worked/DOUBLE/tips/DOUBLE/total_earnings/DOUBLE/entry_time/DATETIME
 ```
 
 Response:
@@ -1713,7 +1713,7 @@ url = https://www.w3schools.com/w3images/avatar4.png
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar4.png
+https://deckdealer.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar4.png
 ```
 
 Response:
@@ -1734,7 +1734,7 @@ url = https://www.w3schools.com/w3images/avatar2.png
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar2.png
+https://deckdealer.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar2.png
 ```
 
 Response:
@@ -1755,7 +1755,7 @@ url = https://www.w3schools.com/w3images/avatar5.png
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar5.png
+https://deckdealer.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar5.png
 ```
 
 Response:
@@ -1776,7 +1776,7 @@ url = https://www.w3schools.com/w3images/avatar3.png
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar3.png
+https://deckdealer.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar3.png
 ```
 
 Response:
@@ -1797,7 +1797,7 @@ url = https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
+https://deckdealer.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
 ```
 
 Response:
@@ -1818,7 +1818,7 @@ url = https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fi
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44-4f35-bdf9-b0a855c09328.jpg
+https://deckdealer.hopto.org/uploadImageUrl?url=https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44-4f35-bdf9-b0a855c09328.jpg
 ```
 
 Response:
@@ -1839,7 +1839,7 @@ url = https://www.ironhillbrewery.com/assets/craft/_locationPic1x/locations_0005
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/_locationPic1x/locations_0005_newark.jpg
+https://deckdealer.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/_locationPic1x/locations_0005_newark.jpg
 ```
 
 Response:
@@ -1859,7 +1859,7 @@ url = https://www.ironhillbrewery.com/assets/craft/IMG_7690-2.jpg
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/IMG_7690-2.jpg
+https://deckdealer.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/IMG_7690-2.jpg
 ```
 
 Response:
@@ -1880,7 +1880,7 @@ url = https://popmenucloud.com/jciwfypa/865660db-c7fd-4d06-bf3b-0ee4843caa25.jpg
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://popmenucloud.com/jciwfypa/865660db-c7fd-4d06-bf3b-0ee4843caa25.jpg
+https://deckdealer.hopto.org/uploadImageUrl?url=https://popmenucloud.com/jciwfypa/865660db-c7fd-4d06-bf3b-0ee4843caa25.jpg
 ```
 
 Response:
@@ -1900,7 +1900,7 @@ url = https://popmenucloud.com/jciwfypa/0a3a3426-0fc1-42bd-8fd8-5e4ec7250aff.jpg
 
 Request:
 ```erlang
-https://bartender.hopto.org/uploadImageUrl?url=https://popmenucloud.com/jciwfypa/0a3a3426-0fc1-42bd-8fd8-5e4ec7250aff.jpg
+https://deckdealer.hopto.org/uploadImageUrl?url=https://popmenucloud.com/jciwfypa/0a3a3426-0fc1-42bd-8fd8-5e4ec7250aff.jpg
 ```
 
 Response:
@@ -1927,7 +1927,7 @@ To get info of all users, make a request to the `users` table
 
 Request:
 ```jq
-https://bartender.hopto.org/get/users
+https://deckdealer.hopto.org/get/users
 ```
 
 Response:
@@ -1977,7 +1977,7 @@ To see what the `required parameters` are for the `managers` table, make a reque
 
 Request:
 ```jq
-https://bartender.hopto.org/add/managers
+https://deckdealer.hopto.org/add/managers
 ```
 
 Response:
@@ -2023,7 +2023,7 @@ profile_pic = 1.png
 
 Request:
 ```jq
-https://bartender.hopto.org/add/managers/user_id/2/first_name/Alice/last_name/Alice/phone_number/(302) 555-5555/email/alice@udel.edu/profile_pic/1.png
+https://deckdealer.hopto.org/add/managers/user_id/2/first_name/Alice/last_name/Alice/phone_number/(302) 555-5555/email/alice@udel.edu/profile_pic/1.png
 ```
 
 Response:
@@ -2048,7 +2048,7 @@ profile_pic = 2.png
 
 Request:
 ```erlang
-https://bartender.hopto.org/add/managers?user_id=3&first_name=Bob&last_name=Bob&phone_number=(215) 555-5555&email=bob@udel.edu&profile_pic=2.png
+https://deckdealer.hopto.org/add/managers?user_id=3&first_name=Bob&last_name=Bob&phone_number=(215) 555-5555&email=bob@udel.edu&profile_pic=2.png
 ```
 
 Response:
@@ -2073,7 +2073,7 @@ To see what the `required parameters` are for the `bartenders` table, make a req
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartenders
+https://deckdealer.hopto.org/add/bartenders
 ```
 
 Response:
@@ -2122,7 +2122,7 @@ profile_pic = 3.png
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartenders/user_id/4/first_name/Anna/last_name/Anna/address/555 N. Chapel St., Newark, DE 19711/phone_number/(555) 555-5555/email/anna@udel.edu/profile_pic/3.png
+https://deckdealer.hopto.org/add/bartenders/user_id/4/first_name/Anna/last_name/Anna/address/555 N. Chapel St., Newark, DE 19711/phone_number/(555) 555-5555/email/anna@udel.edu/profile_pic/3.png
 ```
 
 Response:
@@ -2148,7 +2148,7 @@ profile_pic = 4.png
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartenders/user_id/5/first_name/Steve/last_name/Steve/address/555 S. Main St., Newark, DE 19711/phone_number/(610) 555-5555/email/steve@udel.edu/profile_pic/4.png
+https://deckdealer.hopto.org/add/bartenders/user_id/5/first_name/Steve/last_name/Steve/address/555 S. Main St., Newark, DE 19711/phone_number/(610) 555-5555/email/steve@udel.edu/profile_pic/4.png
 ```
 
 Response:
@@ -2173,7 +2173,7 @@ To see what the `required parameters` are for the `restaurant_profile` table, ma
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_profile
+https://deckdealer.hopto.org/add/restaurant_profile
 ```
 
 Response:
@@ -2221,7 +2221,7 @@ profile_pic = 5.png
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_profile/manager_id/1/restaurant_name/Iron Hill Brewery & Restaurant/address/147 EAST MAIN ST. NEWARK, DE 19711/bio/Craft Beer and Food/phone_number/(302) 266-9000/profile_pic/5.png
+https://deckdealer.hopto.org/add/restaurant_profile/manager_id/1/restaurant_name/Iron Hill Brewery & Restaurant/address/147 EAST MAIN ST. NEWARK, DE 19711/bio/Craft Beer and Food/phone_number/(302) 266-9000/profile_pic/5.png
 ```
 
 Response:
@@ -2248,7 +2248,7 @@ profile_pic = 6.jpeg
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_profile/manager_id/2/restaurant_name/Deer Park Tavern/address/108 West Main Street, Newark, DE 19711/bio/Good food and spirits!/phone_number/(302) 368-9414/profile_pic/6.jpeg
+https://deckdealer.hopto.org/add/restaurant_profile/manager_id/2/restaurant_name/Deer Park Tavern/address/108 West Main Street, Newark, DE 19711/bio/Good food and spirits!/phone_number/(302) 368-9414/profile_pic/6.jpeg
 ```
 
 Response:
@@ -2265,7 +2265,7 @@ To see what the `required parameters` are for the `restaurant_photos` table, mak
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_photos
+https://deckdealer.hopto.org/add/restaurant_photos
 ```
 
 Response:
@@ -2299,7 +2299,7 @@ file_name = 7.jpeg
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_photos/restaurant_id/1/file_name/7.jpeg
+https://deckdealer.hopto.org/add/restaurant_photos/restaurant_id/1/file_name/7.jpeg
 ```
 
 Response:
@@ -2319,7 +2319,7 @@ file_name = 8.jpeg
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_photos/restaurant_id/1/file_name/8.jpeg
+https://deckdealer.hopto.org/add/restaurant_photos/restaurant_id/1/file_name/8.jpeg
 ```
 
 Response:
@@ -2340,7 +2340,7 @@ file_name = 9.jpeg
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_photos/restaurant_id/2/file_name/9.jpeg
+https://deckdealer.hopto.org/add/restaurant_photos/restaurant_id/2/file_name/9.jpeg
 ```
 
 Response:
@@ -2360,7 +2360,7 @@ file_name = 10.jpeg
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_photos/restaurant_id/2/file_name/10.jpeg
+https://deckdealer.hopto.org/add/restaurant_photos/restaurant_id/2/file_name/10.jpeg
 ```
 
 Response:
@@ -2385,7 +2385,7 @@ To see what the `required parameters` are for the `restaurant_schedule` table, m
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_schedule
+https://deckdealer.hopto.org/add/restaurant_schedule
 ```
 
 Response:
@@ -2458,7 +2458,7 @@ sun_close = 21:00
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_schedule/restaurant_id/1/mon_open/11:30/mon_close/21:00/tue_open/11:30/tue_close/21:00/wed_open/11:30/wed_close/22:00/thu_open/11:30/thu_close/22:00/fri_open/11:30/fri_close/23:00/sat_open/11:3
+https://deckdealer.hopto.org/add/restaurant_schedule/restaurant_id/1/mon_open/11:30/mon_close/21:00/tue_open/11:30/tue_close/21:00/wed_open/11:30/wed_close/22:00/thu_open/11:30/thu_close/22:00/fri_open/11:30/fri_close/23:00/sat_open/11:3
 0/sat_close/23:00/sun_open/11:30/sun_close/21:00
 ```
 
@@ -2493,7 +2493,7 @@ sun_close = 01:00
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_schedule/restaurant_id/2/mon_open/11:30/mon_close/01:00/tue_open/11:30/tue_close/01:00/wed_open/11:30/wed_close/01:00/thu_open/11:30/thu_close/01:00/fri_open/11:30/fri_close/01:00/sat_open/10:0
+https://deckdealer.hopto.org/add/restaurant_schedule/restaurant_id/2/mon_open/11:30/mon_close/01:00/tue_open/11:30/tue_close/01:00/wed_open/11:30/wed_close/01:00/thu_open/11:30/thu_close/01:00/fri_open/11:30/fri_close/01:00/sat_open/10:0
 0/sat_close/01:00/sun_open/09:00/sun_close/01:00
 ```
 
@@ -2516,7 +2516,7 @@ Response:
 #### First: log out (current user should be: `admin` with `user_id` of `1`)
 Request:
 ```jq
-https://bartender.hopto.org/logout
+https://deckdealer.hopto.org/logout
 ```
 
 Response:
@@ -2536,7 +2536,7 @@ password = alice
 
 Request:
 ```jq
-https://bartender.hopto.org/login/username/alice/password/alice
+https://deckdealer.hopto.org/login/username/alice/password/alice
 ```
 
 Response:
@@ -2557,7 +2557,7 @@ user_id = 2
 
 Request:
 ```jq
-https://bartender.hopto.org/get/managers/user_id/2
+https://deckdealer.hopto.org/get/managers/user_id/2
 ```
 
 Response:
@@ -2585,7 +2585,7 @@ manager_id = 1
 
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_profile/manager_id/1
+https://deckdealer.hopto.org/get/restaurant_profile/manager_id/1
 ```
 
 Response:
@@ -2619,7 +2619,7 @@ status = completed
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00/status/completed
+https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00/status/completed
 ```
 
 Response:
@@ -2643,7 +2643,7 @@ shift_end = 2022-10-20 14:30:00
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_shifts/bartender_id/1/request_id/1/restaurant_id/1/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00
+https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/1/request_id/1/restaurant_id/1/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00
 ```
 
 Response:
@@ -2675,7 +2675,7 @@ total_earnings = 95.30
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_wages/bartender_id/1/shift_id/1/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00/clock_in/2022-10-20 09:45:00/clock_out/2022-10-20
+https://deckdealer.hopto.org/add/bartender_wages/bartender_id/1/shift_id/1/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00/clock_in/2022-10-20 09:45:00/clock_out/2022-10-20
 14:10:00/hours_worked/4.42/tips/85.00/total_earnings/95.30
 ```
 
@@ -2702,7 +2702,7 @@ status = completed
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00/status/completed
+https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00/status/completed
 ```
 
 Response:
@@ -2726,7 +2726,7 @@ shift_end = 2022-10-22 00:30:00
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_shifts/bartender_id/2/request_id/2/restaurant_id/1/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00
+https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/2/request_id/2/restaurant_id/1/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00
 ```
 
 Response:
@@ -2758,7 +2758,7 @@ total_earnings = 167.90
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_wages/bartender_id/2/shift_id/2/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00/clock_in/2022-10-21 16:05:00/clock_out/2022-10-22
+https://deckdealer.hopto.org/add/bartender_wages/bartender_id/2/shift_id/2/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00/clock_in/2022-10-21 16:05:00/clock_out/2022-10-22
 01:03:00/hours_worked/8.97/tips/147.00/total_earnings/167.90
 ```
 
@@ -2785,7 +2785,7 @@ status = open
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00/status/open
+https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00/status/open
 ```
 
 Response:
@@ -2800,7 +2800,7 @@ Response:
 #### Now, log out (current user should be: `alice` with `user_id` of `2`)
 Request:
 ```jq
-https://bartender.hopto.org/logout
+https://deckdealer.hopto.org/logout
 ```
 
 Response:
@@ -2814,7 +2814,7 @@ Response:
 #### Log in as `bob` - the manager of `Deer Park`:
 Request:
 ```jq
-https://bartender.hopto.org/login/username/bob/password/bob
+https://deckdealer.hopto.org/login/username/bob/password/bob
 ```
 
 Response:
@@ -2835,7 +2835,7 @@ user_id = 3
 
 Request:
 ```jq
-https://bartender.hopto.org/get/managers/user_id/3
+https://deckdealer.hopto.org/get/managers/user_id/3
 ```
 
 Response:
@@ -2863,7 +2863,7 @@ manager_id = 2
 
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_profile/manager_id/2
+https://deckdealer.hopto.org/get/restaurant_profile/manager_id/2
 ```
 
 Response:
@@ -2897,7 +2897,7 @@ status = closed
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00/status/closed
+https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00/status/closed
 ```
 
 Response:
@@ -2921,7 +2921,7 @@ shift_end = 2022-10-23 14:00:00
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_shifts/bartender_id/1/request_id/4/restaurant_id/2/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00
+https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/1/request_id/4/restaurant_id/2/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00
 ```
 
 Response:
@@ -2953,7 +2953,7 @@ total_earnings = 192.12
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_wages/bartender_id/1/shift_id/3/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00/clock_in/2022-10-23 07:40:00/clock_out/2022-10-23
+https://deckdealer.hopto.org/add/bartender_wages/bartender_id/1/shift_id/3/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00/clock_in/2022-10-23 07:40:00/clock_out/2022-10-23
 15:25:00/hours_worked/7.75/tips/165.00/total_earnings/192.12
 ```
 
@@ -2980,7 +2980,7 @@ status = closed
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00/status/closed
+https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00/status/closed
 ```
 
 Response:
@@ -3004,7 +3004,7 @@ shift_end = 2022-10-25 02:00:00
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_shifts/bartender_id/2/request_id/5/restaurant_id/2/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00
+https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/2/request_id/5/restaurant_id/2/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00
 ```
 
 Response:
@@ -3036,7 +3036,7 @@ total_earnings = 143.46
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_wages/bartender_id/2/shift_id/4/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00/clock_in/2022-10-24 16:05:00/clock_out/2022-10-25
+https://deckdealer.hopto.org/add/bartender_wages/bartender_id/2/shift_id/4/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00/clock_in/2022-10-24 16:05:00/clock_out/2022-10-25
 02:13:00/hours_worked/10.13/tips/108.00/total_earnings/143.46
 ```
 
@@ -3063,7 +3063,7 @@ status = open
 
 Request:
 ```jq
-https://bartender.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00/status/open
+https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00/status/open
 ```
 
 Response:
@@ -3888,7 +3888,7 @@ Response:
 #### Table: `users`
 Request:
 ```jq
-https://bartender.hopto.org/get/users
+https://deckdealer.hopto.org/get/users
 ```
 
 Response:
@@ -3907,7 +3907,7 @@ Response:
 #### Table: `bartenders`
 Request:
 ```jq
-https://bartender.hopto.org/get/bartenders
+https://deckdealer.hopto.org/get/bartenders
 ```
 
 Response:
@@ -3923,7 +3923,7 @@ Response:
 #### Table: `managers`
 Request:
 ```jq
-https://bartender.hopto.org/get/managers
+https://deckdealer.hopto.org/get/managers
 ```
 
 Response:
@@ -3939,7 +3939,7 @@ Response:
 #### Table: `restaurant_profile`
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_profile
+https://deckdealer.hopto.org/get/restaurant_profile
 ```
 
 Response:
@@ -3955,7 +3955,7 @@ Response:
 #### Table: `restaurant_photos`
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_photos
+https://deckdealer.hopto.org/get/restaurant_photos
 ```
 
 Response:
@@ -3973,7 +3973,7 @@ Response:
 #### Table: `restaurant_schedule`
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_schedule
+https://deckdealer.hopto.org/get/restaurant_schedule
 ```
 
 Response:
@@ -3989,7 +3989,7 @@ Response:
 #### Table: `restaurant_requests`
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_requests
+https://deckdealer.hopto.org/get/restaurant_requests
 ```
 
 Response:
@@ -4014,7 +4014,7 @@ Arguments:
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_shifts
+https://deckdealer.hopto.org/get/bartender_shifts
 ```
 
 Response:
@@ -4037,7 +4037,7 @@ Arguments:
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages
+https://deckdealer.hopto.org/get/bartender_wages
 ```
 
 Response:
@@ -4069,7 +4069,7 @@ bartender_id = 1
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages/bartender_id/1
+https://deckdealer.hopto.org/get/bartender_wages/bartender_id/1
 ```
 
 Response:
@@ -4092,7 +4092,7 @@ filter = (restaurant_id = 1) ORDER BY tips DESC
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages/filter/(restaurant_id = 1) ORDER BY tips DESC
+https://deckdealer.hopto.org/get/bartender_wages/filter/(restaurant_id = 1) ORDER BY tips DESC
 ```
 
 Response:
@@ -4115,7 +4115,7 @@ filter = (tips < 100.00)
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages/filter/(tips < 100.00)
+https://deckdealer.hopto.org/get/bartender_wages/filter/(tips < 100.00)
 ```
 
 Response:
@@ -4136,7 +4136,7 @@ filter = (hours_worked > 5.0 AND total_earnings < 150.00)
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages/filter/(hours_worked > 5.0 AND total_earnings < 150.00)
+https://deckdealer.hopto.org/get/bartender_wages/filter/(hours_worked > 5.0 AND total_earnings < 150.00)
 ```
 
 Response:
@@ -4165,7 +4165,7 @@ filter = (shift_start < clock_in) GROUP BY bartender_id
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages/filter/(shift_start < clock_in) GROUP BY bartender_id
+https://deckdealer.hopto.org/get/bartender_wages/filter/(shift_start < clock_in) GROUP BY bartender_id
 ```
 
 Response:
@@ -4188,7 +4188,7 @@ filter = (shift_start < clock_in)
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages/filter/(shift_start < clock_in)
+https://deckdealer.hopto.org/get/bartender_wages/filter/(shift_start < clock_in)
 ```
 
 Response:
@@ -4212,7 +4212,7 @@ filter = (shift_start >= clock_in) ORDER BY (strftime('%H:%M', time(strftime('%s
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages/filter/(shift_start >= clock_in) ORDER BY (strftime('%H:%M', time(strftime('%s', shift_start) - strftime('%s', clock_in), 'unixepoch'))) DESC
+https://deckdealer.hopto.org/get/bartender_wages/filter/(shift_start >= clock_in) ORDER BY (strftime('%H:%M', time(strftime('%s', shift_start) - strftime('%s', clock_in), 'unixepoch'))) DESC
 ```
 
 Response:
@@ -4244,7 +4244,7 @@ filter = (strftime('%H:%M', time(strftime('%s', clock_out) - strftime('%s', cloc
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages/filter/(strftime('%H:%M', time(strftime('%s', clock_out) - strftime('%s', clock_in), 'unixepoch')) >= strftime('%H:%M', time(strftime('%s', shift_end) - strftime('%s', shift_start), 'unixepoch')))
+https://deckdealer.hopto.org/get/bartender_wages/filter/(strftime('%H:%M', time(strftime('%s', clock_out) - strftime('%s', clock_in), 'unixepoch')) >= strftime('%H:%M', time(strftime('%s', shift_end) - strftime('%s', shift_start), 'unixepoch')))
 ```
 
 Response:
@@ -4678,7 +4678,7 @@ status = open
 
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_requests/status/open
+https://deckdealer.hopto.org/get/restaurant_requests/status/open
 ```
 
 Response:
@@ -4703,7 +4703,7 @@ filter = (restaurant_id = 1 or restaurant_id = 2)
 
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_profile/filter/(restaurant_id = 1 or restaurant_id = 2)
+https://deckdealer.hopto.org/get/restaurant_profile/filter/(restaurant_id = 1 or restaurant_id = 2)
 ```
 
 Response:
@@ -4731,7 +4731,7 @@ filter = (request_id=3)
 
 Request:
 ```erlang
-https://bartender.hopto.org/edit/restaurant_requests/status/snagged?filter=(request_id=3)
+https://deckdealer.hopto.org/edit/restaurant_requests/status/snagged?filter=(request_id=3)
 ```
 
 Response:
@@ -4749,7 +4749,7 @@ request_id = 3
 
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_requests/request_id/3
+https://deckdealer.hopto.org/get/restaurant_requests/request_id/3
 ```
 
 Response:
@@ -4771,7 +4771,7 @@ shift_end = 2022-10-29 23:00:00
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_shifts/bartender_id/1/restaurant_id/1/request_id/3/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00
+https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/1/restaurant_id/1/request_id/3/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00
 ```
 
 Response:
@@ -4792,7 +4792,7 @@ request_id = 3
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_shifts/request_id/3
+https://deckdealer.hopto.org/get/bartender_shifts/request_id/3
 ```
 
 Response:
@@ -4814,7 +4814,7 @@ status = open
 
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_requests/status/open
+https://deckdealer.hopto.org/get/restaurant_requests/status/open
 ```
 
 Response:
@@ -4836,7 +4836,7 @@ filter = (restaurant_id=2)
 
 Request:
 ```erlang
-https://bartender.hopto.org/get/restaurant_profile/?filter=(restaurant_id=2)
+https://deckdealer.hopto.org/get/restaurant_profile/?filter=(restaurant_id=2)
 ```
 
 Response:
@@ -4858,7 +4858,7 @@ filter = (request_id=6)
 
 Request:
 ```erlang
-https://bartender.hopto.org/edit/restaurant_requests/status/snagged?filter=(request_id=6)
+https://deckdealer.hopto.org/edit/restaurant_requests/status/snagged?filter=(request_id=6)
 ```
 
 Response:
@@ -4876,7 +4876,7 @@ request_id = 6
 
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_requests/request_id/6
+https://deckdealer.hopto.org/get/restaurant_requests/request_id/6
 ```
 
 Response:
@@ -4899,7 +4899,7 @@ shift_end = 2022-10-26 15:00:00
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_shifts/bartender_id/2/restaurant_id/2/request_id/6/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00
+https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/2/restaurant_id/2/request_id/6/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00
 ```
 
 Response:
@@ -4920,7 +4920,7 @@ request_id = 6
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_shifts/request_id/6
+https://deckdealer.hopto.org/get/bartender_shifts/request_id/6
 ```
 
 Response:
@@ -4950,7 +4950,7 @@ filter = (request_id=3)
 
 Request:
 ```erlang
-https://bartender.hopto.org/edit/restaurant_requests/status/completed?filter=(request_id=3)
+https://deckdealer.hopto.org/edit/restaurant_requests/status/completed?filter=(request_id=3)
 ```
 
 Response:
@@ -4969,7 +4969,7 @@ request_id = 3
 
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_requests/request_id/3
+https://deckdealer.hopto.org/get/restaurant_requests/request_id/3
 ```
 
 Response:
@@ -4998,7 +4998,7 @@ total_earnings = 134.88
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_wages/bartender_id/1/shift_id/5/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00/clock_in/2022-10-29 17:50:00/clock_out/2022-10-29 22:30:00/hours_worked/4.67/tips/124.00/total_earnings/134.88
+https://deckdealer.hopto.org/add/bartender_wages/bartender_id/1/shift_id/5/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00/clock_in/2022-10-29 17:50:00/clock_out/2022-10-29 22:30:00/hours_worked/4.67/tips/124.00/total_earnings/134.88
 ```
 
 Response:
@@ -5019,7 +5019,7 @@ shift_id = 5
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages/shift_id/5
+https://deckdealer.hopto.org/get/bartender_wages/shift_id/5
 ```
 
 Response:
@@ -5043,7 +5043,7 @@ filter = (request_id=6)
 
 Request:
 ```erlang
-https://bartender.hopto.org/edit/restaurant_requests/status/completed?filter=(request_id=6)
+https://deckdealer.hopto.org/edit/restaurant_requests/status/completed?filter=(request_id=6)
 ```
 
 Response:
@@ -5061,7 +5061,7 @@ request_id = 6
 
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_requests/request_id/6
+https://deckdealer.hopto.org/get/restaurant_requests/request_id/6
 ```
 
 Response:
@@ -5090,7 +5090,7 @@ total_earnings = 104.78
 
 Request:
 ```jq
-https://bartender.hopto.org/add/bartender_wages/bartender_id/2/shift_id/6/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00/clock_in/2022-10-26 10:15:00/clock_out/2022-10-26 15:20:00/hours_worked/5.08/tips/87.00/total_earnings/104.78
+https://deckdealer.hopto.org/add/bartender_wages/bartender_id/2/shift_id/6/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00/clock_in/2022-10-26 10:15:00/clock_out/2022-10-26 15:20:00/hours_worked/5.08/tips/87.00/total_earnings/104.78
 ```
 
 Response:
@@ -5111,7 +5111,7 @@ shift_id = 6
 
 Request:
 ```jq
-https://bartender.hopto.org/get/bartender_wages/shift_id/6
+https://deckdealer.hopto.org/get/bartender_wages/shift_id/6
 ```
 
 Response:
@@ -5137,7 +5137,7 @@ Response:
 #### Query the `users` table to see all of the current `users`:
 Request:
 ```jq
-https://bartender.hopto.org/get/users
+https://deckdealer.hopto.org/get/users
 ```
 
 Response:
@@ -5164,7 +5164,7 @@ filter = (user_id=4)
 
 Request:
 ```erlang
-https://bartender.hopto.org/edit/users/username/anna@udel.edu/password/Anna1234/?filter=(user_id=4)
+https://deckdealer.hopto.org/edit/users/username/anna@udel.edu/password/Anna1234/?filter=(user_id=4)
 ```
 
 Response:
@@ -5191,7 +5191,7 @@ password = Anna1234
 
 Request:
 ```jq
-https://bartender.hopto.org/login/username/anna@udel.edu/password/Anna1234
+https://deckdealer.hopto.org/login/username/anna@udel.edu/password/Anna1234
 ```
 
 Response:
@@ -5217,7 +5217,7 @@ filter = (user_id=5)
 
 Request:
 ```erlang
-https://bartender.hopto.org/edit/users/username/steve@gmail.com/password/St3ve4321/?filter=(user_id=5)
+https://deckdealer.hopto.org/edit/users/username/steve@gmail.com/password/St3ve4321/?filter=(user_id=5)
 ```
 
 Response:
@@ -5244,7 +5244,7 @@ password = St3ve4321
 
 Request:
 ```jq
-https://bartender.hopto.org/login/username/steve@gmail.com/password/St3ve4321
+https://deckdealer.hopto.org/login/username/steve@gmail.com/password/St3ve4321
 ```
 
 Response:
@@ -5275,7 +5275,7 @@ filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
 
 Request:
 ```erlang
-https://bartender.hopto.org/get/restaurant_requests/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+https://deckdealer.hopto.org/get/restaurant_requests/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
 ```
 
 Response:
@@ -5293,7 +5293,7 @@ filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
 
 Request:
 ```erlang
-https://bartender.hopto.org/get/bartender_wages/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+https://deckdealer.hopto.org/get/bartender_wages/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
 ```
 
 Response:
@@ -5316,7 +5316,7 @@ filter = (restaurant_id = '1' AND shift_end > '2022-10-29 00:00:01')
 
 Request:
 ```erlang
-https://bartender.hopto.org/edit/restaurant_requests/hourly_wage/2.5/?filter=(restaurant_id = '1' AND shift_end > '2022-10-29 00:00:01')
+https://deckdealer.hopto.org/edit/restaurant_requests/hourly_wage/2.5/?filter=(restaurant_id = '1' AND shift_end > '2022-10-29 00:00:01')
 ```
 
 Response:
@@ -5339,7 +5339,7 @@ filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
 
 Request:
 ```erlang
-https://bartender.hopto.org/edit/bartender_wages/hourly_wage/2.50/total_earnings/135.68/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+https://deckdealer.hopto.org/edit/bartender_wages/hourly_wage/2.50/total_earnings/135.68/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
 ```
 
 Response:
@@ -5358,7 +5358,7 @@ filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
 
 Request:
 ```erlang
-https://bartender.hopto.org/get/restaurant_requests/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+https://deckdealer.hopto.org/get/restaurant_requests/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
 ```
 
 Response:
@@ -5376,7 +5376,7 @@ filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
 
 Request:
 ```erlang
-https://bartender.hopto.org/get/bartender_wages/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
+https://deckdealer.hopto.org/get/bartender_wages/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
 ```
 
 Response:
@@ -5603,7 +5603,7 @@ Response:
 #### Before we delete anything, let's take a quick look at the `restaurant_photos` table:
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_photos
+https://deckdealer.hopto.org/get/restaurant_photos
 ```
 
 Response:
@@ -5627,7 +5627,7 @@ filter = (photo_id > 0)
 
 Request:
 ```erlang
-https://bartender.hopto.org/delete/restaurant_photos/?filter=(photo_id > 0)
+https://deckdealer.hopto.org/delete/restaurant_photos/?filter=(photo_id > 0)
 ```
 
 Response:
@@ -5641,7 +5641,7 @@ Response:
 #### Verify the entries have been deleted:
 Request:
 ```jq
-https://bartender.hopto.org/get/restaurant_photos
+https://deckdealer.hopto.org/get/restaurant_photos
 ```
 
 Response:
@@ -5655,7 +5655,7 @@ Response:
 #### 7.2 Deleting the `restaurant_photos` table:
 Request:
 ```jq
-https://bartender.hopto.org/deleteTable/restaurant_photos
+https://deckdealer.hopto.org/deleteTable/restaurant_photos
 ```
 
 Response:
@@ -5758,7 +5758,7 @@ the full url path of the image you wish to upload and save into the backend
 ### Investigating the Endpoint: `/uploadImageUrl`
 Request:
 ```jq
-https://bartender.hopto.org/uploadImageUrl
+https://deckdealer.hopto.org/uploadImageUrl
 ```
 
 Response:
@@ -5821,12 +5821,12 @@ Response:
 
 Arguments:
 ```python
-url = "https://bartender.hopto.org/uploadImageUrl/url/https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png"
+url = "https://deckdealer.hopto.org/uploadImageUrl/url/https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png"
 ```
 
 Request:
 ```ruby
-https://bartender.hopto.org/uploadImageUrl/url/https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
+https://deckdealer.hopto.org/uploadImageUrl/url/https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
 ```
 
 Response:
