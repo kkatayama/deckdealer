@@ -1,60 +1,53 @@
 # Web Framework
-[https://bartender.hopto.org](https://bartender.hopto.org)
+[https://m2band.hopto.org](https://m2band.hopto.org)
 
 Framework is loosely modeled after CRUD: [C]reate [R]ead [U]pdate [D]elete
 
 **Features:**
-* [*User Functions*](#User-Functions) &nbsp;&nbsp; - [**`/login`**](#1-login), [**`/logout`**](#2-logout), [**`/register`**](#3-register)
-* [*Admin Functions*](#Admin-Functions)            - [**`/createTable`**](#1-createTable), [**`/deleteTable`**](#2-deleteTable)
-* [*Core Functions*](#Core-Functions) &nbsp;&nbsp; - [**`/add`**](#1-add), [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete)
-* [*Extra_Functions*](#Extra-Functions) &nbsp;    - [**`/uploadImageUrl`**](#1-uploadImageUrl)
+* [*Core Functions*](#Core-Functions) - [**`/add`**](#1-add), [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete)
+* [*Admin Functions*](#Admin-Functions) - [**`/createTable`**](#1-createTable) and [**`/deleteTable`**](#2-deleteTable)
+* [*User Functions*](User-Functions) - [**`/login`**](#1-login) and [**`/logout`**](#2-logout)
 * Query and URL path parameter support
-* Additional **`filter`** parameter - enables SQLite expressions containing operators 
+* Additional **filter** parameter - enables SQLite expressions containing operators 
 * In-place column editing with SQLite3 expression support
-* [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete) supports single and multiple simultaneous table transactions
-* Changes made to the **backend.db** database are now automatically updated to the GitHub repo in *real-time*
+* [**`/get`**](#2-get), [**`/edit`**](#3-edit), [**`/delete`**](4-delete) support single and multiple simultaneous table transactions
+* Changes made to the **m2band.db** database are now automatically updated to the GitHub repo in *real-time*
 
 **Design Constrains:**
 * All  **`table_names`** and **`column_names`** are defined with **lowercase** letters
 * A column name with suffix **`_id`** reference a **unique item** or a **unique item group**.
 * A column name with suffix **`_time`** reference a **unique datetime item**
-* All tables must have a **`{ref}_id`** `column` to be used as `PRIMARY KEY`
-* All tables must have a **`{ref}_time`** `column` 
+* All tables must have a **`user_id_`** column and a second **`{ref}_id`** `column`
+  * The **`users`** table is the only exception and only has one **`{ref}_id`** column: **`user_id`**
+* All tables must have one **`{ref}_time`** `column`
 
-**3 User Functions:**
-1. [**`/login`**](#1-login)       - Login a user
-2. [**`/logout`**](#2-logout)     - Logout a user
-3. [**`/register`**](#3-register) - Register a new user
+**4 Core Functions:**
+These functions represent the main endpoints of the framework and will handle the majority of all requests. 
+1. [**`/add`**](#1-add) - Add a *single* entry to a `table`
+2. [**`/get`**](#2-get) - Fetch a *single* entry or *multiple* entries from a `table`
+3. [**`/edit`**](#3-edit) - Edit a *single* entry or *multiple* entries in a `table`
+4. [**`/delete`**](#4-delete) - Delete a *single* entry or *multiple* entries from a `table`
 
 **2 Admin Functions**
 1. [**`/createTable`**](#1-createTable) - Create a new `table` 
 2. [**`/deleteTable`**](#2-deleteTable) - Delete an existing `table`
 
-**4 Core Functions:**
-These functions represent the main endpoints of the framework and will handle the majority of all requests. 
-1. [**`/add`**](#1-add)       - Add a *single* entry to a `table`
-2. [**`/get`**](#2-get)       - Fetch a *single* entry or *multiple* entries from a `table`
-3. [**`/edit`**](#3-edit)     - Edit a *single* entry or *multiple* entries in a `table`
-4. [**`/delete`**](#4-delete) - Delete a *single* entry or *multiple* entries from a `table`
-
-**1 Extra Function**
-1. [**`uploadImageUrl`**](#1-uploadImageUrl) - Upload an image to the backend via `image_url`
-
+**2 User Functions**
+1. [**`/login`**](#1-login) - Login a user (no signed cookie or token enabled yet)
+2. [**`/logout`**](#2-logout) - Logout a user ((no signed cookie or token enabled yet)
 
 ---
-<details><summary>Debugging Tip! (click me to expand)
+<details><summary>Debugging Tip!  (click me to expand)
 </summary>
 
 To see all of the available `tables` along with the `column_names` and the `column_types`, make a request to the root path of any core or admin function
 
 Request:
 ```ruby
-https://bartender.hopto.org/add
-https://bartender.hopto.org/get
-https://bartender.hopto.org/edit
-https://bartender.hopto.org/delete
-https://bartender.hopto.org/createTable
-https://bartender.hopto.org/deleteTable
+https://m2band.hopto.org/add
+https://m2band.hopto.org/get
+https://m2band.hopto.org/edit
+https://m2band.hopto.org/delete
 ```
 
 Response:
@@ -84,713 +77,14 @@ Response:
   ]
 }
 ```
-
-If you receive an `invalid token` response, then the request you are making does not contain the `session cookie`.
-The `session cookie` is assigned after a successful login.
-To get around adding the `session cookie` along with your request, you can simply add the `token` parameter.
-
-FOR EXAMPLE:
-
-### You logged in with the `admin` user.
-Request:
-```ruby
-/login?username=admin&password=admin
-```
-
-Response:
-```json
-{
-  "message": "user login success",
-  "user_id": 1,
-  "username": "admin",
-  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
-}
-```
-
-### But all requests return `invalid toke`
-Request:
-```ruby
-/add
-```
-
-Response:
-```json
-{
-  "message": "invalid token"
-}
-```
-
-### Simply append the token parameter
-Request:
-```ruby
-/add?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09
-```
-
-Response:
-```json
-{ "message": "active tables in the database",
-  "tables": [
-    { "name": "users",
-      "type": "table",
-      "columns": [
-        { "name": "user_id", "type": "INTEGER PRIMARY KEY" },
-        { "name": "username", "type": "TEXT NOT NULL" },
-        { "name": "password", "type": "TEXT NOT NULL" },
-        { "name": "create_time", "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))" }
-      ]
-    },
-    { "name": "oximeter", 
-      "type": "table",
-      "columns": [
-        { "name": "entry_id", "type": "INTEGER PRIMARY KEY" },
-        { "name": "user_id", "type": "INTEGER NOT NULL" },
-        { "name": "heart_rate", "type": "INTEGER NOT NULL" },
-        { "name": "blood_o2", "type": "INTEGER NOT NULL" },
-        { "name": "temperature", "type": "DOUBLE NOT NULL" },
-        { "name": "entry_time", "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))" }
-      ]
-    }
-  ]
-}
-```
-
-### When using `curl`, add `-b` and `-c` to save and read session cookies
-``` ruby
-curl -b cookie.txt -c cookie.txt 'http://localhost:8888/login/username/admin/password/admin'
-curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
-```
-
 </details>
-
----
-
-# Getting Started
-
-Try out `Workfows 1-4`
-- [x] [Worflow 1 - Login](#workflow-1---login)
-
-
-# [User Functions](#User-Functions)
-The examples listed below will cover the **3 user functions**.<br />
-All examples shown are executed via a **GET** request and can be tested with any browser. <br />
-All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
-
-# 1. `/login`
-**Login `user`** 
-> Only logged in users can call functions!
-
-### Endpoints:
-| Resource | Description |
-|:--|:--|
-| **`/login`**  | return: {"message": "missing parameters"} |
-| **`/login/param_name/param_value`**  | login with: 'param_name=param_value' |
-| **`/login/param_name=param_value`**  | login with: 'param_name=param_value' |
-
-<table>
-<tr>
-<td> Resource </td> <td> Description </td>
-</tr>
-<tr>
-<td>
-
-```jq
-/login
-```
-
-</td>
-<td>
-
-```rexx
-return: {"message": "missing parameters"}
-```
-
-</td>
-</tr>
-<tr>
-<td>
-
-```jq
-/login/param_name/param_value
-```
-
-</td>
-<td>
-
-```rexx
-login with: 'param_name=param_value'
-```
-
-</td>
-</tr>
-<tr>
-<td>
-
-```jq
-/login/param_name=param_value
-```
-
-</td>
-<td>
-
-```rexx
-login with: 'param_name=param_value'
-```
-
-</td>
-</tr>
-</table>
-
-### Requirements:
-| Parameters | Description |
-|:--|:--|
-| username | the user's username |
-| password | the user's password |
-
----
-<details><summary>Endpoint Background (click here to expand)
-</summary>
-
-### Investigating the Endpoint: `/login`
----
-Request:
-```ruby
-/login
-```
-
-Response:
-```json
-{
-  "message": "missing parameters", 
-  "required": [{"username": "TEXT", "password": "TEXT"}], "submitted": [{}]
-}
-```
----
-Arguments:
-```python
-username = admin
-```
-
-Request:
-```ruby
-/login/username/admin
-```
-
-Response:
-```json
-{
-  "message": "missing parameters",
-  "required": [{"username": "TEXT", "password": "TEXT"}],
-  "submitted": [{"username": "admin"}]
-}
-```
----
-Arguments:
-```python
-username = admin
-password = 123
-```
-
-Request:
-```ruby
-/login?username=admin&password=123
-```
-
-Response:
-```json
-{
-  "message": "incorrect password",
-  "password": "123"
-}
-```
----
-Arguments:
-```python
-username = admin
-password = admin
-```
-
-Request:
-```ruby
-/login?username=admin&password=admin
-```
-
-Response:
-```json
-{
-  "message": "user login success",
-  "user_id": 1,
-  "username": "admin",
-  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
-}
-```
----
-</details>
-
-## Workflow 1 - Login:
-* Let's log in as the user **`admin`** 
-
----
-<details><summary>Workflow 1 - Login (click here to expand)
-</summary>
-
-### Let's log in as the user `admin`
-Arguments:
-```python
-username = admin
-password = admin
-```
-
-Request:
-```ruby
-/login/username/admin/password/admin
-```
-
-Response:
-```json
-{
-  "message": "user login success",
-  "user_id": 1,
-  "username": "admin",
-  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
-}
-```
-
-> Note: the `token` is only needed when api requests do not store session cookies.
-
-</details>
-
----
-
-# 2. `/logout`
-Register a new **`user`**
-
-### Endpoints:
-| Resource | Description |
-|:--|:--|
-| **`/logout`**  | log out a user |
-
----
-<details><summary>Endpoint Background (click here to expand)
-</summary>
-
-### Investigating the Endpoint `/logout`
-Request:
-```ruby
-/logout
-```
-
-Response:
-```json
-{
-  "message": "user logged out",
-  "user_id": "1"
-}
-```
-
----
-</details>
-
-# 3. `/register`
-Register a new **`user`** to the `users` table.
-
-### Endpoints:
-| Resource | Description |
-|:--|:--|
-| **`/register`**  | returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>  |
-| **`/register`**  | returns: ```json {"message": "missing parameter", "required params": ["username", "password", "password2"]}```  |
-| **`/register`**  | returns: <code style="color:#00ccff;">{"message": "missing parameter", "required params": ["username", "password", "password2"]}</code>  |
-
----
-<details><summary>Endpoint Background (click here to expand)
-</summary>
-
-### Investigating the Endpoint `/logout`
-Request:
-```ruby
-/logout
-```
-
-Response:
-```json
-{
-  "message": "user logged out",
-  "user_id": "1"
-}
-```
-
----
-</details>
-
-
-# Admin Functions
-The examples listed below will cover the **2 admin functions**. <br />
-All examples shown are executed via a **GET** request and can be tested with any browser. <br />
-All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
-
-# 1. `/createTable`
-**Create a new `table`**
-
-### Endpoints:
-| Resource | Description  |
-|:--|:--|
-| **`/createTable`**  | returns a list of all existing tables in the database |
-| **`/createTable/usage`**  | returns a message for how to use this function |
-| **`/createTable/{table_name}`**  | DEBUG: returns the required parameters |
-| **`/createTable/{table_name}/{column_name}/{column_type}`**  | create a table with columns using path parameters |
-| **`/createTable/{table_name}?column_name=column_type`**  | create a table with columns using query parameters |
-
-### Requirements:
-| Parameters | Value  |
-|:--|:--|
-| user_id | INTEGER |
-| {ref}_id | INTEGER |
-| {ref}_time | DATETIME |
-| column_name | lowercase with underscores where appropriate |
-| column_type | one of `INTEGER`, `DOUBLE`, `TEXT`, `DATETIME` |
-
----
-<details><summary>Endpoint Background (click here to expand)
-</summary>
-
-### Investigating the Endpoint: `/createTable`
-The endpoint for creating a **`table`** with a **`table_name`** is **`/createTable/{table_name}`**. <br />
-Making a request to the endpoint without providing **parameters** returns a `missing parameters` message:
-
-Request:
-```ruby
-/createTable/steps
-```
-
-Response:
-```json
-{
-    "message": "missing paramaters",
-    "required": [
-        {
-            "user_id": "INTEGER",
-            "{ref}_id": "INTEGER",
-            "{ref}_time": "DATETIME",
-            "column_name": "column_type",
-            "available_types": ["INTEGER", "DOUBLE", "TEXT", "DATETIME"]
-        }
-    ],
-    "available_types": ["INTEGER", "DOUBLE", "TEXT", "DATETIME"],
-    "Exception": "\"{ref}_id\" not required when creating \"users\" table",
-    "submitted": []
-}
-```
-
-### Creating the Table `steps`
-Arguments:
-```python
-step_id    = INTEGER
-user_id    = INTEGER
-step_count = INTEGER
-latitude   = DOUBLE
-longitude  = DOUBLE
-step_time  = DATETIME
-```
-
-Request:
-```ruby
-/createTable/steps/step_id/INTEGER/user_id/INTEGER/step_count/INTEGER/latitude/DOUBLE/longitude/DOUBLE/step_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "steps",
-    "columns": [
-        "step_id INTEGER PRIMARY KEY",
-        "user_id INTEGER NOT NULL",
-        "step_count INTEGER NOT NULL",
-        "latitude DOUBLE NOT NULL",
-        "longitude DOUBLE NOT NULL",
-        "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
-}
-```
-
-### Creating the Table `oximeter`
-Arguments:
-```python
-entry_id    = INTEGER
-user_id     = INTEGER
-heart_rate  = INTEGER
-blood_o2    = INTEGER
-temperature = DOUBLE
-entry_time  = DATETIME
-```
-
-Request:
-```ruby
-/createTable/oximeter/entry_id/INTEGER/user_id/INTEGER/heart_rate/INTEGER/blood_o2/INTEGER/temperature/DOUBLE/entry_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "oximeter",
-    "columns": [
-        "entry_id    INTEGER PRIMARY KEY",
-        "user_id     INTEGER NOT NULL",
-        "heart_rate  INTEGER NOT NULL",
-        "blood_o2    INTEGER NOT NULL",
-        "temperature DOUBLE NOT NULL",
-        "entry_time  DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
-}
-```
-
-
-
-</details>
-
----
-
-## Workflow 2 - Create Tables:
-* Let's create a few tables!<br /> 
-  * **`managers`**  <br />
-  * **`restaurant_profile`**  <br />
-  * **`restaurant_photos`**  <br />
-  * **`restaurant_schedule`**  <br />
-  * **`restaurant_requests`**  <br />
-  * **`bartenders`**  <br />
-  * **`bartender_wages`**  <br />
-
----
-<details><summary>Workflow 2 - Create Tables (click here to expand)
-</summary>
-
-### Creating the Table `managers`:
-Request:
-```ruby
-/createTable/managers/manager_id/INTEGER/user_id/INTEGER/restaurant_id/INTEGER/first_name/TEXT/last_name/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "managers",
-    "columns": [
-        "manager_id INTEGER PRIMARY KEY",
-        "user_id INTEGER NOT NULL",
-        "restaurant_id INTEGER NOT NULL",
-        "first_name TEXT NOT NULL",
-        "last_name TEXT NOT NULL",
-        "phone_number TEXT NOT NULL",
-        "email TEXT NOT NULL",
-        "profile_pic TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
-}
-```
-
-### Creating the Table `restaurant_profile`:
-Request:
-```ruby
-/createTable/restaurant_profile/restaurant_id/INTEGER/manager_id/INTEGER/restaurant_name/TEXT/address/TEXT/bio/TEXT/phone_number/TEXT/profile_pic/TEXT/entry_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "restaurant_profile",
-    "columns": [
-        "restaurant_id INTEGER PRIMARY KEY",
-        "manager_id INTEGER NOT NULL",
-        "restaurant_name TEXT NOT NULL",
-        "address TEXT NOT NULL",
-        "bio TEXT NOT NULL",
-        "phone_number TEXT NOT NULL",
-        "profile_pic TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
-}
-```
-
-### Creating the Table `restaurant_photos`:
-Request:
-```ruby
-/createTable/restaurant_photos/photo_id/INTEGER/restaurant_id/INTEGER/photo_url/TEXT/entry_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "restaurant_photos",
-    "columns": ["photo_id INTEGER PRIMARY KEY", "restaurant_id INTEGER NOT NULL", "photo_url TEXT NOT NULL", "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"]
-}
-```
-
-### Creating the Table `restaurant_schedule`:
-Request:
-```ruby
-/createTable/restaurant_schedule/schedule_id/INTEGER/restaurant_id/INTEGER/mon_open/DATETIME/mon_close/DATETIME/tue_open/DATETIME/tue_close/DATETIME/wed_open/DATETIME/wed_close/DATETIME/thu_open/DATETIME/thu_close/DATETIME/fri_open/DATE
-TIME/fri_close/DATETIME/sat_open/DATETIME/sat_close/DATETIME/sun_open/DATETIME/sun_close/DATETIME/entry_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "restaurant_schedule",
-    "columns": [
-        "schedule_id INTEGER PRIMARY KEY",
-        "restaurant_id INTEGER NOT NULL",
-        "mon_open DATETIME NOT NULL",
-        "mon_close DATETIME NOT NULL",
-        "tue_open DATETIME NOT NULL",
-        "tue_close DATETIME NOT NULL",
-        "wed_open DATETIME NOT NULL",
-        "wed_close DATETIME NOT NULL",
-        "thu_open DATETIME NOT NULL",
-        "thu_close DATETIME NOT NULL",
-        "fri_open DATETIME NOT NULL",
-        "fri_close DATETIME NOT NULL",
-        "sat_open DATETIME NOT NULL",
-        "sat_close DATETIME NOT NULL",
-        "sun_open DATETIME NOT NULL",
-        "sun_close DATETIME NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
-}
-```
-
-### Creating the Table `restaurant_requests`:
-Request:
-```ruby
-/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/entry_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "restaurant_requests",
-    "columns": [
-        "request_id INTEGER PRIMARY KEY",
-        "restaurant_id INTEGER NOT NULL",
-        "hourly_wage DOUBLE NOT NULL",
-        "shift_start DATETIME NOT NULL",
-        "shift_end DATETIME NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
-}
-```
-
-### Creating the Table `bartenders`:
-Request:
-```ruby
-/createTable/bartenders/bartender_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/address/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "bartenders",
-    "columns": [
-        "bartender_id INTEGER PRIMARY KEY",
-        "user_id INTEGER NOT NULL",
-        "first_name TEXT NOT NULL",
-        "last_name TEXT NOT NULL",
-        "address TEXT NOT NULL",
-        "phone_number TEXT NOT NULL",
-        "email TEXT NOT NULL",
-        "profile_pic TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
-}
-```
-
-</details>
-
----
-
-# 2. `/deleteTable`
-**Delete `table`**
-
-### Endpoints:
-| Resource | Description |
-|:--|:--|
-| **`/deleteTable`**  | returns a list of all existing tables in the database |
-| **`/deleteTable/usage`**  | returns a message for how to use this function |
-| **`/deleteTable/{table_name}`**  | DEBUG: returns the required parameters |
-
-### Requirements:
-| Parameters | Description |
-|:--|:--|
-| table_name | the name of the **`table`** you wish to delete  |
-
----
-<details><summary>Endpoint Background (click here to expand)
-</summary>
-
-### Investigating the Endpoint: `/deleteTable`
-The endpoint for deleting a **`table`** with a **`table_name`** is **`/deleteTable/{table_name}`**.
-
-### Let's Delete the Table `steps`
-Request:
-```ruby
-/deleteTable/steps
-```
-
-Response:
-```json
-{"message": "1 table deleted!", "table": "steps"}
-```
-
-Verify the **`steps`**** table no longer exists
-
-Request:
-```ruby
-/deleteTable
-```
-
-Response:
-```json
-{
-    "message": "active tables in the database",
-    "tables": [
-        {
-            "name": "users",
-            "type": "table",
-            "columns": [
-                {"name": "user_id", "type": "INTEGER PRIMARY KEY"},
-                {"name": "username", "type": "TEXT NOT NULL"},
-                {"name": "password", "type": "TEXT NOT NULL"},
-                {"name": "create_time", "type": "DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"}
-            ]
-        },
-        {
-            "name": "oximeter",
-            "type": "table",
-            "columns": [
-                {"name": "entry_id", "type": "INTEGER PRIMARY KEY"},
-                {"name": "user_id", "type": "INTEGER NOT NULL"},
-                {"name": "heart_rate", "type": "INTEGER NOT NULL"},
-                {"name": "blood_o2", "type": "INTEGER NOT NULL"},
-                {"name": "temperature", "type": "DOUBLE NOT NULL"},
-                {"name": "entry_time", "type": "DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"}
-            ]
-        }
-    ]
-}
-```
-</details> 
 
 ---
 
 # Core Functions
-The examples listed below will cover the **4 core functions** <br />
-All examples shown are executed via a **GET** request and can be tested with any browser. <br />
-All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE** <br />
+The examples listed below will cover the **4 core functions**
+All examples shown are executed via a **GET** request and can be tested with any browser.
+All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 
 # 1. `/add`
 **Add a *single* entry to a `table`**
@@ -807,20 +101,30 @@ All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE** 
 ### Requirements:x
 | Parameters | Exception  |
 |:--|:--|
-| All params not **`{ref}_id`** or **`{ref}_time`** | **`{ref}_id`** required when not `PRIMARY KEY` |
+| `user_id` and all params not **`*_id`** or **`*_time`** | no `user_id` when adding to **`users`** table |
 
 ### Response After Successful [`/add`](#1-add):
 | Variable | Comment |
 |:--|:--|
 | `user_id` | when entry added to **`users`** table |
-| `{ref}_id` | when entry added to any other table |
+| `{ref}_id` | when entry added to any other table |  
+
+Note: <br />
+> The old functions `/addUser` and `/addSensorData` still work but are kept for backward compatibility. <br />
+> `/addUser` has migrated to: `/add/users` <br />
+> `/addSensorData` has migrated to: `/add/oximeter` <br />
+> It is recommended to update the existing *mp32* and *swift* code to follow the new format
+
+## Workflow Example:
+* [Let's add 2 users to the **`users`** table: `alice` and `bob`](#adding-alice-to-the-users-table)
+* [Then, add sensor data to the **`oximeter`** table for both users](#adding-sensor-data-for-the-user-alice-to-the-oximeter-table)
 
 ---
-<details><summary>Endpoint Background (click here to expand)
+<details><summary>Show Workflow Example (click here to expand)
 </summary>
 
 ### Investigating the Endpoint: `/add`
-The endpoint for adding a user to the **`users`** table is **`/add/users`**.
+The endpoint for adding a user to the **`users`** is **`/add/users`**.
 Making a request to the endpoint without providing **parameters** returns a `missing parameters` message:
 
 Request:
@@ -854,6 +158,7 @@ Response:
   "submitted": [{"username": "alice"}]
 }
 ```
+
 
 ### Adding `alice` to the **`users`** table
 To add the user `alice`, we need to provide the **username** and **password** parameters
@@ -976,22 +281,6 @@ Response:
 {"message": "data added to {oximeter}", "entry_id": 57, "user_id": "8"}
 {"message": "data added to {oximeter}", "entry_id": 58, "user_id": "8"}
 ```
-
----
-</details>
-
-## Workflow Example:
-* [Let's add 2 users to the **`users`** table: `alice` and `bob`](#adding-alice-to-the-users-table)
-* [Then, add sensor data to the **`oximeter`** table for both users](#adding-sensor-data-for-the-user-alice-to-the-oximeter-table)
-
-
-
----
-<details><summary>Show Workflow Example (click here to expand)
-</summary>
-
-
-
 
 Now that we have added users and sensor data, let's take a look at the next **core function**: [**`/get`**](#2-get)
 </details>
@@ -1965,3 +1254,281 @@ Response:
 
 ---
 
+# Admin Functions
+The examples listed below will cover the **2 admin functions**.
+All examples shown are executed via a **GET** request and can be tested with any browser.
+All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
+
+# 1. `/createTable`
+**Create a new `table`**
+
+### Endpoints:
+| Resource | Description  |
+|:--|:--|
+| **`/createTable`**  | returns a list of all existing tables in the database |
+| **`/createTable/usage`**  | returns a message for how to use this function |
+| **`/createTable/{table_name}`**  | DEBUG: returns the required parameters |
+| **`/createTable/{table_name}/{column_name}/{column_type}`**  | create a table with columns using path parameters |
+| **`/createTable/{table_name}?column_name=column_type`**  | create a table with columns using query parameters |
+
+### Requirements:
+| Parameters | Value  |
+|:--|:--|
+| user_id | INTEGER |
+| {ref}_id | INTEGER |
+| {ref}_time | DATETIME |
+| column_name | lowercase with underscores where appropriate |
+| column_type | one of `INTEGER`, `DOUBLE`, `TEXT`, `DATETIME` |
+| Exception | "{ref}_id" not required when creating "users" table |
+
+## Workflow Example:
+* Let's create a table named **`steps`** <br /> 
+  with the columns **`["step_id", "user_id", "step_count", "latitude", "longitude", "step_time"]`**
+
+---
+<details><summary>Show Workflow Example (click here to expand)
+</summary>
+
+### Investigating the Endpoint: `/createTable`
+The endpoint for creating a **`table`** with a **`table_name`** is **`/createTable/{table_name}`**. <br />
+Making a request to the endpoint without providing **parameters** returns a `missing parameters` message:
+
+Request:
+```ruby
+/createTable/steps
+```
+
+Response:
+```json
+{
+    "message": "missing paramaters",
+    "required": [
+        {
+            "user_id": "INTEGER",
+            "{ref}_id": "INTEGER",
+            "{ref}_time": "DATETIME",
+            "column_name": "column_type",
+            "available_types": ["INTEGER", "DOUBLE", "TEXT", "DATETIME"]
+        }
+    ],
+    "available_types": ["INTEGER", "DOUBLE", "TEXT", "DATETIME"],
+    "Exception": "\"{ref}_id\" not required when creating \"users\" table",
+    "submitted": []
+}
+```
+
+### Creating the Table `steps`
+Arguments:
+```python
+step_id = INTEGER
+user_id = INTEGER
+step_count = INTEGER
+latitude = DOUBLE
+longitude = DOUBLE
+step_time = DATETIME
+```
+
+Request:
+```ruby
+/createTable/steps/step_id/INTEGER/user_id/INTEGER/step_count/INTEGER/latitude/DOUBLE/longitude/DOUBLE/step_time/DATETIME
+```
+
+Response:
+```json
+{
+    "message": "1 table created",
+    "table": "steps",
+    "columns": [
+        "step_id INTEGER PRIMARY KEY",
+        "user_id INTEGER NOT NULL",
+        "step_count INTEGER NOT NULL",
+        "latitude DOUBLE NOT NULL",
+        "longitude DOUBLE NOT NULL",
+        "step_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+    ]
+}
+```
+</details>
+
+---
+
+# 2. `/deleteTable`
+**Delete `table`**
+
+### Endpoints:
+| Resource | Description |
+|:--|:--|
+| **`/deleteTable`**  | returns a list of all existing tables in the database |
+| **`/deleteTable/usage`**  | returns a message for how to use this function |
+| **`/deleteTable/{table_name}`**  | DEBUG: returns the required parameters |
+
+### Requirements:
+| Parameters | Description |
+|:--|:--|
+| table_name | the name of the **`table`** you wish to delete  |
+
+## Workflow Example:
+* Let's delete the table named **`steps`** 
+
+---
+<details><summary>Show Workflow Example (click here to expand)
+</summary>
+
+### Investigating the Endpoint: `/deleteTable`
+The endpoint for deleting a **`table`** with a **`table_name`** is **`/deleteTable/{table_name}`**.
+
+### Let's Delete the Table `steps`
+Request:
+```ruby
+/deleteTable/steps
+```
+
+Response:
+```json
+{"message": "1 table deleted!", "table": "steps"}
+```
+
+Verify the **`steps`**** table no longer exists
+
+Request:
+```ruby
+/deleteTable
+```
+
+Response:
+```json
+{
+    "message": "active tables in the database",
+    "tables": [
+        {
+            "name": "users",
+            "type": "table",
+            "columns": [
+                {"name": "user_id", "type": "INTEGER PRIMARY KEY"},
+                {"name": "username", "type": "TEXT NOT NULL"},
+                {"name": "password", "type": "TEXT NOT NULL"},
+                {"name": "create_time", "type": "DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"}
+            ]
+        },
+        {
+            "name": "oximeter",
+            "type": "table",
+            "columns": [
+                {"name": "entry_id", "type": "INTEGER PRIMARY KEY"},
+                {"name": "user_id", "type": "INTEGER NOT NULL"},
+                {"name": "heart_rate", "type": "INTEGER NOT NULL"},
+                {"name": "blood_o2", "type": "INTEGER NOT NULL"},
+                {"name": "temperature", "type": "DOUBLE NOT NULL"},
+                {"name": "entry_time", "type": "DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"}
+            ]
+        }
+    ]
+}
+```
+</details> 
+
+--- 
+ 
+# User Functions
+The examples listed below will cover the **2 user functions**.
+All examples shown are executed via a **GET** request and can be tested with any browser.
+All endpoints support 4  *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
+
+# 1. `/login`
+**Login `user`**
+
+### Endpoints:
+| Resource | Description |
+|:--|:--|
+| **`/login`**  | |
+| **`/login/param_name/param_value`**  | login with: 'param_name=param_value' |
+| **`/login/param_name=param_value`**  | login with: 'param_name=param_value' |
+
+### Requirements:
+| Parameters | Description |
+|:--|:--|
+| username | the user's username |
+| password | the user's password |
+
+## Workflow Example:
+* Let's login the user **`alice`** 
+
+---
+<details><summary>Show Workflow Example (click here to expand)
+</summary>
+
+### Investigating the Endpoint: `/login`
+Request:
+```ruby
+/login
+```
+
+Response:
+```json
+{
+    "message": "missing parameters", 
+    "required": [{"username": "TEXT", "password": "TEXT"}], "submitted": [{}]
+}
+```
+
+Arguments:
+```python
+username = alice
+```
+
+Request:
+```ruby
+/login/username/alice@udel.edu
+```
+
+Response:
+```json
+{
+    "message": "missing parameters",
+    "required": [{"username": "TEXT", "password": "TEXT"}],
+    "submitted": [{"username": "alice@udel.edu"}]
+}
+```
+
+### Let's Login the user `alice`
+Arguments:
+```python
+username = alice@udel.edu
+password = alice
+```
+
+Request:
+```ruby
+/login/username/alice@udel.edu/password/alice
+```
+
+Response:
+```json
+{
+    "message": "user login success", "user_id": 7, "username": "alice@udel.edu"
+}
+```
+</details>
+
+---
+
+# 2. `/logout`
+**Log out a `user`**
+
+### Endpoints:
+| Resource | Description |
+|:--|:--|
+| **`/logout`**  | log out a user |
+
+### Example `/logout`
+Request:
+```ruby
+/logout
+```
+
+Response:
+```json
+{
+    'message': 'user logged out'
+}
+```
