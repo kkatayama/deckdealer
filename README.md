@@ -86,6 +86,7 @@ Response:
 ```
 
 If you receive an `invalid token` response, then the request you are making does not contain the `session cookie`.
+**REQUESTS TO `/login` SHOULD BE DONE AS A `POST` REQUEST**
 The `session cookie` is assigned after a successful login.
 To get around adding the `session cookie` along with your request, you can simply add the `token` parameter.
 
@@ -156,8 +157,8 @@ Response:
 
 ### When using `curl`, add `-b` and `-c` to save and read session cookies
 ``` ruby
-curl -b cookie.txt -c cookie.txt 'http://localhost:8888/login/username/admin/password/admin'
-curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
+curl -XPOST -b cookie.txt -c cookie.txt 'http://deckdealer.hopto.org/login' -d '{"username": "admin", "password": "admin"}'
+curl -b cookie.txt -c cookie.txt 'http://deckdealer.hopto.org/get/users'
 ```
 </p>
 </details>
@@ -193,6 +194,7 @@ All endpoints support 4 *HTTP_METHODS*: **GET**, **POST**, **PUT**, **DELETE**
 ## 1. `/login`
 **Login `user`** 
 > NOTE: Only logged in users can call functions!
+> NOTE: This request shold be a `POST` request.  Even though you can make a `GET` request, doing so may not store your `session cookie`! 
 
 ### Endpoints:
 <table>
@@ -346,9 +348,9 @@ username = admin
 password = admin
 ```
 
-Request:
+POST Request:
 ```ruby
-https://deckdealer.hopto.org/login/username/admin/password/admin
+POST(url='https://deckdealer.hopto.org/login', data={"username": "admin", "password": "admin"})
 ```
 
 Response:
@@ -2534,9 +2536,9 @@ username = alice
 password = alice
 ```
 
-Request:
+POST Request:
 ```jq
-https://deckdealer.hopto.org/login/username/alice/password/alice
+POST(url='https://deckdealer.hopto.org/login', data={"username": "alice", "password": "alice"})
 ```
 
 Response:
@@ -2812,9 +2814,9 @@ Response:
 ```
 ---
 #### Log in as `bob` - the manager of `Deer Park`:
-Request:
+POST Request:
 ```jq
-https://deckdealer.hopto.org/login/username/bob/password/bob
+POST(url='https://deckdealer.hopto.org/login', data={"username": "bob", "password": "bob"})
 ```
 
 Response:
@@ -5189,9 +5191,9 @@ username = anna@udel.edu
 password = Anna1234
 ```
 
-Request:
+POST Request:
 ```jq
-https://deckdealer.hopto.org/login/username/anna@udel.edu/password/Anna1234
+POST(url="https://deckdealer.hopto.org/login", data={"username": "anna@udel.edu", "password": "Anna1234"})
 ```
 
 Response:
@@ -5242,9 +5244,9 @@ username = steve@gmail.com
 password = St3ve4321
 ```
 
-Request:
+POST Request:
 ```jq
-https://deckdealer.hopto.org/login/username/steve@gmail.com/password/St3ve4321
+POST(url="https://deckdealer.hopto.org/login", data={"username": "steve@gmail.com", "password": "St3ve4321"})
 ```
 
 Response:
