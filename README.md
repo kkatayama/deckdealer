@@ -167,7 +167,7 @@ curl -b cookie.txt -c cookie.txt 'http://localhost:8888/get/users'
 # [Getting Started](#Getting-Started)
 Follow the [Setup Guide](SERVER_SETUP.md) to install and configure the framework. <br />
 
-You can choose to run the server locally or connect with the server all ready running at:
+You can choose to run the server locally or connect with the server all ready running at: <br />
 [https://bartender.hopto.org](https://bartender.hopto.org)
 
 To interact with the framework (locally or remote) you will need to first login. <br />
