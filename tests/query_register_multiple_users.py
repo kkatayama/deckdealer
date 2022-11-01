@@ -87,18 +87,36 @@ def shuffleDeck(deck):
         query.executeQuery(base_url=base_url, query=q, short=True)
         time.sleep(0.25)
 
+def deleteTables():
+    table_names = [t['name'] for t in query.executeQuery(base_url=base_url, query='/get', stdout=False)["tables"]]
+    for name in table_names:
+        if name not in ['users', 'cards', 'deck']:
+            print(f'#### `{name}` table:')
+            query.executeQuery(base_url=base_url, query=f'/get/{name}', short=False)
+
+def createTables():
+    for name in ["players", "spectators", "games", "active_game", "score_board"]:
+        if name == "players":
+            q = '"player_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"'
+        if name == "spectators":
+            q = '"spectator_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"'
+        if name == "games":
+            q = '"spectator_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"'
+        if name == "score_board":
+            q = ''
+        query.executeQuery(base_url=base_url, query=q, short=True)
 
 if __name__ == '__main__':
     domain = re.search(r'[a-z]+', get_py_path().parent.name).group().replace('bartend', 'bartender')
     base_url = f'https://{domain}.hopto.org'
 
     ap = argparse.ArgumentParser()
-    ap.add_argument('-r', '--register', default=False, action="store_true", help="call /register")
-    ap.add_argument('-d', '--delete', default=False, action="store_true", help="call /delete")
-    ap.add_argument('-e', '--examine', default=False, action="store_true", help="call /get")
-    ap.add_argument('-u', '--users', required=False, action="store_true", help="table to perform action on")
-    ap.add_argument('-c', '--createDeck', required=False, action="store_true", help='call /createDeck')
-    ap.add_argument('-s', '--shuffleDeck', required=False, action="store_true", help='call /shuffleDeck')
+    ap.add_argument('--register', default=False, action="store_true", help="call /register")
+    ap.add_argument('--delete', default=False, action="store_true", help="call /delete")
+    ap.add_argument('--examine', default=False, action="store_true", help="call /get")
+    ap.add_argument('--users', required=False, action="store_true", help="table to perform action on")
+    ap.add_argument('--createDeck', required=False, action="store_true", help='call /createDeck')
+    ap.add_argument('--shuffleDeck', required=False, action="store_true", help='call /shuffleDeck')
     args = ap.parse_args()
 
     if args.register:
