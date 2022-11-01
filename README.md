@@ -1078,8 +1078,7 @@ cards
 ```jq
 ["card_id", "key", "name", "suit", "description", "entry_time"]
 ```
-</td></tr><tr></tr><tr><td>
-
+</td></tr>
 </table>
 
 The `crads` table has been created for **convenience**. <br />
@@ -1110,7 +1109,7 @@ Response:
 }
 ```
 
-To view the pictures for each card, make a request to ``/<file_name>` <br />
+To view the pictures for each card, make a request to `/<file_name>` <br />
 | https://deckdealer.hopto.org/AC.png  | https://deckdealer.hopto.org/AD.png  | https://deckdealer.hopto.org/AH.png  | https://deckdealer.hopto.org/AS.png  |
 |:-:|:-:|:-:|:-:|
 | ![AC.png](https://deckdealer.hopto.org/AC.png) | ![AD.png](https://deckdealer.hopto.org/AD.png) | ![AH.png](https://deckdealer.hopto.org/AH.png) | ![AS.png](https://deckdealer.hopto.org/AS.png) |
@@ -1122,12 +1121,12 @@ To view the pictures for each card, make a request to ``/<file_name>` <br />
 <tr><td> Table Name </td><td> Column Names </td></tr><tr><td>
 
 ```rexx
-managers
+playser
 ```
 </td><td>
 
 ```jq
-["manager_id", "user_id", "first_name", "last_name", "phone_number", "email", "profile_pic", "entry_time"]
+["player_id", "user_id", "first_name", "last_name", "phone_number", "email", "profile_pic", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
