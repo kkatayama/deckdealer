@@ -1276,113 +1276,78 @@ Response:
 ```
 
 ### Creating the Table `games`:
-
-### Creating the Table `restaurant_schedule`:
-
-### Creating the Table `restaurant_requests`:
-> NOTE: `status` is used to indicate the current state of a `request`
-> **`status` states**
-> |     State | Description   |
-> |---:|:---|
-> |      open | Available for snagging... no bartender has picked this shift up yet. |
-> |   snagged | A bartender has snagged this shift but not yet completed it... see table [bartender_shifts](#Creating-the-Table-bartender_shifts) |
-> | completed | The bartender that snagged the request has worked the shift... see table [bartender_wages](#Creating-the-Table-bartender_wages)  |
-
 Request:
 ```jq
-https://deckdealer.hopto.org/createTable/restaurant_requests/request_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/status/TEXT/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/games/game_id/INTEGER/name/TEXT/min_players/TEXT/max_players/TEXT/min_decks/TEXT/max_decks/TEXT/player_actions/TEXT/rules/TEXT/entry_time/DATETIME
 ```
 
 Response:
 ```json
+
 {
   "message": "1 table created",
-  "table": "restaurant_requests",
+  "table": "games",
   "columns": [
-    "request_id INTEGER PRIMARY KEY",
-    "restaurant_id INTEGER NOT NULL",
-    "hourly_wage DOUBLE NOT NULL",
-    "shift_start DATETIME NOT NULL",
-    "shift_end DATETIME NOT NULL",
-    "status TEXT NOT NULL",
-    "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+    "game_id INTEGER PRIMARY KEY",
+    "name TEXT NOT NULL",
+    "min_players TEXT NOT NULL",
+    "max_players TEXT NOT NULL",
+    "min_decks TEXT NOT NULL",
+    "max_decks TEXT NOT NULL",
+    "player_actions TEXT NOT NULL",
+    "rules TEXT NOT NULL",
+    "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
   ]
 }
 ```
 
-### Creating the Table `bartenders`:
-Request:
-```ruby
-https://deckdealer.hopto.org/createTable/bartenders/bartender_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/address/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "bartenders",
-    "columns": [
-        "bartender_id INTEGER PRIMARY KEY",
-        "user_id INTEGER NOT NULL",
-        "first_name TEXT NOT NULL",
-        "last_name TEXT NOT NULL",
-        "address TEXT NOT NULL",
-        "phone_number TEXT NOT NULL",
-        "email TEXT NOT NULL",
-        "profile_pic TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
-}
-```
-
-### Creating the Table `bartender_shifts`:
+### Creating the Table `active_game`:
 Request:
 ```jq
-https://deckdealer.hopto.org/createTable/bartender_shifts/shift_id/INTEGER/bartender_id/INTEGER/restaurant_id/INTEGER/request_id/INTEGER/shift_start/DATETIME/shift_end/DATETIME/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/active_game/entry_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/player_hand/TEXT/player_action/TEXT/entry_time/DATETIME
 ```
 
 Response:
 ```json
+
 {
   "message": "1 table created",
-  "table": "bartender_shifts",
+  "table": "active_game",
   "columns": [
-    "shift_id INTEGER PRIMARY KEY",
-    "bartender_id INTEGER NOT NULL",
-    "restaurant_id INTEGER NOT NULL",
-    "request_id INTEGER NOT NULL",
-    "shift_start DATETIME NOT NULL",
-    "shift_end DATETIME NOT NULL",
-    "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+    "entry_id INTEGER PRIMARY KEY",
+    "game_id INTEGER NOT NULL",
+    "user_id INTEGER NOT NULL",
+    "player_id INTEGER NOT NULL",
+    "player_hand TEXT NOT NULL",
+    "player_action TEXT NOT NULL",
+    "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
   ]
 }
 ```
 
-### Creating the Table `bartender_wages`:
+### Creting the Table `score_boar`:
 Request:
 ```jq
-https://deckdealer.hopto.org/createTable/bartender_wages/wage_id/INTEGER/bartender_id/INTEGER/shift_id/INTEGER/restaurant_id/INTEGER/hourly_wage/DOUBLE/shift_start/DATETIME/shift_end/DATETIME/clock_in/DATETIME/clock_out/DATETIME/hours_worked/DOUBLE/tips/DOUBLE/total_earnings/DOUBLE/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/score_board/score_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/players/TEXT/spectators/TEXT/entry_time/DATETIME
 ```
 
 Response:
 ```json
+
 {
   "message": "1 table created",
-  "table": "bartender_wages",
+  "table": "score_board",
   "columns": [
-    "wage_id INTEGER PRIMARY KEY",
-    "bartender_id INTEGER NOT NULL",
-    "shift_id INTEGER NOT NULL",
-    "restaurant_id INTEGER NOT NULL",
-    "hourly_wage DOUBLE NOT NULL",
-    "shift_start DATETIME NOT NULL",
-    "shift_end DATETIME NOT NULL",
-    "clock_in DATETIME NOT NULL",
-    "clock_out DATETIME NOT NULL",
-    "hours_worked DOUBLE NOT NULL",
-    "tips DOUBLE NOT NULL",
-    "total_earnings DOUBLE NOT NULL",
-    "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+    "score_id INTEGER PRIMARY KEY",
+    "game_id INTEGER NOT NULL",
+    "user_id INTEGER NOT NULL",
+    "player_id INTEGER NOT NULL",
+    "name TEXT NOT NULL",
+    "email TEXT NOT NULL",
+    "profile_pic TEXT NOT NULL",
+    "players TEXT NOT NULL",
+    "spectators TEXT NOT NULL",
+    "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
   ]
 }
 ```
