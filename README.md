@@ -85,10 +85,10 @@ Response:
 }
 ```
 
-If you receive an `invalid token` response, then the request you are making does not contain the `session cookie`.
-**REQUESTS TO `/login` SHOULD BE DONE AS A `POST` REQUEST**
-The `session cookie` is assigned after a successful login.
-To get around adding the `session cookie` along with your request, you can simply add the `token` parameter.
+If you receive an `invalid token` response, then the request you are making does not contain the `session cookie`. <br />
+**REQUESTS TO `/login` SHOULD BE DONE AS A `POST` REQUEST** <br />
+The `session cookie` is assigned after a successful login. <br />
+To get around adding the `session cookie` along with your request, you can simply add the `token` parameter. <br />
 
 FOR EXAMPLE:
 
