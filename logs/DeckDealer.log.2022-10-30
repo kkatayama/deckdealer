@@ -1,0 +1,96 @@
+{'message': 'running...'}
+127.0.0.1 2022-10-30 10:01:19.173751 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-30 10:06:38.258306 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-30 14:23:39.492184 HEAD http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-30 14:23:39.996907 HEAD http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-30 15:09:05.505582 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+127.0.0.1 2022-10-30 15:09:07.051269 GET http://127.0.0.1:8882/favicon.ico 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-30 15:09:09.294656 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+127.0.0.1 2022-10-30 15:09:10.836211 GET http://127.0.0.1:8882/favicon.ico 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-30 15:46:33.231540 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+127.0.0.1 2022-10-30 15:46:33.479083 GET http://127.0.0.1:8882/apple-touch-icon.png 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}

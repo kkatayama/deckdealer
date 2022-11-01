@@ -1,0 +1,1435 @@
+127.0.0.1 2022-10-28 09:21:11.537445 GET http://127.0.0.1:8882/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:22:17.028165 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-28 09:22:23.792437 GET http://127.0.0.1:8882/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-28 09:22:40.840797 GET http://127.0.0.1:8882/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-28 09:25:46.031949 GET http://127.0.0.1:8882/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-28 09:26:00.969001 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+127.0.0.1 2022-10-28 09:26:01.200452 GET http://127.0.0.1:8882/favicon.ico 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:26:46.331151 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-28 09:26:53.239381 GET http://127.0.0.1:8882/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 09:27:10.430342 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+{'message': 'missing parameter', 'required params': ['username', 'password', 'password2']}
+127.0.0.1 2022-10-28 09:32:38.846072 GET http://127.0.0.1:8882/register/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "missing parameter",
+  "required params": [
+    "username",
+    "password",
+    "password2"
+  ]
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user exists', 'username': 'admin'}
+127.0.0.1 2022-10-28 09:32:46.922312 GET http://127.0.0.1:8882/register/username/admin/password/admin/password2/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user exists",
+  "username": "admin"
+}
+127.0.0.1 2022-10-28 09:34:20.550398 GET http://127.0.0.1:8882/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user does not exist', 'username': 'admin'}
+127.0.0.1 2022-10-28 09:34:29.170484 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user does not exist",
+  "username": "admin"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+INSERT INTO users (username,password) VALUES (?, ?);
+['admin', '756a404bd66b7f081a936fe6fbcf2374de5c6ce018d62f37e664be8df02de03807b51fc4273dc06d12c11f7075369b5e96e2b0fef57037f6711f7e0f07a224af']
+{'message': 'new user created', 'user_id': 1, 'username': 'admin'}
+127.0.0.1 2022-10-28 09:34:39.677379 GET http://127.0.0.1:8882/register/username/admin/password/admin/password2/admin 200 OK
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": 1,
+  "username": "admin"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:34:51.257447 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-28 09:34:54.471543 GET http://127.0.0.1:8882/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+127.0.0.1 2022-10-28 09:38:18.993403 GET http://127.0.0.1:8882/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:38:32.209394 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+127.0.0.1 2022-10-28 09:38:35.982131 GET http://127.0.0.1:8882/get/users 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 09:39:30.458290 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 09:43:26.592927 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:43:52.035867 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 09:44:04.984637 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 09:44:24.017184 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 09:46:46.617130 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}}
+127.0.0.1 2022-10-28 09:48:09.462098 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {}
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 09:48:53.335189 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "python-requests/2.28.1",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:49:27.372730 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:49:38.106844 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'Sec-Ch-Ua': '"Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"macOS"', 'Dnt': '1', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0 (Edition beta)', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'en,en-US;q=0.9'}}
+127.0.0.1 2022-10-28 09:49:48.672441 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "Sec-Ch-Ua": "\"Chromium\";v=\"106\", \"Not.A/Brand\";v=\"24\", \"Opera\";v=\"92\"",
+    "Sec-Ch-Ua-Mobile": "?0",
+    "Sec-Ch-Ua-Platform": "\"macOS\"",
+    "Dnt": "1",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0 (Edition beta)",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "Sec-Fetch-Site": "none",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-User": "?1",
+    "Sec-Fetch-Dest": "document",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en,en-US;q=0.9"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:50:24.095901 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'Sec-Ch-Ua': '"Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"macOS"', 'Dnt': '1', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0 (Edition beta)', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Accept-Encoding': 'gzip, deflate, br', 'Accept-Language': 'en,en-US;q=0.9'}}
+127.0.0.1 2022-10-28 09:51:17.723429 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "Sec-Ch-Ua": "\"Chromium\";v=\"106\", \"Not.A/Brand\";v=\"24\", \"Opera\";v=\"92\"",
+    "Sec-Ch-Ua-Mobile": "?0",
+    "Sec-Ch-Ua-Platform": "\"macOS\"",
+    "Dnt": "1",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0 (Edition beta)",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "Sec-Fetch-Site": "none",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-User": "?1",
+    "Sec-Fetch-Dest": "document",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en,en-US;q=0.9"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:53:13.298335 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 09:53:20.847734 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "python-requests/2.28.1",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:54:11.870667 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+{
+  "message": "Internal Server Error",
+  "Python Error": {
+    "exception": "list index out of range",
+    "traceback": [
+      "Traceback (most recent call last):",
+      "  File \"/home/katayama/.local/lib/python3.7/site-packages/bottle.py\", line 868, in _handle",
+      "    return route.call(**args)",
+      "  File \"/home/katayama/.local/lib/python3.7/site-packages/bottle.py\", line 1748, in wrapper",
+      "    rv = callback(*a, **ka)",
+      "  File \"/home/katayama/.local/lib/python3.7/site-packages/bottle_sqlite.py\", line 143, in wrapper",
+      "    rv = callback(*args, **kwargs)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 741, in _log_to_logger",
+      "    actual_response = fn(*args, **kwargs)",
+      "  File \"server.py\", line 150, in login",
+      "    params, filters = parseUrlPaths(url_paths, request.params, required_columns)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 630, in parseUrlPaths",
+      "    url_params = parseURI(url_paths)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 619, in parseURI",
+      "    values.append(url_split[i + 1])",
+      "IndexError: list index out of range"
+    ],
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Internal Server Error",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 09:54:39.509279 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*"
+  }
+}
+cookie_info = ('user_id', '1')
+{'message': 'user is logged in with valid session cookie', 'user_id': '1', 'cookies': {'user_id': '!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=='}}
+127.0.0.1 2022-10-28 09:55:04.329758 GET http://127.0.0.1:8882/status?token=IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 200 OK
+{"request.params": {"token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "user is logged in with valid session cookie",
+  "user_id": "1",
+  "cookies": {
+    "user_id": "!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=="
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 09:55:18.436952 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*"
+  }
+}
+{'message': 'user logged out', 'user_id': None}
+127.0.0.1 2022-10-28 09:55:30.565365 GET http://127.0.0.1:8882/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": null
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+{
+  "message": "Internal Server Error",
+  "Python Error": {
+    "exception": "list index out of range",
+    "traceback": [
+      "Traceback (most recent call last):",
+      "  File \"/home/katayama/.local/lib/python3.7/site-packages/bottle.py\", line 868, in _handle",
+      "    return route.call(**args)",
+      "  File \"/home/katayama/.local/lib/python3.7/site-packages/bottle.py\", line 1748, in wrapper",
+      "    rv = callback(*a, **ka)",
+      "  File \"/home/katayama/.local/lib/python3.7/site-packages/bottle_sqlite.py\", line 143, in wrapper",
+      "    rv = callback(*args, **kwargs)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 741, in _log_to_logger",
+      "    actual_response = fn(*args, **kwargs)",
+      "  File \"server.py\", line 150, in login",
+      "    params, filters = parseUrlPaths(url_paths, request.params, required_columns)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 630, in parseUrlPaths",
+      "    url_params = parseURI(url_paths)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 619, in parseURI",
+      "    values.append(url_split[i + 1])",
+      "IndexError: list index out of range"
+    ],
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Internal Server Error",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {'user_id': ''}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*', 'Cookie': 'user_id=""'}}
+127.0.0.1 2022-10-28 09:55:42.869946 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {
+    "user_id": ""
+  },
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*",
+    "Cookie": "user_id=\"\""
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 09:55:51.816243 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {'user_id': ''}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*', 'Cookie': 'user_id=""'}}
+127.0.0.1 2022-10-28 09:55:57.485099 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {
+    "user_id": ""
+  },
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*",
+    "Cookie": "user_id=\"\""
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 10:02:08.888057 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:02:29.839923 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "python-requests/2.28.1",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 10:02:37.143443 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {'user_id': ''}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*', 'Cookie': 'user_id=""'}}
+127.0.0.1 2022-10-28 10:02:45.891641 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {
+    "user_id": ""
+  },
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*",
+    "Cookie": "user_id=\"\""
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:06:17.317277 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "python-requests/2.28.1",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*"
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:07:01.148966 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "python-requests/2.28.1",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*"
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:10:11.404734 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "python-requests/2.28.1",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*"
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:12:18.440767 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "python-requests/2.28.1",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*"
+  }
+}
+{
+  "message": "Internal Server Error",
+  "Python Error": {
+    "exception": "name 'sict' is not defined",
+    "traceback": [
+      "Traceback (most recent call last):",
+      "  File \"/home/katayama/.local/lib/python3.7/site-packages/bottle.py\", line 863, in _handle",
+      "    self.trigger_hook('before_request')",
+      "  File \"/home/katayama/.local/lib/python3.7/site-packages/bottle.py\", line 646, in trigger_hook",
+      "    return [hook(*args, **kwargs) for hook in self._hooks[__name][:]]",
+      "  File \"/home/katayama/.local/lib/python3.7/site-packages/bottle.py\", line 646, in <listcomp>",
+      "    return [hook(*args, **kwargs) for hook in self._hooks[__name][:]]",
+      "  File \"server.py\", line 47, in strip_path",
+      "    parseParams(secret_key)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 679, in parseParams",
+      "    print(f'headers: {sict(request.headers)}')",
+      "NameError: name 'sict' is not defined"
+    ],
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Internal Server Error",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {'user_id': ''}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*', 'Cookie': 'user_id=""'}}
+127.0.0.1 2022-10-28 10:14:08.830136 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {
+    "user_id": ""
+  },
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*",
+    "Cookie": "user_id=\"\""
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 10:14:36.490597 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:20:44.928755 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "python-requests/2.28.1",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*"
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:25:37.662101 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "python-requests/2.28.1",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 10:35:57.958741 POST http://127.0.0.1:8882/login 200 OK
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 10:35:58.067934 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is logged in with valid session cookie', 'user_id': '1', 'cookies': {'user_id': '!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=='}}
+127.0.0.1 2022-10-28 10:36:12.912799 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is logged in with valid session cookie",
+  "user_id": "1",
+  "cookies": {
+    "user_id": "!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=="
+  }
+}
+{'message': 'user logged out', 'user_id': '1'}
+127.0.0.1 2022-10-28 10:56:53.006030 GET http://127.0.0.1:8882/logout 200 OK
+{"request.params": {}}
+{
+  "message": "user logged out",
+  "user_id": "1"
+}
+{'message': 'user is logged in with valid session cookie', 'user_id': '1', 'cookies': {'user_id': '!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=='}}
+127.0.0.1 2022-10-28 10:57:03.003542 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is logged in with valid session cookie",
+  "user_id": "1",
+  "cookies": {
+    "user_id": "!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=="
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:58:38.624559 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 10:58:47.857017 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:58:49.781671 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 10:59:01.319192 GET http://127.0.0.1:8882/login?username=admin&password=admin 200 OK
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:59:03.045973 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 10:59:13.303945 POST http://127.0.0.1:8882/login?username=admin&password=admin 200 OK
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:59:16.411204 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*"
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'curl/7.85.0', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 10:59:27.590699 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "curl/7.85.0",
+    "Accept": "*/*"
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 10:59:56.794117 POST http://127.0.0.1:8882/login 200 OK
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is logged in with valid session cookie', 'user_id': '1', 'cookies': {'user_id': '!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=='}}
+127.0.0.1 2022-10-28 11:00:00.224382 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is logged in with valid session cookie",
+  "user_id": "1",
+  "cookies": {
+    "user_id": "!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=="
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...', 'cookies': {}, 'headers': {'Content-Length': '', 'Content-Type': 'text/plain', 'Connection': 'upgrade', 'Host': '127.0.0.1:8882', 'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*'}}
+127.0.0.1 2022-10-28 11:02:02.973382 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request...",
+  "cookies": {},
+  "headers": {
+    "Content-Length": "",
+    "Content-Type": "text/plain",
+    "Connection": "upgrade",
+    "Host": "127.0.0.1:8882",
+    "User-Agent": "python-requests/2.28.1",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept": "*/*"
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 11:07:33.236549 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-28 11:41:42.957426 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-28 11:41:42.999175 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-28 12:28:59.327897 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-28 12:29:00.949550 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 13:56:20.669836 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 14:28:17.893950 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 14:28:56.009033 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 14:29:02.696467 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 14:31:24.567371 POST http://127.0.0.1:8882/login 200 OK
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 14:34:42.082644 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 14:34:50.990142 POST http://127.0.0.1:8882/login 200 OK
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 14:36:34.529912 POST http://127.0.0.1:8882/login 200 OK
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 14:36:34.623185 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IS9wVzJLTjFBSWV5R29ZVndkcE5yY2c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is logged in with valid session cookie', 'user_id': '1', 'cookies': {'user_id': '!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=='}}
+127.0.0.1 2022-10-28 14:36:39.116128 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is logged in with valid session cookie",
+  "user_id": "1",
+  "cookies": {
+    "user_id": "!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=="
+  }
+}
+{'message': 'user is logged in with valid session cookie', 'user_id': '1', 'cookies': {'user_id': '!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=='}}
+127.0.0.1 2022-10-28 14:36:48.138700 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is logged in with valid session cookie",
+  "user_id": "1",
+  "cookies": {
+    "user_id": "!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=="
+  }
+}
+{'message': 'user is logged in with valid session cookie', 'user_id': '1', 'cookies': {'user_id': '!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=='}}
+127.0.0.1 2022-10-28 14:38:13.392586 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is logged in with valid session cookie",
+  "user_id": "1",
+  "cookies": {
+    "user_id": "!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=="
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 14:39:47.124385 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+{'message': 'active tables in the database', 'tables': [{'name': 'users', 'type': 'table', 'columns': [{'name': 'user_id', 'type': 'INTEGER PRIMARY KEY'}, {'name': 'username', 'type': 'TEXT NOT NULL'}, {'name': 'password', 'type': 'TEXT NOT NULL'}, {'name': 'create_time', 'type': "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"}]}]}
+127.0.0.1 2022-10-28 15:05:15.323539 GET http://127.0.0.1:8882/add 200 OK
+{"request.params": {}}
+{
+  "message": "active tables in the database",
+  "tables": [
+    {
+      "name": "users",
+      "type": "table",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "username",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "password",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    }
+  ]
+}
+{'message': 'user is logged in with valid session cookie', 'user_id': '1', 'cookies': {'user_id': '!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=='}}
+127.0.0.1 2022-10-28 15:05:25.216380 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is logged in with valid session cookie",
+  "user_id": "1",
+  "cookies": {
+    "user_id": "!/pW2KN1AIeyGoYVwdpNrcg==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=="
+  }
+}
+{'message': 'user is not logged in (no session found); try appending the token to the request...'}
+127.0.0.1 2022-10-28 15:05:32.475889 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is not logged in (no session found); try appending the token to the request..."
+}
+127.0.0.1 2022-10-28 15:05:55.233689 GET http://127.0.0.1:8882/add 200 OK
+{"request.params": {}}
+{
+  "message": "invalid token"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'ITVIMUxRUitCTjdwYUwxbjdESWh3MHc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 15:09:46.539542 POST http://127.0.0.1:8882/login 200 OK
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "ITVIMUxRUitCTjdwYUwxbjdESWh3MHc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['admin']
+{'message': 'user login success', 'user_id': 1, 'username': 'admin', 'token': 'ITVIMUxRUitCTjdwYUwxbjdESWh3MHc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09'}
+127.0.0.1 2022-10-28 15:09:46.677723 GET http://127.0.0.1:8882/login/username/admin/password/admin 200 OK
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "ITVIMUxRUitCTjdwYUwxbjdESWh3MHc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+{'message': 'user is logged in with valid session cookie', 'user_id': '1', 'cookies': {'user_id': '!5H1LQR+BN7paL1n7DIhw0w==?gAWVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=='}}
+127.0.0.1 2022-10-28 15:10:45.947666 GET http://127.0.0.1:8882/status 200 OK
+{"request.params": {}}
+{
+  "message": "user is logged in with valid session cookie",
+  "user_id": "1",
+  "cookies": {
+    "user_id": "!5H1LQR+BN7paL1n7DIhw0w==?gAWVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=="
+  }
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['alice']
+INSERT INTO users (username,password) VALUES (?, ?);
+['alice', '460954b57aa61309cf0cf2185f434d6c08ac9ef1000f775b2b1fac4a3f61f1e97e8ef423606ad7cf538442397fdd7dab1786c3bee8a1a81793eed3f88fa7e582']
+{'message': 'new user created', 'user_id': 2, 'username': 'alice'}
+127.0.0.1 2022-10-28 15:21:28.047149 GET http://127.0.0.1:8882/register/username/alice/password/alice/password2/alice 200 OK
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": 2,
+  "username": "alice"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['bob']
+INSERT INTO users (username,password) VALUES (?, ?);
+['bob', 'a46e653f7e3ecac61e73d0bc7338b3c24819c804b821720d2d05c184b918ee5343dd84b562de698814cba4db109df3112a525f36df7788672c881b7692d82f18']
+{'message': 'new user created', 'user_id': 3, 'username': 'bob'}
+127.0.0.1 2022-10-28 15:21:28.279108 GET http://127.0.0.1:8882/register/username/bob/password/bob/password2/bob 200 OK
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": 3,
+  "username": "bob"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['anna']
+INSERT INTO users (username,password) VALUES (?, ?);
+['anna', '211007d530a7c64e725f2dfa28b6dffaa64a0ea13eeb2a03ead74732dc62fda2f88287aaac64db975d5a3cebaea956f4b320b1df915df6fe36f1598569fe58cf']
+{'message': 'new user created', 'user_id': 4, 'username': 'anna'}
+127.0.0.1 2022-10-28 15:21:28.409892 GET http://127.0.0.1:8882/register/username/anna/password/anna/password2/anna 200 OK
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": 4,
+  "username": "anna"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['steve']
+INSERT INTO users (username,password) VALUES (?, ?);
+['steve', 'c61644c8f4bb8939268ecca32c6e69c39821a42565ad4a5bac5735842dec9f7b8e757c92faab0d806f38c0c3f436565e6530658f2774a7c25799c7eb392c8bb5']
+{'message': 'new user created', 'user_id': 5, 'username': 'steve'}
+127.0.0.1 2022-10-28 15:21:28.545022 GET http://127.0.0.1:8882/register/username/steve/password/steve/password2/steve 200 OK
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": 5,
+  "username": "steve"
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-28 15:24:52.809009 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['ellan']
+INSERT INTO users (username,password) VALUES (?, ?);
+['ellan', '0f42869053cae1ee7a2eeb417be8df77ba3ca44947e721a4f6ba08e74a37eaaabcb0e859a1cae6746634b17ac8d87e237379c86ee418cad2569a49aa7cfc99bd']
+{'message': 'new user created', 'user_id': 6, 'username': 'ellan'}
+127.0.0.1 2022-10-28 21:53:29.754878 GET http://127.0.0.1:8882/register/username/ellan/password/ellan/password2/ellan 200 OK
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": 6,
+  "username": "ellan"
+}
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+['table', 'sqlite_%']
+SELECT * FROM users WHERE username=?;
+['jimmy']
+INSERT INTO users (username,password) VALUES (?, ?);
+['jimmy', '557e5a6b2baf2f02a68e64a746c0a600e16486aba096773be39273bf6f37d9b0a48a8950ae10fb4f5ea75f78e01cdda00137c8aff768ece8ec62c1856da93854']
+{'message': 'new user created', 'user_id': 7, 'username': 'jimmy'}
+127.0.0.1 2022-10-28 21:53:30.004101 GET http://127.0.0.1:8882/register/username/jimmy/password/jimmy/password2/jimmy 200 OK
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": 7,
+  "username": "jimmy"
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-28 23:19:33.205379 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-28 23:19:33.380620 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+127.0.0.1 2022-10-28 23:19:33.425734 GET http://127.0.0.1:8882/favicon.ico 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+127.0.0.1 2022-10-28 23:19:34.663500 GET http://127.0.0.1:8882/favicon.ico 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+127.0.0.1 2022-10-28 23:19:34.832679 GET http://127.0.0.1:8882/favicon.ico 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+127.0.0.1 2022-10-28 23:19:34.844351 GET http://127.0.0.1:8882/favicon.png 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+127.0.0.1 2022-10-28 23:19:35.047221 GET http://127.0.0.1:8882/favicon.png 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+127.0.0.1 2022-10-28 23:19:37.704787 GET http://127.0.0.1:8882/favicon.png 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-10-28 23:31:59.438392 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+127.0.0.1 2022-10-28 23:31:59.699456 GET http://127.0.0.1:8882/apple-touch-icon.png 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
