@@ -92,7 +92,7 @@ To get around adding the `session cookie` along with your request, you can simpl
 
 FOR EXAMPLE:
 
-### You logged in with the `admin` user.
+### You logged in with the `admin` user doing a `GET` request:
 Request:
 ```ruby
 /login?username=admin&password=admin
@@ -108,7 +108,7 @@ Response:
 }
 ```
 
-### All requests returning `invalid token`?
+### And all of the requests return `invalid token`...?
 Request:
 ```ruby
 /add
@@ -120,6 +120,8 @@ Response:
   "message": "invalid token"
 }
 ```
+
+### 
 
 ### Simply append the token parameter
 Request:
@@ -359,7 +361,7 @@ Response:
   "message": "user login success",
   "user_id": 1,
   "username": "admin",
-  "token": "IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+  "token": "ITVIMUxRUitCTjdwYUwxbjdESWh3MHc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
 ```
 
@@ -373,11 +375,12 @@ https://deckdealer.hopto.org/status
 
 Response:
 ```json
+
 {
-  "message": "user is logged in with valid session",
-  "user_id": "3",
+  "message": "user is logged in with valid session cookie",
+  "user_id": "1",
   "cookies": {
-    "user_id": "!Immfx4DNO8Eu23dwT1qvIA==?gASVEQAAAAAAAACMB3VzZXJfaWSUjAEzlIaULg=="
+    "user_id": "!5H1LQR+BN7paL1n7DIhw0w==?gAWVEQAAAAAAAACMB3VzZXJfaWSUjAExlIaULg=="
   }
 }
 ```
@@ -660,7 +663,7 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-### Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`
+### Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`, `ellan`, `jimmy`
 ---
 
 Arguments:
@@ -732,6 +735,52 @@ https://deckdealer.hopto.org/register/username/steve/password/steve/password2/st
 Response:
 ```json
 {"message": "new user created", "user_id": 5, "username": "steve"}
+```
+---
+
+Arguments:
+```rexx
+username = ellan
+password = ellan
+password2 = ellan
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/register/username/ellan/password/ellan/password2/ellan
+```
+
+Response:
+```json
+
+{
+  "message": "new user created",
+  "user_id": 6,
+  "username": "ellan"
+}
+```
+---
+
+Arguments:
+```rexx
+username = jimmy
+password = jimmy
+password2 = jimmy
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/register/username/jimmy/password/jimmy/password2/jimmy
+```
+
+Response:
+```json
+
+{
+  "message": "new user created",
+  "user_id": 7,
+  "username": "jimmy"
+}
 ```
 
 </details>

@@ -71,6 +71,7 @@ def parseQuery(query):
         "uploadImageUrl"
     ]
     tables = [
+        "cards",
         "users",
         "stuff",
         "bartenders",
@@ -183,7 +184,7 @@ def main(py_path):
     ./%(prog)s '/get/users' --url 'http://localhost:8888'
     '''
 
-    domain = re.search(r'[a-z]+', get_py_path().parent.name).group().replace('bartend', 'bartender')
+    domain = re.search(r'[a-z]+', py_path.parent.name).group().replace('bartend', 'bartender')
     base_url = f'https://{domain}.hopto.org'
 
     ap = argparse.ArgumentParser(epilog=examples, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -203,10 +204,10 @@ def main(py_path):
         export_cookies(session=s, py_path=py_path)
         args.query = f"/login/username/{args.username}/password/{args.password}"
 
-    print(args.url)
+    # print(args.url)
     executeQuery(base_url=args.url, query=args.query, short=args.short, stdout=args.stdout)
     # print(out)
 
+py_path = get_py_path()
 if __name__ == '__main__':
-    py_path = get_py_path()
     sys.exit(main(py_path))
