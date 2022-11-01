@@ -1058,12 +1058,18 @@ Response:
 
 ### Existing tables!
 <table>
-<tr><td> Table Name </td><td> Column Names </td></tr><tr><td>
+<tr><td> Table Name </td><td> Table Description </td><td> Column Names </td></tr><tr><td>
 
 ```rexx
 users
 ```
 </td><td>
+
+```css
+all registered users
+```
+</td><td>
+
 
 ```jq
 ["user_id", "username", "password", "create_time"]
@@ -1075,13 +1081,35 @@ cards
 ```
 </td><td>
 
+```css
+all 52 cards in a deck
+```
+</td><td>
+
+
+```jq
+["card_id", "key", "name", "suit", "description", "entry_time"]
+```
+</td></tr><tr></tr><tr><td>
+
+```rexx
+deck
+```
+</td><td>
+
+```css
+52 shuffeled cards (for testing)
+```
+</td><td>
+
+
 ```jq
 ["card_id", "key", "name", "suit", "description", "entry_time"]
 ```
 </td></tr>
 </table>
 
-The `crads` table has been created for **convenience**. <br />
+The `cards` and `deck` tables have been created for **convenience**. <br />
 It contains all `52` cards in a standard `deck`. <br />
 In [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data) you will learn the `/get/<table_name>/<param_key>/<param_value>` endpoint. <br />
 Making a request to `/get/cards/name/ACE` will return with all of the `ACE` cards:
@@ -1113,7 +1141,6 @@ To view the pictures for each card, make a request to `/<file_name>` <br />
 | https://deckdealer.hopto.org/AC.png  | https://deckdealer.hopto.org/AD.png  | https://deckdealer.hopto.org/AH.png  | https://deckdealer.hopto.org/AS.png  |
 |:-:|:-:|:-:|:-:|
 | ![AC.png](https://deckdealer.hopto.org/AC.png) | ![AD.png](https://deckdealer.hopto.org/AD.png) | ![AH.png](https://deckdealer.hopto.org/AH.png) | ![AS.png](https://deckdealer.hopto.org/AS.png) |
-
 
 
 ### Let's create a few tables!<br />
@@ -1177,7 +1204,7 @@ log for game in play
 </td><td>
 
 ```jq
-["log_id", "game_id", "player_id", "player_hand", "player_action", "profile_pic", "entry_time"]
+["entry_id", "game_id", "user_id", "player_id", "player_hand", "player_action", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
@@ -1187,20 +1214,20 @@ score_board
 ```
 </td><td>
 
-```yaml
+```css
 score for completed games
 ```
 </td><td>
 
 ```jq
-["player_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"]
+["score_id", "game_id", "user_id", "player_id", "name", "email", "profile_pic", "players", "spectators", "entry_time"]
 ```
 </td></tr>
 </table>
 
 ---
 
-### Creating the Table `managers`:
+### Creating the Table `players`:
 Request:
 ```ruby
 https://deckdealer.hopto.org/createTable/managers/manager_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
