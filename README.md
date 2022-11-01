@@ -1056,6 +1056,67 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
+### Existing tables!
+<table>
+<tr><td> Table Name </td><td> Column Names </td></tr><tr><td>
+
+```rexx
+users
+```
+</td><td>
+
+```jq
+["user_id", "username", "password", "create_time"]
+```
+</td></tr><tr></tr><tr><td>
+
+```rexx
+cards
+```
+</td><td>
+
+```jq
+["card_id", "key", "name", "suit", "description", "entry_time"]
+```
+</td></tr><tr></tr><tr><td>
+
+</table>
+
+The `crads` table has been created for **convenience**. <br />
+It contains all `52` cards in a standard `deck`. <br />
+In [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data) you will learn how to use the `/get/<table_name>/<param_key>/<param_value>` endpoint. <br />
+Just to get an idea before jumping far ahead, making a request to `/get/cards/name/ACE` will return with all of the `ACE` cards:
+
+Arguments:
+```rexx
+name = ACE
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/cards/name/ACE
+```
+
+Response:
+```json
+{
+  "message": "found 4 card entries",
+  "data": [
+    {"card_id": 49, "key": "AC", "name": "ACE", "suit": "CLUBS", "description": "ace_of_clubs", "file_name": "AC.png", "entry_time": "2022-11-01 13:05:10.839"},
+    {"card_id": 50, "key": "AD", "name": "ACE", "suit": "DIAMONDS", "description": "ace_of_diamonds", "file_name": "AD.png", "entry_time": "2022-11-01 13:05:11.490"},
+    {"card_id": 51, "key": "AH", "name": "ACE", "suit": "HEARTS", "description": "ace_of_hearts", "file_name": "AH.png", "entry_time": "2022-11-01 13:05:12.118"},
+    {"card_id": 52, "key": "AS", "name": "ACE", "suit": "SPADES", "description": "ace_of_spades", "file_name": "AS.png", "entry_time": "2022-11-01 13:05:12.745"},
+  ],
+}
+```
+
+To view the pictures for each card, make a request to ``/<file_name>` <br />
+| https://deckdealer.hopto.org/AC.png  | https://deckdealer.hopto.org/AD.png  | https://deckdealer.hopto.org/AH.png  | https://deckdealer.hopto.org/AS.png  |
+|:-:|:-:|:-:|:-:|
+| ![AC.png](https://deckdealer.hopto.org/AC.png) | ![AD.png](https://deckdealer.hopto.org/AD.png) | ![AH.png](https://deckdealer.hopto.org/AH.png) | ![AS.png](https://deckdealer.hopto.org/AS.png) |
+
+
+
 ### Let's create a few tables!<br />
 <table>
 <tr><td> Table Name </td><td> Column Names </td></tr><tr><td>
