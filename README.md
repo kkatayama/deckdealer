@@ -1125,7 +1125,7 @@ players
 ```
 </td><td>
 
-```yaml
+```css
 users playing an active game
 ```
 </td><td>
@@ -1140,7 +1140,7 @@ spectators
 ```
 </td><td>
 
-```yaml
+```css
 users watching an active game
 ```
 </td><td>
@@ -1155,7 +1155,7 @@ players
 ```
 </td><td>
 
-```yaml
+```css
 users playing an active game
 ```
 </td><td>
@@ -1171,7 +1171,7 @@ players
 ```
 </td><td>
 
-```yaml
+```graphql
 users playing an active game
 ```
 </td><td>
