@@ -1229,91 +1229,55 @@ score for completed games
 
 ### Creating the Table `players`:
 Request:
-```ruby
-https://deckdealer.hopto.org/createTable/managers/manager_id/INTEGER/user_id/INTEGER/first_name/TEXT/last_name/TEXT/phone_number/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
+```jq
+https://deckdealer.hopto.org/createTable/players/player_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
 ```
 
 Response:
 ```json
+
 {
-    "message": "1 table created",
-    "table": "managers",
-    "columns": [
-        "manager_id INTEGER PRIMARY KEY",
-        "user_id INTEGER NOT NULL",
-        "first_name TEXT NOT NULL",
-        "last_name TEXT NOT NULL",
-        "phone_number TEXT NOT NULL",
-        "email TEXT NOT NULL",
-        "profile_pic TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
+  "message": "1 table created",
+  "table": "players",
+  "columns": [
+    "player_id INTEGER PRIMARY KEY",
+    "user_id INTEGER NOT NULL",
+    "game_id INTEGER NOT NULL",
+    "name TEXT NOT NULL",
+    "email TEXT NOT NULL",
+    "profile_pic TEXT NOT NULL",
+    "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+  ]
 }
 ```
 
-### Creating the Table `restaurant_profile`:
+### Creating the Table `spectators`:
 Request:
-```ruby
-https://deckdealer.hopto.org/createTable/restaurant_profile/restaurant_id/INTEGER/manager_id/INTEGER/restaurant_name/TEXT/address/TEXT/bio/TEXT/phone_number/TEXT/profile_pic/TEXT/entry_time/DATETIME
+```jq
+https://deckdealer.hopto.org/createTable/spectators/spectator_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
 ```
 
 Response:
 ```json
+
 {
-    "message": "1 table created",
-    "table": "restaurant_profile",
-    "columns": [
-        "restaurant_id INTEGER PRIMARY KEY",
-        "manager_id INTEGER NOT NULL",
-        "restaurant_name TEXT NOT NULL",
-        "address TEXT NOT NULL",
-        "bio TEXT NOT NULL",
-        "phone_number TEXT NOT NULL",
-        "profile_pic TEXT NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
+  "message": "1 table created",
+  "table": "spectators",
+  "columns": [
+    "spectator_id INTEGER PRIMARY KEY",
+    "user_id INTEGER NOT NULL",
+    "game_id INTEGER NOT NULL",
+    "name TEXT NOT NULL",
+    "email TEXT NOT NULL",
+    "profile_pic TEXT NOT NULL",
+    "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+  ]
 }
 ```
 
-### Creating the Table `restaurant_photos`:
-Request:
-```ruby
-https://deckdealer.hopto.org/createTable/restaurant_photos/photo_id/INTEGER/restaurant_id/INTEGER/file_name/TEXT/entry_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "restaurant_photos",
-    "columns": ["photo_id INTEGER PRIMARY KEY", "restaurant_id INTEGER NOT NULL", "file_name TEXT NOT NULL", "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"]
-}
-```
+### Creating the Table `games`:
 
 ### Creating the Table `restaurant_schedule`:
-Request:
-```ruby
-https://deckdealer.hopto.org/createTable/restaurant_schedule/schedule_id/INTEGER/restaurant_id/INTEGER/mon_open/DATETIME/mon_close/DATETIME/tue_open/DATETIME/tue_close/DATETIME/wed_open/DATETIME/wed_close/DATETIME/thu_open/DATETIME/thu_close/DATETIME/fri_open/DATETIME/fri_close/DATETIME/sat_open/DATETIME/sat_close/DATETIME/sun_open/DATETIME/sun_close/DATETIME/entry_time/DATETIME
-```
-
-Response:
-```json
-{
-    "message": "1 table created",
-    "table": "restaurant_schedule",
-    "columns": [
-        "schedule_id INTEGER PRIMARY KEY", "restaurant_id INTEGER NOT NULL",
-        "mon_open DATETIME NOT NULL", "mon_close DATETIME NOT NULL",
-        "tue_open DATETIME NOT NULL", "tue_close DATETIME NOT NULL",
-        "wed_open DATETIME NOT NULL", "wed_close DATETIME NOT NULL",
-        "thu_open DATETIME NOT NULL", "thu_close DATETIME NOT NULL",
-        "fri_open DATETIME NOT NULL", "fri_close DATETIME NOT NULL",
-        "sat_open DATETIME NOT NULL", "sat_close DATETIME NOT NULL",
-        "sun_open DATETIME NOT NULL", "sun_close DATETIME NOT NULL",
-        "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
-    ]
-}
-```
 
 ### Creating the Table `restaurant_requests`:
 > NOTE: `status` is used to indicate the current state of a `request`

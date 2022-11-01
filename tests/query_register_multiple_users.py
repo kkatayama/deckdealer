@@ -92,18 +92,21 @@ def deleteTables():
     for name in table_names:
         if name not in ['users', 'cards', 'deck']:
             print(f'#### `{name}` table:')
-            query.executeQuery(base_url=base_url, query=f'/get/{name}', short=False)
+            query.executeQuery(base_url=base_url, query=f'/deleteTable/{name}', short=False)
 
 def createTables():
     for name in ["players", "spectators", "games", "active_game", "score_board"]:
+        q = f'/createTable/{name}'
         if name == "players":
-            q = '"player_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"'
+            q += '/player_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME'
         if name == "spectators":
-            q = '"spectator_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"'
+            q += '/spectator_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME'
         if name == "games":
-            q = '"spectator_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"'
+            q += '/game_id/INTEGER/name/TEXT/min_players/TEXT/max_players/TEXT/min_decks/TEXT/max_decks/TEXT/player_actions/TEXT/rules/TEXT/entry_time/DATETIME'
+        if name == "active_game":
+            q += '/entry_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/player_hand/TEXT/player_action/TEXT/entry_time/DATETIME'
         if name == "score_board":
-            q = ''
+            q += '/score_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/players/TEXT/spectators/TEXT/entry_time/DATETIME'
         query.executeQuery(base_url=base_url, query=q, short=True)
 
 if __name__ == '__main__':
@@ -117,6 +120,8 @@ if __name__ == '__main__':
     ap.add_argument('--users', required=False, action="store_true", help="table to perform action on")
     ap.add_argument('--createDeck', required=False, action="store_true", help='call /createDeck')
     ap.add_argument('--shuffleDeck', required=False, action="store_true", help='call /shuffleDeck')
+    ap.add_argument('--createTables', required=False, action="store_true", help='call /createTables')
+    ap.add_argument('--deleteTables', required=False, action="store_true", help='call /deleteTables')
     args = ap.parse_args()
 
     if args.register:
@@ -130,3 +135,7 @@ if __name__ == '__main__':
     if args.shuffleDeck:
         deck = createDeck(create=False)
         shuffleDeck(deck)
+    if args.createTables:
+        createTables()
+    if args.deleteTables:
+        deleteTables()
