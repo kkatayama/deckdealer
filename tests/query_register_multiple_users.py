@@ -4,6 +4,7 @@ import sys
 sys.path.append(str(Path(sys.path[0]).parent))
 from utils.paths import get_py_path
 import argparse
+import random
 import query
 import time
 import re
@@ -33,9 +34,10 @@ def examine():
         print(f'#### `{name}` table:')
         query.executeQuery(base_url=base_url, query=f'/get/{name}', short=False)
 
-def createDeck():
-    q = '/createTable/cards/card_id/INTEGER/key/TEXT/name/TEXT/suit/TEXT/description/TEXT/file_name/TEXT/entry_time/DATETIME'
-    query.executeQuery(base_url=base_url, query=q, short=True)
+def createDeck(create=False):
+    if create:
+        q = '/createTable/cards/card_id/INTEGER/key/TEXT/name/TEXT/suit/TEXT/description/TEXT/file_name/TEXT/entry_time/DATETIME'
+        query.executeQuery(base_url=base_url, query=q, short=True)
 
     cards = []
     for img in sorted(get_py_path().parent.parent.joinpath('image_tests', 'PNG-cards-1.3').glob('*.png')):
@@ -58,15 +60,33 @@ def createDeck():
     deck += cards[48:52]
     deck += cards[44:48]
     deck += cards[36:40]
-    for card in deck:
+    if create:
+        for card in deck:
+            key = card["key"]
+            name = card["name"]
+            suit = card["suit"]
+            desc = card["description"]
+            fn = card["file_name"]
+            q = f'/add/cards/key/{key}/name/{name}/suit/{suit}/description/{desc}/file_name/{fn}'
+            query.executeQuery(base_url=base_url, query=q, short=True)
+            time.sleep(0.25)
+        return
+    return deck
+
+def shuffleDeck(deck):
+    q = '/createTable/deck/card_id/INTEGER/key/TEXT/name/TEXT/suit/TEXT/description/TEXT/file_name/TEXT/entry_time/DATETIME'
+    query.executeQuery(base_url=base_url, query=q, short=True)
+
+    for card in random.sample(deck, 52):
         key = card["key"]
         name = card["name"]
         suit = card["suit"]
         desc = card["description"]
         fn = card["file_name"]
-        q = f'/add/cards/key/{key}/name/{name}/suit/{suit}/description/{desc}/file_name/{fn}'
+        q = f'/add/deck/key/{key}/name/{name}/suit/{suit}/description/{desc}/file_name/{fn}'
         query.executeQuery(base_url=base_url, query=q, short=True)
-        time.sleep(0.5)
+        time.sleep(0.25)
+
 
 if __name__ == '__main__':
     domain = re.search(r'[a-z]+', get_py_path().parent.name).group().replace('bartend', 'bartender')
@@ -78,6 +98,7 @@ if __name__ == '__main__':
     ap.add_argument('-e', '--examine', default=False, action="store_true", help="call /get")
     ap.add_argument('-u', '--users', required=False, action="store_true", help="table to perform action on")
     ap.add_argument('-c', '--createDeck', required=False, action="store_true", help='call /createDeck')
+    ap.add_argument('-s', '--shuffleDeck', required=False, action="store_true", help='call /shuffleDeck')
     args = ap.parse_args()
 
     if args.register:
@@ -87,4 +108,7 @@ if __name__ == '__main__':
     if args.examine:
         examine()
     if args.createDeck:
-        createDeck()
+        createDeck(create=True)
+    if args.shuffleDeck:
+        deck = createDeck(create=False)
+        shuffleDeck(deck)

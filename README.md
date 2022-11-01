@@ -1151,44 +1151,44 @@ users watching an active game
 </td></tr><tr></tr><tr><td>
 
 ```rexx
-players
+games
 ```
 </td><td>
 
 ```css
-users playing an active game
+game config and card values
 ```
 </td><td>
 
 ```jq
-["player_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"]
+["game_id", "name", "min_players", "max_players", "min_decks", "max_decks", "player_actions", "rules", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
 
 ```rexx
-players
+active_game
 ```
 </td><td>
 
-```graphql
-users playing an active game
+```css
+log for game in play
 ```
 </td><td>
 
 ```jq
-["player_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"]
+["log_id", "game_id", "player_id", "player_hand", "player_action", "profile_pic", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
 
 ```rexx
-players
+score_board
 ```
 </td><td>
 
 ```yaml
-users playing an active game
+score for completed games
 ```
 </td><td>
 
