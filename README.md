@@ -1083,8 +1083,8 @@ cards
 
 The `crads` table has been created for **convenience**. <br />
 It contains all `52` cards in a standard `deck`. <br />
-In [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data) you will learn how to use the `/get/<table_name>/<param_key>/<param_value>` endpoint. <br />
-Just to get an idea before jumping far ahead, making a request to `/get/cards/name/ACE` will return with all of the `ACE` cards:
+In [Workflow 5 - Requesting Data](#Workflow-5---Requesting-Data) you will learn the `/get/<table_name>/<param_key>/<param_value>` endpoint. <br />
+Making a request to `/get/cards/name/ACE` will return with all of the `ACE` cards:
 
 Arguments:
 ```rexx
@@ -1118,87 +1118,82 @@ To view the pictures for each card, make a request to `/<file_name>` <br />
 
 ### Let's create a few tables!<br />
 <table>
-<tr><td> Table Name </td><td> Column Names </td></tr><tr><td>
+<tr><td> Table Name </td><td> Table Description </td><td> Column Names </td></tr><tr><td>
 
 ```rexx
-playser
+players
+```
+</td><td>
+
+```yaml
+users playing an active game
 ```
 </td><td>
 
 ```jq
-["player_id", "user_id", "first_name", "last_name", "phone_number", "email", "profile_pic", "entry_time"]
+["player_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
 ```rexx
-restaurant_profile
+spectators
+```
+</td><td>
+
+```yaml
+users watching an active game
 ```
 </td><td>
 
 ```jq
-["restaurant_id", "manager_id", "restaurant_name", "address", "bio", "phone_number", "profile_pic", "entry_time"]
+["spectator_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
 ```rexx
-restaurant_schedule
+players
+```
+</td><td>
+
+```yaml
+users playing an active game
 ```
 </td><td>
 
 ```jq
-["schedule_id", "restaurant_id", "mon_open", "mon_close", "tue_open", "tue_close", "wed_open", "wed_close", "thu_open", "thu_close", "fri_open", "fri_close", "sat_open", "sat_close", "sun_open", "sun_close", "entry_time"]
+["player_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
+
 ```rexx
-restaurant_requests
+players
+```
+</td><td>
+
+```yaml
+users playing an active game
 ```
 </td><td>
 
 ```jq
-["request_id", "restaurant_id", "hourly_wage", "shift_start", "shift_end", "status", "entry_time"]
+["player_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
-```rexx
-restaurant_photos
-```
 
+```rexx
+players
+```
 </td><td>
 
-```jq
-["photo_id", "restaurant_id", "file_name", "entry_time"]
-```
-</td></tr><tr></tr><tr><td>
-
-```rexx
-bartenders
+```yaml
+users playing an active game
 ```
 </td><td>
 
 ```jq
-["bartender_id", "user_id", "first_name", "last_name", "address", "phone_number", "email", "profile_pic", "entry_time"]
-```
-</td></tr><tr></tr><tr><td>
-
-```rexx
-bartender_shifts
-```
-</td><td>
-
-```jq
-["shift_id", "bartender_id", "restaurant_id", "request_id", "shift_start", "shift_end", "entry_time"]
-```
-</td></tr>
-<tr></tr><tr><td>
-
-```rexx
-bartender_wages
-```
-</td><td>
-
-```jq
-["wage_id", "bartender_id", "shift_id", "restaurant_id", "hourly_wage", "shift_start", "shift_end", "clock_in", "clock_out", "hours_worked", "tips", "total_earnings", "entry_time"]
+["player_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"]
 ```
 </td></tr>
 </table>
