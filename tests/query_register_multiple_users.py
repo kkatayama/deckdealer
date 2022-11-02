@@ -106,7 +106,7 @@ def createTables():
         if name == "active_game":
             q += '/entry_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/player_hand/TEXT/player_action/TEXT/entry_time/DATETIME'
         if name == "score_board":
-            q += '/score_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/name/TEXT/email/TEXT/players/TEXT/spectators/TEXT/entry_time/DATETIME'
+            q += '/score_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/winner/TEXT/winner_email/TEXT/winner_hand/TEXT/winner_score/INTEGER/players/TEXT/player_hands/TEXT/player_scores/TEXT/spectators/TEXT/entry_time/DATETIME'
         query.executeQuery(base_url=base_url, query=q, short=True)
 
 if __name__ == '__main__':

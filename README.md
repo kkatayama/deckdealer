@@ -1179,7 +1179,7 @@ score for completed games
 </td><td>
 
 ```jq
-["score_id", "game_id", "user_id", "player_id", "name", "email", "players", "spectators", "entry_time"]
+["score_id", "game_id", "user_id", "player_id", "winner", "winner_hand", "winner_score", "players", "player_hands", "player_scores", "spectators", "entry_time"]
 ```
 </td></tr>
 </table>
@@ -1285,7 +1285,7 @@ Response:
 ### Creting the Table `score_board`:
 Request:
 ```jq
-https://deckdealer.hopto.org/createTable/score_board/score_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/name/TEXT/email/TEXT/players/TEXT/spectators/TEXT/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/score_board/score_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/winner/TEXT/winner_email/TEXT/winner_hand/TEXT/winner_score/INTEGER/players/TEXT/player_hands/TEXT/player_scores/TEXT/spectators/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1299,14 +1299,17 @@ Response:
     "game_id INTEGER NOT NULL",
     "user_id INTEGER NOT NULL",
     "player_id INTEGER NOT NULL",
-    "name TEXT NOT NULL",
-    "email TEXT NOT NULL",
+    "winner TEXT NOT NULL",
+    "winner_email TEXT NOT NULL",
+    "winner_hand TEXT NOT NULL",
+    "winner_score INTEGER NOT NULL",
     "players TEXT NOT NULL",
+    "player_hands TEXT NOT NULL",
+    "player_scores TEXT NOT NULL",
     "spectators TEXT NOT NULL",
     "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
   ]
 }
-
 ```
 
 </details>
@@ -3364,29 +3367,31 @@ Arguments:
 game_id = 1
 user_id = 2
 player_id = 1
-name = dealer
-email = dealer@udel.edu
+winner = dealer
+winner_email = dealer@udel.edu
+winner_hand = 10S, 10H
+winner_score = 20
 players = dealer, alice, bob
+player_hands = 10S+10H, 6D+QH+3S, 4H+9D+5S
+player_scores = 20, 19, 18
 spectators = anna, steve
 ```
 
 Request:
 ```jq
-https://deckdealer.hopto.org/add/score_board/game_id/1/user_id/2/player_id/1/name/dealer/email/dealer@udel.edu/players/dealer, alice, bob/spectators/anna, steve
+https://deckdealer.hopto.org/add/score_board/game_id/1/user_id/2/player_id/1/winner/dealer/winner_email/dealer@udel.edu/winner_hand/10S, 10H/winner_score/20/players/dealer, alice, bob/player_hands/10S+10H, 6D+QH+3S, 4H+9D+5S/player_scores/20, 19, 18/spectators/anna, steve
 ```
 
 Response:
 ```json
 {
   "message": "data added to <score_board>",
-  "score_id": "1",
+  "score_id": 1,
   "game_id": "1",
   "user_id": "2",
-  "player_id": "1",
+  "player_id": "1"
 }
 ```
-
-
 
 </details>
 
@@ -3781,482 +3786,9 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-### Simulate Snagging a `Restaurant Request` and Reporting `Bartender Wages`
-1. Help `anna` and `steve` find an `open shift` by snagging a `restaurant request`
-2. Simulate the `completion` of a shift by reporting to `bartender_wages`
+### Executing a Profile Edit
 
-### Executing Profile Edits and Updating Restaurant Wages
-3. `anna` and `steve` would like to edit their `username` to use their `email` and update their `password`
-4. `Iron Hill` is increasing the `hourly_wage` from `$2.33` to `$2.50` effective `2022-10-29 00:00:01` 
-
----
-
-#### 6.1 Simulate Snagging a Restaurant Request
-
-<details><summary> (click here to expand) </summary>
-
-#### Let's have `anna` snag a `restaurant request`
-
-To get available `open` requests, query the `/get` endpoint
-
-Arguments:
-```rexx
-status = open
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_requests/status/open
-```
-
-Response:
-```json
-{
-  "message": "found 2 restaurant_request entries",
-  "data": [
-    {"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "open", "entry_time": "2022-10-26 08:37:55.831"},
-    {"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "open", "entry_time": "2022-10-26 09:42:25.607"},
-  ],
-}
-```
-
-There are `2 open requests` available. 
-
-To map the `restaurant_id` with a restaurant profile, query the `restaurant_profile` table.
-
-Arguments:
-```rexx
-filter = (restaurant_id = 1 or restaurant_id = 2)
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_profile/filter/(restaurant_id = 1 or restaurant_id = 2)
-```
-
-Response:
-```json
-{
-  "message": "found 2 restaurant_profile entries",
-  "data": [
-    {"restaurant_id": 1, "manager_id": 1, "restaurant_name": "Iron Hill Brewery & Restaurant", "address": "147 EAST MAIN ST. NEWARK, DE 19711", "bio": "Craft Beer and Food", "phone_number": "(302) 266-9000", "profile_pic": "5.png", "entry_time": "2022-10-25 23:00:39.921"},
-    {"restaurant_id": 2, "manager_id": 2, "restaurant_name": "Deer Park Tavern", "address": "108 West Main Street, Newark, DE 19711", "bio": "Good food and spirits!", "phone_number": "(302) 368-9414", "profile_pic": "6.jpeg", "entry_time": "2022-10-25 23:16:31.603"},
-  ],
-}
-```
-
-`anna` would like to work the dinner shift at `Iron Hill`
-
-#### Snagging a Restaurant Request for `Iron Hill`
-
-#### 1. Change the `status` of the `restaurant_request` from `open` to `snagged`
-Arguments:
-Arguments:
-```rexx
-status = snagged
-filter = (request_id=3)
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/edit/restaurant_requests/status/snagged?filter=(request_id=3)
-```
-
-Response:
-```json
-{
-  "message": "edited 1 restaurant_request entry",
-  "submitted": [{"filter": "(request_id=3)", "status": "snagged"}],
-}
-```
-#### Verify the `status` change:
-Arguments:
-```rexx
-request_id = 3
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_requests/request_id/3
-```
-
-Response:
-```json
-{
-  "message": "1 restaurant_request entry found",
-  "data": [{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "snagged", "entry_time": "2022-10-26 08:37:55.831"}],
-}
-```
-#### 2. Add the `restaurant_request` to `bartender_shifts`:
-Arguments:
-```rexx
-bartender_id = 1
-restaurant_id = 1
-request_id = 3
-shift_start = 2022-10-29 18:00:00
-shift_end = 2022-10-29 23:00:00
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/1/restaurant_id/1/request_id/3/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_shifts>",
-  "shift_id": "5",
-  "bartender_id": "1",
-  "restaurant_id": "1",
-  "request_id": "3",
-}
-```
-#### Verify the `shift` add:
-Arguments:
-```rexx
-request_id = 3
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartender_shifts/request_id/3
-```
-
-Response:
-```json
-{
-  "message": "1 bartender_shift entry found",
-  "data": [{"shift_id": 5, "bartender_id": 1, "restaurant_id": 1, "request_id": 3, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "entry_time": "2022-10-27 14:30:08.661"}],
-}
-```
-
-#### Now let's have `steve` snag a `restaurant request`
-
-To get available `open` requests, query the `/get` endpoint
-
-Arguments:
-```rexx
-status = open
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_requests/status/open
-```
-
-Response:
-```json
-{
-  "message": "1 restaurant_request entry found",
-  "data": [{"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "open", "entry_time": "2022-10-26 09:42:25.607"}],
-}
-```
-
-There is `1 open request` available. 
-
-To map the `restaurant_id` with a restaurant profile, query the `restaurant_profile` table.
-
-Arguments:
-```rexx
-filter = (restaurant_id=2)
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/get/restaurant_profile/?filter=(restaurant_id=2)
-```
-
-Response:
-```json
-{
-  "message": "1 restaurant_profile entry found",
-  "data": [{"restaurant_id": 2, "manager_id": 2, "restaurant_name": "Deer Park Tavern", "address": "108 West Main Street, Newark, DE 19711", "bio": "Good food and spirits!", "phone_number": "(302) 368-9414", "profile_pic": "6.jpeg", "entry_time": "2022-10-25 23:16:31.603"}],
-}
-```
-
-#### Snagging a Restaurant Request for `Deer Park`
-
-#### 1. Change the `status` of the `restaurant_request` from `open` to `snagged`
-Arguments:
-```rexx
-status = snagged
-filter = (request_id=6)
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/edit/restaurant_requests/status/snagged?filter=(request_id=6)
-```
-
-Response:
-```json
-{
-  "message": "edited 1 restaurant_request entry",
-  "submitted": [{"filter": "(request_id=6)", "status": "snagged"}],
-}
-```
-#### Verify the `status` change:
-Arguments:
-```rexx
-request_id = 6
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_requests/request_id/6
-```
-
-Response:
-```json
-{
-  "message": "1 restaurant_request entry found",
-  "data": [{"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "snagged", "entry_time": "2022-10-26 09:42:25.607"}],
-}
-```
-
-#### 2. Add the `restaurant_request` to `bartender_shifts`:
-Arguments:
-```rexx
-bartender_id = 2
-restaurant_id = 2
-request_id = 6
-shift_start = 2022-10-26 10:30:00
-shift_end = 2022-10-26 15:00:00
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/2/restaurant_id/2/request_id/6/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_shifts>",
-  "shift_id": "6",
-  "bartender_id": "2",
-  "restaurant_id": "2",
-  "request_id": "6",
-}
-```
-#### Verify the `shift` add:
-Arguments:
-```rexx
-request_id = 6
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartender_shifts/request_id/6
-```
-
-Response:
-```json
-{
-  "message": "1 bartender_shift entry found",
-  "data": [{"shift_id": 6, "bartender_id": 2, "restaurant_id": 2, "request_id": 6, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "entry_time": "2022-10-27 14:41:34.785"}],
-}
-```
-
-</details>
-
----
-
-#### 6.2 Simulate Completion of a Bartender Shift
-
-<details><summary> (click here to expand) </summary>
-
-#### Anna just finished working her shift!
-
-#### 1. Update the `restaurant_request` from `status=snagged` to `status=completed` 
-Arguments:
-```rexx
-status = completed
-filter = (request_id=3)
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/edit/restaurant_requests/status/completed?filter=(request_id=3)
-```
-
-Response:
-```json
-{
-  "message": "edited 1 restaurant_request entry",
-  "submitted": [{"filter": "(request_id=3)", "status": "completed"}],
-}
-```
-
-#### Verify `shift` completed:
-Arguments:
-```rexx
-request_id = 3
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_requests/request_id/3
-```
-
-Response:
-```json
-{
-  "message": "1 restaurant_request entry found",
-  "data": [{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "completed", "entry_time": "2022-10-26 08:37:55.831"}],
-}
-```
-
-#### 2. Report the `wages_earned` and `hours_worked` to `bartender_wages`
-Arguments:
-```rexx
-bartender_id = 1
-shift_id = 5
-restaurant_id = 1
-hourly_wage = 2.33
-shift_start = 2022-10-29 18:00:00
-shift_end = 2022-10-29 23:00:00
-clock_in = 2022-10-29 17:50:00
-clock_out = 2022-10-29 22:30:00
-hours_worked = 4.67
-tips = 124.00
-total_earnings = 134.88
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_wages/bartender_id/1/shift_id/5/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00/clock_in/2022-10-29 17:50:00/clock_out/2022-10-29 22:30:00/hours_worked/4.67/tips/124.00/total_earnings/134.88
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_wages>",
-  "wage_id": "5",
-  "bartender_id": "1",
-  "shift_id": "5",
-  "restaurant_id": "1",
-}
-```
-#### Verify the `reporting`:
-Arguments:
-```rexx
-shift_id = 5
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartender_wages/shift_id/5
-```
-
-Response:
-```json
-{
-  "message": "1 bartender_wage entry found",
-  "data": [{"wage_id": 5, "bartender_id": 1, "shift_id": 5, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "clock_in": "2022-10-29 17:50:00", "clock_out": "2022-10-29 22:30:00", "hours_worked": 4.67, "tips": 124.0, "total_earnings": 134.88, "entry_time": "2022-10-27 15:12:05.665"}],
-}
-```
-
-#### Steve just finished working his shift!
-
-#### Let's update the `restaurant_request` from `status=snagged` to `status=completed` 
-
-#### 1. Update the `restaurant_request` from `status=snagged` to `status=completed`
-Arguments:
-```rexx
-status = completed
-filter = (request_id=6)
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/edit/restaurant_requests/status/completed?filter=(request_id=6)
-```
-
-Response:
-```json
-{
-  "message": "edited 1 restaurant_request entry",
-  "submitted": [{"filter": "(request_id=6)", "status": "completed"}],
-}
-```
-#### Verify `shift` completed:
-Arguments:
-```rexx
-request_id = 6
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_requests/request_id/6
-```
-
-Response:
-```json
-{
-  "message": "1 restaurant_request entry found",
-  "data": [{"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "completed", "entry_time": "2022-10-26 09:42:25.607"}],
-}
-```
-
-#### 2. Report the `wages_earned` and `hours_worked` to `bartender_wages`
-Arguments:
-```rexx
-bartender_id = 2
-shift_id = 6
-restaurant_id = 2
-hourly_wage = 3.50
-shift_start = 2022-10-26 10:30:00
-shift_end = 2022-10-26 15:00:00
-clock_in = 2022-10-26 10:15:00
-clock_out = 2022-10-26 15:20:00
-hours_worked = 5.08
-tips = 87.00
-total_earnings = 104.78
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_wages/bartender_id/2/shift_id/6/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00/clock_in/2022-10-26 10:15:00/clock_out/2022-10-26 15:20:00/hours_worked/5.08/tips/87.00/total_earnings/104.78
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_wages>",
-  "wage_id": "6",
-  "bartender_id": "2",
-  "shift_id": "6",
-  "restaurant_id": "2",
-}
-```
-#### Verify the `reporting`:
-Arguments:
-```rexx
-shift_id = 6
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartender_wages/shift_id/6
-```
-
-Response:
-```json
-{
-  "message": "1 bartender_wage entry found",
-  "data": [{"wage_id": 6, "bartender_id": 2, "shift_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "clock_in": "2022-10-26 10:15:00", "clock_out": "2022-10-26 15:20:00", "hours_worked": 5.08, "tips": 87.0, "total_earnings": 104.78, "entry_time": "2022-10-27 15:16:46.651"}],
-}
-```
-
-</details>
-
----
-
-#### 6.3 Making Changes to `username` and `password`
-
-<details><summary> (click here to expand) </summary>
+#### `anna` and `steve` would like to edit their `username` to use their `email` and update their `password`
 
 #### Let's start with `anna`
 
@@ -4271,13 +3803,14 @@ https://deckdealer.hopto.org/get/users
 Response:
 ```json
 {
-  "message": "found 5 user entries",
+  "message": "found 6 user entries",
   "data": [
-    {"user_id": 1, "username": "admin", "password": "a2025bd8b86a53fccf6f42eae008ccbf65dcf6aa55e0e6a477b57c5d74b1e611e5902fe9673d8cddb84896005e125d589e39e258a7fbeb3e7208b866e7746e60", "create_time": "2022-10-19 00:23:52.930"},
-    {"user_id": 2, "username": "alice", "password": "b71dab3e13191834f1f0dd53c8b4be30da005ee7eea47ec8673d41c5ee959be34881a9ac99d473bec40b2de489e83694e5e532babbdcfc16c93d137872cffa96", "create_time": "2022-10-21 10:06:45.643"},
-    {"user_id": 3, "username": "bob", "password": "7e6c183ddaf351a96fc6541b6ece83ea130c34ff8151a7e219d7bebace3398d685809c999065a54c7c1c785a4ae5b230f247cae5c97b958c7b881c86e81c3e07", "create_time": "2022-10-21 10:06:45.830"},
-    {"user_id": 4, "username": "anna", "password": "a0d7bf58601f8f515eb56fb80ec986e49e40eb96572f33abab6ce924c7b3cd0d3cadeb7d15ea3075487a48d17412c62b112d7e0cdcc72a269e75d358a75d9af5", "create_time": "2022-10-21 10:06:45.955"},
-    {"user_id": 5, "username": "steve", "password": "d30aa6f4422040cee131efa311c73dd42dd9f2cb6424f23ac9caf403bec2e4289066e846c3df109f612ef2572f95e17f2eddedc36786ba1eb0f50da571ebcac2", "create_time": "2022-10-21 10:06:46.099"},
+    {"user_id": 1, "username": "admin", "password": "756a404bd66b7f081a936fe6fbcf2374de5c6ce018d62f37e664be8df02de03807b51fc4273dc06d12c11f7075369b5e96e2b0fef57037f6711f7e0f07a224af", "create_time": "2022-10-28 09:34:39.683"},
+    {"user_id": 2, "username": "dealer", "password": "c00a4b4042678e2dc89247bed50b739c8070dae76a566dd0ecfeb597d8c67d6b1c56b67dd2cd026f11cac24670f23cc6f53a0ea2c25d9f75a0e2142dbaaca2a8", "create_time": "2022-11-01 21:22:46.795"},
+    {"user_id": 3, "username": "alice", "password": "2aa046bc10f97c0c11791b538b2a3d06f0dad8308b4ec8ef5166a14723f5ecaac62ab38257981bb7ea095fcb986818b6263082c0ad312a36f0086868833ae5ac", "create_time": "2022-11-01 21:22:47.066"},
+    {"user_id": 4, "username": "bob", "password": "b23ee5919bce0a5dd0693f868e50ef5a396bbff79e5c0fa0170eece7536e57a8a95ee8d646ed68491bd2a7acb94e3af388f0bd88650a2a7fadf9cd4c3a44bde1", "create_time": "2022-11-01 21:22:47.201"},
+    {"user_id": 5, "username": "anna", "password": "a8afd031b2e7fb99ad5be81e264cdc8dc359795610ae80af3c17fbad8d8aec1136e2a3ddc7e12aa771c5db03141e367e303585961301c44228bcbbdd69d424e7", "create_time": "2022-11-01 21:22:47.360"},
+    {"user_id": 6, "username": "steve", "password": "aa19bea81377c41b1089f410db3775f7fbaa005e0ade71f5b4194e0f189bda03c24c95214a3bf2002c0eea97dcfa49869b4254a5c6638b1d0161d5e9a1ce81f7", "create_time": "2022-11-01 21:22:47.497"},
   ],
 }
 ```
@@ -4287,24 +3820,23 @@ Arguments:
 ```rexx
 username = anna@udel.edu
 password = Anna1234
-filter = (user_id=4)
+filter = (user_id=5)
 ```
 
 Request:
 ```erlang
-https://deckdealer.hopto.org/edit/users/username/anna@udel.edu/password/Anna1234/?filter=(user_id=4)
+https://deckdealer.hopto.org/edit/users/username/anna@udel.edu/password/Anna1234/?filter=(user_id=5)
 ```
 
 Response:
 ```json
-
 {
   "message": "edited 1 user entry",
   "submitted": [
     {
-      "filter": "(user_id=4)",
+      "filter": "(user_id=5)",
       "username": "anna@udel.edu",
-      "password": "ec02990bdcf740a8199c04381671dc07b915f901886c7b54b963e7dbd31fe637aec1d503072c3b8867724589280b477420293430f7c43fcf4bd3d578035dfe2d"
+      "password": "96205a4208c729325fdc3de16fe7549dac2040162ecc311321c1e193815a0cf5f9fc8e18084f648a87a0df389d4250f40cbfd5053b83f23ccfc2b59a5ee16aec"
     }
   ]
 }
@@ -4322,14 +3854,20 @@ POST Request:
 POST(url="https://deckdealer.hopto.org/login", data={"username": "anna@udel.edu", "password": "Anna1234"})
 ```
 
+OR GET Request:
+> GET Request will not store session client side...
+> If you don't want to deal with sessions, I can disable this feature...
+```jq
+https://deckdealer.hopto.org/login/username/anna@udel.edu/password/Anna1234
+```
+
 Response:
 ```json
-
 {
   "message": "user login success",
-  "user_id": 4,
+  "user_id": "5",
   "username": "anna@udel.edu",
-  "token": "IUd4bkYyTnpGWStUdmJnYlpYcHBqOEE9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFMGxJYVVMZz09"
+  "token": "IURBdXFSODZvRXByQ0ZDK2VJNGdXV3c9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFMWxJYVVMZz09",
 }
 ```
 
@@ -4338,26 +3876,25 @@ Response:
 #### Changing the `username` and `password` for `steve`:
 Arguments:
 ```rexx
-username = steve@gmail.com
+username = steve@udel.edu
 password = St3ve4321
-filter = (user_id=5)
+filter = (user_id=6)
 ```
 
 Request:
 ```erlang
-https://deckdealer.hopto.org/edit/users/username/steve@gmail.com/password/St3ve4321/?filter=(user_id=5)
+https://deckdealer.hopto.org/edit/users/?username=steve@udel.edu&password=St3ve4321&filter=(user_id=6)
 ```
 
 Response:
 ```json
-
 {
   "message": "edited 1 user entry",
   "submitted": [
     {
-      "filter": "(user_id=5)",
-      "username": "steve@gmail.com",
-      "password": "2a36242977e07c434ebbb9057e004c8748de5332f8a9acd11343900af03c10069ff21c15c6965d5b60d4f31c148dddee179c1af9895d95f872890bbb73adcb27"
+      "filter": "(user_id=6)",
+      "username": "steve@udel.edu",
+      "password": "42b52be908f40c123f5821925c0d5d34c24035518cc65b64295ae8bedd57855bda4555dd855d1fa52255667437c7c521bd545a527cedb099e4813d925482a4f6"
     }
   ]
 }
@@ -4375,148 +3912,22 @@ POST Request:
 POST(url="https://deckdealer.hopto.org/login", data={"username": "steve@gmail.com", "password": "St3ve4321"})
 ```
 
+OR GET Request:
+> GET Request will not store session client side...
+> If you don't want to deal with sessions, I can disable this feature...
+```erlang
+https://deckdealer.hopto.org/login/?username=steve@udel.edu&password=St3ve4321
+```
+
 Response:
 ```json
-
 {
   "message": "user login success",
-  "user_id": 5,
-  "username": "steve@gmail.com",
-  "token": "IWVoZEFuTXAxbjlmWmFSWUtmWlAza3c9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFMWxJYVVMZz09"
+  "user_id": "6",
+  "username": "steve@udel.edu",
+  "token": "IUF5K2NMZTg4eWZBd0g2TVNvL1BFelE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFMmxJYVVMZz09",
 }
 ```
-</details>
-
----
-
-#### 6.4 `Iron Hill` is increasing the `hourly_wage` from `$2.33` to `$2.50` effective `2022-10-29 00:00:01`
-
-<details><summary> (click here to expand) </summary>
-
-#### The `hourly_wage` parameter exists in the `bartender_wages` and `restaurant_requests` tables
-
-#### Before `editing` a table, let's determine the number of updates we need to make for each table:
-Arguments:
-```rexx
-filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/get/restaurant_requests/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
-```
-
-Response:
-```json
-{
-  "message": "1 restaurant_request entry found",
-  "data": [{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "completed", "entry_time": "2022-10-26 08:37:55.831"}],
-}
-```
-
-Arguments:
-```rexx
-filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/get/bartender_wages/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
-```
-
-Response:
-```json
-{
-  "message": "1 bartender_wage entry found",
-  "data": [{"wage_id": 5, "bartender_id": 1, "shift_id": 5, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "clock_in": "2022-10-29 17:50:00", "clock_out": "2022-10-29 22:30:00", "hours_worked": 4.67, "tips": 124.0, "total_earnings": 134.88, "entry_time": "2022-10-27 15:12:05.665"}],
-}
-```
-
-1 entry for each table needs to be updated
-
-#### Updating the `restaurant_requests` table:
-
-Arguments:
-```rexx
-hourly_wage = 2.5
-filter = (restaurant_id = '1' AND shift_end > '2022-10-29 00:00:01')
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/edit/restaurant_requests/hourly_wage/2.5/?filter=(restaurant_id = '1' AND shift_end > '2022-10-29 00:00:01')
-```
-
-Response:
-```json
-{
-  "message": "edited 1 restaurant_request entry",
-  "submitted": [{"filter": "(restaurant_id = \"1\" AND shift_end > \"2022-10-29 00:00:01\")", "hourly_wage": "2.5"}],
-}
-```
-
-#### Updating the `bartender_wages` table:
-> Note: We should also update the `total_earning` when updating the `hourly_wage` in this table
-
-Arguments:
-```rexx
-hourly_wage = 2.50
-total_earnings = 135.68
-filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/edit/bartender_wages/hourly_wage/2.50/total_earnings/135.68/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
-```
-
-Response:
-```json
-{
-  "message": "edited 1 bartender_wage entry",
-  "submitted": [{"filter": "(restaurant_id = \"1\" AND shift_end > \"2022-10-29 00:00:01\")", "hourly_wage": "2.50", "total_earnings": "135.68"}],
-}
-```
-
-#### Verify the changes:
-Arguments:
-```rexx
-filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/get/restaurant_requests/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
-```
-
-Response:
-```json
-{
-  "message": "1 restaurant_request entry found",
-  "data": [{"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.5, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "completed", "entry_time": "2022-10-26 08:37:55.831"}],
-}
-```
-
-Arguments:
-```rexx
-filter = (restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/get/bartender_wages/?filter=(restaurant_id = "1" AND shift_end > "2022-10-29 00:00:01")
-```
-
-Response:
-```json
-{
-  "message": "1 bartender_wage entry found",
-  "data": [{"wage_id": 5, "bartender_id": 1, "shift_id": 5, "restaurant_id": 1, "hourly_wage": 2.5, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "clock_in": "2022-10-29 17:50:00", "clock_out": "2022-10-29 22:30:00", "hours_worked": 4.67, "tips": 124.0, "total_earnings": 135.68, "entry_time": "2022-10-27 15:12:05.665"}],
-}
-```
-
-</details>
-
 
 </details>
 
@@ -4725,72 +4136,106 @@ Response:
 
 <details><summary> (click me to exapnd) </summary>
 
-### 1. Let's Delete all of the Entries in the `restaurant_photos` table since we didn't use it.
-### 2. Then, let's delete the `restaurant_photos` table.
+### Clean up the entries in the `active_game` table to finish the `Blackjack` game from [Workflow 5](#workflow-5---requesting-data)
 
-#### Before we delete anything, let's take a quick look at the `restaurant_photos` table:
+#### After the `Blackjack` game ended, we added the results to the `score_board` table but we left the logs in the `active_game` table.
+#### Before we can start a new game, we should delete the entries in the `active_game` table.
+#### I didn't create a table for keeping old game logs, but it shouldn't be too hard to do now that you have made it here :)
+
+#### Let's examine the `score_board` table to make sure that the winning results from our game is there:
 Request:
 ```jq
-https://deckdealer.hopto.org/get/restaurant_photos
+https://deckdealer.hopto.org/get/score_board
+```
+
+Response:
+```json
+
+{
+  "message": "1 score_board entry found",
+  "data": {
+    "score_id": 1,
+    "game_id": 1,
+    "user_id": 2,
+    "player_id": 1,
+    "winner": "dealer",
+    "winner_email": "dealer@udel.edu",
+    "winner_hand": "10S, 10H",
+    "winner_score": 20,
+    "players": "dealer, alice, bob",
+    "player_hands": "10S+10H, 6D+QH+3S, 4H+9D+5S",
+    "player_scores": "20, 19, 18",
+    "spectators": "anna, steve",
+    "entry_time": "2022-11-02 11:28:11.442"
+  }
+}
+```
+
+We see that the `dealer` won with a hand of `10S+10H` and a score of `20` <br />
+
+#### Now let's check the `active_game` table to see if the logs are still there:
+Request:
+```jq
+https://deckdealer.hopto.org/get/active_game
 ```
 
 Response:
 ```json
 {
-  "message": "found 4 restaurant_photo entries",
+  "message": "found 8 active_game entries",
   "data": [
-    {"photo_id": 1, "restaurant_id": 1, "file_name": "7.jpeg", "entry_time": "2022-10-25 23:28:54.850"},
-    {"photo_id": 2, "restaurant_id": 1, "file_name": "8.jpeg", "entry_time": "2022-10-25 23:29:01.316"},
-    {"photo_id": 3, "restaurant_id": 2, "file_name": "9.jpeg", "entry_time": "2022-10-25 23:30:24.726"},
-    {"photo_id": 4, "restaurant_id": 2, "file_name": "10.jpeg", "entry_time": "2022-10-25 23:30:35.574"},
+    {"entry_id": 1, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "6D", "player_action": "setup", "entry_time": "2022-11-01 22:52:08.865"},
+    {"entry_id": 2, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "4H", "player_action": "setup", "entry_time": "2022-11-01 22:53:08.192"},
+    {"entry_id": 3, "game_id": 1, "user_id": 2, "player_id": 1, "player_hand": "10S", "player_action": "setup", "entry_time": "2022-11-01 22:54:07.209"},
+    {"entry_id": 4, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "QH", "player_action": "setup", "entry_time": "2022-11-01 22:55:11.283"},
+    {"entry_id": 5, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "9D", "player_action": "setup", "entry_time": "2022-11-01 22:55:58.077"},
+    {"entry_id": 6, "game_id": 1, "user_id": 2, "player_id": 1, "player_hand": "10H", "player_action": "setup", "entry_time": "2022-11-01 22:57:44.514"},
+    {"entry_id": 7, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "3S", "player_action": "hit", "entry_time": "2022-11-01 23:16:10.252"},
+    {"entry_id": 8, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "5S", "player_action": "hit", "entry_time": "2022-11-01 23:31:40.648"},
   ],
 }
 ```
 
-#### 7.1 Deleting all of the Entries in the `restaurant_photos` table:
+Looks like the log entries are still there! <br />
+
+#### Let's delete all entries from the `active_game` table:
 Arguments:
 ```rexx
-filter = (photo_id > 0)
+filter = (entry_id >= 1)
 ```
 
 Request:
 ```erlang
-https://deckdealer.hopto.org/delete/restaurant_photos/?filter=(photo_id > 0)
+https://deckdealer.hopto.org/delete/active_game?filter=(entry_id >= 1)
 ```
 
 Response:
 ```json
 {
-  "message": "4 restaurant_photo entries deleted",
-  "submitted": [{"filter": "(photo_id > 0)"}],
+  "message": "8 active_game entries deleted",
+  "submitted": [{"filter": "(entry_id >= 1)"}],
 }
 ```
 
-#### Verify the entries have been deleted:
+#### Verify that there are no entries in the `active_game` table:
 Request:
 ```jq
-https://deckdealer.hopto.org/get/restaurant_photos
+https://deckdealer.hopto.org/get/active_game
 ```
 
 Response:
 ```json
-{
-  "message": "0 restaurant_photo entries found using submitted parameters",
-  "data": [{"submitted": [{}, {"filter": ""}]}],
-}
-```
 
-#### 7.2 Deleting the `restaurant_photos` table:
-Request:
-```jq
-https://deckdealer.hopto.org/deleteTable/restaurant_photos
-```
-
-Response:
-```json
 {
-  "message": "1 table deleted!",
-  "table": "restaurant_photos",
+  "message": "0 active_game entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {},
+      {
+        "filter": ""
+      }
+    ]
+  }
 }
 ```
 
