@@ -90,6 +90,8 @@ If you receive an `invalid token` response, then the request you are making does
 The `session cookie` is assigned after a successful login. <br />
 To get around adding the `session cookie` along with your request, you can simply add the `token` parameter. <br />
 
+PLEASE LET ME KNOW IF YOU WISH TO DISABLE THE SESSION COOKIES AND TOKENS!!! <br />
+
 FOR EXAMPLE:
 
 ### You logged in with the `admin` user doing a `GET` request:
@@ -108,7 +110,7 @@ Response:
 }
 ```
 
-### And all of the requests return `invalid token`...?
+### But all of the requests return `invalid token`...?
 Request:
 ```ruby
 /add
@@ -121,9 +123,7 @@ Response:
 }
 ```
 
-### 
-
-### Simply append the token parameter
+### Simply append the token parameter to all requests
 Request:
 ```ruby
 /add?token=IVA1WTF3UDhOSHVacm1GUk1DRVVaMFE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09
