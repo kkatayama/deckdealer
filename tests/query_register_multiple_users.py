@@ -13,7 +13,7 @@ import re
 def register(users=False):
     if users:
         # -- register 6 users
-        for user in ['alice', 'bob', 'anna', 'steve', 'ellan', 'jimmy']:
+        for user in ['alice', 'bob', 'anna', 'steve']:
             q = f'/register/username/{user}/password/{user}/password2/{user}'
             print('---')
             query.executeQuery(base_url=base_url, query=q)
@@ -22,7 +22,7 @@ def register(users=False):
 def delete(users=False):
     if users:
         # -- delete 6 users
-        for user in ['alice', 'bob', 'anna', 'steve', 'ellan', 'jimmy']:
+        for user in ['alice', 'bob', 'anna', 'steve']:
             q = f'/delete/users/username/{user}'
             print('---')
             query.executeQuery(base_url=base_url, query=q)
@@ -98,9 +98,9 @@ def createTables():
     for name in ["players", "spectators", "games", "active_game", "score_board"]:
         q = f'/createTable/{name}'
         if name == "players":
-            q += '/player_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME'
+            q += '/player_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/entry_time/DATETIME'
         if name == "spectators":
-            q += '/spectator_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME'
+            q += '/spectator_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/entry_time/DATETIME'
         if name == "games":
             q += '/game_id/INTEGER/name/TEXT/min_players/TEXT/max_players/TEXT/min_decks/TEXT/max_decks/TEXT/player_actions/TEXT/rules/TEXT/entry_time/DATETIME'
         if name == "active_game":

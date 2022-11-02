@@ -734,52 +734,11 @@ https://deckdealer.hopto.org/register/username/steve/password/steve/password2/st
 
 Response:
 ```json
-{"message": "new user created", "user_id": 5, "username": "steve"}
-```
----
-
-Arguments:
-```rexx
-username = ellan
-password = ellan
-password2 = ellan
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/register/username/ellan/password/ellan/password2/ellan
-```
-
-Response:
-```json
 
 {
   "message": "new user created",
-  "user_id": 6,
-  "username": "ellan"
-}
-```
----
-
-Arguments:
-```rexx
-username = jimmy
-password = jimmy
-password2 = jimmy
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/register/username/jimmy/password/jimmy/password2/jimmy
-```
-
-Response:
-```json
-
-{
-  "message": "new user created",
-  "user_id": 7,
-  "username": "jimmy"
+  "user_id": 5,
+  "username": "steve"
 }
 ```
 
@@ -1158,7 +1117,7 @@ users playing an active game
 </td><td>
 
 ```jq
-["player_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"]
+["player_id", "user_id", "game_id", "name", "email", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
@@ -1173,7 +1132,7 @@ users watching an active game
 </td><td>
 
 ```jq
-["spectator_id", "user_id", "game_id", "name", "email", "profile_pic", "entry_time"]
+["spectator_id", "user_id", "game_id", "name", "email", "entry_time"]
 ```
 </td></tr><tr></tr><tr><td>
 
@@ -1230,7 +1189,7 @@ score for completed games
 ### Creating the Table `players`:
 Request:
 ```jq
-https://deckdealer.hopto.org/createTable/players/player_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/players/player_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1245,7 +1204,6 @@ Response:
     "game_id INTEGER NOT NULL",
     "name TEXT NOT NULL",
     "email TEXT NOT NULL",
-    "profile_pic TEXT NOT NULL",
     "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
   ]
 }
@@ -1254,7 +1212,7 @@ Response:
 ### Creating the Table `spectators`:
 Request:
 ```jq
-https://deckdealer.hopto.org/createTable/spectators/spectator_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/spectators/spectator_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1269,7 +1227,6 @@ Response:
     "game_id INTEGER NOT NULL",
     "name TEXT NOT NULL",
     "email TEXT NOT NULL",
-    "profile_pic TEXT NOT NULL",
     "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
   ]
 }
