@@ -1703,1398 +1703,54 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-### Assigning `users` to `Roles` and creating `User Profiles`
-1. Lets upload profile pictures for the 4 users we added earlier and 2 reqtaurants...
-2. `alice` and `bob` are managers at `Iron Hill` and `Deer Park`; let's add them to the **`managers`** table
-3. `anna` and `steve` are bartenders; let's add them to the **`bartenders`** table
+We would like to add the game `Blackjack` to the `games` table. <br />
 
-### Setting up the `Restaurant Tables`
-4. Add `Iron Hill` and `Deer Park` to the `restaurant_profile` and `restaurant_photos` tables
-5. Then add their schedules to the `restaurant_schedule` table
-
-### Simulate `Restaurant Requests`
-6. Log in as a `manager` and create a `shift request` into the `restaurant_requests` table
-
----
-
-### 4.1 - Uploading Profile Pictures
-
-<details><summary> (click here to expand) </summary>
-
-<br />We can use the endpoint `/uploadImageUrl/url/<url>` to upload profile pictures...
-
----
-#### Uploading profile picture for `alice`:
-Arguments:
-```rexx
-url = https://www.w3schools.com/w3images/avatar4.png
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar4.png
-```
-
-Response:
-```json
-{
-  "message": "image url uploaded",
-  "url": "https://www.w3schools.com/w3images/avatar4.png",
-  "full_path": "/static/img/1.png",
-  "file_name": "1.png"
-}
-```
----
-#### Uploading profile picture for `bob`:
-Arguments:
-```rexx
-url = https://www.w3schools.com/w3images/avatar2.png
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar2.png
-```
-
-Response:
-```json
-{
-  "message": "image url uploaded",
-  "url": "https://www.w3schools.com/w3images/avatar2.png",
-  "full_path": "/static/img/2.png",
-  "file_name": "2.png"
-}
-```
----
-#### Uploading profile picture for `anna`:
-Arguments:
-```rexx
-url = https://www.w3schools.com/w3images/avatar5.png
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar5.png
-```
-
-Response:
-```json
-{
-  "message": "image url uploaded",
-  "url": "https://www.w3schools.com/w3images/avatar5.png",
-  "full_path": "/static/img/3.png",
-  "file_name": "3.png"
-}
-```
----
-#### Uploading profile picture for `steve`:
-Arguments:
-```rexx
-url = https://www.w3schools.com/w3images/avatar3.png
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/uploadImageUrl?url=https://www.w3schools.com/w3images/avatar3.png
-```
-
-Response:
-```json
-{
-  "message": "image url uploaded",
-  "url": "https://www.w3schools.com/w3images/avatar3.png",
-  "full_path": "/static/img/4.png",
-  "file_name": "4.png"
-}
-```
----
-#### Uploading profile picture for `Iron Hill`:
-Arguments:
-```rexx
-url = https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png
-```
-
-Response:
-```json
-{
-  "message": "image url uploaded",
-  "url": "https://www.ironhillbrewery.com/assets/craft/TAPHOUSE_LOGO.png",
-  "full_path": "/static/img/5.png",
-  "file_name": "5.png"
-}
-```
----
-#### Uploading profile picture for `Deer Park`:
-Arguments:
-```rexx
-url = https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44-4f35-bdf9-b0a855c09328.jpg
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/uploadImageUrl?url=https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44-4f35-bdf9-b0a855c09328.jpg
-```
-
-Response:
-```json
-{
-  "message": "image url uploaded",
-  "url": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/jciwfypa/ef5aec3e-af44-4f35-bdf9-b0a855c09328.jpg",
-  "full_path": "/static/img/6.jpeg",
-  "file_name": "6.jpeg"
-}
-```
----
-#### Uploading photos for `Iron Hill`:
-Arguments:
-```rexx
-url = https://www.ironhillbrewery.com/assets/craft/_locationPic1x/locations_0005_newark.jpg
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/_locationPic1x/locations_0005_newark.jpg
-```
-
-Response:
-```json
-{
-  "message": "image url uploaded",
-  "url": "https://www.ironhillbrewery.com/assets/craft/_locationPic1x/locations_0005_newark.jpg",
-  "full_path": "/static/img/7.jpeg",
-  "file_name": "7.jpeg"
-}
-```
-
-Arguments:
-```rexx
-url = https://www.ironhillbrewery.com/assets/craft/IMG_7690-2.jpg
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/uploadImageUrl?url=https://www.ironhillbrewery.com/assets/craft/IMG_7690-2.jpg
-```
-
-Response:
-```json
-{
-  "message": "image url uploaded",
-  "url": "https://www.ironhillbrewery.com/assets/craft/IMG_7690-2.jpg",
-  "full_path": "/static/img/8.jpeg",
-  "file_name": "8.jpeg"
-}
-```
----
-#### Uploading photos for `Deer Park`:
-Arguments:
-```rexx
-url = https://popmenucloud.com/jciwfypa/865660db-c7fd-4d06-bf3b-0ee4843caa25.jpg
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/uploadImageUrl?url=https://popmenucloud.com/jciwfypa/865660db-c7fd-4d06-bf3b-0ee4843caa25.jpg
-```
-
-Response:
-```json
-{
-  "message": "image url uploaded",
-  "url": "https://popmenucloud.com/jciwfypa/865660db-c7fd-4d06-bf3b-0ee4843caa25.jpg",
-  "full_path": "/static/img/9.jpeg",
-  "file_name": "9.jpeg"
-}
-```
-
-Arguments:
-```rexx
-url = https://popmenucloud.com/jciwfypa/0a3a3426-0fc1-42bd-8fd8-5e4ec7250aff.jpg
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/uploadImageUrl?url=https://popmenucloud.com/jciwfypa/0a3a3426-0fc1-42bd-8fd8-5e4ec7250aff.jpg
-```
-
-Response:
-```json
-{
-  "message": "image url uploaded",
-  "url": "https://popmenucloud.com/jciwfypa/0a3a3426-0fc1-42bd-8fd8-5e4ec7250aff.jpg",
-  "full_path": "/static/img/10.jpeg",
-  "file_name": "10.jpeg"
-}
-```
-
-</details>
-
----
-
-### 4.2 - Adding `alice` and `bob` to `managers` table
-<details><summary> (click here to expand) </summary>
-
-<br />To assign `alice` and `bob` as managers, we will need their `user_id`.
-
----
-To get info of all users, make a request to the `users` table
-
+### If we try to add anything the `games` table without parameters, we get a `missing parameters` message:
 Request:
 ```jq
-https://deckdealer.hopto.org/get/users
-```
-
-Response:
-```json
-{
-  "message": "found 5 user entries",
-  "data": [
-    {
-      "user_id": 1,
-      "username": "admin",
-      "password": "a2025bd8b86a53fccf6f42eae008ccbf65dcf6aa55e0e6a477b57c5d74b1e611e5902fe9673d8cddb84896005e125d589e39e258a7fbeb3e7208b866e7746e60",
-      "create_time": "2022-10-19 00:23:52.930"
-    },
-    {
-      "user_id": 2,
-      "username": "alice",
-      "password": "b71dab3e13191834f1f0dd53c8b4be30da005ee7eea47ec8673d41c5ee959be34881a9ac99d473bec40b2de489e83694e5e532babbdcfc16c93d137872cffa96",
-      "create_time": "2022-10-21 10:06:45.643"
-    },
-    {
-      "user_id": 3,
-      "username": "bob",
-      "password": "7e6c183ddaf351a96fc6541b6ece83ea130c34ff8151a7e219d7bebace3398d685809c999065a54c7c1c785a4ae5b230f247cae5c97b958c7b881c86e81c3e07",
-      "create_time": "2022-10-21 10:06:45.830"
-    },
-    {
-      "user_id": 4,
-      "username": "anna",
-      "password": "a0d7bf58601f8f515eb56fb80ec986e49e40eb96572f33abab6ce924c7b3cd0d3cadeb7d15ea3075487a48d17412c62b112d7e0cdcc72a269e75d358a75d9af5",
-      "create_time": "2022-10-21 10:06:45.955"
-    },
-    {
-      "user_id": 5,
-      "username": "steve",
-      "password": "d30aa6f4422040cee131efa311c73dd42dd9f2cb6424f23ac9caf403bec2e4289066e846c3df109f612ef2572f95e17f2eddedc36786ba1eb0f50da571ebcac2",
-      "create_time": "2022-10-21 10:06:46.099"
-    }
-  ]
-}
-```
----
-
-We see that `alice` has a `user_id` of `2` and `bob` has a `user_id` of `3` 
-
----
-To see what the `required parameters` are for the `managers` table, make a request to `/add/managers`
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/managers
+https://deckdealer.hopto.org/add/games
 ```
 
 Response:
 ```json
 {
   "message": "missing paramaters",
-  "required": [
-    {
-      "user_id": "INTEGER",
-      "first_name": "TEXT",
-      "last_name": "TEXT",
-      "phone_number": "TEXT",
-      "email": "TEXT",
-      "profile_pic": "TEXT"
-    }
-  ],
-  "missing": [
-    {
-      "user_id": "INTEGER",
-      "first_name": "TEXT",
-      "last_name": "TEXT",
-      "phone_number": "TEXT",
-      "email": "TEXT",
-      "profile_pic": "TEXT"
-    }
-  ],
-  "submitted": [
-    {}
-  ]
+  "required": [{"name": "TEXT", "min_players": "TEXT", "max_players": "TEXT", "min_decks": "TEXT", "max_decks": "TEXT", "player_actions": "TEXT", "rules": "TEXT"}],
+  "missing": [{"name": "TEXT", "min_players": "TEXT", "max_players": "TEXT", "min_decks": "TEXT", "max_decks": "TEXT", "player_actions": "TEXT", "rules": "TEXT"}],
+  "submitted": [{}],
 }
 ```
----
-#### Adding `alice` to `managers` table:
+
+### Adding the game `Blackjack` to the `games` table:
+> This is the simplest form of `Blackjack`
+> 1. All players are dealt 2 cards
+> 2. Dealer asks each player to "hit" or "stay"
+> 3. Dealer hits until hand is at least 17
+> 4. Hand that is closest to 21 but not greater WINS
 Arguments:
 ```rexx
-user_id = 2
-first_name = Alice
-last_name = Alice
-phone_number = (302) 555-5555
-email = alice@udel.edu
-profile_pic = 1.png
+name = Blackjack
+min_players = 2
+max_players = 10
+min_decks = 1
+max_decks = 10
+player_actions = hit, stay
+rules = 1. All players are dealt 2 cards, 2. Dealer asks each player to "hit" or "stay", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS
 ```
 
 Request:
 ```jq
-https://deckdealer.hopto.org/add/managers/user_id/2/first_name/Alice/last_name/Alice/phone_number/(302) 555-5555/email/alice@udel.edu/profile_pic/1.png
+https://deckdealer.hopto.org/add/games/name/Blackjack/min_players/2/max_players/10/min_decks/1/max_decks/10/player_actions/hit, stay/rules/1. All players are dealt 2 cards, 2. Dealer asks each player to "hit" or "stay", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS
 ```
 
 Response:
 ```json
+
 {
-  "message": "data added to <managers>",
-  "manager_id": 1,
-  "user_id": "2"
+  "message": "data added to <games>",
+  "game_id": 1
 }
 ```
----
-#### Adding `bob` to `managers` table:
-Arguments:
-```rexx
-user_id = 3
-first_name = Bob
-last_name = Bob
-phone_number = (215) 555-5555
-email = bob@udel.edu
-profile_pic = 2.png
-```
-
-Request:
-```erlang
-https://deckdealer.hopto.org/add/managers?user_id=3&first_name=Bob&last_name=Bob&phone_number=(215) 555-5555&email=bob@udel.edu&profile_pic=2.png
-```
-
-Response:
-```json
-{
-  "message": "data added to <managers>",
-  "manager_id": 2,
-  "user_id": "3"
-}
-```
-
-</details>
-
----
-
-### 4.3 - Adding `anna` and `steve` to `bartenders` table
-
-<details><summary> (click here to expand) </summary>
-
----
-To see what the `required parameters` are for the `bartenders` table, make a request to `/add/bartenders`
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartenders
-```
-
-Response:
-```json
-{
-  "message": "missing paramaters",
-  "required": [
-    {
-      "user_id": "INTEGER",
-      "first_name": "TEXT",
-      "last_name": "TEXT",
-      "address": "TEXT",
-      "phone_number": "TEXT",
-      "email": "TEXT",
-      "profile_pic": "TEXT"
-    }
-  ],
-  "missing": [
-    {
-      "user_id": "INTEGER",
-      "first_name": "TEXT",
-      "last_name": "TEXT",
-      "address": "TEXT",
-      "phone_number": "TEXT",
-      "email": "TEXT",
-      "profile_pic": "TEXT"
-    }
-  ],
-  "submitted": [
-    {}
-  ]
-}
-```
----
-#### Adding `anna` to `bartenders` table:
-Arguments:
-```rexx
-user_id = 4
-first_name = Anna
-last_name = Anna
-address = 555 N. Chapel St., Newark, DE 19711
-phone_number = (555) 555-5555
-email = anna@udel.edu
-profile_pic = 3.png
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartenders/user_id/4/first_name/Anna/last_name/Anna/address/555 N. Chapel St., Newark, DE 19711/phone_number/(555) 555-5555/email/anna@udel.edu/profile_pic/3.png
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartenders>",
-  "bartender_id": 1,
-  "user_id": "4"
-}
-```
----
-#### Adding `steve` to `bartenders` table:
-Arguments:
-```rexx
-user_id = 5
-first_name = Steve
-last_name = Steve
-address = 555 S. Main St., Newark, DE 19711
-phone_number = (610) 555-5555
-email = steve@udel.edu
-profile_pic = 4.png
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartenders/user_id/5/first_name/Steve/last_name/Steve/address/555 S. Main St., Newark, DE 19711/phone_number/(610) 555-5555/email/steve@udel.edu/profile_pic/4.png
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartenders>",
-  "bartender_id": 2,
-  "user_id": "5"
-}
-```
-
-</details>
-
----
-
-### 4.4 - Adding `Iron Hill` and `Deer Park` to `restaurant_profile` and `restaurant_photos` table
-
-<details><summary> (click here to expand) </summary>
-
----
-To see what the `required parameters` are for the `restaurant_profile` table, make a request to `/add/restaurant_profile`
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_profile
-```
-
-Response:
-```json
-{
-  "message": "missing paramaters",
-  "required": [
-    {
-      "manager_id": "INTEGER",
-      "restaurant_name": "TEXT",
-      "address": "TEXT",
-      "bio": "TEXT",
-      "phone_number": "TEXT",
-      "profile_pic": "TEXT"
-    }
-  ],
-  "missing": [
-    {
-      "manager_id": "INTEGER",
-      "restaurant_name": "TEXT",
-      "address": "TEXT",
-      "bio": "TEXT",
-      "phone_number": "TEXT",
-      "profile_pic": "TEXT"
-    }
-  ],
-  "submitted": [
-    {}
-  ]
-}
-```
----
-#### Adding `Iron Hill` to `restaurant_profile` table:
-> Recall that `alice` with `manager_id` of `1` is the manager of `Iron Hill`
-
-Arguments:
-```rexx
-manager_id = 1
-restaurant_name = Iron Hill Brewery & Restaurant
-address = 147 EAST MAIN ST. NEWARK, DE 19711
-bio = Craft Beer and Food
-phone_number = (302) 266-9000
-profile_pic = 5.png
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_profile/manager_id/1/restaurant_name/Iron Hill Brewery & Restaurant/address/147 EAST MAIN ST. NEWARK, DE 19711/bio/Craft Beer and Food/phone_number/(302) 266-9000/profile_pic/5.png
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_profile>",
-  "restaurant_id": 1,
-  "manager_id": "1"
-}
-```
----
-#### Adding `Deer Park` to `restaurant_profile` table:
-> Recall that `bob` with `manager_id` of `2` is the manager of `Deer Park`
-
-Arguments:
-```rexx
-manager_id = 2
-restaurant_name = Deer Park Tavern
-address = 108 West Main Street, Newark, DE 19711
-bio = Good food and spirits!
-phone_number = (302) 368-9414
-profile_pic = 6.jpeg
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_profile/manager_id/2/restaurant_name/Deer Park Tavern/address/108 West Main Street, Newark, DE 19711/bio/Good food and spirits!/phone_number/(302) 368-9414/profile_pic/6.jpeg
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_profile>",
-  "restaurant_id": 2,
-  "manager_id": "2"
-}
-```
-
----
-To see what the `required parameters` are for the `restaurant_photos` table, make a request to `/add/restaurant_photos`
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_photos
-```
-
-Response:
-```json
-{
-  "message": "missing paramaters",
-  "required": [
-    {
-      "restaurant_id": "INTEGER",
-      "file_name": "TEXT"
-    }
-  ],
-  "missing": [
-    {
-      "restaurant_id": "INTEGER",
-      "file_name": "TEXT"
-    }
-  ],
-  "submitted": [
-    {}
-  ]
-}
-```
----
-#### Adding `Iron Hill` photos to the `restaurant_photos` table:
-Arguments:
-```rexx
-restaurant_id = 1
-file_name = 7.jpeg
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_photos/restaurant_id/1/file_name/7.jpeg
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_photos>",
-  "photo_id": 1,
-  "restaurant_id": "1"
-}
-```
-
-Arguments:
-```rexx
-restaurant_id = 1
-file_name = 8.jpeg
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_photos/restaurant_id/1/file_name/8.jpeg
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_photos>",
-  "photo_id": 2,
-  "restaurant_id": "1"
-}
-```
----
-#### Adding `Deer Park` photos to the `restaurant_photos` table:
-Arguments:
-```rexx
-restaurant_id = 2
-file_name = 9.jpeg
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_photos/restaurant_id/2/file_name/9.jpeg
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_photos>",
-  "photo_id": 3,
-  "restaurant_id": "2"
-}
-```
-
-Arguments:
-```rexx
-restaurant_id = 2
-file_name = 10.jpeg
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_photos/restaurant_id/2/file_name/10.jpeg
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_photos>",
-  "photo_id": 4,
-  "restaurant_id": "2"
-}
-```
-
-</details>
-
----
-
-### 4.5 - Adding `Iron Hill` and `Deer Park` schedules to the `restaurant_schedule` table
-
-<details><summary> (click here to expand) </summary>
-
----
-To see what the `required parameters` are for the `restaurant_schedule` table, make a request to `/add/restaurant_schedule`
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_schedule
-```
-
-Response:
-```json
-{
-  "message": "missing paramaters",
-  "required": [
-    {
-      "restaurant_id": "INTEGER",
-      "mon_open": "DATETIME",
-      "mon_close": "DATETIME",
-      "tue_open": "DATETIME",
-      "tue_close": "DATETIME",
-      "wed_open": "DATETIME",
-      "wed_close": "DATETIME",
-      "thu_open": "DATETIME",
-      "thu_close": "DATETIME",
-      "fri_open": "DATETIME",
-      "fri_close": "DATETIME",
-      "sat_open": "DATETIME",
-      "sat_close": "DATETIME",
-      "sun_open": "DATETIME",
-      "sun_close": "DATETIME"
-    }
-  ],
-  "missing": [
-    {
-      "restaurant_id": "INTEGER",
-      "mon_open": "DATETIME",
-      "mon_close": "DATETIME",
-      "tue_open": "DATETIME",
-      "tue_close": "DATETIME",
-      "wed_open": "DATETIME",
-      "wed_close": "DATETIME",
-      "thu_open": "DATETIME",
-      "thu_close": "DATETIME",
-      "fri_open": "DATETIME",
-      "fri_close": "DATETIME",
-      "sat_open": "DATETIME",
-      "sat_close": "DATETIME",
-      "sun_open": "DATETIME",
-      "sun_close": "DATETIME"
-    }
-  ],
-  "submitted": [
-    {}
-  ]
-}
-```
----
-#### Adding `Iron Hill` schedule to the `restaurant_schedule` table:
-Arguments:
-```rexx
-restaurant_id = 1
-mon_open = 11:30
-mon_close = 21:00
-tue_open = 11:30
-tue_close = 21:00
-wed_open = 11:30
-wed_close = 22:00
-thu_open = 11:30
-thu_close = 22:00
-fri_open = 11:30
-fri_close = 23:00
-sat_open = 11:30
-sat_close = 23:00
-sun_open = 11:30
-sun_close = 21:00
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_schedule/restaurant_id/1/mon_open/11:30/mon_close/21:00/tue_open/11:30/tue_close/21:00/wed_open/11:30/wed_close/22:00/thu_open/11:30/thu_close/22:00/fri_open/11:30/fri_close/23:00/sat_open/11:3
-0/sat_close/23:00/sun_open/11:30/sun_close/21:00
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_schedule>",
-  "schedule_id": 1,
-  "restaurant_id": "1"
-}
-```
----
-#### Adding `Deer Park` schedule to the `restaurant_schedule` table:
-Arguments:
-```rexx
-restaurant_id = 2
-mon_open = 11:30
-mon_close = 01:00
-tue_open = 11:30
-tue_close = 01:00
-wed_open = 11:30
-wed_close = 01:00
-thu_open = 11:30
-thu_close = 01:00
-fri_open = 11:30
-fri_close = 01:00
-sat_open = 10:00
-sat_close = 01:00
-sun_open = 09:00
-sun_close = 01:00
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_schedule/restaurant_id/2/mon_open/11:30/mon_close/01:00/tue_open/11:30/tue_close/01:00/wed_open/11:30/wed_close/01:00/thu_open/11:30/thu_close/01:00/fri_open/11:30/fri_close/01:00/sat_open/10:0
-0/sat_close/01:00/sun_open/09:00/sun_close/01:00
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_schedule>",
-  "schedule_id": 2,
-  "restaurant_id": "2"
-}
-```
-
-</details>
-
-### 4.6 - Simulate Restaurant Requests
-
-<details><summary> (click here to expand) </summary>
-
----
-#### First: log out (current user should be: `admin` with `user_id` of `1`)
-Request:
-```jq
-https://deckdealer.hopto.org/logout
-```
-
-Response:
-```json
-{
-  "message": "user logged out",
-  "user_id": "1"
-}
-```
----
-#### Log in as `alice` - the manager of `Iron Hill`:
-Arguments:
-```rexx
-username = alice
-password = alice
-```
-
-POST Request:
-```jq
-POST(url='https://deckdealer.hopto.org/login', data={"username": "alice", "password": "alice"})
-```
-
-Response:
-```json
-{
-  "message": "user login success",
-  "user_id": 2,
-  "username": "alice",
-  "token": "IXp5ZGc4cVUvS1VKNTUzRy9nOEpBOXc9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeWxJYVVMZz09"
-}
-```
----
-#### Verify that the user `alice` with `user_id` of `2` is a `manager`:
-Arguments:
-```rexx
-user_id = 2
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/managers/user_id/2
-```
-
-Response:
-```json
-{
-  "message": "1 manager entry found",
-  "data": {
-    "manager_id": 1,
-    "user_id": 2,
-    "first_name": "Alice",
-    "last_name": "Alice",
-    "phone_number": "(302) 555-5555",
-    "email": "alice@udel.edu",
-    "profile_pic": "1.png",
-    "entry_time": "2022-10-25 20:39:58.215"
-  }
-}
-```
----
-#### Confirm that the manager with `maneger_id` of `1` is an `Iron Hill` manager:
-Arguments:
-```rexx
-manager_id = 1
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_profile/manager_id/1
-```
-
-Response:
-```json
-{
-  "message": "1 restaurant_profile entry found",
-  "data": {
-    "restaurant_id": 1,
-    "manager_id": 1,
-    "restaurant_name": "Iron Hill Brewery & Restaurant",
-    "address": "147 EAST MAIN ST. NEWARK, DE 19711",
-    "bio": "Craft Beer and Food",
-    "phone_number": "(302) 266-9000",
-    "profile_pic": "5.png",
-    "entry_time": "2022-10-25 23:00:39.921"
-  }
-}
-```
----
-### Let's simulate a few `Restaurant Requests` from `Iron Hill`
-
-#### A Thursday Lunch Shift (completed by `anna`):
-Arguments:
-```rexx
-restaurant_id = 1
-hourly_wage = 2.33
-shift_start = 2022-10-20 10:00:00
-shift_end = 2022-10-20 14:30:00
-status = completed
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00/status/completed
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_requests>",
-  "request_id": 1,
-  "restaurant_id": "1"
-}
-```
-
-#### Simulate `anna` had `snagged` shift:
-Arguments:
-```rexx
-bartender_id = 1
-request_id = 1
-restaurant_id = 1
-shift_start = 2022-10-20 10:00:00
-shift_end = 2022-10-20 14:30:00
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/1/request_id/1/restaurant_id/1/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_shifts>",
-  "shift_id": 1,
-  "bartender_id": "1",
-  "restaurant_id": "1",
-  "request_id": "1"
-}
-```
-
-#### Simulate `anna` had `completed` shift:
-Arguments:
-```rexx
-bartender_id = 1
-shift_id = 1
-restaurant_id = 1
-hourly_wage = 2.33
-shift_start = 2022-10-20 10:00:00
-shift_end = 2022-10-20 14:30:00
-clock_in = 2022-10-20 09:45:00
-clock_out = 2022-10-20 14:10:00
-hours_worked = 4.42
-tips = 85.00
-total_earnings = 95.30
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_wages/bartender_id/1/shift_id/1/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-20 10:00:00/shift_end/2022-10-20 14:30:00/clock_in/2022-10-20 09:45:00/clock_out/2022-10-20
-14:10:00/hours_worked/4.42/tips/85.00/total_earnings/95.30
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_wages>",
-  "wage_id": 1,
-  "bartender_id": "1",
-  "shift_id": "1",
-  "restaurant_id": "1"
-}
-```
-
-#### A Friday Dinner-Close Shift:
-Arguments:
-```rexx
-restaurant_id = 1
-hourly_wage = 2.33
-shift_start = 2022-10-21 16:00:00
-shift_end = 2022-10-22 00:30:00
-status = completed
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00/status/completed
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_requests>",
-  "request_id": 2,
-  "restaurant_id": "1"
-}
-```
-
-#### Simulate `steve` snagged `shift`:
-Arguments:
-```rexx
-bartender_id = 2
-request_id = 2
-restaurant_id = 1
-shift_start = 2022-10-21 16:00:00
-shift_end = 2022-10-22 00:30:00
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/2/request_id/2/restaurant_id/1/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_shifts>",
-  "shift_id": 2,
-  "bartender_id": "2",
-  "restaurant_id": "1",
-  "request_id": "2"
-}
-```
-
-#### Simulate `steve` had completed `shift`:
-Arguments:
-```rexx
-bartender_id = 2
-shift_id = 2
-restaurant_id = 1
-hourly_wage = 2.33
-shift_start = 2022-10-21 16:00:00
-shift_end = 2022-10-22 00:30:00
-clock_in = 2022-10-21 16:05:00
-clock_out = 2022-10-22 01:03:00
-hours_worked = 8.97
-tips = 147.00
-total_earnings = 167.90
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_wages/bartender_id/2/shift_id/2/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-21 16:00:00/shift_end/2022-10-22 00:30:00/clock_in/2022-10-21 16:05:00/clock_out/2022-10-22
-01:03:00/hours_worked/8.97/tips/147.00/total_earnings/167.90
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_wages>",
-  "wage_id": 2,
-  "bartender_id": "2",
-  "shift_id": "2",
-  "restaurant_id": "1"
-}
-```
-
-#### A Saturday Cocktail Shift:
-Arguments:
-```rexx
-restaurant_id = 1
-hourly_wage = 2.33
-shift_start = 2022-10-29 18:00:00
-shift_end = 2022-10-29 23:00:00
-status = open
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/1/hourly_wage/2.33/shift_start/2022-10-29 18:00:00/shift_end/2022-10-29 23:00:00/status/open
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_requests>",
-  "request_id": 3,
-  "restaurant_id": "1"
-}
-```
----
-#### Now, log out (current user should be: `alice` with `user_id` of `2`)
-Request:
-```jq
-https://deckdealer.hopto.org/logout
-```
-
-Response:
-```json
-{
-  "message": "user logged out",
-  "user_id": "2"
-}
-```
----
-#### Log in as `bob` - the manager of `Deer Park`:
-POST Request:
-```jq
-POST(url='https://deckdealer.hopto.org/login', data={"username": "bob", "password": "bob"})
-```
-
-Response:
-```json
-{
-  "message": "user login success",
-  "user_id": 3,
-  "username": "bob",
-  "token": "IUltbWZ4NEROTzhFdTIzZHdUMXF2SUE9PT9nQVNWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
-}
-```
----
-#### Verify that the user `bob` with `user_id` of `3` is a `manager`:
-Arguments:
-```rexx
-user_id = 3
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/managers/user_id/3
-```
-
-Response:
-```json
-{
-  "message": "1 manager entry found",
-  "data": {
-    "manager_id": 2,
-    "user_id": 3,
-    "first_name": "Bob",
-    "last_name": "Bob",
-    "phone_number": "(215) 555-5555",
-    "email": "bob@udel.edu",
-    "profile_pic": "2.png",
-    "entry_time": "2022-10-25 20:44:47.063"
-  }
-}
-```
----
-#### Confirm that the manager with `maneger_id` of `2` is an `Deer Park` manager:
-Arguments:
-```rexx
-manager_id = 2
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_profile/manager_id/2
-```
-
-Response:
-```json
-{
-  "message": "1 restaurant_profile entry found",
-  "data": {
-    "restaurant_id": 2,
-    "manager_id": 2,
-    "restaurant_name": "Deer Park Tavern",
-    "address": "108 West Main Street, Newark, DE 19711",
-    "bio": "Good food and spirits!",
-    "phone_number": "(302) 368-9414",
-    "profile_pic": "6.jpeg",
-    "entry_time": "2022-10-25 23:16:31.603"
-  }
-}
-```
----
-### Let's simulate a few `Restaurant Requests` from `Deer Park`
-
-#### A Sunday Brunch Shift:
-Arguments:
-```rexx
-restaurant_id = 2
-hourly_wage = 3.50
-shift_start = 2022-10-23 08:00:00
-shift_end = 2022-10-23 14:00:00
-status = closed
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00/status/closed
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_requests>",
-  "request_id": 4,
-  "restaurant_id": "2"
-}
-```
-
-#### Simulate `anna` had `snagged` shift:
-Arguments:
-```rexx
-bartender_id = 1
-request_id = 4
-restaurant_id = 2
-shift_start = 2022-10-23 08:00:00
-shift_end = 2022-10-23 14:00:00
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/1/request_id/4/restaurant_id/2/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_shifts>",
-  "shift_id": 3,
-  "bartender_id": "1",
-  "restaurant_id": "2",
-  "request_id": "4"
-}
-```
-
-#### Simulate `anna` had `completed` shift:
-Arguments:
-```rexx
-bartender_id = 1
-shift_id = 3
-restaurant_id = 2
-hourly_wage = 3.50
-shift_start = 2022-10-23 08:00:00
-shift_end = 2022-10-23 14:00:00
-clock_in = 2022-10-23 07:40:00
-clock_out = 2022-10-23 15:25:00
-hours_worked = 7.75
-tips = 165.00
-total_earnings = 192.12
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_wages/bartender_id/1/shift_id/3/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-23 08:00:00/shift_end/2022-10-23 14:00:00/clock_in/2022-10-23 07:40:00/clock_out/2022-10-23
-15:25:00/hours_worked/7.75/tips/165.00/total_earnings/192.12
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_wages>",
-  "wage_id": 3,
-  "bartender_id": "1",
-  "shift_id": "3",
-  "restaurant_id": "2"
-}
-```
-
-#### A Monday Dinner-Close Shift:
-Arguments:
-```rexx
-restaurant_id = 2
-hourly_wage = 3.50
-shift_start = 2022-10-24 16:00:00
-shift_end = 2022-10-25 02:00:00
-status = closed
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00/status/closed
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_requests>",
-  "request_id": 5,
-  "restaurant_id": "2"
-}
-```
-
-#### Simulate `steve` snagged `shift`:
-Arguments:
-```rexx
-bartender_id = 2
-request_id = 5
-restaurant_id = 2
-shift_start = 2022-10-24 16:00:00
-shift_end = 2022-10-25 02:00:00
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_shifts/bartender_id/2/request_id/5/restaurant_id/2/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_shifts>",
-  "shift_id": 4,
-  "bartender_id": "2",
-  "restaurant_id": "2",
-  "request_id": "5"
-}
-```
-
-#### Simulate `steve` had completed `shift`:
-Arguments:
-```rexx
-bartender_id = 2
-shift_id = 4
-restaurant_id = 2
-hourly_wage = 3.50
-shift_start = 2022-10-24 16:00:00
-shift_end = 2022-10-25 02:00:00
-clock_in = 2022-10-24 16:05:00
-clock_out = 2022-10-25 02:13:00
-hours_worked = 10.13
-tips = 108.00
-total_earnings = 143.46
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/bartender_wages/bartender_id/2/shift_id/4/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-24 16:00:00/shift_end/2022-10-25 02:00:00/clock_in/2022-10-24 16:05:00/clock_out/2022-10-25
-02:13:00/hours_worked/10.13/tips/108.00/total_earnings/143.46
-```
-
-Response:
-```json
-{
-  "message": "data added to <bartender_wages>",
-  "wage_id": 4,
-  "bartender_id": "2",
-  "shift_id": "4",
-  "restaurant_id": "2"
-}
-```
-
-#### A Wednesday Lunch Shift:
-Arguments:
-```rexx
-restaurant_id = 2
-hourly_wage = 3.50
-shift_start = 2022-10-26 10:30:00
-shift_end = 2022-10-26 15:00:00
-status = open
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/add/restaurant_requests/restaurant_id/2/hourly_wage/3.50/shift_start/2022-10-26 10:30:00/shift_end/2022-10-26 15:00:00/status/open
-```
-
-Response:
-```json
-{
-  "message": "data added to <restaurant_requests>",
-  "request_id": 6,
-  "restaurant_id": "2"
-}
-```
-
-</details>
 
 </details>
 
@@ -3892,19 +2548,124 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-### Let's examine all the tables we created and inserted data from the previous workflows
-1. Show Tables: `users`, `bartenders`, `managers`, `restaurant_profile`, `restaurant_photos`, `restaurant_schedule`, `restaurant_requests`, `bartender_shifts`, `bartender_wages`
-2. Examine the table `bartender_wages` by `tips`, `total_earnings`, `hours_worked`, `etc...`
-3. Investigate `bartenders` that were late or early to their shift
-4. Find `shifts` that exceed the `requested hours` and group by `restaurant`
+### Let's simulate playing a full game of `Blackjack`
+1. Fetch the rules for the game `Blackjack` from the `games` table 
+2. Fetch all registered `users` 
+3. Adding `dealer`, `alice` and `bob` to the `players` table
+4. Adding `anna` and `steve` to the `spectators` table
+5. Simulate the first round of play by dealing 2 cards to each user
+6. Simulate `alice` performing `hit` or `stay`
+7. Simulate `bob` performing `hit` or `stay`
+8. Simulate `dealer` performing `hit` or `stay`
+7. Determine the winner and add the results to the `score_board` table
 
 ---
 
-### 5.1 - Show Active Tables
+### 5.1 - Fetch the rules for the game `Blackjack` from the `games` table
 
 <details><summary> (click here to expand) </summary>
 
-#### Table: `users`
+There are several ways to do this. <br>
+
+#### We could fetch the game with the `name=Blackjack` from the `games` table:
+Arguments:
+```rexx
+name = Blackjack
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/games/name/Blackjack
+```
+
+Response:
+```json
+
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-01 21:10:51.915"
+  }
+}
+```
+
+NOTE: both: `https://deckdealer.hopto.org/get/games/name/Blackjack` and `https://deckdealer.hopto.org/get/games?name=Blackjack` will work!
+
+#### We could fetch all games in the `games` table to get the `game_id` for `Blackjack`, and then fetch the `game_id`:
+Request:
+```jq
+https://deckdealer.hopto.org/get/games
+```
+
+Response:
+```json
+
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-01 21:10:51.915"
+  }
+}
+```
+
+We find that the `game_id` for `Blackjack` is `1`
+#### Fetch the `games` table for `game_id=1`:
+Arguments:
+```rexx
+game_id = 1
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/games/game_id/1
+```
+
+Response:
+```json
+
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-01 21:10:51.915"
+  }
+}
+```
+
+However you wish to make requests is up to you.
+
+</details>
+
+---
+
+### 5.2 - Fetch all registered `users`
+
+<details><summary> (click here to expand) </summary>
+
+#### Fetching all registerd `users`:
 Request:
 ```jq
 https://deckdealer.hopto.org/get/users
@@ -3913,161 +2674,14 @@ https://deckdealer.hopto.org/get/users
 Response:
 ```json
 {
-  "message": "found 5 user entries",
+  "message": "found 6 user entries",
   "data": [
-    {"user_id": 1, "username": "admin", "password": "a2025bd8b86a53fccf6f42eae008ccbf65dcf6aa55e0e6a477b57c5d74b1e611e5902fe9673d8cddb84896005e125d589e39e258a7fbeb3e7208b866e7746e60", "create_time": "2022-10-19 00:23:52.930"},
-    {"user_id": 2, "username": "alice", "password": "b71dab3e13191834f1f0dd53c8b4be30da005ee7eea47ec8673d41c5ee959be34881a9ac99d473bec40b2de489e83694e5e532babbdcfc16c93d137872cffa96", "create_time": "2022-10-21 10:06:45.643"},
-    {"user_id": 3, "username": "bob", "password": "7e6c183ddaf351a96fc6541b6ece83ea130c34ff8151a7e219d7bebace3398d685809c999065a54c7c1c785a4ae5b230f247cae5c97b958c7b881c86e81c3e07", "create_time": "2022-10-21 10:06:45.830"},
-    {"user_id": 4, "username": "anna", "password": "a0d7bf58601f8f515eb56fb80ec986e49e40eb96572f33abab6ce924c7b3cd0d3cadeb7d15ea3075487a48d17412c62b112d7e0cdcc72a269e75d358a75d9af5", "create_time": "2022-10-21 10:06:45.955"},
-    {"user_id": 5, "username": "steve", "password": "d30aa6f4422040cee131efa311c73dd42dd9f2cb6424f23ac9caf403bec2e4289066e846c3df109f612ef2572f95e17f2eddedc36786ba1eb0f50da571ebcac2", "create_time": "2022-10-21 10:06:46.099"},
-  ],
-}
-```
-#### Table: `bartenders`
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartenders
-```
-
-Response:
-```json
-{
-  "message": "found 2 bartender entries",
-  "data": [
-    {"bartender_id": 1, "user_id": 4, "first_name": "Anna", "last_name": "Anna", "address": "555 N. Chapel St., Newark, DE 19711", "phone_number": "(555) 555-5555", "email": "anna@udel.edu", "profile_pic": "3.png", "entry_time": "2022-10-25 20:52:59.861"},
-    {"bartender_id": 2, "user_id": 5, "first_name": "Steve", "last_name": "Steve", "address": "555 S. Main St., Newark, DE 19711", "phone_number": "(610) 555-5555", "email": "steve@udel.edu", "profile_pic": "4.png", "entry_time": "2022-10-25 20:54:39.146"},
-  ],
-}
-```
-#### Table: `managers`
-Request:
-```jq
-https://deckdealer.hopto.org/get/managers
-```
-
-Response:
-```json
-{
-  "message": "found 2 manager entries",
-  "data": [
-    {"manager_id": 1, "user_id": 2, "first_name": "Alice", "last_name": "Alice", "phone_number": "(302) 555-5555", "email": "alice@udel.edu", "profile_pic": "1.png", "entry_time": "2022-10-25 20:39:58.215"},
-    {"manager_id": 2, "user_id": 3, "first_name": "Bob", "last_name": "Bob", "phone_number": "(215) 555-5555", "email": "bob@udel.edu", "profile_pic": "2.png", "entry_time": "2022-10-25 20:44:47.063"},
-  ],
-}
-```
-#### Table: `restaurant_profile`
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_profile
-```
-
-Response:
-```json
-{
-  "message": "found 2 restaurant_profile entries",
-  "data": [
-    {"restaurant_id": 1, "manager_id": 1, "restaurant_name": "Iron Hill Brewery & Restaurant", "address": "147 EAST MAIN ST. NEWARK, DE 19711", "bio": "Craft Beer and Food", "phone_number": "(302) 266-9000", "profile_pic": "5.png", "entry_time": "2022-10-25 23:00:39.921"},
-    {"restaurant_id": 2, "manager_id": 2, "restaurant_name": "Deer Park Tavern", "address": "108 West Main Street, Newark, DE 19711", "bio": "Good food and spirits!", "phone_number": "(302) 368-9414", "profile_pic": "6.jpeg", "entry_time": "2022-10-25 23:16:31.603"},
-  ],
-}
-```
-#### Table: `restaurant_photos`
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_photos
-```
-
-Response:
-```json
-{
-  "message": "found 4 restaurant_photo entries",
-  "data": [
-    {"photo_id": 1, "restaurant_id": 1, "file_name": "7.jpeg", "entry_time": "2022-10-25 23:28:54.850"},
-    {"photo_id": 2, "restaurant_id": 1, "file_name": "8.jpeg", "entry_time": "2022-10-25 23:29:01.316"},
-    {"photo_id": 3, "restaurant_id": 2, "file_name": "9.jpeg", "entry_time": "2022-10-25 23:30:24.726"},
-    {"photo_id": 4, "restaurant_id": 2, "file_name": "10.jpeg", "entry_time": "2022-10-25 23:30:35.574"},
-  ],
-}
-```
-#### Table: `restaurant_schedule`
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_schedule
-```
-
-Response:
-```json
-{
-  "message": "found 2 restaurant_schedule entries",
-  "data": [
-    {"schedule_id": 1, "restaurant_id": 1, "mon_open": "11:30", "mon_close": "21:00", "tue_open": "11:30", "tue_close": "21:00", "wed_open": "11:30", "wed_close": "22:00", "thu_open": "11:30", "thu_close": "22:00", "fri_open": "11:30", "fri_close": "23:00", "sat_open": "11:30", "sat_close": "23:00", "sun_open": "11:30", "sun_close": "21:00", "entry_time": "2022-10-26 06:11:56.158"},
-    {"schedule_id": 2, "restaurant_id": 2, "mon_open": "11:30", "mon_close": "01:00", "tue_open": "11:30", "tue_close": "01:00", "wed_open": "11:30", "wed_close": "01:00", "thu_open": "11:30", "thu_close": "01:00", "fri_open": "11:30", "fri_close": "01:00", "sat_open": "10:00", "sat_close": "01:00", "sun_open": "09:00", "sun_close": "01:00", "entry_time": "2022-10-26 06:14:44.158"},
-  ],
-}
-```
-#### Table: `restaurant_requests`
-Request:
-```jq
-https://deckdealer.hopto.org/get/restaurant_requests
-```
-
-Response:
-```json
-{
-  "message": "found 6 restaurant_request entries",
-  "data": [
-    {"request_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "status": "completed", "entry_time": "2022-10-26 08:37:03.649"},
-    {"request_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "status": "completed", "entry_time": "2022-10-26 08:37:37.271"},
-    {"request_id": 3, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-29 18:00:00", "shift_end": "2022-10-29 23:00:00", "status": "open", "entry_time": "2022-10-26 08:37:55.831"},
-    {"request_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "status": "closed", "entry_time": "2022-10-26 09:37:41.581"},
-    {"request_id": 5, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "status": "closed", "entry_time": "2022-10-26 09:40:46.969"},
-    {"request_id": 6, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-26 10:30:00", "shift_end": "2022-10-26 15:00:00", "status": "open", "entry_time": "2022-10-26 09:42:25.607"},
-  ],
-}
-```
-#### Table: `bartender_shifts`
-Arguments:
-```rexx
-
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartender_shifts
-```
-
-Response:
-```json
-{
-  "message": "found 4 bartender_shift entries",
-  "data": [
-    {"shift_id": 1, "bartender_id": 1, "restaurant_id": 1, "request_id": 1, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "entry_time": "2022-10-26 15:52:36.722"},
-    {"shift_id": 2, "bartender_id": 2, "restaurant_id": 1, "request_id": 2, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "entry_time": "2022-10-26 15:56:26.438"},
-    {"shift_id": 3, "bartender_id": 1, "restaurant_id": 2, "request_id": 4, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "entry_time": "2022-10-26 15:59:05.430"},
-    {"shift_id": 4, "bartender_id": 2, "restaurant_id": 2, "request_id": 5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "entry_time": "2022-10-26 16:01:33.182"},
-  ],
-}
-```
-#### Table: `bartender_wages`
-Arguments:
-```rexx
-
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartender_wages
-```
-
-Response:
-```json
-{
-  "message": "found 4 bartender_wage entries",
-  "data": [
-    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 15:54:31.321"},
-    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 15:57:21.838"},
-    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 16:00:15.348"},
-    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 16:02:35.836"},
+    {"user_id": 1, "username": "admin", "password": "756a404bd66b7f081a936fe6fbcf2374de5c6ce018d62f37e664be8df02de03807b51fc4273dc06d12c11f7075369b5e96e2b0fef57037f6711f7e0f07a224af", "create_time": "2022-10-28 09:34:39.683"},
+    {"user_id": 2, "username": "dealer", "password": "c00a4b4042678e2dc89247bed50b739c8070dae76a566dd0ecfeb597d8c67d6b1c56b67dd2cd026f11cac24670f23cc6f53a0ea2c25d9f75a0e2142dbaaca2a8", "create_time": "2022-11-01 21:22:46.795"},
+    {"user_id": 3, "username": "alice", "password": "2aa046bc10f97c0c11791b538b2a3d06f0dad8308b4ec8ef5166a14723f5ecaac62ab38257981bb7ea095fcb986818b6263082c0ad312a36f0086868833ae5ac", "create_time": "2022-11-01 21:22:47.066"},
+    {"user_id": 4, "username": "bob", "password": "b23ee5919bce0a5dd0693f868e50ef5a396bbff79e5c0fa0170eece7536e57a8a95ee8d646ed68491bd2a7acb94e3af388f0bd88650a2a7fadf9cd4c3a44bde1", "create_time": "2022-11-01 21:22:47.201"},
+    {"user_id": 5, "username": "anna", "password": "a8afd031b2e7fb99ad5be81e264cdc8dc359795610ae80af3c17fbad8d8aec1136e2a3ddc7e12aa771c5db03141e367e303585961301c44228bcbbdd69d424e7", "create_time": "2022-11-01 21:22:47.360"},
+    {"user_id": 6, "username": "steve", "password": "aa19bea81377c41b1089f410db3775f7fbaa005e0ade71f5b4194e0f189bda03c24c95214a3bf2002c0eea97dcfa49869b4254a5c6638b1d0161d5e9a1ce81f7", "create_time": "2022-11-01 21:22:47.497"},
   ],
 }
 ```
@@ -4076,94 +2690,96 @@ Response:
 
 ---
 
-### 5.2 - Examining the Table `bartender_wages`
+### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
 
 <details><summary> (click here to expand) </summary>
 
-#### Filter `bartender_wages` by `bartender_id` (alice == 1):
+#### Adding `dealer` to the `players` table:
 Arguments:
 ```rexx
-bartender_id = 1
+user_id = 2
+game_id = 1
+name = dealer
+email = dealer@udel.edu
 ```
 
 Request:
 ```jq
-https://deckdealer.hopto.org/get/bartender_wages/bartender_id/1
+https://deckdealer.hopto.org/add/players/user_id/2/game_id/1/name/dealer/email/dealer@udel.edu
 ```
 
 Response:
 ```json
 {
-  "message": "found 2 bartender_wage entries",
-  "data": [
-    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 15:54:31.321"},
-    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 16:00:15.348"},
-  ],
+  "message": "data added to <players>",
+  "player_id": "1",
+  "user_id": "2",
+  "game_id": "1",
 }
 ```
 
-
-#### Filter `bartender_wages` by `restaurant_id` (Iron Hill == 1) and sort by `tips`:
+#### Adding `alice` to the `players` table:
 Arguments:
 ```rexx
-filter = (restaurant_id = 1) ORDER BY tips DESC
+user_id = 3
+game_id = 1
+name = alice
+email = alice@udel.edu
 ```
 
 Request:
 ```jq
-https://deckdealer.hopto.org/get/bartender_wages/filter/(restaurant_id = 1) ORDER BY tips DESC
+https://deckdealer.hopto.org/add/players/user_id/3/game_id/1/name/alice/email/alice@udel.edu
 ```
 
 Response:
 ```json
 {
-  "message": "found 2 bartender_wage entries",
-  "data": [
-    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 15:57:21.838"},
-    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 15:54:31.321"},
-  ],
+  "message": "data added to <players>",
+  "player_id": "2",
+  "user_id": "3",
+  "game_id": "1",
 }
 ```
 
-
-#### Filter `bartender_wages` by `tips < 100.00`:
+#### Adding `bob` to the `players` table:
 Arguments:
 ```rexx
-filter = (tips < 100.00)
+user_id = 4
+game_id = 1
+name = bob
+email = bob@udel.edu
 ```
 
 Request:
 ```jq
-https://deckdealer.hopto.org/get/bartender_wages/filter/(tips < 100.00)
+https://deckdealer.hopto.org/add/players/user_id/4/game_id/1/name/bob/email/bob@udel.edu
 ```
 
 Response:
 ```json
 {
-  "message": "1 bartender_wage entry found",
-  "data": [
-    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 15:54:31.321"},
-  ],
+  "message": "data added to <players>",
+  "player_id": "3",
+  "user_id": "4",
+  "game_id": "1",
 }
 ```
 
-#### Filter `bartender_wages` where `hours_worked > 5.0` and `total_earnings < 150.00`
-Arguments:
-```rexx
-filter = (hours_worked > 5.0 AND total_earnings < 150.00)
-```
-
+#### Verify that `dealer`, `alice`, and `bob` are in the `players` table:
 Request:
 ```jq
-https://deckdealer.hopto.org/get/bartender_wages/filter/(hours_worked > 5.0 AND total_earnings < 150.00)
+https://deckdealer.hopto.org/get/players
 ```
 
 Response:
 ```json
 {
-  "message": "1 bartender_wage entry found",
+  "message": "found 3 player entries",
   "data": [
-    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 16:02:35.836"},
+    {"player_id": 1, "user_id": 2, "game_id": 1, "name": "dealer", "email": "dealer@udel.edu", "entry_time": "2022-11-01 21:54:20.126"},
+    {"player_id": 2, "user_id": 3, "game_id": 1, "name": "alice", "email": "alice@udel.edu", "entry_time": "2022-11-01 21:55:16.048"},
+    {"player_id": 3, "user_id": 4, "game_id": 1, "name": "bob", "email": "bob@udel.edu", "entry_time": "2022-11-01 21:56:02.308"},
   ],
 }
 ```
@@ -4172,115 +2788,52 @@ Response:
 
 ---
 
-### 5.3 - Investigate `bartenders` that were late or early to their shift
+### 5.4 - Adding `dealer`, `alice` and `bob` to the `players` table
 
 <details><summary> (click here to expand) </summary>
-
-#### Filtering `bartenders` that were late to their `shift`:
-Arguments:
-```rexx
-filter = (shift_start < clock_in) GROUP BY bartender_id
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartender_wages/filter/(shift_start < clock_in) GROUP BY bartender_id
-```
-
-Response:
-```json
-{
-  "message": "1 bartender_wage entry found",
-  "data": [
-    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 15:57:21.838"},
-  ],
-}
-```
-
-Bartender `bob` is the only bartender to show up `late` to a shift.
-
-#### Sort by the `largest` time `late`:
-Arguments:
-```rexx
-filter = (shift_start < clock_in)
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartender_wages/filter/(shift_start < clock_in)
-```
-
-Response:
-```json
-{
-  "message": "found 2 bartender_wage entries",
-  "data": [
-    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 15:57:21.838"},
-    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 16:02:35.836"},
-  ],
-}
-```
-
-Bartender `bob` is consistantly `5 minutes` late.
-
-#### Filtering `bartenders` that were early to their `shift`, sort by `eariest time`:
-Arguments:
-```rexx
-filter = (shift_start >= clock_in) ORDER BY (strftime('%H:%M', time(strftime('%s', shift_start) - strftime('%s', clock_in), 'unixepoch'))) DESC
-```
-
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartender_wages/filter/(shift_start >= clock_in) ORDER BY (strftime('%H:%M', time(strftime('%s', shift_start) - strftime('%s', clock_in), 'unixepoch'))) DESC
-```
-
-Response:
-```json
-{
-  "message": "found 2 bartender_wage entries",
-  "data": [
-    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 16:00:15.348"},
-    {"wage_id": 1, "bartender_id": 1, "shift_id": 1, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-20 10:00:00", "shift_end": "2022-10-20 14:30:00", "clock_in": "2022-10-20 09:45:00", "clock_out": "2022-10-20 14:10:00", "hours_worked": 4.42, "tips": 85.0, "total_earnings": 95.3, "entry_time": "2022-10-26 15:54:31.321"},
-  ],
-}
-```
-
-Bartender `alice` is consistantly early.  The earliest was `20 mins`, followed by `15 mins`.
 
 </details>
 
 ---
 
-### 5.4 - Bartender `shifts` Exceeding `Requested Hours`
+### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
 
 <details><summary> (click here to expand) </summary>
 
-#### Filtering `shifts` exceeding `requested hours`:
-Arguments:
-```rexx
-filter = (strftime('%H:%M', time(strftime('%s', clock_out) - strftime('%s', clock_in), 'unixepoch')) >= strftime('%H:%M', time(strftime('%s', shift_end) - strftime('%s', shift_start), 'unixepoch')))
-```
+</details>
 
-Request:
-```jq
-https://deckdealer.hopto.org/get/bartender_wages/filter/(strftime('%H:%M', time(strftime('%s', clock_out) - strftime('%s', clock_in), 'unixepoch')) >= strftime('%H:%M', time(strftime('%s', shift_end) - strftime('%s', shift_start), 'unixepoch')))
-```
+---
 
-Response:
-```json
-{
-  "message": "found 3 bartender_wage entries",
-  "data": [
-    {"wage_id": 2, "bartender_id": 2, "shift_id": 2, "restaurant_id": 1, "hourly_wage": 2.33, "shift_start": "2022-10-21 16:00:00", "shift_end": "2022-10-22 00:30:00", "clock_in": "2022-10-21 16:05:00", "clock_out": "2022-10-22 01:03:00", "hours_worked": 8.97, "tips": 147.0, "total_earnings": 167.9, "entry_time": "2022-10-26 15:57:21.838"},
-    {"wage_id": 3, "bartender_id": 1, "shift_id": 3, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-23 08:00:00", "shift_end": "2022-10-23 14:00:00", "clock_in": "2022-10-23 07:40:00", "clock_out": "2022-10-23 15:25:00", "hours_worked": 7.75, "tips": 165.0, "total_earnings": 192.12, "entry_time": "2022-10-26 16:00:15.348"},
-    {"wage_id": 4, "bartender_id": 2, "shift_id": 4, "restaurant_id": 2, "hourly_wage": 3.5, "shift_start": "2022-10-24 16:00:00", "shift_end": "2022-10-25 02:00:00", "clock_in": "2022-10-24 16:05:00", "clock_out": "2022-10-25 02:13:00", "hours_worked": 10.13, "tips": 108.0, "total_earnings": 143.46, "entry_time": "2022-10-26 16:02:35.836"},
-  ],
-}
-```
+### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
 
-There were `3 shifts` that exceeded the `requested hours`
+<details><summary> (click here to expand) </summary>
 
 </details>
+
+---
+
+### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
+
+<details><summary> (click here to expand) </summary>
+
+</details>
+
+---
+
+### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
+
+<details><summary> (click here to expand) </summary>
+
+</details>
+
+---
+
+### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
+
+<details><summary> (click here to expand) </summary>
+
+</details>
+
 
 
 </details>
