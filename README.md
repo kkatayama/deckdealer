@@ -1179,7 +1179,7 @@ score for completed games
 </td><td>
 
 ```jq
-["score_id", "game_id", "user_id", "player_id", "name", "email", "profile_pic", "players", "spectators", "entry_time"]
+["score_id", "game_id", "user_id", "player_id", "name", "email", "players", "spectators", "entry_time"]
 ```
 </td></tr>
 </table>
@@ -1282,10 +1282,10 @@ Response:
 }
 ```
 
-### Creting the Table `score_boar`:
+### Creting the Table `score_board`:
 Request:
 ```jq
-https://deckdealer.hopto.org/createTable/score_board/score_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/name/TEXT/email/TEXT/profile_pic/TEXT/players/TEXT/spectators/TEXT/entry_time/DATETIME
+https://deckdealer.hopto.org/createTable/score_board/score_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/name/TEXT/email/TEXT/players/TEXT/spectators/TEXT/entry_time/DATETIME
 ```
 
 Response:
@@ -1301,12 +1301,12 @@ Response:
     "player_id INTEGER NOT NULL",
     "name TEXT NOT NULL",
     "email TEXT NOT NULL",
-    "profile_pic TEXT NOT NULL",
     "players TEXT NOT NULL",
     "spectators TEXT NOT NULL",
-    "entry_time DATETIME NOT NULL DEFAULT (strftime(\"%Y-%m-%d %H:%M:%f\", \"now\", \"localtime\"))"
+    "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
   ]
 }
+
 ```
 
 </details>
@@ -1734,13 +1734,13 @@ min_players = 2
 max_players = 10
 min_decks = 1
 max_decks = 10
-player_actions = hit, stay
+player_actions = setup, hit, stay
 rules = 1. All players are dealt 2 cards, 2. Dealer asks each player to "hit" or "stay", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS
 ```
 
 Request:
 ```jq
-https://deckdealer.hopto.org/add/games/name/Blackjack/min_players/2/max_players/10/min_decks/1/max_decks/10/player_actions/hit, stay/rules/1. All players are dealt 2 cards, 2. Dealer asks each player to "hit" or "stay", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS
+https://deckdealer.hopto.org/add/games/name/Blackjack/min_players/2/max_players/10/min_decks/1/max_decks/10/player_actions/setup, hit, stay/rules/1. All players are dealt 2 cards, 2. Dealer asks each player to "hit" or "stay", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS
 ```
 
 Response:
@@ -2554,9 +2554,7 @@ Response:
 3. Adding `dealer`, `alice` and `bob` to the `players` table
 4. Adding `anna` and `steve` to the `spectators` table
 5. Simulate the first round of play by dealing 2 cards to each user
-6. Simulate `alice` performing `hit` or `stay`
-7. Simulate `bob` performing `hit` or `stay`
-8. Simulate `dealer` performing `hit` or `stay`
+6. Simulate each player performing a `player_action` of `hit` or `stay`
 7. Determine the winner and add the results to the `score_board` table
 
 ---
@@ -2590,7 +2588,7 @@ Response:
     "max_players": "10",
     "min_decks": "1",
     "max_decks": "10",
-    "player_actions": "hit, stay",
+    "player_actions": "setup, hit, stay",
     "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
     "entry_time": "2022-11-01 21:10:51.915"
   }
@@ -2617,7 +2615,7 @@ Response:
     "max_players": "10",
     "min_decks": "1",
     "max_decks": "10",
-    "player_actions": "hit, stay",
+    "player_actions": "setup, hit, stay",
     "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
     "entry_time": "2022-11-01 21:10:51.915"
   }
@@ -2648,7 +2646,7 @@ Response:
     "max_players": "10",
     "min_decks": "1",
     "max_decks": "10",
-    "player_actions": "hit, stay",
+    "player_actions": "setup, hit, stay",
     "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
     "entry_time": "2022-11-01 21:10:51.915"
   }
@@ -2788,55 +2786,613 @@ Response:
 
 ---
 
-### 5.4 - Adding `dealer`, `alice` and `bob` to the `players` table
+### 5.4 - Adding `anna` and `steve` to the `spectators` table
 
 <details><summary> (click here to expand) </summary>
+
+#### Adding `anna` to the `spectators` table:
+Arguments:
+```rexx
+user_id = 5
+game_id = 1
+name = anna
+email = anna@udel.edu
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/spectators/user_id/5/game_id/1/name/anna/email/anna@udel.edu
+```
+
+Response:
+```json
+{
+  "message": "data added to <spectators>",
+  "spectator_id": "1",
+  "user_id": "5",
+  "game_id": "1",
+}
+```
+
+#### Adding `steve` to the `spectators` table:
+Arguments:
+```rexx
+user_id = 6
+game_id = 1
+name = steve
+email = steve@udel.edu
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/spectators/user_id/6/game_id/1/name/steve/email/steve@udel.edu
+```
+
+Response:
+```json
+{
+  "message": "data added to <spectators>",
+  "spectator_id": "2",
+  "user_id": "6",
+  "game_id": "1",
+}
+```
+
+#### Verify that `anna` and `steve` are in the `spectators` table:
+Request:
+```jq
+https://deckdealer.hopto.org/get/spectators
+```
+
+Response:
+```json
+{
+  "message": "found 2 spectator entries",
+  "data": [
+    {"spectator_id": 1, "user_id": 5, "game_id": 1, "name": "anna", "email": "anna@udel.edu", "entry_time": "2022-11-01 22:04:31.979"},
+    {"spectator_id": 2, "user_id": 6, "game_id": 1, "name": "steve", "email": "steve@udel.edu", "entry_time": "2022-11-01 22:05:04.008"},
+  ],
+}
+```
 
 </details>
 
 ---
 
-### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
+### 5.5 - Simulate the first round of play by dealing 2 cards to each user
 
 <details><summary> (click here to expand) </summary>
+
+The `deck` table contains a shuffled deck of 52 cards <br />
+We will use this shuffled `deck` to simulate the `bot shuffled cards` <br />
+
+#### Let's examine the top 6 cards of the `deck`:
+Arguments:
+```rexx
+filter = (card_id <= 6)
+```
+
+Request:
+```erlang
+https://deckdealer.hopto.org/get/deck?filter=(card_id <= 6)
+```
+
+Response:
+```json
+{
+  "message": "found 6 deck entries",
+  "data": [
+    {"card_id": 1, "key": "6D", "name": "6", "suit": "DIAMONDS", "description": "6_of_diamonds", "file_name": "6D.png", "entry_time": "2022-11-01 15:04:46.184"},
+    {"card_id": 2, "key": "4H", "name": "4", "suit": "HEARTS", "description": "4_of_hearts", "file_name": "4H.png", "entry_time": "2022-11-01 15:04:46.599"},
+    {"card_id": 3, "key": "10S", "name": "10", "suit": "SPADES", "description": "10_of_spades", "file_name": "10S.png", "entry_time": "2022-11-01 15:04:46.967"},
+    {"card_id": 4, "key": "QH", "name": "QUEEN", "suit": "HEARTS", "description": "queen_of_hearts", "file_name": "QH.png", "entry_time": "2022-11-01 15:04:47.321"},
+    {"card_id": 5, "key": "9D", "name": "9", "suit": "DIAMONDS", "description": "9_of_diamonds", "file_name": "9D.png", "entry_time": "2022-11-01 15:04:47.684"},
+    {"card_id": 6, "key": "10H", "name": "10", "suit": "HEARTS", "description": "10_of_hearts", "file_name": "10H.png", "entry_time": "2022-11-01 15:04:48.021"},
+  ],
+}
+```
+
+We can see that the `deck` is shuffled <br />
+
+NOTE: When dealing a card to a player, we need to add the entry to the `active_game` table
+
+#### Deal the 1st card to `alice`:
+Arguments:
+```rexx
+game_id = 1
+user_id = 3
+player_id = 2
+player_hand = 6D
+player_action = setup
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/active_game/game_id/1/user_id/3/player_id/2/player_hand/6D/player_action/setup
+```
+
+Response:
+```json
+{
+  "message": "data added to <active_game>",
+  "entry_id": "1",
+  "game_id": "1",
+  "user_id": "3",
+  "player_id": "2",
+}
+```
+
+#### Deal the 2nd card to `bob`:
+Arguments:
+```rexx
+game_id = 1
+user_id = 4
+player_id = 3
+player_hand = 4H
+player_action = setup
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/active_game/game_id/1/user_id/4/player_id/3/player_hand/4H/player_action/setup
+```
+
+Response:
+```json
+{
+  "message": "data added to <active_game>",
+  "entry_id": "2",
+  "game_id": "1",
+  "user_id": "4",
+  "player_id": "3",
+}
+```
+
+#### Deal the 3rd card to `dealer`:
+Arguments:
+```rexx
+game_id = 1
+user_id = 2
+player_id = 1
+player_hand = 10S
+player_action = setup
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/active_game/game_id/1/user_id/2/player_id/1/player_hand/10S/player_action/setup
+```
+
+Response:
+```json
+{
+  "message": "data added to <active_game>",
+  "entry_id": "3",
+  "game_id": "1",
+  "user_id": "2",
+  "player_id": "1",
+}
+```
+
+#### Deal the 4th card to `alice`:
+Arguments:
+```rexx
+game_id = 1
+user_id = 3
+player_id = 2
+player_hand = QH
+player_action = setup
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/active_game/game_id/1/user_id/3/player_id/2/player_hand/QH/player_action/setup
+```
+
+Response:
+```json
+{
+  "message": "data added to <active_game>",
+  "entry_id": "4",
+  "game_id": "1",
+  "user_id": "3",
+  "player_id": "2",
+}
+```
+
+#### Deal the 5th card to `bob`:
+Arguments:
+```rexx
+game_id = 1
+user_id = 4
+player_id = 3
+player_hand = 9D
+player_action = setup
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/active_game/game_id/1/user_id/4/player_id/3/player_hand/9D/player_action/setup
+```
+
+Response:
+```json
+{
+  "message": "data added to <active_game>",
+  "entry_id": "5",
+  "game_id": "1",
+  "user_id": "4",
+  "player_id": "3",
+}
+```
+
+#### Deal the 6th card to `dealer`:
+Arguments:
+```rexx
+game_id = 1
+user_id = 2
+player_id = 1
+player_hand = 10H
+player_action = setup
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/active_game/game_id/1/user_id/2/player_id/1/player_hand/10H/player_action/setup
+```
+
+Response:
+```json
+{
+  "message": "data added to <active_game>",
+  "entry_id": "6",
+  "game_id": "1",
+  "user_id": "2",
+  "player_id": "1",
+}
+```
+
+Now the `setup` phase is complete, each `player` has been dealt `2 cards`! <br />
+
+NOTE: recall that when a `user` logs in, their `user_id` is returned. <br />
+
+#### Simulate `alice` fetching her `player_hand`:
+Arguments:
+```rexx
+user_id = 3
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/active_game/user_id/3
+```
+
+Response:
+```json
+{
+  "message": "found 2 active_game entries",
+  "data": [
+    {"entry_id": 1, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "6D", "player_action": "setup", "entry_time": "2022-11-01 22:52:08.865"},
+    {"entry_id": 4, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "QH", "player_action": "setup", "entry_time": "2022-11-01 22:55:11.283"},
+  ],
+}
+```
+
+#### Simulate `bob` fetching his `player_hand`:
+Arguments:
+```rexx
+user_id = 4
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/active_game/user_id/4
+```
+
+Response:
+```json
+{
+  "message": "found 2 active_game entries",
+  "data": [
+    {"entry_id": 2, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "4H", "player_action": "setup", "entry_time": "2022-11-01 22:53:08.192"},
+    {"entry_id": 5, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "9D", "player_action": "setup", "entry_time": "2022-11-01 22:55:58.077"},
+  ],
+}
+```
+
+#### Simulate `dealer` fetching their `player_hand`:
+Arguments:
+```rexx
+user_id = 2
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/active_game/user_id/2
+```
+
+Response:
+```json
+{
+  "message": "found 2 active_game entries",
+  "data": [
+    {"entry_id": 3, "game_id": 1, "user_id": 2, "player_id": 1, "player_hand": "10S", "player_action": "setup", "entry_time": "2022-11-01 22:54:07.209"},
+    {"entry_id": 6, "game_id": 1, "user_id": 2, "player_id": 1, "player_hand": "10H", "player_action": "setup", "entry_time": "2022-11-01 22:57:44.514"},
+  ],
+}
+```
+
+Any user in the `spectators` table can make a generic request to see all `player hands` <br />
+
+#### Simulate a `spectatars` request:
+Arguments:
+```rexx
+filter = (player_id >= 1) ORDER BY player_id
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/active_game/filter/(player_id >= 1) ORDER BY player_id
+```
+
+Response:
+```json
+{
+  "message": "found 6 active_game entries",
+  "data": [
+    {"entry_id": 3, "game_id": 1, "user_id": 2, "player_id": 1, "player_hand": "10S", "player_action": "setup", "entry_time": "2022-11-01 22:54:07.209"},
+    {"entry_id": 6, "game_id": 1, "user_id": 2, "player_id": 1, "player_hand": "10H", "player_action": "setup", "entry_time": "2022-11-01 22:57:44.514"},
+    {"entry_id": 1, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "6D", "player_action": "setup", "entry_time": "2022-11-01 22:52:08.865"},
+    {"entry_id": 4, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "QH", "player_action": "setup", "entry_time": "2022-11-01 22:55:11.283"},
+    {"entry_id": 2, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "4H", "player_action": "setup", "entry_time": "2022-11-01 22:53:08.192"},
+    {"entry_id": 5, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "9D", "player_action": "setup", "entry_time": "2022-11-01 22:55:58.077"},
+  ],
+}
+```
 
 </details>
 
 ---
 
-### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
+### 5.6 - Simulate each player performing a `player_action` of `hit` or `stay`
 
 <details><summary> (click here to expand) </summary>
+
+Alice has two cards: 6D and QH (6_of_diamonds and Queen_of_Hearts) which totals 16 points. <br />
+
+Alice decides to `hit` <br />
+
+#### Deal the next (7th) card of the `deck`:
+Arguments:
+```rexx
+card_id = 7
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/deck/card_id/7
+```
+
+Response:
+```json
+{
+  "message": "1 deck entry found",
+  "data": [{"card_id": 7, "key": "3S", "name": "3", "suit": "SPADES", "description": "3_of_spades", "file_name": "3S.png", "entry_time": "2022-11-01 15:04:48.368"}],
+}
+```
+
+#### Simulate `alice` performing the `hit` action:
+Arguments:
+```rexx
+game_id = 1
+user_id = 3
+player_id = 2
+player_hand = 3S
+player_action = hit
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/active_game/game_id/1/user_id/3/player_id/2/player_hand/3S/player_action/hit
+```
+
+Response:
+```json
+{
+  "message": "data added to <active_game>",
+  "entry_id": "7",
+  "game_id": "1",
+  "user_id": "3",
+  "player_id": "2",
+}
+```
+
+#### Let's examine `alice` current `hand`:
+Arguments:
+```rexx
+player_id = 2
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/active_game/player_id/2
+```
+
+Response:
+```json
+{
+  "message": "found 3 active_game entries",
+  "data": [
+    {"entry_id": 1, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "6D", "player_action": "setup", "entry_time": "2022-11-01 22:52:08.865"},
+    {"entry_id": 4, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "QH", "player_action": "setup", "entry_time": "2022-11-01 22:55:11.283"},
+    {"entry_id": 7, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "3S", "player_action": "hit", "entry_time": "2022-11-01 23:16:10.252"},
+  ],
+}
+```
+
+Alice has three cards: 6D + QH + 3S = `19` points <br />
+
+Alice decides to `stay`, so now it is `bob`'s turn. <br />
+
+Bob has two cards: 4H + 9D = `13` points <br />
+
+Bob decides to `hit` <br />
+
+#### Deal the next (8th) card of the `deck`:
+Arguments:
+```rexx
+card_id = 8
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/deck/card_id/8
+```
+
+Response:
+```json
+{
+  "message": "1 deck entry found",
+  "data": [{"card_id": 8, "key": "5S", "name": "5", "suit": "SPADES", "description": "5_of_spades", "file_name": "5S.png", "entry_time": "2022-11-01 15:04:48.717"}],
+}
+```
+
+#### Simulate `bob` performing the `hit` action:
+Arguments:
+```rexx
+game_id = 1
+user_id = 4
+player_id = 3
+player_hand = 5S
+player_action = hit
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/active_game/game_id/1/user_id/4/player_id/3/player_hand/5S/player_action/hit
+```
+
+Response:
+```json
+{
+  "message": "data added to <active_game>",
+  "entry_id": "8",
+  "game_id": "1",
+  "user_id": "4",
+  "player_id": "3",
+}
+```
+
+#### Let's examine `bob` current `hand`:
+Arguments:
+```rexx
+player_id = 3
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/active_game/player_id/3
+```
+
+Response:
+```json
+{
+  "message": "found 3 active_game entries",
+  "data": [
+    {"entry_id": 2, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "4H", "player_action": "setup", "entry_time": "2022-11-01 22:53:08.192"},
+    {"entry_id": 5, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "9D", "player_action": "setup", "entry_time": "2022-11-01 22:55:58.077"},
+    {"entry_id": 8, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "5S", "player_action": "hit", "entry_time": "2022-11-01 23:31:40.648"},
+  ],
+}
+```
+
+Bob has three cards: 4H + 9D + 5S = `18` points <br />
+
+Bob decides to `stay`, so now it the `dealer`'s turn <br />
+
+Dealer has two cards: 10S + 10H = `20` points <br />
+
+Dealer decides to `stay`. <br />
+
+No more moves can be made, it is now time to determine the winner!
 
 </details>
 
 ---
 
-### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
+### 5.7 - Determine the winner and add the results to the score_board table
 
 <details><summary> (click here to expand) </summary>
+
+#### Let's combine the `player_hand` for each `player`:
+Arguments:
+```rexx
+filter = (player_id >= 1) ORDER BY player_id
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/get/active_game/filter/(player_id >= 1) ORDER BY player_id
+```
+
+Response:
+```json
+{
+  "message": "found 8 active_game entries",
+  "data": [
+    {"entry_id": 3, "game_id": 1, "user_id": 2, "player_id": 1, "player_hand": "10S", "player_action": "setup", "entry_time": "2022-11-01 22:54:07.209"},
+    {"entry_id": 6, "game_id": 1, "user_id": 2, "player_id": 1, "player_hand": "10H", "player_action": "setup", "entry_time": "2022-11-01 22:57:44.514"},
+    {"entry_id": 1, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "6D", "player_action": "setup", "entry_time": "2022-11-01 22:52:08.865"},
+    {"entry_id": 4, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "QH", "player_action": "setup", "entry_time": "2022-11-01 22:55:11.283"},
+    {"entry_id": 7, "game_id": 1, "user_id": 3, "player_id": 2, "player_hand": "3S", "player_action": "hit", "entry_time": "2022-11-01 23:16:10.252"},
+    {"entry_id": 2, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "4H", "player_action": "setup", "entry_time": "2022-11-01 22:53:08.192"},
+    {"entry_id": 5, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "9D", "player_action": "setup", "entry_time": "2022-11-01 22:55:58.077"},
+    {"entry_id": 8, "game_id": 1, "user_id": 4, "player_id": 3, "player_hand": "5S", "player_action": "hit", "entry_time": "2022-11-01 23:31:40.648"},
+  ],
+}
+```
+
+Dealer has 2 cards: 10S + 10H = `20` points <br />
+Alice has 3 cards: 6D + QH + 3S = `19` points <br />
+Bob has 3 cards: 4H + 9D + 5S = `18` points <br />
+
+**Dealer Wins !!!**
+
+#### Add winner to `score_board` table:
+Arguments:
+```rexx
+game_id = 1
+user_id = 2
+player_id = 1
+name = dealer
+email = dealer@udel.edu
+players = dealer, alice, bob
+spectators = anna, steve
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/add/score_board/game_id/1/user_id/2/player_id/1/name/dealer/email/dealer@udel.edu/players/dealer, alice, bob/spectators/anna, steve
+```
+
+Response:
+```json
+{
+  "message": "data added to <score_board>",
+  "score_id": "1",
+  "game_id": "1",
+  "user_id": "2",
+  "player_id": "1",
+}
+```
+
+
+
+</details>
 
 </details>
 
 ---
-
-### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
-
-<details><summary> (click here to expand) </summary>
-
-</details>
-
----
-
-### 5.3 - Adding `dealer`, `alice` and `bob` to the `players` table
-
-<details><summary> (click here to expand) </summary>
-
-</details>
-
-
-
-</details>
 
 # 3. `/edit`
 **Edit a single entry or multiple entries of a table**
