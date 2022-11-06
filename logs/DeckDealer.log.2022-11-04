@@ -1,0 +1,564 @@
+{
+  "message": "Not found: '/global-protect/prelogin.esp'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/global-protect/prelogin.esp'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:30.089297 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{
+  "message": "Not found: '/RDWeb'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/RDWeb'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/svpn/index.cgi'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/svpn/index.cgi'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:30.100516 POST http://127.0.0.1:8882/ 200 OK
+{"request.params": {"<?xml version": "\"1.0\" encoding=\"UTF-8\"?>\n<config-auth client=\"vpn\" type=\"init\"><version who=\"vpn\"/><device-id>win</device-id><group-access>https://deckdealer.hopto.org:443</group-access></config-auth>"}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:30.104675 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{
+  "message": "Not found: '/remote/login'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/remote/login'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:30.133692 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:30.143931 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{
+  "message": "Not found: '/clients'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/clients'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:30.152590 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{
+  "message": "Not found: '/sra_{BA195980-CD49-458b-9E23-C84EE0ADCD75}'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/sra_{BA195980-CD49-458b-9E23-C84EE0ADCD75}'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/vpntunnel'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/vpntunnel'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/sslvpnclient'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/sslvpnclient'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/ssl-vpn/prelogin.esp'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/ssl-vpn/prelogin.esp'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/dana-na'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/dana-na'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:30.481956 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{
+  "message": "Not found: '/myvpn'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/myvpn'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/my.policy'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/my.policy'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:39.036624 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{
+  "message": "Not found: '/sra_{BA195980-CD49-458b-9E23-C84EE0ADCD75}'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/sra_{BA195980-CD49-458b-9E23-C84EE0ADCD75}'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/svpn/index.cgi'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/svpn/index.cgi'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/sslvpnclient'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/sslvpnclient'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/RDWeb'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/RDWeb'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/global-protect/prelogin.esp'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/global-protect/prelogin.esp'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:39.095067 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:39.098704 POST http://127.0.0.1:8882/ 200 OK
+{"request.params": {"<?xml version": "\"1.0\" encoding=\"UTF-8\"?>\n<config-auth client=\"vpn\" type=\"init\"><version who=\"vpn\"/><device-id>win</device-id><group-access>https://www.deckdealer.hopto.org:443</group-access></config-auth>"}}
+{
+  "message": "running..."
+}
+{
+  "message": "Not found: '/remote/login'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/remote/login'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:39.341254 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{
+  "message": "Not found: '/vpntunnel'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/vpntunnel'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/clients'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/clients'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:39.348935 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:39.350701 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{
+  "message": "Not found: '/ssl-vpn/prelogin.esp'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/ssl-vpn/prelogin.esp'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 02:55:39.629379 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{
+  "message": "Not found: '/dana-na'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/dana-na'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/myvpn'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/myvpn'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{
+  "message": "Not found: '/my.policy'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/my.policy'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 13:08:51.520427 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 13:25:08.867730 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 14:28:30.404035 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+127.0.0.1 2022-11-05 14:28:30.659796 GET http://127.0.0.1:8882/apple-touch-icon.png 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 15:38:22.862373 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 15:38:23.273899 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+127.0.0.1 2022-11-05 15:38:23.716636 GET http://127.0.0.1:8882/favicon.ico 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+127.0.0.1 2022-11-05 15:38:24.926509 GET http://127.0.0.1:8882/favicon.ico 200 OK
+(404, 'File does not exist.')
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 16:00:20.525280 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
+{'message': 'running...'}
+127.0.0.1 2022-11-05 20:53:57.001313 GET http://127.0.0.1:8882/ 200 OK
+{"request.params": {}}
+{
+  "message": "running..."
+}
