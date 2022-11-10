@@ -58,7 +58,7 @@ def enable_cors():
 def index():
     # res = {"message": "running..."}
     # return clean(res)
-    return template('index.tpl')
+    return template('index.html')
 
 # -- usage - response: available commands
 @route("/usage", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
