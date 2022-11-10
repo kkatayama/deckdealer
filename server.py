@@ -56,8 +56,9 @@ def enable_cors():
 # -- index - response: running
 @route("/", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 def index():
-    res = {"message": "running..."}
-    return clean(res)
+    # res = {"message": "running..."}
+    # return clean(res)
+    return template('index.tpl')
 
 # -- usage - response: available commands
 @route("/usage", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
@@ -546,6 +547,16 @@ def send_css(filename):
 def send_img(filename):
     dirname = sys.path[0]
     return static_file(filename, root=f'{dirname}/static/img/')
+
+@app.route('/static/css/<filename:re:.*\.*>')
+def send_css(filename):
+    dirname = sys.path[0]
+    return static_file(filename, root=f'{dirname}/static/css/')
+
+@app.route('/static/js/<filename:re:.*\.*>')
+def send_js(filename):
+    dirname = sys.path[0]
+    return static_file(filename, root=f'{dirname}/static/js/')
 
 @app.route(f"<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
 def send_root_img(filename):
