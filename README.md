@@ -663,14 +663,32 @@ Response:
 
 <details><summary> (click here to expand) </summary>
 
-### Let's create a few users by registering them: `alice`, `bob`, `anna`, `steve`, `ellan`, `jimmy`
+### Let's create a few users by registering them: `dealer`, `alice`, `bob`, `anna`, `steve`, `ellan`, `jimmy`
 ---
 
 Arguments:
 ```rexx
-username = alice
-password = alice
-password2 = alice
+username = dealer
+password = dealer
+password2 = dealer
+```
+
+Request:
+```jq
+https://deckdealer.hopto.org/register/username/dealer/password/dealer/password2/dealer
+```
+
+Response:
+```json
+{"message": "new user created", "user_id": 2, "username": "dealer"}
+```
+---
+
+Arguments:
+```rexx
+username = dealer
+password = dealer
+password2 = dealer
 ```
 
 Request:
@@ -680,7 +698,7 @@ https://deckdealer.hopto.org/register/username/alice/password/alice/password2/al
 
 Response:
 ```json
-{"message": "new user created", "user_id": 2, "username": "alice"}
+{"message": "new user created", "user_id": 3, "username": "alice"}
 ```
 ---
 
@@ -698,7 +716,7 @@ https://deckdealer.hopto.org/register/username/bob/password/bob/password2/bob
 
 Response:
 ```json
-{"message": "new user created", "user_id": 3, "username": "bob"}
+{"message": "new user created", "user_id": 4, "username": "bob"}
 ```
 ---
 
@@ -716,7 +734,7 @@ https://deckdealer.hopto.org/register/username/anna/password/anna/password2/anna
 
 Response:
 ```json
-{"message": "new user created", "user_id": 4, "username": "anna"}
+{"message": "new user created", "user_id": 5, "username": "anna"}
 ```
 ---
 
@@ -735,11 +753,7 @@ https://deckdealer.hopto.org/register/username/steve/password/steve/password2/st
 Response:
 ```json
 
-{
-  "message": "new user created",
-  "user_id": 5,
-  "username": "steve"
-}
+{"message": "new user created", "user_id": 6, "username": "steve"}
 ```
 
 </details>
