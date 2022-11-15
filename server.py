@@ -478,9 +478,9 @@ def edit(db, table_name="", url_paths=""):
 ###############################################################################
 #             Core Function /delete - Delete Data from a Table                #
 ###############################################################################
-@route("/delete", method=["GET", "POST", "PUT", "DELETE"])
-@route("/delete/<table_name>", method=["GET", "POST", "PUT", "DELETE"])
-@route("/delete/<table_name>/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE"])
+@route("/delete", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
+@route("/delete/<table_name>", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
+@route("/delete/<table_name>/<url_paths:path>", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 def delete(db, table_name="", url_paths=""):
     # -- usage info
     if table_name == 'usage':
