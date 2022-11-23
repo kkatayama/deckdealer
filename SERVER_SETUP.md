@@ -1,7 +1,7 @@
 # Server Setup Guide
 
 You can choose to run the server locally or connect with the server all ready running at: <br />
-[https://bartender.hopto.org](https://bartender.hopto.org)
+[https://deckdealer.hopto.org](https://deckdealer.hopto.org)
 
 These steps are to run the back-end locally.
 
@@ -45,7 +45,7 @@ pip3 install -U git+https://github.com/kkatayama/bottle-sqlite.git@master
 ## 3. Downloading Code Base
 
 ```bash
-git clone https://gitlab.com/calumsiemer/bartend_backend.git
+git clone https://github.com/kkatayama/deckdealer.git
 ```
 
 ## 4. Running
@@ -60,5 +60,5 @@ python3 server.py
 
 Documentation and Usage Examples are located at the [README.md](README.md).
 
-I recommend completing the [7 Workflows](README.md#getting-started) to get comfortable with using this framework.
+I recommend completing the [7 Workflows](README.md#workflows) to get comfortable with using this framework.
 
