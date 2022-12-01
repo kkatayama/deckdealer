@@ -10384,3 +10384,17 @@ SELECT * FROM users WHERE username=?;
   "username": "bryce",
   "token": "IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09"
 }
+128.4.112.189 2022-12-01 17:10:11.881240 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.112.189 2022-12-01 17:10:11.881776 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.112.189 2022-12-01 17:10:11.885784 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.112.189 2022-12-01 17:10:11.886144 POST http://deckdealer.hopto.org/login request
+['bryce1']
+128.4.112.189 2022-12-01 17:10:11.881190 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "bryce1", "password": "bryce1"}}
+{
+  "message": "user does not exist",
+  "username": "bryce1"
+}
