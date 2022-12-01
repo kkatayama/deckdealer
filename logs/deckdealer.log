@@ -10128,3 +10128,259 @@ SELECT * FROM users WHERE username=?;
   "username": "admin",
   "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
+128.4.109.1 2022-12-01 17:07:59.867807 GET http://deckdealer.hopto.org/ 200
+128.4.109.1 2022-12-01 17:07:59.941478 GET http://deckdealer.hopto.org/apple-touch-icon-120x120-precomposed.png 404
+128.4.109.1 2022-12-01 17:07:59.942639 GET http://deckdealer.hopto.org/apple-touch-icon-120x120-precomposed.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:07:59.958166 GET http://deckdealer.hopto.org/apple-touch-icon-120x120.png 404
+128.4.109.1 2022-12-01 17:07:59.959251 GET http://deckdealer.hopto.org/apple-touch-icon-120x120.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:07:59.973888 GET http://deckdealer.hopto.org/apple-touch-icon-precomposed.png 404
+128.4.109.1 2022-12-01 17:07:59.974456 GET http://deckdealer.hopto.org/apple-touch-icon-precomposed.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:07:59.988921 GET http://deckdealer.hopto.org/apple-touch-icon.png 404
+128.4.109.1 2022-12-01 17:07:59.989799 GET http://deckdealer.hopto.org/apple-touch-icon.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:08:00.005140 GET http://deckdealer.hopto.org/favicon.ico 404
+128.4.109.1 2022-12-01 17:08:00.005811 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:08:00.019608 GET http://deckdealer.hopto.org/apple-touch-icon-120x120-precomposed.png 404
+128.4.109.1 2022-12-01 17:08:00.020148 GET http://deckdealer.hopto.org/apple-touch-icon-120x120-precomposed.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:08:00.035171 GET http://deckdealer.hopto.org/apple-touch-icon-120x120.png 404
+128.4.109.1 2022-12-01 17:08:00.035908 GET http://deckdealer.hopto.org/apple-touch-icon-120x120.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:08:00.050697 GET http://deckdealer.hopto.org/apple-touch-icon-precomposed.png 404
+128.4.109.1 2022-12-01 17:08:00.051479 GET http://deckdealer.hopto.org/apple-touch-icon-precomposed.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:08:00.066571 GET http://deckdealer.hopto.org/apple-touch-icon.png 404
+128.4.109.1 2022-12-01 17:08:00.067499 GET http://deckdealer.hopto.org/apple-touch-icon.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:08:00.082443 GET http://deckdealer.hopto.org/favicon.ico 404
+128.4.109.1 2022-12-01 17:08:00.083084 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:08:00.441721 GET http://deckdealer.hopto.org/ 304
+128.4.109.1 2022-12-01 17:08:00.465793 GET http://deckdealer.hopto.org/css/login-register.css 304
+128.4.109.1 2022-12-01 17:08:00.497501 GET http://deckdealer.hopto.org/css/login-register-header.css 304
+128.4.109.1 2022-12-01 17:08:00.503337 GET http://deckdealer.hopto.org/js/login-register.js 304
+128.4.109.1 2022-12-01 17:08:12.034649 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.109.1 2022-12-01 17:08:12.035196 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.109.1 2022-12-01 17:08:12.038614 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.109.1 2022-12-01 17:08:12.038990 POST http://deckdealer.hopto.org/login request
+['bryce']
+128.4.109.1 2022-12-01 17:08:12.034622 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "bryce", "password": "bryce"}}
+{
+  "message": "user login success",
+  "user_id": 7,
+  "username": "bryce",
+  "token": "IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09"
+}
+cookie_info = ('user_id', '7')
+128.4.109.1 2022-12-01 17:08:37.169497 GET http://deckdealer.hopto.org/workflows.html?token=IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09 404
+128.4.109.1 2022-12-01 17:08:37.169832 GET http://deckdealer.hopto.org/workflows.html?token=IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09 None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.109.1 2022-12-01 17:08:42.694010 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.109.1 2022-12-01 17:08:42.694630 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.109.1 2022-12-01 17:08:42.699085 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.109.1 2022-12-01 17:08:42.699242 POST http://deckdealer.hopto.org/login request
+['bryce']
+128.4.109.1 2022-12-01 17:08:42.693976 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "bryce", "password": "bryce"}}
+{
+  "message": "user login success",
+  "user_id": 7,
+  "username": "bryce",
+  "token": "IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09"
+}
+128.4.112.189 2022-12-01 17:09:44.622957 GET http://deckdealer.hopto.org/ 200
+128.4.112.189 2022-12-01 17:09:45.064262 GET http://deckdealer.hopto.org/css/login-register.css 200
+128.4.112.189 2022-12-01 17:09:45.067488 GET http://deckdealer.hopto.org/css/login-register-header.css 200
+128.4.112.189 2022-12-01 17:09:45.088236 GET http://deckdealer.hopto.org/js/login-register.js 304
+128.4.112.189 2022-12-01 17:09:58.043267 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.112.189 2022-12-01 17:09:58.043880 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.112.189 2022-12-01 17:09:58.049165 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.112.189 2022-12-01 17:09:58.049628 POST http://deckdealer.hopto.org/login request
+['bryce']
+128.4.112.189 2022-12-01 17:09:58.043231 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "bryce", "password": "bryce", "password2": "bryce"}}
+{
+  "message": "user login success",
+  "user_id": 7,
+  "username": "bryce",
+  "token": "IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09"
+}
