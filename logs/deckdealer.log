@@ -10025,3 +10025,49 @@ SELECT * FROM deck WHERE 1;
 </table>
 
 74.103.158.35 2022-12-01 16:35:49.452797 POST http://deckdealer.hopto.org/get/deck 200 OK
+174.198.238.50 2022-12-01 16:54:35.310555 GET http://deckdealer.hopto.org/ 304
+174.198.238.50 2022-12-01 16:54:35.913878 GET http://deckdealer.hopto.org/css/login-register-header.css 200
+174.198.238.50 2022-12-01 16:54:35.915243 GET http://deckdealer.hopto.org/css/login-register.css 200
+174.198.238.50 2022-12-01 16:54:35.917394 GET http://deckdealer.hopto.org/js/login-register.js 304
+174.198.238.50 2022-12-01 16:54:45.595857 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+174.198.238.50 2022-12-01 16:54:45.596482 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+174.198.238.50 2022-12-01 16:54:45.601219 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+174.198.238.50 2022-12-01 16:54:45.601680 POST http://deckdealer.hopto.org/login request
+['Admin']
+174.198.238.50 2022-12-01 16:54:45.595823 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "Admin", "password": "admin"}}
+{
+  "message": "user does not exist",
+  "username": "Admin"
+}
+174.198.238.50 2022-12-01 16:54:46.874381 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+174.198.238.50 2022-12-01 16:54:46.875065 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+174.198.238.50 2022-12-01 16:54:46.879291 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+174.198.238.50 2022-12-01 16:54:46.879488 POST http://deckdealer.hopto.org/login request
+['Admin']
+174.198.238.50 2022-12-01 16:54:46.874331 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "Admin", "password": "admin"}}
+{
+  "message": "user does not exist",
+  "username": "Admin"
+}
+174.198.238.50 2022-12-01 16:54:57.789282 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+174.198.238.50 2022-12-01 16:54:57.789908 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+174.198.238.50 2022-12-01 16:54:57.794666 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+174.198.238.50 2022-12-01 16:54:57.795035 POST http://deckdealer.hopto.org/login request
+['admin']
+174.198.238.50 2022-12-01 16:54:57.789247 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "admin", "password": "afmin"}}
+{
+  "message": "incorrect password",
+  "password": "afmin"
+}
