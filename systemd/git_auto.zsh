@@ -32,7 +32,7 @@ echo "${cmd}" >> "${BACKEND}/logs/git_auto.log"
 $cmd >> "${BACKEND}/logs/git_auto.log"
 
 cmd=(git commit -am 'git auto update')
-echo "${cmd}" >> "${BACKEND}/logs/git_auto.log"
+echo "git commit -am 'git auto update'" >> "${BACKEND}/logs/git_auto.log"
 $cmd >> "${BACKEND}/logs/git_auto.log"
 
 # -- 3. push backend changes
