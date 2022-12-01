@@ -8486,3 +8486,7 @@ SELECT * FROM users WHERE 1;
 </table>
 
 74.103.158.35 2022-12-01 16:28:17.729525 POST http://deckdealer.hopto.org/get/users 200 OK
+100.34.13.54 2022-12-01 16:32:21.193705 GET http://deckdealer.hopto.org/ 200
+100.34.13.54 2022-12-01 16:32:21.219805 GET http://deckdealer.hopto.org/css/login-register.css 200
+100.34.13.54 2022-12-01 16:32:21.436088 GET http://deckdealer.hopto.org/js/login-register.js 200
+100.34.13.54 2022-12-01 16:32:21.438876 GET http://deckdealer.hopto.org/css/login-register-header.css 200
