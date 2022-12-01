@@ -117,8 +117,8 @@ def enable_cors():
 # -- index - response: running
 @route("/", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 def index():
-    res = {"message": "running..."}
-    return checkType(res)
+    dirname = sys.path[0]
+    return static_file('index.html', root=f'{dirname}')
 
 # -- usage - response: available commands
 @route("/usage", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
@@ -553,20 +553,57 @@ def delete(db, table_name="", url_paths=""):
 ###############################################################################
 #                                 Static Files                                #
 ###############################################################################
+@route('/<filename:re:.*\.html>')
+@route('/html/<filename:re:.*\.js>')
+@route('/static/html/<filename:re:.*\.js>')
+def send_html(filename):
+    kind = 'html'
+    dirname = sys.path[0]
+    if not Path(dirname, filename).exists():
+        if Path(dirname, kind, filename).exists():
+            dirname = str(Path(dirname, kind))
+        if Path(dirname, 'static', kind, filename).exists():
+            dirname = str(Path(dirname, 'static', kind))
+    return static_file(filename, root=f'{dirname}')
+
+@route('/<filename:re:.*\.js>')
+@route('/js/<filename:re:.*\.js>')
+@route('/static/js/<filename:re:.*\.js>')
+def send_js(filename):
+    kind = 'css'
+    dirname = sys.path[0]
+    if not Path(dirname, filename).exists():
+        if Path(dirname, kind, filename).exists():
+            dirname = str(Path(dirname, kind))
+        if Path(dirname, 'static', kind, filename).exists():
+            dirname = str(Path(dirname, 'static', kind))
+    return static_file(filename, root=f'{dirname}')
+
+@route('/<filename:re:.*\.css>')
+@route('/css/<filename:re:.*\.css>')
 @route('/static/css/<filename:re:.*\.css>')
 def send_css(filename):
+    kind = 'css'
     dirname = sys.path[0]
-    return static_file(filename, root=f'{dirname}/static/css/')
+    if not Path(dirname, filename).exists():
+        if Path(dirname, kind, filename).exists():
+            dirname = str(Path(dirname, kind))
+        if Path(dirname, 'static', kind, filename).exists():
+            dirname = str(Path(dirname, 'static', kind))
+    return static_file(filename, root=f'{dirname}')
 
-@route('/static/img/<filename:re:.*\.*>')
+@route(f"/<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
+@route(f"/img/<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
+@route(f"/static/img/<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
 def send_img(filename):
+    kind = 'img'
     dirname = sys.path[0]
-    return static_file(filename, root=f'{dirname}/static/img/')
-
-@route(f"<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
-def send_root_img(filename):
-    dirname = sys.path[0]
-    return static_file(filename, root=f'{dirname}/static/img/')
+    if not Path(dirname, filename).exists():
+        if Path(dirname, kind, filename).exists():
+            dirname = str(Path(dirname, kind))
+        if Path(dirname, 'static', kind, filename).exists():
+            dirname = str(Path(dirname, 'static', kind))
+    return static_file(filename, root=f'{dirname}')
 
 
 ###############################################################################

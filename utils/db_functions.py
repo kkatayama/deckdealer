@@ -789,16 +789,18 @@ def log_to_logger(fn):
             if not actual_response.get("message") == "available commands":
                 logger.info(json.dumps({"request.params": dict(request.params)}))
                 logger.info(json.dumps(actual_response, default=str, indent=2))
-        elif response.status == 200 or isinstance(actual_response, str):
-            status = 200
+        elif isinstance(actual_response, str):
+            logger.debug('=== actual_response is string ===')
+            logger.debug(actual_response)
+            status = response.status if response.status else 0
             logger.info('%s %s %s %s %s' % (ip_address, request_time, request.method, request.url, status))
-        elif actual_response._status_code == 200:
-            status = 200
+        elif actual_response._status_code:
+            status = actual_response._status_code
             logger.info('%s %s %s %s %s' % (ip_address, request_time, request.method, request.url, status))
         else:
             try:
                 logger.info("=== ATTEMPT TO CLEAN ERROR ===")
-                logger.debug(actual_response.__str__)
+                logger.debug(actual_response)
                 if not dict(actual_response.headers):
                     for k,v in actual_response.headerlist:
                         print(k, v)
