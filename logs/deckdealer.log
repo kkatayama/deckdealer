@@ -8490,3 +8490,1538 @@ SELECT * FROM users WHERE 1;
 100.34.13.54 2022-12-01 16:32:21.219805 GET http://deckdealer.hopto.org/css/login-register.css 200
 100.34.13.54 2022-12-01 16:32:21.436088 GET http://deckdealer.hopto.org/js/login-register.js 200
 100.34.13.54 2022-12-01 16:32:21.438876 GET http://deckdealer.hopto.org/css/login-register-header.css 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 16:35:19.014111 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 16:35:19.014604 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 16:35:19.013987 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "active tables in the database",
+  "tables": [
+    {
+      "name": "users",
+      "type": "table",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "username",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "password",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "cards",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "deck",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "players",
+      "type": "table",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "spectators",
+      "type": "table",
+      "columns": [
+        {
+          "name": "spectator_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "games",
+      "type": "table",
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_actions",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "rules",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "active_game",
+      "type": "table",
+      "columns": [
+        {
+          "name": "entry_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_action",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "score_board",
+      "type": "table",
+      "columns": [
+        {
+          "name": "score_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "winner",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_score",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_hands",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_scores",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "spectators",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    }
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 16:35:19.036944 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 16:35:19.037274 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 16:35:19.036860 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "user_id": "INTEGER",
+      "username": "TEXT",
+      "password": "TEXT",
+      "create_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 16:35:24.767502 GET http://deckdealer.hopto.org/delete/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 16:35:24.768087 GET http://deckdealer.hopto.org/delete/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 16:35:24.767335 GET http://deckdealer.hopto.org/delete/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "entry_id": "INTEGER",
+      "game_id": "INTEGER",
+      "user_id": "INTEGER",
+      "player_id": "INTEGER",
+      "player_hand": "TEXT",
+      "player_action": "TEXT",
+      "entry_time": "DATETIMEY_TIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 16:35:27.346518 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 16:35:27.347153 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 16:35:27.346379 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "card_id": "INTEGER",
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 16:35:29.241999 POST http://deckdealer.hopto.org/get/cards request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 16:35:29.242542 POST http://deckdealer.hopto.org/get/cards request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 16:35:29.245059 POST http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-12-01 16:35:29.245462 POST http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+=== actual_response is string ===
+<table id="response0" class="table caption-top table-striped table-hover" style="width:100%">
+  <caption>TABLE: message: found 52 card entries</caption>
+  <thead>
+    <tr>
+      <th>index</th>
+      <th>card_id</th>
+      <th>key</th>
+      <th>name</th>
+      <th>suit</th>
+      <th>description</th>
+      <th>file_name</th>
+      <th>entry_time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2C</td>
+      <td>2</td>
+      <td>CLUBS</td>
+      <td>2_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/2C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:21.768</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2D</td>
+      <td>2</td>
+      <td>DIAMONDS</td>
+      <td>2_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/2D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:22.103</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2H</td>
+      <td>2</td>
+      <td>HEARTS</td>
+      <td>2_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/2H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:22.457</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2S</td>
+      <td>2</td>
+      <td>SPADES</td>
+      <td>2_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/2S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:22.838</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>3C</td>
+      <td>3</td>
+      <td>CLUBS</td>
+      <td>3_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/3C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:23.178</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>3D</td>
+      <td>3</td>
+      <td>DIAMONDS</td>
+      <td>3_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/3D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:23.550</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>3H</td>
+      <td>3</td>
+      <td>HEARTS</td>
+      <td>3_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/3H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:23.911</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>3S</td>
+      <td>3</td>
+      <td>SPADES</td>
+      <td>3_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/3S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:24.251</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>4C</td>
+      <td>4</td>
+      <td>CLUBS</td>
+      <td>4_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/4C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:24.609</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>4D</td>
+      <td>4</td>
+      <td>DIAMONDS</td>
+      <td>4_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/4D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:24.969</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>4H</td>
+      <td>4</td>
+      <td>HEARTS</td>
+      <td>4_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/4H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:25.321</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>4S</td>
+      <td>4</td>
+      <td>SPADES</td>
+      <td>4_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/4S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:25.765</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>5C</td>
+      <td>5</td>
+      <td>CLUBS</td>
+      <td>5_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/5C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:26.148</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>5D</td>
+      <td>5</td>
+      <td>DIAMONDS</td>
+      <td>5_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/5D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:26.501</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>5H</td>
+      <td>5</td>
+      <td>HEARTS</td>
+      <td>5_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/5H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:26.855</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>5S</td>
+      <td>5</td>
+      <td>SPADES</td>
+      <td>5_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/5S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:27.195</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>6C</td>
+      <td>6</td>
+      <td>CLUBS</td>
+      <td>6_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/6C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:27.558</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>6D</td>
+      <td>6</td>
+      <td>DIAMONDS</td>
+      <td>6_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/6D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:27.924</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>6H</td>
+      <td>6</td>
+      <td>HEARTS</td>
+      <td>6_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/6H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:28.257</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>6S</td>
+      <td>6</td>
+      <td>SPADES</td>
+      <td>6_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/6S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:28.606</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>7C</td>
+      <td>7</td>
+      <td>CLUBS</td>
+      <td>7_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/7C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:28.976</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>7D</td>
+      <td>7</td>
+      <td>DIAMONDS</td>
+      <td>7_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/7D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:29.341</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>7H</td>
+      <td>7</td>
+      <td>HEARTS</td>
+      <td>7_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/7H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:29.705</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>7S</td>
+      <td>7</td>
+      <td>SPADES</td>
+      <td>7_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/7S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:30.081</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>8C</td>
+      <td>8</td>
+      <td>CLUBS</td>
+      <td>8_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/8C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:30.435</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>8D</td>
+      <td>8</td>
+      <td>DIAMONDS</td>
+      <td>8_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/8D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:31.126</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>8H</td>
+      <td>8</td>
+      <td>HEARTS</td>
+      <td>8_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/8H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:31.469</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>8S</td>
+      <td>8</td>
+      <td>SPADES</td>
+      <td>8_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/8S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:31.844</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>29</td>
+      <td>9C</td>
+      <td>9</td>
+      <td>CLUBS</td>
+      <td>9_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/9C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:32.189</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>9D</td>
+      <td>9</td>
+      <td>DIAMONDS</td>
+      <td>9_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/9D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:32.566</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>31</td>
+      <td>9H</td>
+      <td>9</td>
+      <td>HEARTS</td>
+      <td>9_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/9H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:32.937</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>32</td>
+      <td>9S</td>
+      <td>9</td>
+      <td>SPADES</td>
+      <td>9_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/9S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:33.297</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>33</td>
+      <td>10C</td>
+      <td>10</td>
+      <td>CLUBS</td>
+      <td>10_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/10C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:33.667</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>34</td>
+      <td>10D</td>
+      <td>10</td>
+      <td>DIAMONDS</td>
+      <td>10_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/10D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:34.030</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>35</td>
+      <td>10H</td>
+      <td>10</td>
+      <td>HEARTS</td>
+      <td>10_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/10H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:34.375</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>36</td>
+      <td>10S</td>
+      <td>10</td>
+      <td>SPADES</td>
+      <td>10_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/10S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:34.715</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>37</td>
+      <td>JC</td>
+      <td>JACK</td>
+      <td>CLUBS</td>
+      <td>jack_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/JC.png" height="100"></img></td>
+      <td>2022-11-01 15:04:35.093</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>38</td>
+      <td>JD</td>
+      <td>JACK</td>
+      <td>DIAMONDS</td>
+      <td>jack_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/JD.png" height="100"></img></td>
+      <td>2022-11-01 15:04:35.448</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>39</td>
+      <td>JH</td>
+      <td>JACK</td>
+      <td>HEARTS</td>
+      <td>jack_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/JH.png" height="100"></img></td>
+      <td>2022-11-01 15:04:35.897</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>40</td>
+      <td>JS</td>
+      <td>JACK</td>
+      <td>SPADES</td>
+      <td>jack_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/JS.png" height="100"></img></td>
+      <td>2022-11-01 15:04:36.267</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>41</td>
+      <td>QC</td>
+      <td>QUEEN</td>
+      <td>CLUBS</td>
+      <td>queen_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/QC.png" height="100"></img></td>
+      <td>2022-11-01 15:04:36.629</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>42</td>
+      <td>QD</td>
+      <td>QUEEN</td>
+      <td>DIAMONDS</td>
+      <td>queen_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/QD.png" height="100"></img></td>
+      <td>2022-11-01 15:04:36.967</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>43</td>
+      <td>QH</td>
+      <td>QUEEN</td>
+      <td>HEARTS</td>
+      <td>queen_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/QH.png" height="100"></img></td>
+      <td>2022-11-01 15:04:37.303</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>44</td>
+      <td>QS</td>
+      <td>QUEEN</td>
+      <td>SPADES</td>
+      <td>queen_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/QS.png" height="100"></img></td>
+      <td>2022-11-01 15:04:37.646</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>45</td>
+      <td>KC</td>
+      <td>KING</td>
+      <td>CLUBS</td>
+      <td>king_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/KC.png" height="100"></img></td>
+      <td>2022-11-01 15:04:38.001</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>46</td>
+      <td>KD</td>
+      <td>KING</td>
+      <td>DIAMONDS</td>
+      <td>king_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/KD.png" height="100"></img></td>
+      <td>2022-11-01 15:04:38.354</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>47</td>
+      <td>KH</td>
+      <td>KING</td>
+      <td>HEARTS</td>
+      <td>king_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/KH.png" height="100"></img></td>
+      <td>2022-11-01 15:04:38.745</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>48</td>
+      <td>KS</td>
+      <td>KING</td>
+      <td>SPADES</td>
+      <td>king_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/KS.png" height="100"></img></td>
+      <td>2022-11-01 15:04:39.121</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>49</td>
+      <td>AC</td>
+      <td>ACE</td>
+      <td>CLUBS</td>
+      <td>ace_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/AC.png" height="100"></img></td>
+      <td>2022-11-01 15:04:39.467</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>50</td>
+      <td>AD</td>
+      <td>ACE</td>
+      <td>DIAMONDS</td>
+      <td>ace_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/AD.png" height="100"></img></td>
+      <td>2022-11-01 15:04:39.831</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>51</td>
+      <td>AH</td>
+      <td>ACE</td>
+      <td>HEARTS</td>
+      <td>ace_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/AH.png" height="100"></img></td>
+      <td>2022-11-01 15:04:40.157</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>52</td>
+      <td>AS</td>
+      <td>ACE</td>
+      <td>SPADES</td>
+      <td>ace_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/AS.png" height="100"></img></td>
+      <td>2022-11-01 15:04:40.495</td>
+    </tr>
+  </tbody>
+</table>
+
+74.103.158.35 2022-12-01 16:35:29.241859 POST http://deckdealer.hopto.org/get/cards 200 OK
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 16:35:32.378695 GET http://deckdealer.hopto.org/edit/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 16:35:32.379268 GET http://deckdealer.hopto.org/edit/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 16:35:32.378547 GET http://deckdealer.hopto.org/edit/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a parameter to edit",
+  "editable": [
+    {
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 16:35:36.346532 GET http://deckdealer.hopto.org/edit/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 16:35:36.347118 GET http://deckdealer.hopto.org/edit/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 16:35:36.346395 GET http://deckdealer.hopto.org/edit/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a parameter to edit",
+  "editable": [
+    {
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 16:35:47.682341 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 16:35:47.682877 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 16:35:47.682200 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "card_id": "INTEGER",
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 16:35:49.452940 POST http://deckdealer.hopto.org/get/deck request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 16:35:49.453517 POST http://deckdealer.hopto.org/get/deck request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 16:35:49.456061 POST http://deckdealer.hopto.org/get/deck request
+SELECT * FROM deck WHERE 1;
+74.103.158.35 2022-12-01 16:35:49.456471 POST http://deckdealer.hopto.org/get/deck request
+SELECT * FROM deck WHERE 1;
+=== actual_response is string ===
+<table id="response0" class="table caption-top table-striped table-hover" style="width:100%">
+  <caption>TABLE: message: found 52 deck entries</caption>
+  <thead>
+    <tr>
+      <th>index</th>
+      <th>card_id</th>
+      <th>key</th>
+      <th>name</th>
+      <th>suit</th>
+      <th>description</th>
+      <th>file_name</th>
+      <th>entry_time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>6D</td>
+      <td>6</td>
+      <td>DIAMONDS</td>
+      <td>6_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/6D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:46.184</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>4H</td>
+      <td>4</td>
+      <td>HEARTS</td>
+      <td>4_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/4H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:46.599</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>10S</td>
+      <td>10</td>
+      <td>SPADES</td>
+      <td>10_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/10S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:46.967</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>QH</td>
+      <td>QUEEN</td>
+      <td>HEARTS</td>
+      <td>queen_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/QH.png" height="100"></img></td>
+      <td>2022-11-01 15:04:47.321</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>9D</td>
+      <td>9</td>
+      <td>DIAMONDS</td>
+      <td>9_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/9D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:47.684</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>10H</td>
+      <td>10</td>
+      <td>HEARTS</td>
+      <td>10_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/10H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:48.021</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>3S</td>
+      <td>3</td>
+      <td>SPADES</td>
+      <td>3_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/3S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:48.368</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>5S</td>
+      <td>5</td>
+      <td>SPADES</td>
+      <td>5_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/5S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:48.717</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>5H</td>
+      <td>5</td>
+      <td>HEARTS</td>
+      <td>5_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/5H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:49.069</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>7C</td>
+      <td>7</td>
+      <td>CLUBS</td>
+      <td>7_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/7C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:49.437</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>JS</td>
+      <td>JACK</td>
+      <td>SPADES</td>
+      <td>jack_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/JS.png" height="100"></img></td>
+      <td>2022-11-01 15:04:49.816</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>KD</td>
+      <td>KING</td>
+      <td>DIAMONDS</td>
+      <td>king_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/KD.png" height="100"></img></td>
+      <td>2022-11-01 15:04:50.179</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>7D</td>
+      <td>7</td>
+      <td>DIAMONDS</td>
+      <td>7_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/7D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:50.524</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>2H</td>
+      <td>2</td>
+      <td>HEARTS</td>
+      <td>2_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/2H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:50.869</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>9H</td>
+      <td>9</td>
+      <td>HEARTS</td>
+      <td>9_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/9H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:51.240</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>QS</td>
+      <td>QUEEN</td>
+      <td>SPADES</td>
+      <td>queen_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/QS.png" height="100"></img></td>
+      <td>2022-11-01 15:04:51.587</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>7S</td>
+      <td>7</td>
+      <td>SPADES</td>
+      <td>7_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/7S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:51.919</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>4D</td>
+      <td>4</td>
+      <td>DIAMONDS</td>
+      <td>4_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/4D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:52.255</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>QD</td>
+      <td>QUEEN</td>
+      <td>DIAMONDS</td>
+      <td>queen_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/QD.png" height="100"></img></td>
+      <td>2022-11-01 15:04:52.614</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>8C</td>
+      <td>8</td>
+      <td>CLUBS</td>
+      <td>8_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/8C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:52.977</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>6S</td>
+      <td>6</td>
+      <td>SPADES</td>
+      <td>6_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/6S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:53.322</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>6H</td>
+      <td>6</td>
+      <td>HEARTS</td>
+      <td>6_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/6H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:53.661</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>2S</td>
+      <td>2</td>
+      <td>SPADES</td>
+      <td>2_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/2S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:54.017</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>4C</td>
+      <td>4</td>
+      <td>CLUBS</td>
+      <td>4_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/4C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:54.356</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>4S</td>
+      <td>4</td>
+      <td>SPADES</td>
+      <td>4_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/4S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:54.694</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>2C</td>
+      <td>2</td>
+      <td>CLUBS</td>
+      <td>2_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/2C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:55.024</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>3D</td>
+      <td>3</td>
+      <td>DIAMONDS</td>
+      <td>3_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/3D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:55.421</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>9S</td>
+      <td>9</td>
+      <td>SPADES</td>
+      <td>9_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/9S.png" height="100"></img></td>
+      <td>2022-11-01 15:04:55.767</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>29</td>
+      <td>AH</td>
+      <td>ACE</td>
+      <td>HEARTS</td>
+      <td>ace_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/AH.png" height="100"></img></td>
+      <td>2022-11-01 15:04:56.260</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>2D</td>
+      <td>2</td>
+      <td>DIAMONDS</td>
+      <td>2_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/2D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:56.637</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>31</td>
+      <td>10C</td>
+      <td>10</td>
+      <td>CLUBS</td>
+      <td>10_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/10C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:56.987</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>32</td>
+      <td>8H</td>
+      <td>8</td>
+      <td>HEARTS</td>
+      <td>8_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/8H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:57.326</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>33</td>
+      <td>3C</td>
+      <td>3</td>
+      <td>CLUBS</td>
+      <td>3_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/3C.png" height="100"></img></td>
+      <td>2022-11-01 15:04:57.691</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>34</td>
+      <td>KS</td>
+      <td>KING</td>
+      <td>SPADES</td>
+      <td>king_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/KS.png" height="100"></img></td>
+      <td>2022-11-01 15:04:58.130</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>35</td>
+      <td>AS</td>
+      <td>ACE</td>
+      <td>SPADES</td>
+      <td>ace_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/AS.png" height="100"></img></td>
+      <td>2022-11-01 15:04:58.488</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>36</td>
+      <td>AD</td>
+      <td>ACE</td>
+      <td>DIAMONDS</td>
+      <td>ace_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/AD.png" height="100"></img></td>
+      <td>2022-11-01 15:04:58.868</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>37</td>
+      <td>8D</td>
+      <td>8</td>
+      <td>DIAMONDS</td>
+      <td>8_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/8D.png" height="100"></img></td>
+      <td>2022-11-01 15:04:59.235</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>38</td>
+      <td>KC</td>
+      <td>KING</td>
+      <td>CLUBS</td>
+      <td>king_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/KC.png" height="100"></img></td>
+      <td>2022-11-01 15:04:59.609</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>39</td>
+      <td>3H</td>
+      <td>3</td>
+      <td>HEARTS</td>
+      <td>3_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/3H.png" height="100"></img></td>
+      <td>2022-11-01 15:04:59.979</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>40</td>
+      <td>QC</td>
+      <td>QUEEN</td>
+      <td>CLUBS</td>
+      <td>queen_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/QC.png" height="100"></img></td>
+      <td>2022-11-01 15:05:00.322</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>41</td>
+      <td>KH</td>
+      <td>KING</td>
+      <td>HEARTS</td>
+      <td>king_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/KH.png" height="100"></img></td>
+      <td>2022-11-01 15:05:00.673</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>42</td>
+      <td>5C</td>
+      <td>5</td>
+      <td>CLUBS</td>
+      <td>5_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/5C.png" height="100"></img></td>
+      <td>2022-11-01 15:05:01.243</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>43</td>
+      <td>JH</td>
+      <td>JACK</td>
+      <td>HEARTS</td>
+      <td>jack_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/JH.png" height="100"></img></td>
+      <td>2022-11-01 15:05:01.618</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>44</td>
+      <td>6C</td>
+      <td>6</td>
+      <td>CLUBS</td>
+      <td>6_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/6C.png" height="100"></img></td>
+      <td>2022-11-01 15:05:01.960</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>45</td>
+      <td>8S</td>
+      <td>8</td>
+      <td>SPADES</td>
+      <td>8_of_spades</td>
+      <td><img src="https://deckdealer.hopto.org/8S.png" height="100"></img></td>
+      <td>2022-11-01 15:05:02.330</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>46</td>
+      <td>AC</td>
+      <td>ACE</td>
+      <td>CLUBS</td>
+      <td>ace_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/AC.png" height="100"></img></td>
+      <td>2022-11-01 15:05:02.715</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>47</td>
+      <td>7H</td>
+      <td>7</td>
+      <td>HEARTS</td>
+      <td>7_of_hearts</td>
+      <td><img src="https://deckdealer.hopto.org/7H.png" height="100"></img></td>
+      <td>2022-11-01 15:05:03.132</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>48</td>
+      <td>JD</td>
+      <td>JACK</td>
+      <td>DIAMONDS</td>
+      <td>jack_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/JD.png" height="100"></img></td>
+      <td>2022-11-01 15:05:03.466</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>49</td>
+      <td>5D</td>
+      <td>5</td>
+      <td>DIAMONDS</td>
+      <td>5_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/5D.png" height="100"></img></td>
+      <td>2022-11-01 15:05:03.807</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>50</td>
+      <td>10D</td>
+      <td>10</td>
+      <td>DIAMONDS</td>
+      <td>10_of_diamonds</td>
+      <td><img src="https://deckdealer.hopto.org/10D.png" height="100"></img></td>
+      <td>2022-11-01 15:05:04.171</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>51</td>
+      <td>JC</td>
+      <td>JACK</td>
+      <td>CLUBS</td>
+      <td>jack_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/JC.png" height="100"></img></td>
+      <td>2022-11-01 15:05:04.549</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>52</td>
+      <td>9C</td>
+      <td>9</td>
+      <td>CLUBS</td>
+      <td>9_of_clubs</td>
+      <td><img src="https://deckdealer.hopto.org/9C.png" height="100"></img></td>
+      <td>2022-11-01 15:05:04.914</td>
+    </tr>
+  </tbody>
+</table>
+
+74.103.158.35 2022-12-01 16:35:49.452797 POST http://deckdealer.hopto.org/get/deck 200 OK
