@@ -7528,3 +7528,52 @@ SELECT * FROM users WHERE 1;
 100.34.13.54 2022-12-01 15:39:40.075316 GET http://deckdealer.hopto.org/css/login-register-header.css 304
 100.34.13.54 2022-12-01 15:39:40.095395 GET http://deckdealer.hopto.org/css/login-register.css 304
 100.34.13.54 2022-12-01 15:39:40.098625 GET http://deckdealer.hopto.org/js/login-register.js 304
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 15:41:48.558610 GET http://deckdealer.hopto.org/delete/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 15:41:48.559306 GET http://deckdealer.hopto.org/delete/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 15:41:48.558459 GET http://deckdealer.hopto.org/delete/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "entry_id": "INTEGER",
+      "game_id": "INTEGER",
+      "user_id": "INTEGER",
+      "player_id": "INTEGER",
+      "player_hand": "TEXT",
+      "player_action": "TEXT",
+      "entry_time": "DATETIMEY_TIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 15:41:53.013068 GET http://deckdealer.hopto.org/edit/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 15:41:53.013423 GET http://deckdealer.hopto.org/edit/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 15:41:53.012990 GET http://deckdealer.hopto.org/edit/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a parameter to edit",
+  "editable": [
+    {
+      "game_id": "INTEGER",
+      "user_id": "INTEGER",
+      "player_id": "INTEGER",
+      "player_hand": "TEXT",
+      "player_action": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.35 2022-12-01 15:42:26.884683 GET http://deckdealer.hopto.org/img/AH.png 304
+74.103.158.35 2022-12-01 15:42:28.780019 GET http://deckdealer.hopto.org/img/AH.png 304
