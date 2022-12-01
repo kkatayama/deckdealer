@@ -1,6 +1,9 @@
 # MAC osx nonsense
 .DS_STORE
 
+# Backend Git Auto Log
+git_auto.log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
