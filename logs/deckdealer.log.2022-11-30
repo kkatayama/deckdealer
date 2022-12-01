@@ -1,0 +1,2100 @@
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:00:01.583699 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:00:01.583961 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:00:01.583634 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "active tables in the database",
+  "tables": [
+    {
+      "name": "users",
+      "type": "table",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "username",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "password",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "cards",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "deck",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "players",
+      "type": "table",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "spectators",
+      "type": "table",
+      "columns": [
+        {
+          "name": "spectator_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "games",
+      "type": "table",
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_actions",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "rules",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "active_game",
+      "type": "table",
+      "columns": [
+        {
+          "name": "entry_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_action",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "score_board",
+      "type": "table",
+      "columns": [
+        {
+          "name": "score_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "winner",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_score",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_hands",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_scores",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "spectators",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    }
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:00:01.605881 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:00:01.606373 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:00:01.605749 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "user_id": "INTEGER",
+      "username": "TEXT",
+      "password": "TEXT",
+      "create_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:00:03.160073 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:00:03.160670 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:00:03.163657 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE 1;
+74.103.158.35 2022-11-30 00:00:03.164141 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE 1;
+74.103.158.35 2022-11-30 00:00:03.159922 POST http://deckdealer.hopto.org/get/users 200
+74.103.158.35 2022-11-30 00:00:03.229973 GET http://deckdealer.hopto.org/udel.edu None
+{
+  "message": "Not found: '/udel.edu'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/udel.edu'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:00:05.747536 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:00:05.748092 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:00:05.747397 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "card_id": "INTEGER",
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:00:06.340394 POST http://deckdealer.hopto.org/get/cards request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:00:06.340952 POST http://deckdealer.hopto.org/get/cards request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:00:06.343521 POST http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-11-30 00:00:06.343955 POST http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-11-30 00:00:06.340229 POST http://deckdealer.hopto.org/get/cards 200
+74.103.158.35 2022-11-30 00:00:06.372880 GET http://deckdealer.hopto.org/2C.png 200
+74.103.158.35 2022-11-30 00:00:06.405773 GET http://deckdealer.hopto.org/2D.png 200
+74.103.158.35 2022-11-30 00:00:06.413126 GET http://deckdealer.hopto.org/2H.png 200
+74.103.158.35 2022-11-30 00:00:06.428164 GET http://deckdealer.hopto.org/2S.png 200
+74.103.158.35 2022-11-30 00:00:06.432827 GET http://deckdealer.hopto.org/3C.png 200
+74.103.158.35 2022-11-30 00:00:06.444394 GET http://deckdealer.hopto.org/3D.png 200
+74.103.158.35 2022-11-30 00:00:06.447179 GET http://deckdealer.hopto.org/4D.png 200
+74.103.158.35 2022-11-30 00:00:06.450844 GET http://deckdealer.hopto.org/4H.png 200
+74.103.158.35 2022-11-30 00:00:06.463081 GET http://deckdealer.hopto.org/3S.png 200
+74.103.158.35 2022-11-30 00:00:06.474268 GET http://deckdealer.hopto.org/4S.png 200
+74.103.158.35 2022-11-30 00:00:06.475812 GET http://deckdealer.hopto.org/3H.png 200
+74.103.158.35 2022-11-30 00:00:06.477175 GET http://deckdealer.hopto.org/4C.png 200
+74.103.158.35 2022-11-30 00:00:06.478510 GET http://deckdealer.hopto.org/5C.png 200
+74.103.158.35 2022-11-30 00:00:06.480040 GET http://deckdealer.hopto.org/5D.png 200
+74.103.158.35 2022-11-30 00:00:06.487195 GET http://deckdealer.hopto.org/5H.png 200
+74.103.158.35 2022-11-30 00:00:06.488822 GET http://deckdealer.hopto.org/5S.png 200
+74.103.158.35 2022-11-30 00:00:06.490530 GET http://deckdealer.hopto.org/6C.png 200
+74.103.158.35 2022-11-30 00:00:06.492340 GET http://deckdealer.hopto.org/6D.png 200
+74.103.158.35 2022-11-30 00:00:06.494013 GET http://deckdealer.hopto.org/6H.png 200
+74.103.158.35 2022-11-30 00:00:06.495743 GET http://deckdealer.hopto.org/6S.png 200
+74.103.158.35 2022-11-30 00:00:06.497411 GET http://deckdealer.hopto.org/7C.png 200
+74.103.158.35 2022-11-30 00:00:06.500897 GET http://deckdealer.hopto.org/7D.png 200
+74.103.158.35 2022-11-30 00:00:06.502513 GET http://deckdealer.hopto.org/7H.png 200
+74.103.158.35 2022-11-30 00:00:06.503995 GET http://deckdealer.hopto.org/7S.png 200
+74.103.158.35 2022-11-30 00:00:06.507288 GET http://deckdealer.hopto.org/8C.png 200
+74.103.158.35 2022-11-30 00:00:06.508714 GET http://deckdealer.hopto.org/8D.png 200
+74.103.158.35 2022-11-30 00:00:06.510200 GET http://deckdealer.hopto.org/8H.png 200
+74.103.158.35 2022-11-30 00:00:06.511579 GET http://deckdealer.hopto.org/8S.png 200
+74.103.158.35 2022-11-30 00:00:06.513124 GET http://deckdealer.hopto.org/9C.png 200
+74.103.158.35 2022-11-30 00:00:06.514646 GET http://deckdealer.hopto.org/9D.png 200
+74.103.158.35 2022-11-30 00:00:06.516376 GET http://deckdealer.hopto.org/9H.png 200
+74.103.158.35 2022-11-30 00:00:06.518214 GET http://deckdealer.hopto.org/9S.png 200
+74.103.158.35 2022-11-30 00:00:06.522209 GET http://deckdealer.hopto.org/10C.png 200
+74.103.158.35 2022-11-30 00:00:06.523878 GET http://deckdealer.hopto.org/10D.png 200
+74.103.158.35 2022-11-30 00:00:06.525449 GET http://deckdealer.hopto.org/10H.png 200
+74.103.158.35 2022-11-30 00:00:06.526951 GET http://deckdealer.hopto.org/10S.png 200
+74.103.158.35 2022-11-30 00:00:06.537632 GET http://deckdealer.hopto.org/JC.png 200
+74.103.158.35 2022-11-30 00:00:06.539593 GET http://deckdealer.hopto.org/JD.png 200
+74.103.158.35 2022-11-30 00:00:06.556447 GET http://deckdealer.hopto.org/JH.png 200
+74.103.158.35 2022-11-30 00:00:06.559330 GET http://deckdealer.hopto.org/JS.png 200
+74.103.158.35 2022-11-30 00:00:06.561769 GET http://deckdealer.hopto.org/QC.png 200
+74.103.158.35 2022-11-30 00:00:06.564672 GET http://deckdealer.hopto.org/QD.png 200
+74.103.158.35 2022-11-30 00:00:06.566614 GET http://deckdealer.hopto.org/QH.png 200
+74.103.158.35 2022-11-30 00:00:06.568118 GET http://deckdealer.hopto.org/QS.png 200
+74.103.158.35 2022-11-30 00:00:06.569689 GET http://deckdealer.hopto.org/KC.png 200
+74.103.158.35 2022-11-30 00:00:06.571244 GET http://deckdealer.hopto.org/KD.png 200
+74.103.158.35 2022-11-30 00:00:06.572841 GET http://deckdealer.hopto.org/KH.png 200
+74.103.158.35 2022-11-30 00:00:06.574281 GET http://deckdealer.hopto.org/KS.png 200
+74.103.158.35 2022-11-30 00:00:06.575690 GET http://deckdealer.hopto.org/AC.png 200
+74.103.158.35 2022-11-30 00:00:06.577427 GET http://deckdealer.hopto.org/AD.png 200
+74.103.158.35 2022-11-30 00:00:06.578666 GET http://deckdealer.hopto.org/AH.png 200
+74.103.158.35 2022-11-30 00:00:06.579861 GET http://deckdealer.hopto.org/AS.png 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:00:15.771543 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:00:15.772125 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:00:15.771375 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "card_id": "INTEGER",
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:00:16.305140 POST http://deckdealer.hopto.org/get/deck request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:00:16.305699 POST http://deckdealer.hopto.org/get/deck request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:00:16.307587 POST http://deckdealer.hopto.org/get/deck request
+SELECT * FROM deck WHERE 1;
+74.103.158.35 2022-11-30 00:00:16.307806 POST http://deckdealer.hopto.org/get/deck request
+SELECT * FROM deck WHERE 1;
+74.103.158.35 2022-11-30 00:00:16.305004 POST http://deckdealer.hopto.org/get/deck 200
+74.103.158.35 2022-11-30 00:03:38.356788 GET http://deckdealer.hopto.org/udel.edu None
+{
+  "message": "Not found: '/udel.edu'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/udel.edu'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:07:09.985282 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:07:09.985943 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:07:09.985061 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "active tables in the database",
+  "tables": [
+    {
+      "name": "users",
+      "type": "table",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "username",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "password",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "cards",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "deck",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "players",
+      "type": "table",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "spectators",
+      "type": "table",
+      "columns": [
+        {
+          "name": "spectator_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "games",
+      "type": "table",
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_actions",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "rules",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "active_game",
+      "type": "table",
+      "columns": [
+        {
+          "name": "entry_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_action",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "score_board",
+      "type": "table",
+      "columns": [
+        {
+          "name": "score_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "winner",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_score",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_hands",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_scores",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "spectators",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    }
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:07:10.013165 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:07:10.013443 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:07:10.013088 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "user_id": "INTEGER",
+      "username": "TEXT",
+      "password": "TEXT",
+      "create_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:07:12.267825 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:07:12.268455 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:07:12.267649 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "card_id": "INTEGER",
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:07:13.951540 POST http://deckdealer.hopto.org/get/deck request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:07:13.951977 POST http://deckdealer.hopto.org/get/deck request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:07:13.953771 POST http://deckdealer.hopto.org/get/deck request
+SELECT * FROM deck WHERE 1;
+74.103.158.35 2022-11-30 00:07:13.954092 POST http://deckdealer.hopto.org/get/deck request
+SELECT * FROM deck WHERE 1;
+74.103.158.35 2022-11-30 00:07:13.951428 POST http://deckdealer.hopto.org/get/deck 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:07:21.973670 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:07:21.974234 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:07:21.973524 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "card_id": "INTEGER",
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:07:22.539102 POST http://deckdealer.hopto.org/get/cards request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:07:22.539662 POST http://deckdealer.hopto.org/get/cards request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:07:22.542140 POST http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-11-30 00:07:22.542579 POST http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-11-30 00:07:22.538911 POST http://deckdealer.hopto.org/get/cards 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:16:40.922109 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:16:40.922398 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:16:40.922041 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "active tables in the database",
+  "tables": [
+    {
+      "name": "users",
+      "type": "table",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "username",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "password",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "cards",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "deck",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "players",
+      "type": "table",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "spectators",
+      "type": "table",
+      "columns": [
+        {
+          "name": "spectator_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "games",
+      "type": "table",
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_actions",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "rules",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "active_game",
+      "type": "table",
+      "columns": [
+        {
+          "name": "entry_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_action",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "score_board",
+      "type": "table",
+      "columns": [
+        {
+          "name": "score_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "winner",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_score",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_hands",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_scores",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "spectators",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    }
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:16:40.941624 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:16:40.941861 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:16:40.941549 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "user_id": "INTEGER",
+      "username": "TEXT",
+      "password": "TEXT",
+      "create_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:16:44.370397 GET http://deckdealer.hopto.org/delete/games?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:16:44.370602 GET http://deckdealer.hopto.org/delete/games?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:16:44.370344 GET http://deckdealer.hopto.org/delete/games?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "game_id": "INTEGER",
+      "name": "TEXT",
+      "min_players": "TEXT",
+      "max_players": "TEXT",
+      "min_decks": "TEXT",
+      "max_decks": "TEXT",
+      "player_actions": "TEXT",
+      "rules": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:16:45.102886 POST http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:16:45.103292 POST http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:16:45.104812 POST http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+74.103.158.35 2022-11-30 00:16:45.105065 POST http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+74.103.158.35 2022-11-30 00:16:45.102721 POST http://deckdealer.hopto.org/get/games 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:16:47.138651 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:16:47.139221 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:16:47.138512 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "card_id": "INTEGER",
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:16:49.281820 POST http://deckdealer.hopto.org/get/deck request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:16:49.282392 POST http://deckdealer.hopto.org/get/deck request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:16:49.284901 POST http://deckdealer.hopto.org/get/deck request
+SELECT * FROM deck WHERE 1;
+74.103.158.35 2022-11-30 00:16:49.285319 POST http://deckdealer.hopto.org/get/deck request
+SELECT * FROM deck WHERE 1;
+74.103.158.35 2022-11-30 00:16:49.281684 POST http://deckdealer.hopto.org/get/deck 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:16:54.112383 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:16:54.112650 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:16:54.112315 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "card_id": "INTEGER",
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:16:54.605425 POST http://deckdealer.hopto.org/get/cards request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:16:54.606051 POST http://deckdealer.hopto.org/get/cards request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:16:54.608229 POST http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-11-30 00:16:54.608581 POST http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-11-30 00:16:54.605268 POST http://deckdealer.hopto.org/get/cards 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:17:01.177173 GET http://deckdealer.hopto.org/delete/score_board?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:17:01.177720 GET http://deckdealer.hopto.org/delete/score_board?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:17:01.177031 GET http://deckdealer.hopto.org/delete/score_board?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "score_id": "INTEGER",
+      "game_id": "INTEGER",
+      "user_id": "INTEGER",
+      "player_id": "INTEGER",
+      "winner": "TEXT",
+      "winner_email": "TEXT",
+      "winner_hand": "TEXT",
+      "winner_score": "INTEGER",
+      "players": "TEXT",
+      "player_hands": "TEXT",
+      "player_scores": "TEXT",
+      "spectators": "TEXT",
+      "entry_time": "DATETIMEY_TIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:17:01.805985 POST http://deckdealer.hopto.org/get/score_board request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:17:01.806574 POST http://deckdealer.hopto.org/get/score_board request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:17:01.809181 POST http://deckdealer.hopto.org/get/score_board request
+SELECT * FROM score_board WHERE 1;
+74.103.158.35 2022-11-30 00:17:01.809652 POST http://deckdealer.hopto.org/get/score_board request
+SELECT * FROM score_board WHERE 1;
+74.103.158.35 2022-11-30 00:17:01.805845 POST http://deckdealer.hopto.org/get/score_board 200
+74.103.158.35 2022-11-30 00:17:01.827113 GET http://deckdealer.hopto.org/udel.edu None
+{
+  "message": "Not found: '/udel.edu'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/udel.edu'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.35 2022-11-30 00:25:10.802676 GET http://deckdealer.hopto.org/udel.edu None
+{
+  "message": "Not found: '/udel.edu'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/udel.edu'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:25:12.423228 POST http://deckdealer.hopto.org/get/score_board request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:25:12.423868 POST http://deckdealer.hopto.org/get/score_board request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:25:12.426637 POST http://deckdealer.hopto.org/get/score_board request
+SELECT * FROM score_board WHERE 1;
+74.103.158.35 2022-11-30 00:25:12.427006 POST http://deckdealer.hopto.org/get/score_board request
+SELECT * FROM score_board WHERE 1;
+74.103.158.35 2022-11-30 00:25:12.423025 POST http://deckdealer.hopto.org/get/score_board 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:25:14.808975 GET http://deckdealer.hopto.org/delete/spectators?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:25:14.809693 GET http://deckdealer.hopto.org/delete/spectators?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:25:14.808827 GET http://deckdealer.hopto.org/delete/spectators?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "spectator_id": "INTEGER",
+      "user_id": "INTEGER",
+      "game_id": "INTEGER",
+      "name": "TEXT",
+      "email": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:25:15.157364 POST http://deckdealer.hopto.org/get/spectators request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:25:15.157883 POST http://deckdealer.hopto.org/get/spectators request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:25:15.159610 POST http://deckdealer.hopto.org/get/spectators request
+SELECT * FROM spectators WHERE 1;
+74.103.158.35 2022-11-30 00:25:15.159819 POST http://deckdealer.hopto.org/get/spectators request
+SELECT * FROM spectators WHERE 1;
+74.103.158.35 2022-11-30 00:25:15.157242 POST http://deckdealer.hopto.org/get/spectators 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:25:17.621171 GET http://deckdealer.hopto.org/delete/games?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:25:17.621669 GET http://deckdealer.hopto.org/delete/games?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:25:17.621046 GET http://deckdealer.hopto.org/delete/games?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "game_id": "INTEGER",
+      "name": "TEXT",
+      "min_players": "TEXT",
+      "max_players": "TEXT",
+      "min_decks": "TEXT",
+      "max_decks": "TEXT",
+      "player_actions": "TEXT",
+      "rules": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:25:18.241160 POST http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:25:18.241731 POST http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:25:18.244467 POST http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+74.103.158.35 2022-11-30 00:25:18.244885 POST http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+74.103.158.35 2022-11-30 00:25:18.241019 POST http://deckdealer.hopto.org/get/games 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:25:19.767202 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:25:19.767726 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:25:19.767075 GET http://deckdealer.hopto.org/delete/deck?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "card_id": "INTEGER",
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:25:20.251341 POST http://deckdealer.hopto.org/get/deck request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:25:20.251896 POST http://deckdealer.hopto.org/get/deck request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:25:20.254365 POST http://deckdealer.hopto.org/get/deck request
+SELECT * FROM deck WHERE 1;
+74.103.158.35 2022-11-30 00:25:20.254809 POST http://deckdealer.hopto.org/get/deck request
+SELECT * FROM deck WHERE 1;
+74.103.158.35 2022-11-30 00:25:20.251196 POST http://deckdealer.hopto.org/get/deck 200
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:25:23.166399 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:25:23.166959 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:25:23.166262 GET http://deckdealer.hopto.org/delete/cards?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "card_id": "INTEGER",
+      "key": "TEXT",
+      "name": "TEXT",
+      "suit": "TEXT",
+      "description": "TEXT",
+      "file_name": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-11-30 00:25:23.842265 POST http://deckdealer.hopto.org/get/cards request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-11-30 00:25:23.842797 POST http://deckdealer.hopto.org/get/cards request
+['table', 'sqlite_%']
+74.103.158.35 2022-11-30 00:25:23.845243 POST http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-11-30 00:25:23.845673 POST http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-11-30 00:25:23.842130 POST http://deckdealer.hopto.org/get/cards 200
+54.198.55.229 2022-11-30 00:26:55.296315 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+54.198.55.229 2022-11-30 00:26:55.296828 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+54.198.55.229 2022-11-30 00:26:55.296285 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.35 2022-11-30 00:30:15.773289 GET http://deckdealer.hopto.org/udel.edu None
+{
+  "message": "Not found: '/udel.edu'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/udel.edu'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.35 2022-11-30 00:41:06.817149 GET http://deckdealer.hopto.org/udel.edu None
+{
+  "message": "Not found: '/udel.edu'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/udel.edu'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.35 2022-11-30 00:41:07.003083 GET http://deckdealer.hopto.org/udel.edu None
+{
+  "message": "Not found: '/udel.edu'",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Not found: '/udel.edu'",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = null
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f59493975e0>
+128.4.146.29 2022-11-30 12:50:51.145609 GET http://deckdealer.hopto.org/get?token=null None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+cookie_info = None
+cannot convert dictionary update sequence element #0 to a sequence
+ERROR: token = null
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949397640>
+128.4.146.29 2022-11-30 12:51:14.645658 GET http://deckdealer.hopto.org/get?token=null None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+205.169.39.63 2022-11-30 13:14:28.562106 GET http://deckdealer.hopto.org/ None
+{
+  "message": "Internal Server Error",
+  "Python_Error": {
+    "exception": "argument of type 'NoneType' is not iterable",
+    "traceback": [
+      "Traceback (most recent call last):",
+      "  File \"/home/katayama/.local/lib/python3.9/site-packages/bottle.py\", line 868, in _handle",
+      "    return route.call(**args)",
+      "  File \"/home/katayama/.local/lib/python3.9/site-packages/bottle.py\", line 1748, in wrapper",
+      "    rv = callback(*a, **ka)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 783, in _log_to_logger",
+      "    actual_response = fn(*args, **kwargs)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/server.py\", line 121, in index",
+      "    return checkType(res)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/server.py\", line 67, in checkType",
+      "    if 'x-table' in request.headers.get('Accept'):",
+      "TypeError: argument of type 'NoneType' is not iterable"
+    ],
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Internal Server Error",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
+74.103.158.236 2022-11-30 17:20:25.443613 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949397820>
+74.103.158.236 2022-11-30 17:20:25.721525 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:20:32.086674 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f59493144c0>
+74.103.158.236 2022-11-30 17:20:32.177651 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:20:58.974290 GET http://deckdealer.hopto.org/register request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-11-30 17:20:58.974986 GET http://deckdealer.hopto.org/register request
+['table', 'sqlite_%']
+74.103.158.236 2022-11-30 17:20:58.974254 GET http://deckdealer.hopto.org/register None
+{"request.params": {}}
+{
+  "message": "missing parameter",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT",
+      "password2": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949397820>
+74.103.158.236 2022-11-30 17:20:59.166884 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:21:04.139098 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949397820>
+74.103.158.236 2022-11-30 17:21:04.246824 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:22:08.089109 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949314520>
+74.103.158.236 2022-11-30 17:22:08.175728 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:23:00.591819 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949397820>
+74.103.158.236 2022-11-30 17:23:00.726649 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:24:15.871048 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949397820>
+74.103.158.236 2022-11-30 17:24:15.966507 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:33:46.543071 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949314520>
+74.103.158.236 2022-11-30 17:33:46.706374 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:37:07.957914 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949314520>
+74.103.158.236 2022-11-30 17:37:08.047331 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:37:09.413394 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949397820>
+74.103.158.236 2022-11-30 17:37:09.510124 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:38:50.320531 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949314640>
+74.103.158.236 2022-11-30 17:38:50.450579 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:45:49.044423 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949314640>
+74.103.158.236 2022-11-30 17:45:49.225486 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:46:25.328619 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f59493972e0>
+74.103.158.236 2022-11-30 17:46:25.464049 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:46:28.711593 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949314640>
+74.103.158.236 2022-11-30 17:46:28.799744 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:55:56.146146 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f5949314640>
+74.103.158.236 2022-11-30 17:55:56.307870 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 17:56:06.172136 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+74.103.158.236 2022-11-30 17:56:16.385513 POST http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+74.103.158.236 2022-11-30 17:58:29.508885 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f59493148e0>
+74.103.158.236 2022-11-30 17:58:29.613191 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.236 2022-11-30 18:08:41.376968 GET http://deckdealer.hopto.org/ None
+{"request.params": {}}
+{
+  "message": "running..."
+}
+=== ATTEMPT TO CLEAN ERROR ===
+<method-wrapper '__str__' of HTTPError object at 0x7f59493148e0>
+74.103.158.236 2022-11-30 18:08:41.537879 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "text/html; charset=UTF-8"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
