@@ -179,3 +179,9 @@ SELECT * FROM users WHERE username=?;
 74.103.158.35 2022-12-02 09:29:01.205207 GET http://deckdealer.hopto.org/index2.html 200
 74.103.158.35 2022-12-02 09:29:08.488345 GET http://deckdealer.hopto.org/index2.html 200
 74.103.158.35 2022-12-02 09:29:30.304476 GET http://deckdealer.hopto.org/index2.html 200
+74.103.158.35 2022-12-02 09:30:12.434698 GET http://deckdealer.hopto.org/index2.html 200
+74.103.158.35 2022-12-02 09:30:23.484892 GET http://deckdealer.hopto.org/index2.html 200
+74.103.158.35 2022-12-02 09:30:33.062832 GET http://deckdealer.hopto.org/ 304
+74.103.158.35 2022-12-02 09:30:33.137417 GET http://deckdealer.hopto.org/css/login-register.css 304
+74.103.158.35 2022-12-02 09:30:33.141628 GET http://deckdealer.hopto.org/css/login-register-header.css 304
+74.103.158.35 2022-12-02 09:30:33.145249 GET http://deckdealer.hopto.org/js/login-register.js 304
