@@ -20,8 +20,8 @@ $(document).ready(function() {
     var url = new URL("/login", api_url).toString()
     var message = "";
     $.post(url, {
-      username: $('#username_login').val(),
-      password: $('#password_login').val()
+      username: $('#username-login').val(),
+      password: $('#password-login').val()
     }, function(data, status) {
       console.log("Status: " + status);
       if (data.message === undefined) {
@@ -39,9 +39,9 @@ $(document).ready(function() {
     e.preventDefault();
     var url = new URL("/login", api_url).toString()
     $.post(url, {
-      username:  $('#username_register').val(),
-      password:  $('#password_register').val(),
-      password2: $('#password2_register').val(),
+      username:  $('#username-register').val(),
+      password:  $('#password-register').val(),
+      password2: $('#password2-register').val(),
     }, function(data, status) {
       console.log("Status: " + status);
       if (data.message === undefined) {
