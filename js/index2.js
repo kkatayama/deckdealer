@@ -3,6 +3,18 @@ $(document).ready(function() {
   var user_id = "";
   var token   = "";
 
+  function showPopUp(message, data) {
+    $('#message').html(message);
+    $('#message-body').html(message_body);
+    $('#popup').modal("show");
+    $('#popup').on('hide.bs.modal', function() {
+      if (message.includes('user login success')) {
+        var main = "game.html" // + data.token;
+        window.location.href = main;
+      }
+    });
+  }
+
   $("#login").submit(function(e) {
     e.preventDefault();
     var url = new URL("/login", api_url).toString()
@@ -13,29 +25,12 @@ $(document).ready(function() {
     }, function(data, status) {
       console.log("Status: " + status);
       if (data.message === undefined) {
-        console.table(data);
         message = "No [message] in the Response...";
       } else {
         message = data.message;
         delete data.message;
       }
       message_body = data;
-      $('#message').html(message);
-      $('#message-body').html(message_body);
-      $('#popup').modal("show");
-      $('#popup').on('hide.bs.modal', function() {
-        if (message.includes('user login success')) {
-          console.log("LOGIN SUCCESS");
-          console.table(data);
-          var main = "game.html" // + data.token;
-          window.location.href = main;
-        } else {
-          console.log("LOGIN FAILED");
-          console.table(data);
-        }
-
-        console.log(message)
-      });
     });
   });
 
