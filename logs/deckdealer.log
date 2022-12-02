@@ -10824,3 +10824,22 @@ cookie_info = ('user_id', '7')
     "_status_line": "404 Not Found"
   }
 }
+82.145.215.206 2022-12-01 19:38:56.558072 GET http://deckdealer.hopto.org/ 200
+82.145.215.206 2022-12-01 19:38:56.809688 GET http://deckdealer.hopto.org/apple-touch-icon.png 404
+82.145.215.206 2022-12-01 19:38:56.810711 GET http://deckdealer.hopto.org/apple-touch-icon.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
