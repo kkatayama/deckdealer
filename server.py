@@ -1,6 +1,7 @@
 # -- bottle framework & plugins
 from bottle import hook, route, run, request, response, template, static_file, HTTPError, json_dumps
 from bottle_sqlite import SQLitePlugin, sqlite3
+from bottle_cors_plugin import cors_plugin
 import bottle
 import requests
 import mimetypes
@@ -41,7 +42,12 @@ plugin = SQLitePlugin(dbfile=db_file, detect_types=sqlite3.PARSE_DECLTYPES|sqlit
 app.install(plugin)
 app.install(log_to_logger)
 app.install(ErrorsRestPlugin())
-#app.catchall = False
+app.install(cors_plugin([
+    'https://deckdealer.hopto.org',
+    'http://localhost:3000', 'http:/127.0.0.1:3000', 'http://0.0.0.0:3000',
+    'http://localhost:8080', 'http:/127.0.0.1:8080', 'http://0.0.0.0:8080',
+    'http://localhost:8888', 'http:/127.0.0.1:8888', 'http://0.0.0.0:8888',
+    'null']))
 
 print(f'py_path: {py_path}')
 print(f'get_py_path: {get_py_path()}')
@@ -109,10 +115,7 @@ def strip_path():
 # -- hook to allow cross origin
 @hook('after_request')
 def enable_cors():
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Methods'] = 'PUT, GET, POST, DELETE, OPTIONS'
-    # response.headers['Access-Control-Allow-Headers'] = '*'
-    response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
 
 # -- index - response: running
 @route("/", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
