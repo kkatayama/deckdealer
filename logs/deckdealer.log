@@ -15941,3 +15941,55 @@ SELECT * FROM users WHERE 1;
 </table>
 
 74.103.158.35 2022-12-01 23:24:41.390068 POST http://deckdealer.hopto.org/get/users 200 OK
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 23:43:00.890995 GET http://deckdealer.hopto.org/delete/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 23:43:00.891566 GET http://deckdealer.hopto.org/delete/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 23:43:00.890718 GET http://deckdealer.hopto.org/delete/active_game?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "entry_id": "INTEGER",
+      "game_id": "INTEGER",
+      "user_id": "INTEGER",
+      "player_id": "INTEGER",
+      "player_hand": "TEXT",
+      "player_action": "TEXT",
+      "entry_time": "DATETIMEY_TIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 23:43:01.405663 POST http://deckdealer.hopto.org/get/active_game request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 23:43:01.405890 POST http://deckdealer.hopto.org/get/active_game request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 23:43:01.406649 POST http://deckdealer.hopto.org/get/active_game request
+SELECT * FROM active_game WHERE 1;
+74.103.158.35 2022-12-01 23:43:01.406763 POST http://deckdealer.hopto.org/get/active_game request
+SELECT * FROM active_game WHERE 1;
+=== actual_response is string ===
+<table id="response0" class="table caption-top table-striped table-hover" style="width:100%">
+  <caption>TABLE: message: 0 active_game entries found using submitted parameters</caption>
+  <thead>
+    <tr>
+      <th>index</th>
+      <th>submitted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[{}, {'filter': ''}]</td>
+    </tr>
+  </tbody>
+</table>
+
+74.103.158.35 2022-12-01 23:43:01.405517 POST http://deckdealer.hopto.org/get/active_game 200 OK
