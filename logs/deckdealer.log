@@ -13418,3 +13418,159 @@ DELETE FROM users WHERE (user_id=?);
     "_status_line": "500 Internal Server Error"
   }
 }
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 22:12:46.016138 POST http://deckdealer.hopto.org/delete/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 22:12:46.016626 POST http://deckdealer.hopto.org/delete/users request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 22:12:46.020575 POST http://deckdealer.hopto.org/delete/users request
+DELETE FROM users WHERE (user_id=?);
+74.103.158.35 2022-12-01 22:12:46.021056 POST http://deckdealer.hopto.org/delete/users request
+['9']
+74.103.158.35 2022-12-01 22:12:46.024052 POST http://deckdealer.hopto.org/delete/users None
+{
+  "message": "No template specified.",
+  "Python_Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "No template specified.",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 22:12:47.447575 POST http://deckdealer.hopto.org/delete/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 22:12:47.447824 POST http://deckdealer.hopto.org/delete/users request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 22:12:47.449760 POST http://deckdealer.hopto.org/delete/users request
+DELETE FROM users WHERE (user_id=?);
+74.103.158.35 2022-12-01 22:12:47.449941 POST http://deckdealer.hopto.org/delete/users request
+['9']
+74.103.158.35 2022-12-01 22:12:47.451200 POST http://deckdealer.hopto.org/delete/users None
+{
+  "message": "No template specified.",
+  "Python_Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "No template specified.",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 22:12:52.700036 POST http://deckdealer.hopto.org/delete/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 22:12:52.700576 POST http://deckdealer.hopto.org/delete/users request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 22:12:52.705822 POST http://deckdealer.hopto.org/delete/users request
+DELETE FROM users WHERE (user_id=?);
+74.103.158.35 2022-12-01 22:12:52.706330 POST http://deckdealer.hopto.org/delete/users request
+['9']
+74.103.158.35 2022-12-01 22:12:52.707740 POST http://deckdealer.hopto.org/delete/users None
+{
+  "message": "No template specified.",
+  "Python_Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "No template specified.",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 22:13:28.441184 POST http://deckdealer.hopto.org/delete/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 22:13:28.441873 POST http://deckdealer.hopto.org/delete/users request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 22:13:28.445125 POST http://deckdealer.hopto.org/delete/users request
+DELETE FROM users WHERE (user_id=?);
+74.103.158.35 2022-12-01 22:13:28.445504 POST http://deckdealer.hopto.org/delete/users request
+['9']
+74.103.158.35 2022-12-01 22:13:28.448097 POST http://deckdealer.hopto.org/delete/users None
+{
+  "message": "No template specified.",
+  "Python_Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "No template specified.",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 22:13:29.864890 POST http://deckdealer.hopto.org/delete/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 22:13:29.865488 POST http://deckdealer.hopto.org/delete/users request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 22:13:29.868725 POST http://deckdealer.hopto.org/delete/users request
+DELETE FROM users WHERE (user_id=?);
+74.103.158.35 2022-12-01 22:13:29.869135 POST http://deckdealer.hopto.org/delete/users request
+['9']
+74.103.158.35 2022-12-01 22:13:29.870907 POST http://deckdealer.hopto.org/delete/users None
+{
+  "message": "No template specified.",
+  "Python_Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "No template specified.",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 22:13:31.561688 POST http://deckdealer.hopto.org/delete/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 22:13:31.562177 POST http://deckdealer.hopto.org/delete/users request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 22:13:31.566081 POST http://deckdealer.hopto.org/delete/users request
+DELETE FROM users WHERE (user_id=?);
+74.103.158.35 2022-12-01 22:13:31.566635 POST http://deckdealer.hopto.org/delete/users request
+['9']
+74.103.158.35 2022-12-01 22:13:31.569242 POST http://deckdealer.hopto.org/delete/users None
+{
+  "message": "No template specified.",
+  "Python_Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "No template specified.",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
