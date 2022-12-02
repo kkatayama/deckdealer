@@ -31,7 +31,7 @@ $(document).ready(function() {
         delete data.message;
       }
       message_body = data;
-      showPopup(message, data);
+      showPopUp(message, data);
     });
   });
 

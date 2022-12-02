@@ -567,7 +567,7 @@ def send_html(filename):
             dirname = str(Path(dirname, kind))
         if Path(dirname, 'static', kind, filename).exists():
             dirname = str(Path(dirname, 'static', kind))
-    response.set_header("Cache-Control", "public, no-cache")
+    response.set_header("Cache-Control", "no-store")
     return static_file(filename, root=f'{dirname}')
 
 @route('/<filename:re:.*\.js>')
@@ -581,7 +581,7 @@ def send_js(filename):
             dirname = str(Path(dirname, kind))
         if Path(dirname, 'static', kind, filename).exists():
             dirname = str(Path(dirname, 'static', kind))
-    response.set_header("Cache-Control", "public, no-cache")
+    response.set_header("Cache-Control", "no-store")
     return static_file(filename, root=f'{dirname}')
 
 @route('/<filename:re:.*\.css>')
@@ -595,7 +595,7 @@ def send_css(filename):
             dirname = str(Path(dirname, kind))
         if Path(dirname, 'static', kind, filename).exists():
             dirname = str(Path(dirname, 'static', kind))
-    response.set_header("Cache-Control", "public, no-cache")
+    response.set_header("Cache-Control", "no-store")
     return static_file(filename, root=f'{dirname}')
 
 @route(f"/<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
