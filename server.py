@@ -567,7 +567,7 @@ def send_html(filename):
             dirname = str(Path(dirname, kind))
         if Path(dirname, 'static', kind, filename).exists():
             dirname = str(Path(dirname, 'static', kind))
-    response.set_header("Cache-Control", "public, max-age=1")
+    response.set_header("Cache-Control", "public, no-cache")
     return static_file(filename, root=f'{dirname}')
 
 @route('/<filename:re:.*\.js>')
@@ -581,7 +581,7 @@ def send_js(filename):
             dirname = str(Path(dirname, kind))
         if Path(dirname, 'static', kind, filename).exists():
             dirname = str(Path(dirname, 'static', kind))
-    response.set_header("Cache-Control", "public, max-age=1")
+    response.set_header("Cache-Control", "public, no-cache")
     return static_file(filename, root=f'{dirname}')
 
 @route('/<filename:re:.*\.css>')
@@ -595,7 +595,7 @@ def send_css(filename):
             dirname = str(Path(dirname, kind))
         if Path(dirname, 'static', kind, filename).exists():
             dirname = str(Path(dirname, 'static', kind))
-    response.set_header("Cache-Control", "public, max-age=1")
+    response.set_header("Cache-Control", "public, no-cache")
     return static_file(filename, root=f'{dirname}')
 
 @route(f"/<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
@@ -617,4 +617,4 @@ def send_img(filename):
 ###############################################################################
 mimetypes.init()
 port = int(os.environ.get("PORT", 8888))
-run(app, host="0.0.0.0", port=port, reloader=True, debug=True)
+run(app, host="0.0.0.0", port=port, reloader=True, debug=False)
