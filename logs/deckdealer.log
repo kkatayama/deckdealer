@@ -11940,3 +11940,414 @@ ERROR: token = null
     "_status_line": "401 Unauthorized"
   }
 }
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 21:56:42.667008 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 21:56:42.667532 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 21:56:42.666757 GET http://deckdealer.hopto.org/get?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "active tables in the database",
+  "tables": [
+    {
+      "name": "users",
+      "type": "table",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "username",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "password",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "cards",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "deck",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "players",
+      "type": "table",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "spectators",
+      "type": "table",
+      "columns": [
+        {
+          "name": "spectator_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "games",
+      "type": "table",
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_actions",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "rules",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "active_game",
+      "type": "table",
+      "columns": [
+        {
+          "name": "entry_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_action",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "score_board",
+      "type": "table",
+      "columns": [
+        {
+          "name": "score_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "winner",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_score",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_hands",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_scores",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "spectators",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    }
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 21:56:42.687160 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 21:56:42.687442 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 21:56:42.687029 GET http://deckdealer.hopto.org/delete/users?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "user_id": "INTEGER",
+      "username": "TEXT",
+      "password": "TEXT",
+      "create_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+cookie_info = ('user_id', '1')
+74.103.158.35 2022-12-01 21:56:54.921267 GET http://deckdealer.hopto.org/register?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 21:56:54.921856 GET http://deckdealer.hopto.org/register?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 21:56:54.921147 GET http://deckdealer.hopto.org/register?token=IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09 None
+{"request.params": {"token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"}}
+{
+  "message": "missing parameter",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT",
+      "password2": "TEXT"
+    }
+  ],
+  "submitted": [
+    {
+      "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+    }
+  ]
+}
+74.103.158.35 2022-12-01 21:57:37.403700 GET http://deckdealer.hopto.org/register/username/teddy/password/teddy/password2/teddy request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-01 21:57:37.404017 GET http://deckdealer.hopto.org/register/username/teddy/password/teddy/password2/teddy request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-01 21:57:37.408003 GET http://deckdealer.hopto.org/register/username/teddy/password/teddy/password2/teddy request
+SELECT * FROM users WHERE username=?;
+74.103.158.35 2022-12-01 21:57:37.408236 GET http://deckdealer.hopto.org/register/username/teddy/password/teddy/password2/teddy request
+['teddy']
+74.103.158.35 2022-12-01 21:57:37.408514 GET http://deckdealer.hopto.org/register/username/teddy/password/teddy/password2/teddy request
+INSERT INTO users (username,password,password2) VALUES (?, ?, ?);
+74.103.158.35 2022-12-01 21:57:37.408676 GET http://deckdealer.hopto.org/register/username/teddy/password/teddy/password2/teddy request
+['teddy', '41c48a3647537bb5066cf17243e5f45bbdf34d3eb8ac55218454b82e1563aa021ee78f06e022e4e9f59f57787aab4aeda828ad5ed34b58ef11ccbe76a0b70312', 'teddy']
+74.103.158.35 2022-12-01 21:57:37.403629 GET http://deckdealer.hopto.org/register/username/teddy/password/teddy/password2/teddy None
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": {
+    "SQLite.OperationalError": "table users has no column named password2",
+    "Debug Info": {
+      "query": "INSERT INTO users (username,password,password2) VALUES (?, ?, ?);",
+      "kwargs": {
+        "table": {
+          "name": "users",
+          "type": "table",
+          "columns": {
+            "user_id": "INTEGER",
+            "username": "TEXT",
+            "password": "TEXT",
+            "create_time": "DATETIME"
+          },
+          "info": {
+            "user_id": "INTEGER PRIMARY KEY",
+            "username": "TEXT NOT NULL",
+            "password": "TEXT NOT NULL",
+            "create_time": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+          }
+        },
+        "columns": [
+          "username",
+          "password",
+          "password2"
+        ],
+        "col_values": [
+          "teddy",
+          "41c48a3647537bb5066cf17243e5f45bbdf34d3eb8ac55218454b82e1563aa021ee78f06e022e4e9f59f57787aab4aeda828ad5ed34b58ef11ccbe76a0b70312",
+          "teddy"
+        ]
+      },
+      "parsed": {
+        "table": "users",
+        "columns": [
+          "username",
+          "password",
+          "password2"
+        ],
+        "col_values": [
+          "teddy",
+          "41c48a3647537bb5066cf17243e5f45bbdf34d3eb8ac55218454b82e1563aa021ee78f06e022e4e9f59f57787aab4aeda828ad5ed34b58ef11ccbe76a0b70312",
+          "teddy"
+        ]
+      }
+    },
+    "SQLite Traceback": [
+      "Traceback (most recent call last):",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 106, in insertRow",
+      "    cur = db.execute(query, col_values) if col_values else db.execute(query)",
+      "sqlite3.OperationalError: table users has no column named password2"
+    ]
+  },
+  "username": "teddy"
+}
