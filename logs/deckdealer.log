@@ -11161,3 +11161,25 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
     {}
   ]
 }
+74.103.158.35 2022-12-01 20:35:48.341628 GET http://deckdealer.hopto.org/ 304
+74.103.158.35 2022-12-01 20:35:48.482054 GET http://deckdealer.hopto.org/css/login-register.css 200
+74.103.158.35 2022-12-01 20:35:48.486974 GET http://deckdealer.hopto.org/css/login-register-header.css 200
+74.103.158.35 2022-12-01 20:35:48.489312 GET http://deckdealer.hopto.org/js/login-register.js 304
+74.103.158.35 2022-12-01 20:35:48.638510 GET http://deckdealer.hopto.org/favicon.ico 404
+74.103.158.35 2022-12-01 20:35:48.639627 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
