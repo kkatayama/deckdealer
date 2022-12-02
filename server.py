@@ -557,8 +557,8 @@ def delete(db, table_name="", url_paths=""):
 #                                 Static Files                                #
 ###############################################################################
 @route('/<filename:re:.*\.html>')
-@route('/html/<filename:re:.*\.js>')
-@route('/static/html/<filename:re:.*\.js>')
+@route('/html/<filename:re:.*\.html>')
+@route('/static/html/<filename:re:.*\.html>')
 def send_html(filename):
     kind = 'html'
     dirname = sys.path[0]
@@ -573,7 +573,7 @@ def send_html(filename):
 @route('/js/<filename:re:.*\.js>')
 @route('/static/js/<filename:re:.*\.js>')
 def send_js(filename):
-    kind = 'css'
+    kind = 'js'
     dirname = sys.path[0]
     if not Path(dirname, filename).exists():
         if Path(dirname, kind, filename).exists():
