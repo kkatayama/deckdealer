@@ -19,49 +19,150 @@
 </head>
 
 <body class="bg-gradient-primary">
-  <div class="login-wrap my-9">
-    <div class="login-html py-5">
-      <header class="fs-1 text-center text-white lh-lg pb-2">
-        <p>DeckDealer</p>
-      </header><input type="radio" id="tab-1" class="sign-in" name="tab" checked=""><label class="form-label form-label form-label tab" for="tab-1">Sign In</label><input type="radio" id="tab-2" class="sign-up" name="tab"><label class="form-label form-label form-label tab" for="tab-2">Sign Up</label>
-      <div class="login-form">
-        <form class="sign-in-htm" id="login">
-          <div class="group">
-            <label class="form-label label" for="username_login">Username</label>
-            <input class="form-control input" type="text" id="username_login">
+  <div class="container">
+    <!-- Pills navs -->
+    <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+           aria-controls="pills-login" aria-selected="true">Login</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+           aria-controls="pills-register" aria-selected="false">Register</a>
+      </li>
+    </ul>
+    <!-- Pills navs -->
+
+    <!-- Pills content -->
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+        <form>
+          <div class="text-center mb-3">
+            <p>Sign in with:</p>
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-google"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-github"></i>
+            </button>
           </div>
-          <div class="group">
-            <label class="form-label label" for="password_login">Password</label>
-            <input class="form-control input" type="password" id="password_login" data-type="password">
+
+          <p class="text-center">or:</p>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="loginName" class="form-control" />
+            <label class="form-label" for="loginName">Email or username</label>
           </div>
-          <div class="group">
-            <button class="button" type="submit" value="Sign In">Sign In</button>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="loginPassword" class="form-control" />
+            <label class="form-label" for="loginPassword">Password</label>
           </div>
-          <div class="hr"></div>
-          <div class="foot-lnk"><a href="#forgot">Forgot Password?</a></div>
+
+          <!-- 2 column grid layout -->
+          <div class="row mb-4">
+            <div class="col-md-6 d-flex justify-content-center">
+              <!-- Checkbox -->
+              <div class="form-check mb-3 mb-md-0">
+                <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                <label class="form-check-label" for="loginCheck"> Remember me </label>
+              </div>
+            </div>
+
+            <div class="col-md-6 d-flex justify-content-center">
+              <!-- Simple link -->
+              <a href="#!">Forgot password?</a>
+            </div>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+          <!-- Register buttons -->
+          <div class="text-center">
+            <p>Not a member? <a href="#!">Register</a></p>
+          </div>
         </form>
-        <form class="sign-up-htm" id="register">
-          <div class="group">
-            <label class="form-label label" for="username_register">Username</label>
-            <input class="form-control input" type="text" id="username_register">
+      </div>
+      <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+        <form>
+          <div class="text-center mb-3">
+            <p>Sign up with:</p>
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-google"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" class="btn btn-link btn-floating mx-1">
+              <i class="fab fa-github"></i>
+            </button>
           </div>
-          <div class="group">
-            <label class="form-label label" for="password_register">Password</label>
-            <input class="form-control input" type="password" id="password_register" data-type="password">
+
+          <p class="text-center">or:</p>
+
+          <!-- Name input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="registerName" class="form-control" />
+            <label class="form-label" for="registerName">Name</label>
           </div>
-          <div class="group">
-            <label class="form-label label" for="password2_register">Repeat Password</label>
-            <input class="form-control input" type="password" id="password2_register" data-type="password">
+
+          <!-- Username input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="registerUsername" class="form-control" />
+            <label class="form-label" for="registerUsername">Username</label>
           </div>
-          <div class="group">
-            <button class="button" type="submit" value="Sign Up">Sign Up</button>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="registerEmail" class="form-control" />
+            <label class="form-label" for="registerEmail">Email</label>
           </div>
-          <div class="hr"></div>
-          <div class="foot-lnk"><label class="form-label" for="tab-1">Already Member? </label></div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="registerPassword" class="form-control" />
+            <label class="form-label" for="registerPassword">Password</label>
+          </div>
+
+          <!-- Repeat Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="registerRepeatPassword" class="form-control" />
+            <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+          </div>
+
+          <!-- Checkbox -->
+          <div class="form-check d-flex justify-content-center mb-4">
+            <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                   aria-describedby="registerCheckHelpText" />
+            <label class="form-check-label" for="registerCheck">
+              I have read and agree to the terms
+            </label>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
         </form>
       </div>
     </div>
-  </div>
+    <!-- Pills content -->
   <div class="modal fade" id="popup" tabindex="-1" aria-labelledby="popuplLabel" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -75,6 +176,7 @@
     </div>
   </div>
 
+</div>
 </body>
 
 </html>
