@@ -794,6 +794,11 @@ def log_to_logger(fn):
             logger.debug(actual_response)
             status = response.status if response.status else 0
             logger.info('%s %s %s %s %s' % (ip_address, request_time, request.method, request.url, status))
+        elif not actual_response:
+            logger.debug('=== NONE: actual_response ===')
+            actual_response = response
+            status = response.status if response.status else 0
+            logger.info('%s %s %s %s %s' % (ip_address, request_time, request.method, request.url, status))
         elif actual_response._status_code:
             status = actual_response._status_code
             logger.info('%s %s %s %s %s' % (ip_address, request_time, request.method, request.url, status))
