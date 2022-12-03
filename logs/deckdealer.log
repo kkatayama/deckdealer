@@ -808,3 +808,22 @@ SELECT * FROM users WHERE username=?;
   "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
 74.103.158.35 2022-12-02 14:55:11.688039 GET http://deckdealer.hopto.org/game.html 304
+82.145.215.206 2022-12-02 20:40:31.381117 GET http://deckdealer.hopto.org/ 200
+82.145.215.206 2022-12-02 20:40:31.651643 GET http://deckdealer.hopto.org/apple-touch-icon.png 404
+82.145.215.206 2022-12-02 20:40:31.652864 GET http://deckdealer.hopto.org/apple-touch-icon.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
