@@ -1158,3 +1158,22 @@ SELECT * FROM games WHERE (game_id);
     "entry_time": "2022-11-10 13:12:54.755"
   }
 }
+128.4.126.233 2022-12-04 17:21:37.006798 GET http://deckdealer.hopto.org/ 200
+128.4.126.233 2022-12-04 17:21:54.028481 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 17:21:54.029081 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 17:21:54.028362 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
