@@ -85,3 +85,38 @@
 74.103.158.35 2022-12-03 13:31:40.327366 GET http://deckdealer.hopto.org/index2.html 200
 74.103.158.35 2022-12-03 21:23:28.450692 GET http://deckdealer.hopto.org/index2.html 200
 74.103.158.35 2022-12-03 21:23:28.488709 GET http://deckdealer.hopto.org/js/index2.js 304
+74.103.158.35 2022-12-03 21:27:54.767686 GET http://deckdealer.hopto.org/index2.html 200
+74.103.158.35 2022-12-03 21:27:59.720284 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-03 21:27:59.720580 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-03 21:27:59.722160 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+74.103.158.35 2022-12-03 21:27:59.722353 POST http://deckdealer.hopto.org/login request
+['admin']
+74.103.158.35 2022-12-03 21:27:59.720187 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+74.103.158.35 2022-12-03 21:28:53.172276 GET http://deckdealer.hopto.org/game.html 304
+74.103.158.35 2022-12-03 21:28:57.246692 GET http://deckdealer.hopto.org/index2.html 200
+74.103.158.35 2022-12-03 21:28:58.601396 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-03 21:28:58.601991 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-03 21:28:58.607086 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+74.103.158.35 2022-12-03 21:28:58.607766 POST http://deckdealer.hopto.org/login request
+['admin']
+74.103.158.35 2022-12-03 21:28:58.601254 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
