@@ -120,3 +120,22 @@ SELECT * FROM users WHERE username=?;
   "username": "admin",
   "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
+82.145.215.206 2022-12-03 21:40:17.147007 GET http://deckdealer.hopto.org/ 200
+82.145.215.206 2022-12-03 21:40:17.404406 GET http://deckdealer.hopto.org/apple-touch-icon.png 404
+82.145.215.206 2022-12-03 21:40:17.405539 GET http://deckdealer.hopto.org/apple-touch-icon.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
