@@ -277,3 +277,54 @@ SELECT * FROM users WHERE username=?;
   "username": "bryce",
   "token": "IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09"
 }
+128.4.126.233 2022-12-04 17:07:15.804708 GET http://deckdealer.hopto.org/add/games/name/Blackjack/min_players/2/max_players/10/min_decks/1/max_decks/10/player_actions/setup%2C%20hit%2C%20stay/rules/1.%20All%20players%20are%20dealt%202%20cards%2C%202.%20Dealer%20asks%20each%20player%20to%20%22hit%22%20or%20%22stay%22%2C%203.%20Dealer%20hits%20until%20hand%20is%20at%20least%2017%2C%204.%20Hand%20that%20is%20closest%20to%2021%20but%20not%20greater%20WINS request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 17:07:15.805527 GET http://deckdealer.hopto.org/add/games/name/Blackjack/min_players/2/max_players/10/min_decks/1/max_decks/10/player_actions/setup%2C%20hit%2C%20stay/rules/1.%20All%20players%20are%20dealt%202%20cards%2C%202.%20Dealer%20asks%20each%20player%20to%20%22hit%22%20or%20%22stay%22%2C%203.%20Dealer%20hits%20until%20hand%20is%20at%20least%2017%2C%204.%20Hand%20that%20is%20closest%20to%2021%20but%20not%20greater%20WINS request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 17:07:15.807966 GET http://deckdealer.hopto.org/add/games/name/Blackjack/min_players/2/max_players/10/min_decks/1/max_decks/10/player_actions/setup%2C%20hit%2C%20stay/rules/1.%20All%20players%20are%20dealt%202%20cards%2C%202.%20Dealer%20asks%20each%20player%20to%20%22hit%22%20or%20%22stay%22%2C%203.%20Dealer%20hits%20until%20hand%20is%20at%20least%2017%2C%204.%20Hand%20that%20is%20closest%20to%2021%20but%20not%20greater%20WINS request
+INSERT INTO games (name,min_players,max_players,min_decks,max_decks,player_actions,rules) VALUES (?, ?, ?, ?, ?, ?, ?);
+128.4.126.233 2022-12-04 17:07:15.808365 GET http://deckdealer.hopto.org/add/games/name/Blackjack/min_players/2/max_players/10/min_decks/1/max_decks/10/player_actions/setup%2C%20hit%2C%20stay/rules/1.%20All%20players%20are%20dealt%202%20cards%2C%202.%20Dealer%20asks%20each%20player%20to%20%22hit%22%20or%20%22stay%22%2C%203.%20Dealer%20hits%20until%20hand%20is%20at%20least%2017%2C%204.%20Hand%20that%20is%20closest%20to%2021%20but%20not%20greater%20WINS request
+['Blackjack', '2', '10', '1', '10', 'setup, hit, stay', '1. All players are dealt 2 cards, 2. Dealer asks each player to "hit" or "stay", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS']
+128.4.126.233 2022-12-04 17:07:15.788341 GET http://deckdealer.hopto.org/add/games/name/Blackjack/min_players/2/max_players/10/min_decks/1/max_decks/10/player_actions/setup%2C%20hit%2C%20stay/rules/1.%20All%20players%20are%20dealt%202%20cards%2C%202.%20Dealer%20asks%20each%20player%20to%20%22hit%22%20or%20%22stay%22%2C%203.%20Dealer%20hits%20until%20hand%20is%20at%20least%2017%2C%204.%20Hand%20that%20is%20closest%20to%2021%20but%20not%20greater%20WINS None
+{"request.params": {}}
+{
+  "message": "data added to <games>",
+  "game_id": 2
+}
+128.4.126.233 2022-12-04 17:08:19.150783 GET http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 17:08:19.151460 GET http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 17:08:19.154002 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+128.4.126.233 2022-12-04 17:08:19.154417 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+128.4.126.233 2022-12-04 17:08:19.150345 GET http://deckdealer.hopto.org/get/games None
+{"request.params": {}}
+{
+  "message": "found 2 game entries",
+  "data": [
+    {
+      "game_id": 1,
+      "name": "Blackjack",
+      "min_players": "2",
+      "max_players": "10",
+      "min_decks": "1",
+      "max_decks": "10",
+      "player_actions": "setup, hit, stay",
+      "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+      "entry_time": "2022-11-10 13:12:54.755"
+    },
+    {
+      "game_id": 2,
+      "name": "Blackjack",
+      "min_players": "2",
+      "max_players": "10",
+      "min_decks": "1",
+      "max_decks": "10",
+      "player_actions": "setup, hit, stay",
+      "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+      "entry_time": "2022-12-04 17:07:15.808"
+    }
+  ]
+}
