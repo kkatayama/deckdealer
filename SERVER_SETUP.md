@@ -31,7 +31,7 @@ sudo apt-get install sqlite3
 
 ### bottle + rich + requests + bs4 + html5lib
 ```bash
-pip3 install -U bottle bottle rich requests bs4 html5lib
+pip3 install -U bottle bottle-cors-plugin rich requests bs4 html5lib
 ```
 
 ### bottle-sqlite
