@@ -69,21 +69,14 @@
       </div>
     </div>
   </div>
-  <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade" id="popup" tabindex="-1" aria-labelledby="popuplLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Game Mode</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <h1 class="modal-title fs-4" id="message"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <p>Choose a role to play in the upcoming card game</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Player</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Spectator</button>
+        <div class="modal-body" id="message-body">
         </div>
       </div>
     </div>
