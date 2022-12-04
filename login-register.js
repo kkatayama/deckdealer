@@ -22,20 +22,23 @@ $(document).ready(function() {
         message_body = data;
         $('#message').html(message);
         $('#message-body').html(message_body);
-        $('#popup').modal("show");
-        $('#popup').on('hide.bs.modal', function() {
-          if (message.includes('user login success')) {
-            console.log("LOGIN SUCCESS");
-            console.table(data);
-            var main = "workflows.html?token=" + data.token;
-            window.location.href = main;
-          } else {
-            console.log("LOGIN FAILED");
-            console.table(data);
-          }
+        $('#myModal').on('shown.bs.modal', function () {
+          $('#myInput').trigger('focus')
+        })
+        //$('#popup').modal("show");
+        //$('#popup').on('hide.bs.modal', function() {
+          //if (message.includes('user login success')) {
+            //console.log("LOGIN SUCCESS");
+            //console.table(data);
+            //var main = "workflows.html?token=" + data.token;
+            //window.location.href = main;
+          //} else {
+            //console.log("LOGIN FAILED");
+            //console.table(data);
+          //}
   
-          console.log(message)
-        });
+          //console.log(message)
+        //});
       });
     });
   
