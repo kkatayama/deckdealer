@@ -1,6 +1,7 @@
 # -- bottle framework & plugins
 from bottle import hook, route, run, request, response, template, static_file, HTTPError, json_dumps
 from bottle_sqlite import SQLitePlugin, sqlite3
+from bottle_cors_plugin import cors_plugin
 import bottle
 import requests
 import mimetypes
@@ -41,7 +42,12 @@ plugin = SQLitePlugin(dbfile=db_file, detect_types=sqlite3.PARSE_DECLTYPES|sqlit
 app.install(plugin)
 app.install(log_to_logger)
 app.install(ErrorsRestPlugin())
-#app.catchall = False
+app.install(cors_plugin([
+    'https://deckdealer.hopto.org',
+    'http://localhost:3000', 'http:/127.0.0.1:3000', 'http://0.0.0.0:3000',
+    'http://localhost:8080', 'http:/127.0.0.1:8080', 'http://0.0.0.0:8080',
+    'http://localhost:8888', 'http:/127.0.0.1:8888', 'http://0.0.0.0:8888',
+    'null']))
 
 print(f'py_path: {py_path}')
 print(f'get_py_path: {get_py_path()}')
@@ -109,16 +115,13 @@ def strip_path():
 # -- hook to allow cross origin
 @hook('after_request')
 def enable_cors():
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Methods'] = 'PUT, GET, POST, DELETE, OPTIONS'
-    # response.headers['Access-Control-Allow-Headers'] = '*'
-    response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
 
 # -- index - response: running
 @route("/", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 def index():
-    res = {"message": "running..."}
-    return checkType(res)
+    dirname = sys.path[0]
+    return static_file('index.html', root=f'{dirname}')
 
 # -- usage - response: available commands
 @route("/usage", method=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
@@ -170,7 +173,6 @@ def register(db, url_paths=""):
     # -- parse "params" and "filters" from HTTP request
     table = getTable(db, table_name="users")
     required_columns = getColumns(db, table, required=True)
-    required_columns.update({'password2': 'TEXT'})
     params, filters = parseUrlPaths(url_paths, request.params, required_columns)
     params.update(dict(request.params))
     print(f"request.params = {dict(request.params)}\nparams = {params}\nfilters = '{filters}'")
@@ -182,6 +184,7 @@ def register(db, url_paths=""):
         password2 = params["password2"]
     except KeyError:
         # res = {"message": "missing parameter", "required params": ["username", "password", "password2"]}
+        required_columns.update({'password2': 'TEXT'})
         res = {"message": "missing parameter", "required": [required_columns], "submitted": [params]}
         return checkType(res)
 
@@ -553,20 +556,60 @@ def delete(db, table_name="", url_paths=""):
 ###############################################################################
 #                                 Static Files                                #
 ###############################################################################
+@route('/<filename:re:.*\.html>')
+@route('/html/<filename:re:.*\.html>')
+@route('/static/html/<filename:re:.*\.html>')
+def send_html(filename):
+    kind = 'html'
+    dirname = sys.path[0]
+    if not Path(dirname, filename).exists():
+        if Path(dirname, kind, filename).exists():
+            dirname = str(Path(dirname, kind))
+        if Path(dirname, 'static', kind, filename).exists():
+            dirname = str(Path(dirname, 'static', kind))
+    response.set_header("Cache-Control", "no-store")
+    return static_file(filename, root=f'{dirname}')
+
+@route('/<filename:re:.*\.js>')
+@route('/js/<filename:re:.*\.js>')
+@route('/static/js/<filename:re:.*\.js>')
+def send_js(filename):
+    kind = 'js'
+    dirname = sys.path[0]
+    if not Path(dirname, filename).exists():
+        if Path(dirname, kind, filename).exists():
+            dirname = str(Path(dirname, kind))
+        if Path(dirname, 'static', kind, filename).exists():
+            dirname = str(Path(dirname, 'static', kind))
+    response.set_header("Cache-Control", "no-store")
+    return static_file(filename, root=f'{dirname}')
+
+@route('/<filename:re:.*\.css>')
+@route('/css/<filename:re:.*\.css>')
 @route('/static/css/<filename:re:.*\.css>')
 def send_css(filename):
+    kind = 'css'
     dirname = sys.path[0]
-    return static_file(filename, root=f'{dirname}/static/css/')
+    if not Path(dirname, filename).exists():
+        if Path(dirname, kind, filename).exists():
+            dirname = str(Path(dirname, kind))
+        if Path(dirname, 'static', kind, filename).exists():
+            dirname = str(Path(dirname, 'static', kind))
+    response.set_header("Cache-Control", "no-store")
+    return static_file(filename, root=f'{dirname}')
 
-@route('/static/img/<filename:re:.*\.*>')
+@route(f"/<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
+@route(f"/img/<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
+@route(f"/static/img/<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
 def send_img(filename):
+    kind = 'img'
     dirname = sys.path[0]
-    return static_file(filename, root=f'{dirname}/static/img/')
-
-@route(f"<filename:re:.*\.({'|'.join(m.strip('.') for m in mimetypes.types_map)})>")
-def send_root_img(filename):
-    dirname = sys.path[0]
-    return static_file(filename, root=f'{dirname}/static/img/')
+    if not Path(dirname, filename).exists():
+        if Path(dirname, kind, filename).exists():
+            dirname = str(Path(dirname, kind))
+        if Path(dirname, 'static', kind, filename).exists():
+            dirname = str(Path(dirname, 'static', kind))
+    return static_file(filename, root=f'{dirname}')
 
 
 ###############################################################################

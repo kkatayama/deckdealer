@@ -1,6 +1,9 @@
 # MAC osx nonsense
 .DS_STORE
 
+# Backend Git Auto Log
+git_auto.log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -59,7 +62,7 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
+# *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
