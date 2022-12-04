@@ -1689,3 +1689,19 @@ cookie_info = ('user_id', '7')
     "_status_line": "404 Not Found"
   }
 }
+128.4.126.233 2022-12-04 18:19:51.403901 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 18:19:51.404403 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 18:19:51.408524 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.126.233 2022-12-04 18:19:51.408974 POST http://deckdealer.hopto.org/login request
+['bryce']
+128.4.126.233 2022-12-04 18:19:51.403802 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "bryce", "password": "bryce"}}
+{
+  "message": "user login success",
+  "user_id": 7,
+  "username": "bryce",
+  "token": "IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09"
+}
