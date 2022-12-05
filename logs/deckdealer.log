@@ -837,3 +837,65 @@ SELECT * FROM games WHERE 1;
     "entry_time": "2022-11-10 13:12:54.755"
   }
 }
+74.103.158.236 2022-12-05 16:33:21.259157 POST http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-05 16:33:21.259617 POST http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-05 16:33:21.261288 POST http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+74.103.158.236 2022-12-05 16:33:21.261563 POST http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+74.103.158.236 2022-12-05 16:33:21.258867 POST http://deckdealer.hopto.org/get/players None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "found 3 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-11-10 13:20:14.652"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "alice",
+      "email": "alice@udel.edu",
+      "entry_time": "2022-11-10 13:20:35.747"
+    },
+    {
+      "player_id": 3,
+      "user_id": 4,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-11-10 13:20:45.733"
+    }
+  ]
+}
+74.103.158.236 2022-12-05 16:33:34.978406 POST http://deckdealer.hopto.org/delete/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-05 16:33:34.979134 POST http://deckdealer.hopto.org/delete/players request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-05 16:33:34.977957 POST http://deckdealer.hopto.org/delete/players None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "missing a query param(s)",
+  "query_params": [
+    {
+      "player_id": "INTEGER",
+      "user_id": "INTEGER",
+      "game_id": "INTEGER",
+      "name": "TEXT",
+      "email": "TEXT",
+      "entry_time": "DATETIME",
+      "filter": ""
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
