@@ -2297,3 +2297,40 @@ cookie_info = ('user_id', '7')
     "_status_line": "404 Not Found"
   }
 }
+128.4.126.233 2022-12-04 19:30:14.956572 GET http://deckdealer.hopto.org/ 200
+128.4.126.233 2022-12-04 19:30:19.993230 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 19:30:19.993882 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 19:30:19.998999 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.126.233 2022-12-04 19:30:19.999715 POST http://deckdealer.hopto.org/login request
+['bryce']
+128.4.126.233 2022-12-04 19:30:19.993114 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "bryce", "password": "bryce"}}
+{
+  "message": "user login success",
+  "user_id": 7,
+  "username": "bryce",
+  "token": "IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09"
+}
+128.4.126.233 2022-12-04 19:30:23.402775 GET http://deckdealer.hopto.org/spectators.html 200
+cookie_info = ('user_id', '7')
+128.4.126.233 2022-12-04 19:30:27.295231 GET http://deckdealer.hopto.org/workflows.html?token=IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09 404
+128.4.126.233 2022-12-04 19:30:27.296329 GET http://deckdealer.hopto.org/workflows.html?token=IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09 None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
