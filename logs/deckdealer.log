@@ -2525,3 +2525,9 @@ SELECT * FROM users WHERE username=?;
 }
 128.4.126.233 2022-12-04 20:02:24.161866 GET http://deckdealer.hopto.org/spectators.html 200
 128.4.126.233 2022-12-04 20:02:34.836317 GET http://deckdealer.hopto.org/game.html 200
+128.4.126.233 2022-12-04 20:13:28.870597 GET http://deckdealer.hopto.org/spectators.html 200
+128.4.126.233 2022-12-04 20:13:28.904474 GET http://deckdealer.hopto.org/js/watch-game.js 200
+128.4.126.233 2022-12-04 20:13:29.640442 GET http://deckdealer.hopto.org/spectators.html 304
+128.4.126.233 2022-12-04 20:13:33.434976 GET http://deckdealer.hopto.org/game.html 200
+128.4.126.233 2022-12-04 20:13:33.518405 GET http://deckdealer.hopto.org/js/player-game.js 200
+128.4.126.233 2022-12-04 20:13:39.981815 GET http://deckdealer.hopto.org/spectators.html 304
