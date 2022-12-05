@@ -27,8 +27,8 @@ $(document).ready(function() {
           if (message.includes('user login success')) {
             console.log("LOGIN SUCCESS");
             console.table(data);
-            var main = "workflows.html?token=" + data.token;
-            window.location.href = main;
+            //var main = "workflows.html?token=" + data.token;
+            //window.location.href = main;
           } else {
             console.log("LOGIN FAILED");
             console.table(data);
