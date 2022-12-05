@@ -2737,3 +2737,46 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 128.4.126.233 2022-12-04 20:52:25.156324 GET http://deckdealer.hopto.org/js/player-game.js 304
 128.4.126.233 2022-12-04 20:52:25.450328 GET http://deckdealer.hopto.org/game.html 304
 128.4.126.233 2022-12-04 20:52:33.383102 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:55:35.221307 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:55:36.098692 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:55:40.291132 GET http://deckdealer.hopto.org/js/player-game.js 304
+128.4.126.233 2022-12-04 20:55:50.355916 GET http://deckdealer.hopto.org/ 304
+128.4.126.233 2022-12-04 20:55:50.789533 GET http://deckdealer.hopto.org/login-register.js 304
+128.4.126.233 2022-12-04 20:55:57.366417 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 20:55:57.367001 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 20:55:57.366285 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+128.4.126.233 2022-12-04 20:55:59.593952 GET http://deckdealer.hopto.org/js/player-game.js 304
+128.4.126.233 2022-12-04 20:57:50.321041 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:58:29.564560 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 20:58:29.565220 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 20:58:29.564447 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
