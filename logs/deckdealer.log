@@ -2823,3 +2823,10 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 128.4.126.233 2022-12-04 21:04:01.210296 GET http://deckdealer.hopto.org/game.html 304
 128.4.126.233 2022-12-04 21:04:01.887588 GET http://deckdealer.hopto.org/game.html 304
 128.4.126.233 2022-12-04 21:04:12.020853 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 21:05:31.752055 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 21:05:31.800611 GET http://deckdealer.hopto.org/js/player-game.js 304
+128.4.126.233 2022-12-04 21:05:32.398392 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 21:06:04.608420 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 21:06:04.740191 GET http://deckdealer.hopto.org/js/player-game.js 304
+128.4.126.233 2022-12-04 21:07:22.544369 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 21:07:31.905296 GET http://deckdealer.hopto.org/game.html 304
