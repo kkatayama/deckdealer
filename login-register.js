@@ -33,8 +33,6 @@ $(document).ready(function() {
             console.log("LOGIN FAILED");
             console.table(data);
           }
-  
-          console.log(message)
         });
       });
     });
