@@ -2881,3 +2881,22 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 128.4.117.182 2022-12-04 21:13:57.485566 GET http://deckdealer.hopto.org/css/login-register.css 200
 128.4.117.182 2022-12-04 21:13:57.530245 GET http://deckdealer.hopto.org/js/player-game.js 200
 128.4.117.182 2022-12-04 21:13:57.532864 GET http://deckdealer.hopto.org/css/login-register-header.css 200
+82.145.215.206 2022-12-04 22:48:25.340578 GET http://deckdealer.hopto.org/ 200
+82.145.215.206 2022-12-04 22:48:26.072085 GET http://deckdealer.hopto.org/apple-touch-icon.png 404
+82.145.215.206 2022-12-04 22:48:26.347593 GET http://deckdealer.hopto.org/apple-touch-icon.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
