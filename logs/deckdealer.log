@@ -1285,3 +1285,22 @@ SELECT * FROM deck WHERE (card_id <= 6);
     }
   ]
 }
+74.103.158.236 2022-12-05 16:46:06.199190 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-05 16:46:06.201348 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-05 16:46:06.199071 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.236 2022-12-05 16:46:16.881672 GET http://deckdealer.hopto.org/game.html 304
