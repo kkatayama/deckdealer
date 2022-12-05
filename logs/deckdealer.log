@@ -2612,3 +2612,86 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 128.4.126.233 2022-12-04 20:35:30.006749 GET http://deckdealer.hopto.org/js/watch-game.js 304
 128.4.126.233 2022-12-04 20:35:34.007558 GET http://deckdealer.hopto.org/game.html 200
 128.4.126.233 2022-12-04 20:35:34.295869 GET http://deckdealer.hopto.org/js/player-game.js 200
+128.4.126.233 2022-12-04 20:40:06.636579 GET http://deckdealer.hopto.org/ 304
+128.4.126.233 2022-12-04 20:40:11.309450 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 20:40:11.310059 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 20:40:11.309339 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+128.4.126.233 2022-12-04 20:40:12.617203 GET http://deckdealer.hopto.org/game.html 200
+128.4.126.233 2022-12-04 20:40:12.675255 GET http://deckdealer.hopto.org/js/player-game.js 304
+128.4.126.233 2022-12-04 20:43:09.879763 GET http://deckdealer.hopto.org/ 304
+128.4.126.233 2022-12-04 20:43:09.908339 GET http://deckdealer.hopto.org/login-register.js 304
+128.4.126.233 2022-12-04 20:43:16.818956 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 20:43:16.819589 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 20:43:16.818819 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+128.4.126.233 2022-12-04 20:43:18.322456 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:43:18.447609 GET http://deckdealer.hopto.org/js/player-game.js 304
+128.4.126.233 2022-12-04 20:43:22.854325 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:43:24.107769 GET http://deckdealer.hopto.org/game.html 304
+cookie_info = ('user_id', '7')
+128.4.126.233 2022-12-04 20:43:34.278300 GET http://deckdealer.hopto.org/workflows.html?token=IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09 404
+128.4.126.233 2022-12-04 20:43:34.278754 GET http://deckdealer.hopto.org/workflows.html?token=IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09 None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+128.4.126.233 2022-12-04 20:44:29.443498 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 20:44:29.444092 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 20:44:29.443385 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+128.4.126.233 2022-12-04 20:44:30.834220 GET http://deckdealer.hopto.org/game.html 304
