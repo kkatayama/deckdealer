@@ -85,3 +85,329 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 }
 100.34.13.54 2022-12-05 14:04:42.256298 GET http://deckdealer.hopto.org/spectators.html 304
 100.34.13.54 2022-12-05 14:04:42.448994 GET http://deckdealer.hopto.org/js/watch-game.js 304
+100.34.13.54 2022-12-05 14:06:29.682140 GET http://deckdealer.hopto.org/get/users 401
+100.34.13.54 2022-12-05 14:06:29.682841 GET http://deckdealer.hopto.org/get/users None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:06:51.290394 GET http://deckdealer.hopto.org/get/tables 401
+100.34.13.54 2022-12-05 14:06:51.291136 GET http://deckdealer.hopto.org/get/tables None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:06:58.929750 GET http://deckdealer.hopto.org/ 200
+100.34.13.54 2022-12-05 14:07:10.288800 GET http://deckdealer.hopto.org/get 401
+100.34.13.54 2022-12-05 14:07:10.289590 GET http://deckdealer.hopto.org/get None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:07:36.148663 GET http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 14:07:36.149550 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:07:37.068982 GET http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 14:07:37.069770 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:07:44.031458 GET http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 14:07:44.032319 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:07:51.219600 POST http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 14:07:51.220416 POST http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:07:59.696227 GET http://deckdealer.hopto.org/get/game_id 401
+100.34.13.54 2022-12-05 14:07:59.697142 GET http://deckdealer.hopto.org/get/game_id None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:08:32.068775 GET http://deckdealer.hopto.org/get/users 401
+100.34.13.54 2022-12-05 14:08:32.069616 GET http://deckdealer.hopto.org/get/users None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+173.44.117.68 2022-12-05 14:08:41.120608 GET http://deckdealer.hopto.org/get/users 401
+173.44.117.68 2022-12-05 14:08:41.121453 GET http://deckdealer.hopto.org/get/users None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:09:18.509079 GET http://deckdealer.hopto.org/register request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 14:09:18.509690 GET http://deckdealer.hopto.org/register request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 14:09:18.508938 GET http://deckdealer.hopto.org/register None
+{"request.params": {}}
+{
+  "message": "missing parameter",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT",
+      "password2": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+100.34.13.54 2022-12-05 14:09:24.695874 GET http://deckdealer.hopto.org/add 401
+100.34.13.54 2022-12-05 14:09:24.696763 GET http://deckdealer.hopto.org/add None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:09:30.379554 GET http://deckdealer.hopto.org/post None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+63.88.73.5 2022-12-05 14:09:33.529496 GET http://deckdealer.hopto.org/post None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+100.34.13.54 2022-12-05 14:09:35.831283 GET http://deckdealer.hopto.org/get 401
+100.34.13.54 2022-12-05 14:09:35.832086 GET http://deckdealer.hopto.org/get None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+69.59.197.164 2022-12-05 14:09:37.292063 GET http://deckdealer.hopto.org/get 401
+69.59.197.164 2022-12-05 14:09:37.292908 GET http://deckdealer.hopto.org/get None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 14:09:42.130022 GET http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 14:09:42.130989 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
