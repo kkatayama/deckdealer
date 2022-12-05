@@ -2532,3 +2532,59 @@ SELECT * FROM users WHERE username=?;
 128.4.126.233 2022-12-04 20:13:33.518405 GET http://deckdealer.hopto.org/js/player-game.js 200
 128.4.126.233 2022-12-04 20:13:39.981815 GET http://deckdealer.hopto.org/spectators.html 304
 128.4.126.233 2022-12-04 20:17:10.783422 GET http://deckdealer.hopto.org/ 304
+128.4.126.233 2022-12-04 20:21:34.063328 GET http://deckdealer.hopto.org/ 200
+128.4.126.233 2022-12-04 20:21:34.183832 GET http://deckdealer.hopto.org/js/index2.js 200
+128.4.126.233 2022-12-04 20:21:43.185095 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 20:21:43.185695 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 20:21:43.190719 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.126.233 2022-12-04 20:21:43.191433 POST http://deckdealer.hopto.org/login request
+['bryce']
+128.4.126.233 2022-12-04 20:21:43.184978 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "bryce", "password": "bryce"}}
+{
+  "message": "user login success",
+  "user_id": 7,
+  "username": "bryce",
+  "token": "IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09"
+}
+128.4.126.233 2022-12-04 20:21:45.029395 GET http://deckdealer.hopto.org/spectators.html 304
+128.4.126.233 2022-12-04 20:21:45.175886 GET http://deckdealer.hopto.org/js/watch-game.js 200
+54.198.55.229 2022-12-04 20:22:50.052179 GET http://deckdealer.hopto.org/game.html 416
+54.198.55.229 2022-12-04 20:22:50.053102 GET http://deckdealer.hopto.org/game.html None
+{
+  "message": "Requested Range Not Satisfiable",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Requested Range Not Satisfiable",
+    "_status_code": 416,
+    "_status_line": "416 Requested Range Not Satisfiable"
+  }
+}
+54.198.55.229 2022-12-04 20:22:50.966979 GET http://deckdealer.hopto.org/spectator.html 404
+54.198.55.229 2022-12-04 20:22:50.968054 GET http://deckdealer.hopto.org/spectator.html None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
