@@ -2695,3 +2695,41 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
   ]
 }
 128.4.126.233 2022-12-04 20:44:30.834220 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:45:32.369495 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:45:33.122604 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:45:33.536465 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:45:33.771350 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:45:33.937518 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:45:34.136294 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:48:34.970041 GET http://deckdealer.hopto.org/ 304
+128.4.126.233 2022-12-04 20:48:40.330568 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 20:48:40.331220 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 20:48:40.330456 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+128.4.126.233 2022-12-04 20:48:41.687408 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:48:41.803956 GET http://deckdealer.hopto.org/js/player-game.js 304
+128.4.126.233 2022-12-04 20:48:48.442794 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:48:48.984812 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:48:49.375040 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:48:49.570900 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:48:49.728916 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:48:49.910562 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:48:50.054521 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:48:50.213976 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:48:50.336963 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:49:38.142603 GET http://deckdealer.hopto.org/game.html 304
+128.4.126.233 2022-12-04 20:49:38.901183 GET http://deckdealer.hopto.org/game.html 304
