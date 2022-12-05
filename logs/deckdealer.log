@@ -2491,3 +2491,37 @@ SELECT * FROM users WHERE username=?;
   "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
 128.4.126.233 2022-12-04 20:00:03.530704 GET http://deckdealer.hopto.org/ 304
+128.4.126.233 2022-12-04 20:00:10.147407 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 20:00:10.148003 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 20:00:10.151657 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.126.233 2022-12-04 20:00:10.151913 POST http://deckdealer.hopto.org/login request
+['bryce']
+128.4.126.233 2022-12-04 20:00:10.147281 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "bryce", "password": "bryce"}}
+{
+  "message": "user login success",
+  "user_id": 7,
+  "username": "bryce",
+  "token": "IUM0T3RscXV2c005VDVOQVZGK09qMlE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFM2xJYVVMZz09"
+}
+128.4.126.233 2022-12-04 20:00:22.974583 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.126.233 2022-12-04 20:00:22.975252 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.126.233 2022-12-04 20:00:22.979679 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.126.233 2022-12-04 20:00:22.980123 POST http://deckdealer.hopto.org/login request
+['admin']
+128.4.126.233 2022-12-04 20:00:22.974467 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+128.4.126.233 2022-12-04 20:02:24.161866 GET http://deckdealer.hopto.org/spectators.html 200
+128.4.126.233 2022-12-04 20:02:34.836317 GET http://deckdealer.hopto.org/game.html 200
