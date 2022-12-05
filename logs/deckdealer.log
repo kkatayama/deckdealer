@@ -22,3 +22,4 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 100.34.13.54 2022-12-05 08:44:05.803648 GET http://deckdealer.hopto.org/css/login-register.css 200
 100.34.13.54 2022-12-05 08:44:05.859908 GET http://deckdealer.hopto.org/js/player-game.js 304
 100.34.13.54 2022-12-05 08:44:05.862347 GET http://deckdealer.hopto.org/css/login-register-header.css 304
+100.34.13.54 2022-12-05 09:39:05.526225 GET http://deckdealer.hopto.org/game.html 200
