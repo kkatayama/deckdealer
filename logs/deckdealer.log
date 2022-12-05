@@ -510,3 +510,306 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 }
 100.34.13.54 2022-12-05 15:55:01.814994 GET http://deckdealer.hopto.org/game.html 304
 100.34.13.54 2022-12-05 15:55:01.925998 GET http://deckdealer.hopto.org/js/player-game.js 304
+100.34.13.54 2022-12-05 15:55:14.464967 POST http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 15:55:14.465818 POST http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 15:55:25.258561 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 15:55:25.259225 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 15:55:25.258440 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+100.34.13.54 2022-12-05 15:55:31.399087 GET http://deckdealer.hopto.org/login/admin/admin request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 15:55:31.399698 GET http://deckdealer.hopto.org/login/admin/admin request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 15:55:31.398971 GET http://deckdealer.hopto.org/login/admin/admin None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {
+      "admin": "admin"
+    }
+  ]
+}
+100.34.13.54 2022-12-05 15:55:43.773091 GET http://deckdealer.hopto.org/login/usermane/admin/password/admin request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 15:55:43.773775 GET http://deckdealer.hopto.org/login/usermane/admin/password/admin request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 15:55:43.772964 GET http://deckdealer.hopto.org/login/usermane/admin/password/admin None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {
+      "usermane": "admin",
+      "password": "admin"
+    }
+  ]
+}
+100.34.13.54 2022-12-05 15:55:56.881764 GET http://deckdealer.hopto.org/login/usernamee/admin/password/admin request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 15:55:56.882413 GET http://deckdealer.hopto.org/login/usernamee/admin/password/admin request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 15:55:56.881596 GET http://deckdealer.hopto.org/login/usernamee/admin/password/admin None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {
+      "usernamee": "admin",
+      "password": "admin"
+    }
+  ]
+}
+100.34.13.54 2022-12-05 15:55:58.803951 GET http://deckdealer.hopto.org/login/username/admin/password/admin request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 15:55:58.804271 GET http://deckdealer.hopto.org/login/username/admin/password/admin request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 15:55:58.806325 GET http://deckdealer.hopto.org/login/username/admin/password/admin request
+SELECT * FROM users WHERE username=?;
+100.34.13.54 2022-12-05 15:55:58.806654 GET http://deckdealer.hopto.org/login/username/admin/password/admin request
+['admin']
+100.34.13.54 2022-12-05 15:55:58.803893 GET http://deckdealer.hopto.org/login/username/admin/password/admin None
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+100.34.13.54 2022-12-05 15:56:08.712312 POST http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 15:56:08.713152 POST http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 15:56:13.449158 GET http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 15:56:13.449988 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 15:56:44.228369 GET http://deckdealer.hopto.org/login/username/admin/password/admin request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 15:56:44.229016 GET http://deckdealer.hopto.org/login/username/admin/password/admin request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 15:56:44.232437 GET http://deckdealer.hopto.org/login/username/admin/password/admin request
+SELECT * FROM users WHERE username=?;
+100.34.13.54 2022-12-05 15:56:44.232845 GET http://deckdealer.hopto.org/login/username/admin/password/admin request
+['admin']
+100.34.13.54 2022-12-05 15:56:44.228248 GET http://deckdealer.hopto.org/login/username/admin/password/admin None
+{"request.params": {}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+100.34.13.54 2022-12-05 15:56:47.562315 GET http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 15:56:47.563180 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 15:56:48.294992 GET http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 15:56:48.295829 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 15:56:48.756785 GET http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2022-12-05 15:56:48.757624 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2022-12-05 15:57:26.275355 GET http://deckdealer.hopto.org/ 304
+100.34.13.54 2022-12-05 15:57:31.842555 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 15:57:31.843221 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 15:57:31.842420 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+100.34.13.54 2022-12-05 15:57:38.189421 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 15:57:38.190029 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 15:57:38.189286 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+100.34.13.54 2022-12-05 15:58:10.168385 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 15:58:10.168786 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 15:58:10.171748 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+100.34.13.54 2022-12-05 15:58:10.172158 POST http://deckdealer.hopto.org/login request
+['admin']
+100.34.13.54 2022-12-05 15:58:10.168295 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+100.34.13.54 2022-12-05 15:58:23.324997 POST http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-05 15:58:23.325631 POST http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-05 15:58:23.328201 POST http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2022-12-05 15:58:23.328639 POST http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2022-12-05 15:58:23.324597 POST http://deckdealer.hopto.org/get/games None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
