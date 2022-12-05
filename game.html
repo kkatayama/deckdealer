@@ -26,71 +26,10 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
 
-    <script src="js/login-register.js"></script>
+    <script src="js/player-game.js"></script>
 </head>
 
 <body class="bg-gradient-primary">
-  <div class="login-wrap my-9">
-    <div class="login-html py-5">
-      <header class="fs-1 text-center text-white lh-lg pb-2">
-        <p>Deck Dealer</p>
-      </header><input type="radio" id="tab-1" class="sign-in" name="tab" checked=""><label class="form-label form-label form-label tab" for="tab-1">Sign In</label><input type="radio" id="tab-2" class="sign-up" name="tab"><label class="form-label form-label form-label tab" for="tab-2">Sign Up</label>
-      <div class="login-form">
-        <form class="sign-in-htm" id="login">
-          <div class="group">
-            <label class="form-label label" for="username_login">Username</label>
-            <input class="form-control input" type="text" id="username_login">
-          </div>
-          <div class="group">
-            <label class="form-label label" for="password_login">Password</label>
-            <input class="form-control input" type="password" id="password_login" data-type="password">
-          </div>
-          <div class="group">
-            <button class="button" type="submit" value="Sign In">Sign In</button>
-          </div>
-          <div class="hr"></div>
-          <div class="foot-lnk"><a href="#forgot">Forgot Password?</a></div>
-        </form>
-        <form class="sign-up-htm" id="register">
-          <div class="group">
-            <label class="form-label label" for="username_register">Username</label>
-            <input class="form-control input" type="text" id="username_register">
-          </div>
-          <div class="group">
-            <label class="form-label label" for="password_register">Password</label>
-            <input class="form-control input" type="password" id="password_register" data-type="password">
-          </div>
-          <div class="group">
-            <label class="form-label label" for="password2_register">Repeat Password</label>
-            <input class="form-control input" type="password" id="password2_register" data-type="password">
-          </div>
-          <div class="group">
-            <button class="button" type="submit" value="Sign Up">Sign Up</button>
-          </div>
-          <div class="hr"></div>
-          <div class="foot-lnk"><label class="form-label" for="tab-1">Already Member? </label></div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="popup" tabindex="-1" aria-labelledby="popuplLabel" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-x1">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-4">LOGIN SUCCESS</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" id="message body">
-          <p>Game Mode: Choose a role to play in the upcoming card game</p>
-        </div>
-        <div class="modal-footer">
-          <a class="btn btn-primary" href="spectators.html">Watch Game</a>
-          <a class="btn btn-primary" href="game.html">Play Game</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </body>
 
 </html>
