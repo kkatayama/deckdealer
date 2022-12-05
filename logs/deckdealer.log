@@ -1151,3 +1151,137 @@ SELECT * FROM users WHERE 1;
     }
   ]
 }
+74.103.158.236 2022-12-05 16:40:48.423484 GET http://deckdealer.hopto.org/add/players/user_id/2/game_id/1/name/dealer/email/dealer%40udel.edu request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-05 16:40:48.424009 GET http://deckdealer.hopto.org/add/players/user_id/2/game_id/1/name/dealer/email/dealer%40udel.edu request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-05 16:40:48.427229 GET http://deckdealer.hopto.org/add/players/user_id/2/game_id/1/name/dealer/email/dealer%40udel.edu request
+INSERT INTO players (user_id,game_id,name,email) VALUES (?, ?, ?, ?);
+74.103.158.236 2022-12-05 16:40:48.427434 GET http://deckdealer.hopto.org/add/players/user_id/2/game_id/1/name/dealer/email/dealer%40udel.edu request
+['2', '1', 'dealer', 'dealer@udel.edu']
+74.103.158.236 2022-12-05 16:40:48.423253 GET http://deckdealer.hopto.org/add/players/user_id/2/game_id/1/name/dealer/email/dealer%40udel.edu None
+{"request.params": {}}
+{
+  "message": "data added to <players>",
+  "player_id": 1,
+  "user_id": "2",
+  "game_id": "1"
+}
+74.103.158.236 2022-12-05 16:41:14.712028 GET http://deckdealer.hopto.org/add/players/user_id/7/game_id/1/name/bryce/email/bryce%40udel.edu request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-05 16:41:14.712769 GET http://deckdealer.hopto.org/add/players/user_id/7/game_id/1/name/bryce/email/bryce%40udel.edu request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-05 16:41:14.715454 GET http://deckdealer.hopto.org/add/players/user_id/7/game_id/1/name/bryce/email/bryce%40udel.edu request
+INSERT INTO players (user_id,game_id,name,email) VALUES (?, ?, ?, ?);
+74.103.158.236 2022-12-05 16:41:14.715861 GET http://deckdealer.hopto.org/add/players/user_id/7/game_id/1/name/bryce/email/bryce%40udel.edu request
+['7', '1', 'bryce', 'bryce@udel.edu']
+74.103.158.236 2022-12-05 16:41:14.711631 GET http://deckdealer.hopto.org/add/players/user_id/7/game_id/1/name/bryce/email/bryce%40udel.edu None
+{"request.params": {}}
+{
+  "message": "data added to <players>",
+  "player_id": 2,
+  "user_id": "7",
+  "game_id": "1"
+}
+74.103.158.236 2022-12-05 16:41:24.172685 POST http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-05 16:41:24.173228 POST http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-05 16:41:24.175388 POST http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+74.103.158.236 2022-12-05 16:41:24.175751 POST http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+74.103.158.236 2022-12-05 16:41:24.172341 POST http://deckdealer.hopto.org/get/players None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-05 16:40:48.427"
+    },
+    {
+      "player_id": 2,
+      "user_id": 7,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bryce@udel.edu",
+      "entry_time": "2022-12-05 16:41:14.716"
+    }
+  ]
+}
+74.103.158.236 2022-12-05 16:42:41.012955 POST http://deckdealer.hopto.org/get/deck?filter=(card_id%20%3C=%206) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-05 16:42:41.013613 POST http://deckdealer.hopto.org/get/deck?filter=(card_id%20%3C=%206) request
+['table', 'sqlite_%']
+filter_conditions: "(card_id <= 6)"
+filter_values: []
+74.103.158.236 2022-12-05 16:42:41.016490 POST http://deckdealer.hopto.org/get/deck?filter=(card_id%20%3C=%206) request
+SELECT * FROM deck WHERE (card_id <= 6);
+74.103.158.236 2022-12-05 16:42:41.016607 POST http://deckdealer.hopto.org/get/deck?filter=(card_id%20%3C=%206) request
+SELECT * FROM deck WHERE (card_id <= 6);
+74.103.158.236 2022-12-05 16:42:41.012562 POST http://deckdealer.hopto.org/get/deck?filter=(card_id%20%3C=%206) None
+{"request.params": {"filter": "(card_id <= 6)", "password": "admin", "username": "admin"}}
+{
+  "message": "found 6 deck entries",
+  "data": [
+    {
+      "card_id": 1,
+      "key": "6D",
+      "name": "6",
+      "suit": "DIAMONDS",
+      "description": "6_of_diamonds",
+      "file_name": "6D.png",
+      "entry_time": "2022-11-01 15:04:46.184"
+    },
+    {
+      "card_id": 2,
+      "key": "4H",
+      "name": "4",
+      "suit": "HEARTS",
+      "description": "4_of_hearts",
+      "file_name": "4H.png",
+      "entry_time": "2022-11-01 15:04:46.599"
+    },
+    {
+      "card_id": 3,
+      "key": "10S",
+      "name": "10",
+      "suit": "SPADES",
+      "description": "10_of_spades",
+      "file_name": "10S.png",
+      "entry_time": "2022-11-01 15:04:46.967"
+    },
+    {
+      "card_id": 4,
+      "key": "QH",
+      "name": "QUEEN",
+      "suit": "HEARTS",
+      "description": "queen_of_hearts",
+      "file_name": "QH.png",
+      "entry_time": "2022-11-01 15:04:47.321"
+    },
+    {
+      "card_id": 5,
+      "key": "9D",
+      "name": "9",
+      "suit": "DIAMONDS",
+      "description": "9_of_diamonds",
+      "file_name": "9D.png",
+      "entry_time": "2022-11-01 15:04:47.684"
+    },
+    {
+      "card_id": 6,
+      "key": "10H",
+      "name": "10",
+      "suit": "HEARTS",
+      "description": "10_of_hearts",
+      "file_name": "10H.png",
+      "entry_time": "2022-11-01 15:04:48.021"
+    }
+  ]
+}
