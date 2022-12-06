@@ -79,3 +79,472 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 }
 74.103.158.35 2022-12-06 09:32:17.497616 GET http://deckdealer.hopto.org/spectators.html 200
 74.103.158.35 2022-12-06 09:32:17.580698 GET http://deckdealer.hopto.org/js/watch-game.js 200
+74.103.158.35 2022-12-06 09:35:46.274321 GET http://deckdealer.hopto.org/get request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 09:35:46.274677 GET http://deckdealer.hopto.org/get request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 09:35:46.274120 GET http://deckdealer.hopto.org/get None
+{"request.params": {}}
+{
+  "message": "active tables in the database",
+  "tables": [
+    {
+      "name": "users",
+      "type": "table",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "username",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "password",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "cards",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "deck",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "players",
+      "type": "table",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "spectators",
+      "type": "table",
+      "columns": [
+        {
+          "name": "spectator_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "games",
+      "type": "table",
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_actions",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "rules",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "active_game",
+      "type": "table",
+      "columns": [
+        {
+          "name": "entry_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_action",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "score_board",
+      "type": "table",
+      "columns": [
+        {
+          "name": "score_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "winner",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_score",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_hands",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_scores",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "spectators",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    }
+  ]
+}
+74.103.158.35 2022-12-06 09:36:08.831350 GET http://deckdealer.hopto.org/get/active_game request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 09:36:08.831812 GET http://deckdealer.hopto.org/get/active_game request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 09:36:08.833602 GET http://deckdealer.hopto.org/get/active_game request
+SELECT * FROM active_game WHERE 1;
+74.103.158.35 2022-12-06 09:36:08.833893 GET http://deckdealer.hopto.org/get/active_game request
+SELECT * FROM active_game WHERE 1;
+74.103.158.35 2022-12-06 09:36:08.831054 GET http://deckdealer.hopto.org/get/active_game None
+{"request.params": {}}
+{
+  "message": "found 8 active_game entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 16:58:12.580"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 16:58:15.846"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 16:58:16.365"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 16:58:17.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 16:59:43.155"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 17:03:14.630"
+    },
+    {
+      "entry_id": 7,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 17:03:41.428"
+    },
+    {
+      "entry_id": 8,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-06 09:31:36.075"
+    }
+  ]
+}
+74.103.158.35 2022-12-06 09:39:29.063136 GET http://deckdealer.hopto.org/get/active_game request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 09:39:29.063473 GET http://deckdealer.hopto.org/get/active_game request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 09:39:29.064732 GET http://deckdealer.hopto.org/get/active_game request
+SELECT * FROM active_game WHERE 1;
+74.103.158.35 2022-12-06 09:39:29.064943 GET http://deckdealer.hopto.org/get/active_game request
+SELECT * FROM active_game WHERE 1;
+74.103.158.35 2022-12-06 09:39:29.062913 GET http://deckdealer.hopto.org/get/active_game None
+{"request.params": {}}
+{
+  "message": "found 8 active_game entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 16:58:12.580"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 16:58:15.846"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 16:58:16.365"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 16:58:17.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 16:59:43.155"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 17:03:14.630"
+    },
+    {
+      "entry_id": 7,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-05 17:03:41.428"
+    },
+    {
+      "entry_id": 8,
+      "game_id": 1,
+      "user_id": 7,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-06 09:31:36.075"
+    }
+  ]
+}
