@@ -618,3 +618,70 @@ SELECT * FROM active_game WHERE 1;
 74.103.158.35 2022-12-06 10:59:29.334003 GET http://deckdealer.hopto.org/game2.html 200
 74.103.158.35 2022-12-06 10:59:52.128733 GET http://deckdealer.hopto.org/game2.html 200
 74.103.158.35 2022-12-06 11:01:06.591301 GET http://deckdealer.hopto.org/game2.html 200
+74.103.158.35 2022-12-06 11:28:34.174180 GET http://deckdealer.hopto.org/createTable/spectators2/spectator_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/entry_time/DATETIME 401
+74.103.158.35 2022-12-06 11:28:34.174980 GET http://deckdealer.hopto.org/createTable/spectators2/spectator_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/entry_time/DATETIME None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+74.103.158.35 2022-12-06 11:29:13.369549 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 11:29:13.370167 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 11:29:13.374662 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+74.103.158.35 2022-12-06 11:29:13.375085 POST http://deckdealer.hopto.org/login request
+['admin']
+74.103.158.35 2022-12-06 11:29:13.369430 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+74.103.158.35 2022-12-06 11:29:20.082875 GET http://deckdealer.hopto.org/createTable/spectators2/spectator_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/entry_time/DATETIME request
+CREATE TABLE spectators2 (spectator_id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, game_id INTEGER NOT NULL, name TEXT NOT NULL, email TEXT NOT NULL, entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime')));
+74.103.158.35 2022-12-06 11:29:20.081933 GET http://deckdealer.hopto.org/createTable/spectators2/spectator_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/entry_time/DATETIME None
+{"request.params": {}}
+{
+  "message": "1 table created",
+  "table": "spectators2",
+  "columns": [
+    "spectator_id INTEGER PRIMARY KEY",
+    "user_id INTEGER NOT NULL",
+    "game_id INTEGER NOT NULL",
+    "name TEXT NOT NULL",
+    "email TEXT NOT NULL",
+    "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+  ]
+}
+74.103.158.35 2022-12-06 11:29:48.465342 GET http://deckdealer.hopto.org/createTable/players2/player_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/entry_time/DATETIME request
+CREATE TABLE players2 (player_id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, game_id INTEGER NOT NULL, name TEXT NOT NULL, email TEXT NOT NULL, entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime')));
+74.103.158.35 2022-12-06 11:29:48.464810 GET http://deckdealer.hopto.org/createTable/players2/player_id/INTEGER/user_id/INTEGER/game_id/INTEGER/name/TEXT/email/TEXT/entry_time/DATETIME None
+{"request.params": {}}
+{
+  "message": "1 table created",
+  "table": "players2",
+  "columns": [
+    "player_id INTEGER PRIMARY KEY",
+    "user_id INTEGER NOT NULL",
+    "game_id INTEGER NOT NULL",
+    "name TEXT NOT NULL",
+    "email TEXT NOT NULL",
+    "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+  ]
+}
