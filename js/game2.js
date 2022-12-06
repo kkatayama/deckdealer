@@ -43,12 +43,12 @@ function getGameList() {
 function printGameList(game_list) {
   for (var i = 0; i < game_list.length; i++) {
     var game = game_list[i];
-    $('#list-games').append(
+    $('#game-list').append(
       '<div class="accordion-item">' +
         '<h2 class="accordion-header" id="game-' + game.game_id +'">' +
           '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-game-' + game.game_id + '" aria-expanded="true" aria-controls="collapse-game-"' + game.game_id +'" >' +
             game.name +
-          '</button' +
+          '</button>' +
         '</h2>' +
         '<div id="collapse-game-' + game.game_id + '" class="accordion-collapse collapse" aria-labelledby="game-' + game.game_id + '" data-bs-parent="#game-list">' +
           '<div class="accordion-body">' +
@@ -58,7 +58,7 @@ function printGameList(game_list) {
             'max_decks = ' + game.max_decks + '<br />' +
             'player_actions = ' + game.player_actions + '<br />' +
             '<br /><strong>RULES</strong><br />' +
-            game.rules.replace(',', '<br />') + '<br />' +
+            game.rules.replaceAll(',', '<br />') + '<br />' +
           '</div>' +
         '</div>' +
       '</div>'
