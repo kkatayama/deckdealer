@@ -46,15 +46,15 @@ function printPlayerList(player_list) {
   for (var i = 0; i < player_list.length; i++) {
     var player = player_list[i];
     $('#player-list').append(
-      '<div class="col-2">' +
+      '<div class="col">' +
         '<h2>' + player.player_id +'</h2>' +
       '</div>' +
-      '<div class="col-4">' +
+      '<div class="col">' +
         '<h2>' + player.name +'</h2>' +
       '</div>' +
-      '<div class="col-6">' +
+      '<div class="col">' +
         '<h2>' + player.email +'</h2>' +
-      '</div>' +
+      '</div>'
     )
   }
 }
@@ -69,5 +69,5 @@ $(document).ready(function() {
   console.table(player_list);
 
   /* generate HTML */
-  // printGameList(game_list);
+  printPlayerList(player_list);
 });
