@@ -26,6 +26,31 @@ function getUserID() {
   return temp_id;
 }
 
+function getGameID(user_id) {
+  /* Get: https://deckdealer.hopto.org/get/players2/user_id/{ID#} */
+  var url = new URL('/get/players2/user_id/' + user_id, api_url).toString();
+  var temp_id = "";
+  $.ajax({url: url, type: 'GET', async: false,
+    success: function(response) {
+      temp_id = response.game_id;
+    }
+  });
+  return temp_id;
+}
+
+function getMinPlayers(game_id) {
+  /* Get: https://deckdealer.hopto.org/get/games/game_id/{ID#} */
+  var url = new URL('/get/games/game_id/' + game_id, api_url).toString();
+  var temp_min = "";
+  $.ajax({url: url, type: 'GET', async: false,
+    success: function(response) {
+      temp_min = response.min_players;
+    }
+  });
+  return temp_id;
+}
+
+
 function getPlayerList() {
   /* GET: https://deckdealer.hopto.org/get/players2 */
   var url = new URL('/get/players2', api_url).toString();
