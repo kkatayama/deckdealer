@@ -549,3 +549,11 @@ SELECT * FROM active_game WHERE 1;
   ]
 }
 74.103.158.35 2022-12-06 09:53:14.800281 GET http://deckdealer.hopto.org/game2.html 200
+74.103.158.35 2022-12-06 10:06:18.147647 GET http://deckdealer.hopto.org/game2.html 200
+74.103.158.35 2022-12-06 10:06:21.901340 GET http://deckdealer.hopto.org/game2.html 304
+74.103.158.35 2022-12-06 10:09:19.760305 GET http://deckdealer.hopto.org/game2.html 200
+74.103.158.35 2022-12-06 10:09:20.045654 GET http://deckdealer.hopto.org/game2.html 304
+74.103.158.35 2022-12-06 10:09:24.443880 GET http://deckdealer.hopto.org/game2.html 304
+74.103.158.35 2022-12-06 10:09:39.767725 GET http://deckdealer.hopto.org/game2.html 200
+74.103.158.35 2022-12-06 10:09:41.382965 GET http://deckdealer.hopto.org/game2.html 304
+74.103.158.35 2022-12-06 10:09:57.404533 GET http://deckdealer.hopto.org/game2.html 200
