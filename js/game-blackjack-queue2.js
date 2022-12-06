@@ -7,7 +7,7 @@ var api_url = "https://deckdealer.hopto.org"
 //                      Global Variables (for debugging)                     //
 ///////////////////////////////////////////////////////////////////////////////
 var user_id = "";
-var game_list = [];
+var player_list = [];
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
@@ -24,14 +24,16 @@ function getUserID() {
   return temp_id;
 }
 
-function getPlayers() {
+function getPlayerList() {
   /* GET: https://deckdealer.hopto.org/get/players2 */
   var url = new URL('/get/players2', api_url).toString();
   var temp_list = [];
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      if (response.message.includes("0") {
+      if ((response.message.includes("0")) && (response.message.includes("entries"))) {
         console.log('No registered players!');
+      } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
+        temp_list = [response.data];
       } else {
         temp_list = response.data;
       }
@@ -40,10 +42,10 @@ function getPlayers() {
   return temp_list;
 }
 
-function printGameList(game_list) {
-  for (var i = 0; i < game_list.length; i++) {
-    var game = game_list[i];
-    $('#game-list').append(
+function printPlayerList(player_list) {
+  for (var i = 0; i < player_list.length; i++) {
+    var player = player_list[i];
+    $('#player-list').append(
       '<div class="accordion-item">' +
         '<h2 class="accordion-header" id="game-' + game.game_id +'">' +
           '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-game-' + game.game_id + '" aria-expanded="true" aria-controls="collapse-game-"' + game.game_id +'" >' +
@@ -72,12 +74,12 @@ function printGameList(game_list) {
 $(document).ready(function() {
   /* local variables */
   user_id   = getUserID();
-  game_list = getGameList();
+  player_list = getPlayerList();
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
-  console.table(game_list);
+  console.table(player_list);
 
   /* generate HTML */
-  printGameList(game_list);
+  // printGameList(game_list);
 });
