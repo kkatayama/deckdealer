@@ -18,7 +18,7 @@ function getUserID() {
   /* GET: https://deckdealer.hopto.org/status */
   var url = new URL('/status', api_url).toString();
   var temp_id = "";
-  $.ajax({url: url, type: 'get', async: false,
+  $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
       temp_id = response.user_id;
     }
@@ -48,8 +48,8 @@ $(document).ready(function() {
     /* POST: https://deckdealer.hopto.org/add/players2
      * PARAMS (example):
      * {
-     *   user_id: 3,
-     *   game_id: 1,
+     *   user_id: "3",
+     *   game_id: "1",
      *   name: "alice",
      *   email: "alice@udel.edu",
      * }
@@ -62,6 +62,20 @@ $(document).ready(function() {
      * }
      */
     var url = new URL('/add/players2', api_url).toString();
-
-  })
+    $.ajax({url: url, method: 'POST',
+            data: {
+              user_id: user_id,
+              game_id: game_id,
+              name:  $('#name').val(),
+              email: $('#email').val(),
+            },
+            success: function(response) {
+              console.log(response);
+              /* game_id === "1" is Blackjack */
+              if (game_id === "1") {
+                window.location.href = 'blackjack.html'
+              }
+            }
+           });
+  });
 });
