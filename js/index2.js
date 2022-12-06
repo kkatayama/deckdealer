@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var api_url = "https://deckdealer.hopto.org"
   var user_id = "";
-  var token   = "";
 
   function showPopUp(message, data) {
     $('#message').html(message);
@@ -9,8 +8,12 @@ $(document).ready(function() {
     $('#popup').modal("show");
     $('#popup').on('hide.bs.modal', function() {
       if (message.includes('user login success')) {
-        var main = "game.html" // + data.token;
-        window.location.href = main;
+        $('#popup').append(
+          '<div class="modal-footer">' +
+            '<a class="btn btn-primary" href="spectators.html">Watch Game</a>' +
+            '<a class="btn btn-primary" href="game-list2.html">Play Game</a>' +
+          '</div>'
+        )
       }
     });
   }
