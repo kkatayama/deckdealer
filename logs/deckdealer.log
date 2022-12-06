@@ -1284,3 +1284,21 @@ SELECT * FROM users WHERE username=?;
   "username": "admin",
   "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
+74.103.158.35 2022-12-06 13:10:04.409911 GET http://deckdealer.hopto.org/index2.html 200
+74.103.158.35 2022-12-06 13:10:04.456615 GET http://deckdealer.hopto.org/js/index2.js 200
+74.103.158.35 2022-12-06 13:10:06.459591 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 13:10:06.460170 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 13:10:06.464011 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+74.103.158.35 2022-12-06 13:10:06.464254 POST http://deckdealer.hopto.org/login request
+['admin']
+74.103.158.35 2022-12-06 13:10:06.459495 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
