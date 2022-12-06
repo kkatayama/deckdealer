@@ -8,6 +8,8 @@ var api_url = "https://deckdealer.hopto.org"
 ///////////////////////////////////////////////////////////////////////////////
 var user_id = "";
 var game_id = "";
+var name    = "";
+var email   = "";
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
@@ -30,7 +32,6 @@ function getGameID() {
   return urlParams.get('game_id');
 }
 
-
 $(document).ready(function() {
   /* local variables */
   user_id = getUserID();
@@ -40,5 +41,27 @@ $(document).ready(function() {
   console.log('user_id = ' + user_id);
   console.log('game_id = ' + game_id);
 
-  /* generate HTML */
+  /* handle submit */
+  $('#game-register').submit(function(elem) {
+    elem.preventDefault();
+    /* register player */
+    /* POST: https://deckdealer.hopto.org/add/players2
+     * PARAMS (example):
+     * {
+     *   user_id: 3,
+     *   game_id: 1,
+     *   name: "alice",
+     *   email: "alice@udel.edu",
+     * }
+     * RETURNS:
+     * {
+     *   "message": "data added to <players>",
+     *   "player_id": "2",
+     *   "user_id": "3",
+     *   "game_id": "1",
+     * }
+     */
+    var url = new URL('/add/players2', api_url).toString();
+
+  })
 });
