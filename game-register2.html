@@ -24,19 +24,23 @@
             <div class="card-body p-4 p-sm-5">
 
               <!-- HEADER -->
-              <h1 class="fs-1 text-center lh-lg pb-2"><p>DeckDealer</p></h1>
+              <h1 class="fs-1 text-center lh-lg pb-2"><p>Game Registration</p></h1>
 
               <form>
                 <div class="mb-3">
-                  <label for="name" class="form-label">Password</label>
-                  <input type="text" class="form-control" id="name">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" aria-describedby="name-help" />
+                  <div id="name-help" class="form-text">Your player name</div>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="email-help" />
+                  <div id="email-help" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <!-- Submit Button -->
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </div>
               </form>
             </div>
           </div>

@@ -2253,3 +2253,30 @@ SELECT * FROM games WHERE 1;
   "user_id": "1",
   "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
+74.103.158.35 2022-12-06 14:55:03.251301 GET http://deckdealer.hopto.org/game-register2.html?game_id=1 200
+74.103.158.35 2022-12-06 14:55:03.304413 GET http://deckdealer.hopto.org/js/game-register2.js 200
+74.103.158.35 2022-12-06 14:55:03.567606 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "1",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+74.103.158.35 2022-12-06 14:58:04.957470 GET http://deckdealer.hopto.org/game-register2.html?game_id=1 200
+74.103.158.35 2022-12-06 14:58:05.012957 GET http://deckdealer.hopto.org/js/game-register2.js 200
+74.103.158.35 2022-12-06 14:58:05.397749 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "1",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+74.103.158.35 2022-12-06 14:59:15.125959 GET http://deckdealer.hopto.org/game-register2.html?game_id=1 200
+74.103.158.35 2022-12-06 14:59:15.235655 GET http://deckdealer.hopto.org/js/game-register2.js 200
+74.103.158.35 2022-12-06 14:59:15.388723 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "1",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
