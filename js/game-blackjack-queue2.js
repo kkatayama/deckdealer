@@ -30,8 +30,8 @@ function getPlayers() {
   var temp_list = [];
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      if (response.message === "1 game entry found") {
-        temp_list = [response.data];
+      if (response.message.includes("0") {
+        console.log('No registered players!');
       } else {
         temp_list = response.data;
       }
