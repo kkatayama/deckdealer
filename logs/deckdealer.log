@@ -2959,3 +2959,63 @@ SELECT * FROM players2 WHERE 1;
     "entry_time": "2022-12-06 16:08:20.385"
   }
 }
+74.103.158.35 2022-12-06 16:11:08.317793 GET http://deckdealer.hopto.org/game-list2.html 200
+74.103.158.35 2022-12-06 16:11:08.364539 GET http://deckdealer.hopto.org/js/game-list2.js 200
+74.103.158.35 2022-12-06 16:11:08.489669 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-06 16:11:08.547318 GET http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 16:11:08.547947 GET http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 16:11:08.551343 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+74.103.158.35 2022-12-06 16:11:08.551775 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+74.103.158.35 2022-12-06 16:11:08.546922 GET http://deckdealer.hopto.org/get/games None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-06 16:14:46.609188 GET http://deckdealer.hopto.org/game-register2.html?game_id=1 200
+74.103.158.35 2022-12-06 16:14:46.679555 GET http://deckdealer.hopto.org/js/game-register2.js 200
+74.103.158.35 2022-12-06 16:14:46.964781 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-06 16:14:56.096255 POST http://deckdealer.hopto.org/add/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 16:14:56.096868 POST http://deckdealer.hopto.org/add/players2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 16:14:56.100464 POST http://deckdealer.hopto.org/add/players2 request
+INSERT INTO players2 (user_id,game_id,name,email) VALUES (?, ?, ?, ?);
+74.103.158.35 2022-12-06 16:14:56.100891 POST http://deckdealer.hopto.org/add/players2 request
+['3', '1', 'alicec', 'alice@udel.edu']
+74.103.158.35 2022-12-06 16:14:56.095862 POST http://deckdealer.hopto.org/add/players2 None
+{"request.params": {"user_id": "3", "game_id": "1", "name": "alicec", "email": "alice@udel.edu"}}
+{
+  "message": "data added to <players2>",
+  "player_id": 2,
+  "user_id": "3",
+  "game_id": "1"
+}
+74.103.158.35 2022-12-06 16:14:56.264342 GET http://deckdealer.hopto.org/game-blackjack-queue2.html 200
+74.103.158.35 2022-12-06 16:14:56.338814 GET http://deckdealer.hopto.org/js/game-blackjack-queue2.js 200

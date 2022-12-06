@@ -46,27 +46,15 @@ function printPlayerList(player_list) {
   for (var i = 0; i < player_list.length; i++) {
     var player = player_list[i];
     $('#player-list').append(
-      '<div class="accordion-item">' +
-        '<h2 class="accordion-header" id="game-' + game.game_id +'">' +
-          '<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-game-' + game.game_id + '" aria-expanded="true" aria-controls="collapse-game-"' + game.game_id +'" >' +
-            game.name +
-          '</button>' +
-        '</h2>' +
-        '<div id="collapse-game-' + game.game_id + '" class="accordion-collapse collapse" aria-labelledby="game-' + game.game_id + '" data-bs-parent="#game-list">' +
-          '<div class="accordion-body">' +
-            'min_players = ' + game.min_players + '<br />' +
-            'max_players = ' + game.max_players + '<br />' +
-            'min_decks = ' + game.min_decks + '<br />' +
-            'max_decks = ' + game.max_decks + '<br />' +
-            'player_actions = ' + game.player_actions + '<br />' +
-            '<br /><strong>RULES</strong><br />' +
-            game.rules.replaceAll(',', '<br />') + '<br />' +
-            '<div class="d-grid py-3">' +
-            '<a class="btn btn-primary" href="game-register2.html?game_id=' + game.game_id + '">Play ' + game.name + '</a>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-      '</div>'
+      '<div class="col-2">' +
+        '<h2>' + player.player_id +'</h2>' +
+      '</div>' +
+      '<div class="col-4">' +
+        '<h2>' + player.name +'</h2>' +
+      '</div>' +
+      '<div class="col-6">' +
+        '<h2>' + player.email +'</h2>' +
+      '</div>' +
     )
   }
 }
