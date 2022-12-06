@@ -9,19 +9,19 @@ var user_id = "";
 ///////////////////////////////////////////////////////////////////////////////
 function getUserID() {
   var url = new URL('/status', api_url).toString();
+  var temp_id = "";
   $.ajax({
     url: url,
     type: 'get',
     async: false,
     success: function(data) {
-      user_id = data.user_id;
-      console.log('user_id = ' + user_id);
+      temp_id = data.user_id;
     }
   });
-  return user_id;
+  return temp_id;
 }
 
 $(document).ready(function() {
-  var uid = getUserID();
-  console.log('uid = ' + uid);
+  user_id = getUserID();
+  console.log('user_id = ' + user_id);
 });

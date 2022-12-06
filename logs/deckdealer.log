@@ -815,3 +815,39 @@ CREATE TABLE score_board2 (score_id INTEGER PRIMARY KEY, game_id INTEGER NOT NUL
   "user_id": "1",
   "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
+74.103.158.35 2022-12-06 12:01:58.520371 GET http://deckdealer.hopto.org/game2.html 304
+74.103.158.35 2022-12-06 12:01:58.561714 GET http://deckdealer.hopto.org/js/game2.js 200
+74.103.158.35 2022-12-06 12:01:58.765274 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "1",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+74.103.158.35 2022-12-06 12:02:00.413782 GET http://deckdealer.hopto.org/game2.html 304
+74.103.158.35 2022-12-06 12:02:00.444105 GET http://deckdealer.hopto.org/js/game2.js 304
+74.103.158.35 2022-12-06 12:02:00.501329 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "1",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+74.103.158.35 2022-12-06 12:02:18.947679 GET http://deckdealer.hopto.org/game2.html 304
+74.103.158.35 2022-12-06 12:02:19.002422 GET http://deckdealer.hopto.org/js/game2.js 200
+74.103.158.35 2022-12-06 12:02:19.093822 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "1",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+74.103.158.35 2022-12-06 12:03:19.171079 GET http://deckdealer.hopto.org/game2.html 304
+74.103.158.35 2022-12-06 12:03:19.236679 GET http://deckdealer.hopto.org/js/game2.js 200
+74.103.158.35 2022-12-06 12:03:19.336121 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "1",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
