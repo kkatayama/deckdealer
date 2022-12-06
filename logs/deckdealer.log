@@ -17,3 +17,65 @@
     "_status_line": "404 Not Found"
   }
 }
+74.103.158.35 2022-12-06 09:31:11.869777 GET http://deckdealer.hopto.org/index2.html 200
+74.103.158.35 2022-12-06 09:31:11.930601 GET http://deckdealer.hopto.org/js/index2.js 304
+74.103.158.35 2022-12-06 09:31:15.196472 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 09:31:15.197066 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 09:31:15.200906 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+74.103.158.35 2022-12-06 09:31:15.201223 POST http://deckdealer.hopto.org/login request
+['admin']
+74.103.158.35 2022-12-06 09:31:15.196359 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+74.103.158.35 2022-12-06 09:31:28.427805 GET http://deckdealer.hopto.org/game.html 200
+74.103.158.35 2022-12-06 09:31:28.500932 GET http://deckdealer.hopto.org/css/login-register.css 200
+74.103.158.35 2022-12-06 09:31:28.510414 GET http://deckdealer.hopto.org/css/login-register-header.css 200
+74.103.158.35 2022-12-06 09:31:28.520493 GET http://deckdealer.hopto.org/js/player-game.js 200
+74.103.158.35 2022-12-06 09:31:36.071030 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 09:31:36.072240 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 09:31:36.074972 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+INSERT INTO active_game (game_id,user_id,player_id,player_hand,player_action) VALUES (?, ?, ?, ?, ?);
+74.103.158.35 2022-12-06 09:31:36.075407 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+['1', '7', '2', '6D', 'setup']
+74.103.158.35 2022-12-06 09:31:36.070593 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup None
+{"request.params": {}}
+{
+  "message": "data added to <active_game>",
+  "entry_id": 8,
+  "game_id": "1",
+  "user_id": "7",
+  "player_id": "2"
+}
+74.103.158.35 2022-12-06 09:31:54.655170 GET http://deckdealer.hopto.org/ 200
+74.103.158.35 2022-12-06 09:31:54.708940 GET http://deckdealer.hopto.org/login-register.js 200
+74.103.158.35 2022-12-06 09:32:01.370854 GET http://deckdealer.hopto.org/index.html 200
+74.103.158.35 2022-12-06 09:32:09.693033 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 09:32:09.693672 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 09:32:09.692917 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.35 2022-12-06 09:32:17.497616 GET http://deckdealer.hopto.org/spectators.html 200
+74.103.158.35 2022-12-06 09:32:17.580698 GET http://deckdealer.hopto.org/js/watch-game.js 200
