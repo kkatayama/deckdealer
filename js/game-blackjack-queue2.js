@@ -46,14 +46,16 @@ function printPlayerList(player_list) {
   for (var i = 0; i < player_list.length; i++) {
     var player = player_list[i];
     $('#player-list').append(
-      '<div class="col">' +
-        '<h2>' + player.player_id +'</h2>' +
-      '</div>' +
-      '<div class="col">' +
-        '<h2>' + player.name +'</h2>' +
-      '</div>' +
-      '<div class="col">' +
-        '<h2>' + player.email +'</h2>' +
+      '<div class="row justify-content-center">' +
+        '<div class="col-1">' +
+          '<h2>' + player.player_id +'</h2>' +
+        '</div>' +
+        '<div class="col-3">' +
+          '<h2>' + player.name +'</h2>' +
+        '</div>' +
+        '<div class="col-4">' +
+          '<h2>' + player.email +'</h2>' +
+        '</div>' +
       '</div>'
     )
   }
