@@ -73,7 +73,7 @@ $(document).ready(function() {
               console.log(response);
               /* game_id === "1" is Blackjack */
               if (game_id === "1") {
-                window.location.href = 'game-blackjack2.html'
+                window.location.href = 'game-blackjack-queue2.html'
               }
             }
            });
