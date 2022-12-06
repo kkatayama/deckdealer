@@ -3,19 +3,17 @@ $(document).ready(function() {
   var user_id = "";
 
   function showPopUp(message, data) {
+    if (message.includes('user login success')) {
+      $('#popup-content').append(
+        '<div class="modal-footer">' +
+          '<a class="btn btn-primary" href="spectators.html">Watch Game</a>' +
+          '<a class="btn btn-primary" href="game-list2.html">Play Game</a>' +
+        '</div>'
+      )
+    }
     $('#message').html(message);
     $('#message-body').html(message_body);
     $('#popup').modal("show");
-    $('#popup').on('hide.bs.modal', function() {
-      if (message.includes('user login success')) {
-        $('#popup-content').append(
-          '<div class="modal-footer">' +
-            '<a class="btn btn-primary" href="spectators.html">Watch Game</a>' +
-            '<a class="btn btn-primary" href="game-list2.html">Play Game</a>' +
-          '</div>'
-        )
-      }
-    });
   }
 
   $("#login").submit(function(e) {
