@@ -7,7 +7,9 @@ var api_url = "https://deckdealer.hopto.org"
 //                      Global Variables (for debugging)                     //
 ///////////////////////////////////////////////////////////////////////////////
 var user_id = "";
+var game_id = "";
 var player_list = [];
+var min_players = 0;
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
