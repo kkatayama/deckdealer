@@ -685,3 +685,43 @@ CREATE TABLE players2 (player_id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, 
     "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
   ]
 }
+74.103.158.35 2022-12-06 11:30:38.715187 GET http://deckdealer.hopto.org/createTable/active_game2/entry_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/player_hand/TEXT/player_action/TEXT/entry_time/DATETIME request
+CREATE TABLE active_game2 (entry_id INTEGER PRIMARY KEY, game_id INTEGER NOT NULL, user_id INTEGER NOT NULL, player_id INTEGER NOT NULL, player_hand TEXT NOT NULL, player_action TEXT NOT NULL, entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime')));
+74.103.158.35 2022-12-06 11:30:38.714925 GET http://deckdealer.hopto.org/createTable/active_game2/entry_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/player_hand/TEXT/player_action/TEXT/entry_time/DATETIME None
+{"request.params": {}}
+{
+  "message": "1 table created",
+  "table": "active_game2",
+  "columns": [
+    "entry_id INTEGER PRIMARY KEY",
+    "game_id INTEGER NOT NULL",
+    "user_id INTEGER NOT NULL",
+    "player_id INTEGER NOT NULL",
+    "player_hand TEXT NOT NULL",
+    "player_action TEXT NOT NULL",
+    "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+  ]
+}
+74.103.158.35 2022-12-06 11:31:29.218283 GET http://deckdealer.hopto.org/createTable/score_board2/score_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/winner/TEXT/winner_email/TEXT/winner_hand/TEXT/winner_score/INTEGER/players/TEXT/player_hands/TEXT/player_scores/TEXT/spectators/TEXT/entry_time/DATETIME request
+CREATE TABLE score_board2 (score_id INTEGER PRIMARY KEY, game_id INTEGER NOT NULL, user_id INTEGER NOT NULL, player_id INTEGER NOT NULL, winner TEXT NOT NULL, winner_email TEXT NOT NULL, winner_hand TEXT NOT NULL, winner_score INTEGER NOT NULL, players TEXT NOT NULL, player_hands TEXT NOT NULL, player_scores TEXT NOT NULL, spectators TEXT NOT NULL, entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime')));
+74.103.158.35 2022-12-06 11:31:29.218058 GET http://deckdealer.hopto.org/createTable/score_board2/score_id/INTEGER/game_id/INTEGER/user_id/INTEGER/player_id/INTEGER/winner/TEXT/winner_email/TEXT/winner_hand/TEXT/winner_score/INTEGER/players/TEXT/player_hands/TEXT/player_scores/TEXT/spectators/TEXT/entry_time/DATETIME None
+{"request.params": {}}
+{
+  "message": "1 table created",
+  "table": "score_board2",
+  "columns": [
+    "score_id INTEGER PRIMARY KEY",
+    "game_id INTEGER NOT NULL",
+    "user_id INTEGER NOT NULL",
+    "player_id INTEGER NOT NULL",
+    "winner TEXT NOT NULL",
+    "winner_email TEXT NOT NULL",
+    "winner_hand TEXT NOT NULL",
+    "winner_score INTEGER NOT NULL",
+    "players TEXT NOT NULL",
+    "player_hands TEXT NOT NULL",
+    "player_scores TEXT NOT NULL",
+    "spectators TEXT NOT NULL",
+    "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+  ]
+}
