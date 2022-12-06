@@ -16,7 +16,7 @@ function getUserID() {
   /* GET: https://deckdealer.hopto.org/status */
   var url = new URL('/status', api_url).toString();
   var temp_id = "";
-  $.ajax({url: url, type: 'GET', async: false,
+  $.ajax({url: url, type: 'get', async: false,
     success: function(response) {
       temp_id = response.user_id;
     }
@@ -28,7 +28,7 @@ function getGameList() {
   /* GET: https://deckdealer.hopto.org/get/games */
   var url = new URL('/get/games', api_url).toString();
   var temp_list = [];
-  $.ajax({url: url, type: 'GET', async: false,
+  $.ajax({url: url, type: 'get', async: false,
     success: function(response) {
       if (response.message === "1 game entry found") {
         temp_list = [response.data];

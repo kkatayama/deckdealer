@@ -2685,3 +2685,110 @@ SELECT * FROM players2 WHERE 1;
   "user_id": "1",
   "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
 }
+74.103.158.35 2022-12-06 15:45:07.683378 POST http://deckdealer.hopto.org/add/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 15:45:07.684001 POST http://deckdealer.hopto.org/add/players2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 15:45:07.687514 POST http://deckdealer.hopto.org/add/players2 request
+INSERT INTO players2 (user_id,game_id) VALUES (?, ?);
+74.103.158.35 2022-12-06 15:45:07.687934 POST http://deckdealer.hopto.org/add/players2 request
+['1', '1']
+74.103.158.35 2022-12-06 15:45:07.682968 POST http://deckdealer.hopto.org/add/players2 None
+{"request.params": {"user_id": "1", "game_id": "1", "name": "", "email": ""}}
+{
+  "message": "data added to <players2>",
+  "player_id": {
+    "SQLite.IntegrityError": "NOT NULL constraint failed: players2.name",
+    "Debug Info": {
+      "query": "INSERT INTO players2 (user_id,game_id) VALUES (?, ?);",
+      "kwargs": {
+        "table": {
+          "name": "players2",
+          "type": "table",
+          "columns": {
+            "player_id": "INTEGER",
+            "user_id": "INTEGER",
+            "game_id": "INTEGER",
+            "name": "TEXT",
+            "email": "TEXT",
+            "entry_time": "DATETIME"
+          },
+          "info": {
+            "player_id": "INTEGER PRIMARY KEY",
+            "user_id": "INTEGER NOT NULL",
+            "game_id": "INTEGER NOT NULL",
+            "name": "TEXT NOT NULL",
+            "email": "TEXT NOT NULL",
+            "entry_time": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+          }
+        },
+        "columns": [
+          "user_id",
+          "game_id"
+        ],
+        "col_values": [
+          "1",
+          "1"
+        ]
+      },
+      "parsed": {
+        "table": "players2",
+        "columns": [
+          "user_id",
+          "game_id"
+        ],
+        "col_values": [
+          "1",
+          "1"
+        ]
+      }
+    },
+    "SQLite Traceback": [
+      "Traceback (most recent call last):",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 106, in insertRow",
+      "    cur = db.execute(query, col_values) if col_values else db.execute(query)",
+      "sqlite3.IntegrityError: NOT NULL constraint failed: players2.name"
+    ]
+  },
+  "user_id": "1",
+  "game_id": "1"
+}
+74.103.158.35 2022-12-06 15:45:07.715643 GET http://deckdealer.hopto.org/blackjack.html 404
+74.103.158.35 2022-12-06 15:45:07.716342 GET http://deckdealer.hopto.org/blackjack.html None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.35 2022-12-06 15:45:29.494742 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-06 15:45:29.495399 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-06 15:45:29.497649 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+74.103.158.35 2022-12-06 15:45:29.497843 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+74.103.158.35 2022-12-06 15:45:29.494304 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "0 players2 entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {},
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
