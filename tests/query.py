@@ -57,6 +57,7 @@ def getCode(text):
     return 'rexx'
 
 def parseQuery(query):
+    # print(f'query = {query}')
     commands = [
         "add",
         "get",
@@ -71,6 +72,7 @@ def parseQuery(query):
         "uploadImageUrl"
     ]
     tables = [
+        "players2", "spectators2", "active_game2", "score_board2",
         "cards", "deck", "players", "spectators", "games", "active_game", "score_board",
         "users",
         "stuff",
@@ -84,7 +86,7 @@ def parseQuery(query):
         "restaurant_schedule"
     ]
     regex = rf"""
-    /({'|'.join(commands)})/({'|'.join(tables)}) |  # catch /<cmd>/<table_name
+    /({'|'.join(commands)})/({'|'.join(tables)}) |  # catch /<cmd>/<table_name>
     /({'|'.join(commands)})                      # catch only /<cmd>
     """
     m = re.compile(regex, re.VERBOSE)
