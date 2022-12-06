@@ -2125,3 +2125,20 @@ SELECT * FROM games WHERE 1;
     "_status_line": "405 Method Not Allowed"
   }
 }
+128.4.95.156 2022-12-06 14:18:53.049575 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.95.156 2022-12-06 14:18:53.050196 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+['table', 'sqlite_%']
+128.4.95.156 2022-12-06 14:18:53.053638 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+INSERT INTO active_game (game_id,user_id,player_id,player_hand,player_action) VALUES (?, ?, ?, ?, ?);
+128.4.95.156 2022-12-06 14:18:53.054053 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+['1', '7', '2', '6D', 'setup']
+128.4.95.156 2022-12-06 14:18:53.049179 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup None
+{"request.params": {}}
+{
+  "message": "data added to <active_game>",
+  "entry_id": 10,
+  "game_id": "1",
+  "user_id": "7",
+  "player_id": "2"
+}
