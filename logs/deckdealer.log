@@ -725,3 +725,23 @@ CREATE TABLE score_board2 (score_id INTEGER PRIMARY KEY, game_id INTEGER NOT NUL
     "entry_time DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
   ]
 }
+74.103.158.35 2022-12-06 11:46:43.257517 GET http://deckdealer.hopto.org/game2.html 200
+74.103.158.35 2022-12-06 11:46:43.340145 GET http://deckdealer.hopto.org/js/game2.js 200
+74.103.158.35 2022-12-06 11:47:03.998659 GET http://deckdealer.hopto.org/game2.html 304
+74.103.158.35 2022-12-06 11:47:04.066617 GET http://deckdealer.hopto.org/js/game2.js 200
+74.103.158.35 2022-12-06 11:47:04.161208 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "1",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+74.103.158.35 2022-12-06 11:47:44.012246 GET http://deckdealer.hopto.org/game2.html 304
+74.103.158.35 2022-12-06 11:47:44.067011 GET http://deckdealer.hopto.org/js/game2.js 200
+74.103.158.35 2022-12-06 11:47:44.228717 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "1",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
