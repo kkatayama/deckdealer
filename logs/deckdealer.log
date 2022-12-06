@@ -4600,3 +4600,27 @@ SELECT * FROM players2 WHERE (user_id=?) LIMIT 1;
     "entry_time": "2022-12-06 16:08:20.385"
   }
 }
+128.4.179.16 2022-12-06 18:40:01.541084 GET http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.179.16 2022-12-06 18:40:01.541638 GET http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+128.4.179.16 2022-12-06 18:40:01.544206 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+128.4.179.16 2022-12-06 18:40:01.544526 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+128.4.179.16 2022-12-06 18:40:01.540732 GET http://deckdealer.hopto.org/get/games None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
