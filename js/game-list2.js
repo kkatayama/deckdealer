@@ -59,7 +59,9 @@ function printGameList(game_list) {
             'player_actions = ' + game.player_actions + '<br />' +
             '<br /><strong>RULES</strong><br />' +
             game.rules.replaceAll(',', '<br />') + '<br />' +
-            '<a class="btn btn-primary btn-block" href="game-register?user_id=' + user_id + '&game_id=' + game.game_id + '">Play ' + game.name + '</a>' +
+            '<div class="d-grid py-3">' +
+              '<a class="btn btn-primary href="game-register?user_id=' + user_id + '&game_id=' + game.game_id + '">Play ' + game.name + '</a>' +
+            '</div>' +
           '</div>' +
         '</div>' +
       '</div>'
