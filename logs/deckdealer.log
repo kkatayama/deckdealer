@@ -75333,3 +75333,226 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 74.103.158.236 2022-12-07 16:47:17.856610 GET http://deckdealer.hopto.org/blackjack.js 200
 74.103.158.236 2022-12-07 16:51:38.901965 GET http://deckdealer.hopto.org/blackjack.html 200
 74.103.158.236 2022-12-07 16:51:39.006120 GET http://deckdealer.hopto.org/blackjack.js 304
+74.103.158.236 2022-12-07 17:05:14.698617 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-07 17:05:14.699258 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-07 17:05:14.698497 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.236 2022-12-07 17:05:16.117159 GET http://deckdealer.hopto.org/game.html 304
+74.103.158.236 2022-12-07 17:05:18.978294 GET http://deckdealer.hopto.org/blackjack.html 200
+74.103.158.236 2022-12-07 17:05:19.103253 GET http://deckdealer.hopto.org/blackjack.js 304
+74.103.158.236 2022-12-07 17:05:19.110830 GET http://deckdealer.hopto.org/... None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+74.103.158.236 2022-12-07 17:05:20.337184 GET http://deckdealer.hopto.org/AS None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+23.228.131.197 2022-12-07 17:05:22.101410 GET http://deckdealer.hopto.org/AS None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+74.103.158.236 2022-12-07 17:05:24.792130 GET http://deckdealer.hopto.org/AS None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+74.103.158.236 2022-12-07 17:05:27.592357 GET http://deckdealer.hopto.org/AS None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+74.103.158.236 2022-12-07 17:05:33.145898 GET http://deckdealer.hopto.org/AS None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+74.103.158.236 2022-12-07 17:05:38.444722 GET http://deckdealer.hopto.org/6D None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+74.103.158.236 2022-12-07 17:07:17.737473 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-07 17:07:17.738061 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-07 17:07:17.737362 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.236 2022-12-07 17:07:19.111890 GET http://deckdealer.hopto.org/game.html 304
+74.103.158.236 2022-12-07 17:07:21.790967 GET http://deckdealer.hopto.org/blackjack.html 304
+74.103.158.236 2022-12-07 17:07:21.887002 GET http://deckdealer.hopto.org/blackjack.js 304
+74.103.158.236 2022-12-07 17:07:21.890067 GET http://deckdealer.hopto.org/... None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+74.103.158.236 2022-12-07 17:07:22.941803 GET http://deckdealer.hopto.org/AS None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+74.103.158.236 2022-12-07 17:09:59.874762 GET http://deckdealer.hopto.org/login-register.js 304
