@@ -68,7 +68,15 @@ function getPlayers() {
 function getPlayerID() {
   for (var i = 0; i < players.length; i++) {
     if (players[i].user_id == user_id) {
-      return players[i].player_id
+      return players[i].player_id;
+    }
+  }
+}
+
+function getPlayerName() {
+  for (var i = 0; i < players.length; i++) {
+    if (players[i].user_id == user_id) {
+      return players[i].name;
     }
   }
 }
@@ -154,6 +162,6 @@ $(document).ready(function() {
     window.location.href = "game-blackjack-play2.html";
   });
 
-  showPopup("test2");
+  printActiveGame();
 
 });
