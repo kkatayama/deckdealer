@@ -12,6 +12,7 @@ var game_id = "";
 var min_players = 0;
 var num_players = 0;
 var waiting = true;
+var interval = 0;
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
@@ -126,15 +127,11 @@ $(document).ready(function() {
 
   /* generate HTML: every 500 ms */
   $('#status').click(function(elem) { waiting = false; })
-  var interval = setInterval(function() {
+  interval = setInterval(function() {
     if (waiting) {
       printPlayerList()
     } else {
       clearInterval(interval);
-      setTimeout(function() {playGame()}, 1000);
     }
-  }, 500);
-  if (!(waiting)) {
-
-  }
+  }, 1000);
 });
