@@ -17,6 +17,18 @@ var player_index = 1;
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
 ///////////////////////////////////////////////////////////////////////////////
+function showPopup(message) {
+  $('#popup').find('button').addClass('disabled')
+  $('#popup').modal({backdrop: 'static', keyboard: false});
+  $('#message').html("Error Processing Params:");
+  $('#message-body').html(message);
+  $('#popup').modal("show");
+}
+
+function hidePopup() {
+  $('#popup').modal('hide');
+}
+
 function getUserID() {
   /* GET: https://deckdealer.hopto.org/status */
   var url = new URL('/status', api_url).toString();
@@ -62,41 +74,14 @@ function getActiveGame() {
       if ((response.message.includes("0")) && (response.message.includes("entries"))) {
         console.log('Waiting for dealer to start!');
       } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
-        temp_list = [response.data];
+        temp_active = [response.data];
       } else {
-        temp_list = response.data;
+        temp_active = response.data;
       }
     }
   });
-  return temp_list;
+  return temp_active;
 }
-
-function showPopup(message) {
-  $('#popup').find('button').addClass('disabled')
-  $('#popup').modal({backdrop: 'static', keyboard: false});
-  $('#message').html("Error Processing Params:");
-  $('#message-body').html(message);
-  $('#popup').modal("show");
-}
-
-function hidePopup() {
-  $('#popup').modal('hide');
-}
-
-function getGameInfo() {
-  /* Get: https://deckdealer.hopto.org/get/games/game_id/{ID#} */
-  var url = new URL('/get/games/game_id/' + game_id, api_url).toString();
-  var min  = 0;
-  var name = "";
-  $.ajax({url: url, type: 'GET', async: false,
-    success: function(response) {
-      min = parseInt(response.data.min_players);
-      name = response.data.name;
-    }
-  });
-  return {min, name}
-}
-
 
 function printPlayerList() {
   player_list = getPlayerList();

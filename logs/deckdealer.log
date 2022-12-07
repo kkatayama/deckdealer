@@ -74749,3 +74749,35 @@ SELECT * FROM users WHERE 1;
     "_status_line": "404 Not Found"
   }
 }
+74.103.158.35 2022-12-07 11:46:37.738245 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 11:46:37.809279 GET http://deckdealer.hopto.org/js/game-blackjack2.js 200
+74.103.158.35 2022-12-07 11:46:37.899780 GET http://deckdealer.hopto.org/6D.png 200
+74.103.158.35 2022-12-07 11:46:37.915625 GET http://deckdealer.hopto.org/4H.png 200
+74.103.158.35 2022-12-07 11:46:37.925723 GET http://deckdealer.hopto.org/10S.png 200
+74.103.158.35 2022-12-07 11:46:37.935153 GET http://deckdealer.hopto.org/QH.png 200
+74.103.158.35 2022-12-07 11:46:37.938109 GET http://deckdealer.hopto.org/9D.png 200
+74.103.158.35 2022-12-07 11:46:37.939924 GET http://deckdealer.hopto.org/10H.png 200
+74.103.158.35 2022-12-07 11:46:37.982979 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 11:46:49.137490 GET http://deckdealer.hopto.org/back.png 200
+74.103.158.35 2022-12-07 11:46:57.119226 GET http://deckdealer.hopto.org/static/img/AS.png 200
+74.103.158.35 2022-12-07 11:47:16.066301 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 11:47:16.138736 GET http://deckdealer.hopto.org/js/game-blackjack2.js 200
+74.103.158.35 2022-12-07 11:47:16.231585 GET http://deckdealer.hopto.org/6D.png 200
+74.103.158.35 2022-12-07 11:47:16.240421 GET http://deckdealer.hopto.org/4H.png 200
+74.103.158.35 2022-12-07 11:47:16.244620 GET http://deckdealer.hopto.org/10S.png 200
+74.103.158.35 2022-12-07 11:47:16.252463 GET http://deckdealer.hopto.org/back.png 200
+74.103.158.35 2022-12-07 11:47:16.256118 GET http://deckdealer.hopto.org/9D.png 200
+74.103.158.35 2022-12-07 11:47:16.258309 GET http://deckdealer.hopto.org/10H.png 200
+74.103.158.35 2022-12-07 11:47:16.297631 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
