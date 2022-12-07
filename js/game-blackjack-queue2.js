@@ -11,7 +11,7 @@ var user_id = "";
 var game_id = "";
 var min_players = 0;
 var num_players = 0;
-var interval = 0;
+var waiting = true;
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
@@ -98,7 +98,7 @@ function printPlayerList() {
       $('#status').html(
         '<div class="d-grid">' +
           '<button class="btn btn-primary">Start Game</button>' +
-          '</div>'
+        '</div>'
       )
     }
   } else {
@@ -121,9 +121,12 @@ $(document).ready(function() {
   console.log('min_players = ' + min_players);
 
   /* generate HTML: every 500 ms */
-  interval = setInterval(function() { printPlayerList() }, 1000);
-  $('#status').click(function(elem) {
-    clearInterval(interval);
-    setTimeout(function() {window.location = 'game-blackjack-play2.html'}, 500);
-  })
+  var interval = setInterval(function() {
+    if (waiting) {
+      printPlayerList()
+    } else {
+      clearInterval(interval);
+    }
+  }, 500);
+  $('#status').click(function(elem) { waiting = false; })
 });
