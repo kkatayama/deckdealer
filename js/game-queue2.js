@@ -103,16 +103,8 @@ function printPlayerList() {
       $('#status').removeClass('border');
       $('#status').removeClass('rounded');
       $('#status').html(
-        // '<div class="d-grid p-2 col-6 mx-auto">' +
-        //   '<button class="btn btn-primary">Start Game</button>' +
-        // '</div>'
         '<div class="btn btn-primary form-control btn-block">Start Game</div>'
       )
-      // $('#status').addClass('btn');
-      // $('#status').addClass('btn-primary');
-      // $('#status').addClass('form-control');
-      // $('#status').addClass('btn-block');
-      // $('#status').text('Start Game');
     }
   }
 }
