@@ -75331,3 +75331,5 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 74.103.158.236 2022-12-07 16:47:15.584962 GET http://deckdealer.hopto.org/game.html 200
 74.103.158.236 2022-12-07 16:47:17.733133 GET http://deckdealer.hopto.org/blackjack.html 200
 74.103.158.236 2022-12-07 16:47:17.856610 GET http://deckdealer.hopto.org/blackjack.js 200
+74.103.158.236 2022-12-07 16:51:38.901965 GET http://deckdealer.hopto.org/blackjack.html 200
+74.103.158.236 2022-12-07 16:51:39.006120 GET http://deckdealer.hopto.org/blackjack.js 304
