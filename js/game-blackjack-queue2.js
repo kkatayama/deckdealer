@@ -107,16 +107,6 @@ function printPlayerList() {
   }
 }
 
-function playGame(status) {
-  if (status === 0) {
-    window.location.href = "game-blackjack-play2.html";
-  }
-}
-
-function clearTimer() {
-  clearInterval(timer);
-  return 0;
-}
 
 $(document).ready(function() {
   /* set variables */
@@ -139,7 +129,14 @@ $(document).ready(function() {
     if (waiting) {
       printPlayerList()
     } else {
-      playGame(clearTimer());
+
+      // Clear any timeout/interval up to that id
+      for (let i = 1; i < (timer + 2); i++) {
+        clearInterval(i);
+        if i === (timer + 2) {
+          window.location.href = "game-blackjack-play2.html";
+        }
+      }
     }
   }, 1000);
 });
