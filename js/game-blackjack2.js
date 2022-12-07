@@ -88,7 +88,7 @@ function getActiveGame() {
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
       if ((response.message.includes("0")) && (response.message.includes("entries"))) {
-        console.log('Waiting for dealer to start!');
+        console.log('Waiting the for dealer to start...');
       } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
         temp_active = [response.data];
       } else {
@@ -102,7 +102,9 @@ function getActiveGame() {
 function printActiveGame() {
   active_game = getActiveGame();
 
-  if (!(active_game)) {
+  if (active_game.length) {
+    console.log('Game is Active !')
+  } else {
     showPopup("Waiting for the dealer to start...");
   }
 }
