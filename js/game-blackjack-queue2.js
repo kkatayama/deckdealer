@@ -9,7 +9,6 @@ var api_url = "https://deckdealer.hopto.org"
 var html = "";
 var user_id = "";
 var game_id = "";
-var player_list = [];
 var min_players = 0;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -71,6 +70,8 @@ function getPlayerList() {
 }
 
 function printPlayerList() {
+  var player_list = getPlayerList();
+
   $('#player-list').html(html);
   for (var i = 0; i < player_list.length; i++) {
     var player = player_list[i];
@@ -91,7 +92,7 @@ function printPlayerList() {
   if (player_list.length < min_players) {
     $('#status').html('<p class="lh-base">waiting for additional players...</p>')
   } else {
-    $('#status').html('<a class="btn btn-primary" href="game-blackjack-play2.html">Start Game</a>')
+    $('#status').html('<a class="btn btn-primary btn-block" href="game-blackjack-play2.html">Start Game</a>')
   }
 }
 
@@ -100,15 +101,16 @@ $(document).ready(function() {
   html = $('#player-list').html();
   user_id = getUserID();
   game_id = getGameID();
-  player_list = getPlayerList();
   min_players = getMinPlayers();
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
   console.log('game_id = ' + game_id);
   console.log('min_players = ' + min_players);
-  console.table(player_list);
 
   /* generate HTML: every 500 ms */
-  //var interval = setInterval(function() { printPlayerList() }, 500);
+  var interval = setInterval(function() { printPlayerList() }, 500);
+  $('#status').submit(function(elem) {
+    clearInterval(interval);
+  })
 });
