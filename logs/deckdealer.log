@@ -74713,3 +74713,39 @@ SELECT * FROM users WHERE 1;
     }
   ]
 }
+74.103.158.35 2022-12-07 11:44:08.731439 GET http://deckdealer.hopto.org/back.png 404
+74.103.158.35 2022-12-07 11:44:08.732538 GET http://deckdealer.hopto.org/back.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+74.103.158.35 2022-12-07 11:44:31.222276 GET http://deckdealer.hopto.org/static/img/back.png 404
+74.103.158.35 2022-12-07 11:44:31.223383 GET http://deckdealer.hopto.org/static/img/back.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
