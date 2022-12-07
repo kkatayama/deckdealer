@@ -94,7 +94,7 @@ function printPlayerList() {
   } else {
     $('#status').html(
       '<div class="d-grid">' +
-        '<button class="btn btn-primary" onclick="clearInterval(interval);">Start Game</button>' +
+        '<button class="btn btn-primary">Start Game</button>' +
       '</div>'
     )
   }
@@ -113,7 +113,7 @@ $(document).ready(function() {
   console.log('min_players = ' + min_players);
 
   /* generate HTML: every 500 ms */
-  interval = setInterval(function() { printPlayerList() }, 500);
+  var interval = setInterval(function() { printPlayerList() }, 500);
   $('#status').click(function(elem) {
     clearInterval(interval);
     window.location = 'game-blackjack-play2.html';
