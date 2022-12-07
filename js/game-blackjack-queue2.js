@@ -11,8 +11,6 @@ var user_id = "";
 var game_id = "";
 var min_players = 0;
 var num_players = 0;
-var waiting = true;
-var timer = 0;
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
@@ -124,14 +122,10 @@ $(document).ready(function() {
 
 
   /* generate HTML: every 500 ms */
-  $('#status').click(function(elem) { waiting = false; })
-  var timer = setInterval(function() {
-    if (waiting) {
-      printPlayerList()
-    } else {
-      clearInterval(timer);
-      // setTimeout(function() { window.location.href = "game-blackjack-play2.html" }, 1000);
-      window.location.href = "game-blackjack-play2.html";
-    }
-  }, 1000);
+  var timer = setInterval(function() { printPlayerList() }, 1000);
+  $('#status').click(function(elem) {
+    clearInterval(timer);
+    window.location.href = "game-blackjack-play2.html";
+  });
+
 });
