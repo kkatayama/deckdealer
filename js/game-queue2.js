@@ -100,6 +100,8 @@ function printPlayerList() {
       $('#status').html('<p class="lh-base">waiting for additional players...</p>')
     } else {
       $('#status').removeClass('bg-light');
+      $('#status').removeClass('border');
+      $('#status').removeClass('rounded');
       $('#status').html(
         // '<div class="d-grid p-2 col-6 mx-auto">' +
         //   '<button class="btn btn-primary">Start Game</button>' +
