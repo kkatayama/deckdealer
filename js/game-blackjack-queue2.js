@@ -11,6 +11,7 @@ var user_id = "";
 var game_id = "";
 var min_players = 0;
 var num_players = 0;
+var interval = 0;
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
@@ -120,9 +121,9 @@ $(document).ready(function() {
   console.log('min_players = ' + min_players);
 
   /* generate HTML: every 500 ms */
-  var interval = setInterval(function() { printPlayerList() }, 500);
+  interval = setInterval(function() { printPlayerList() }, 1000);
   $('#status').click(function(elem) {
     clearInterval(interval);
-    window.location = 'game-blackjack-play2.html';
+    setTimeout(function() {window.location = 'game-blackjack-play2.html'}, 500);
   })
 });
