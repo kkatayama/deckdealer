@@ -93,6 +93,7 @@ function printPlayerList() {
     $('#status').html('<p class="lh-base">waiting for additional players...</p>')
   } else {
     $('#status').html('<a class="btn btn-primary btn-block" href="game-blackjack-play2.html">Start Game</a>')
+    // $('#status').html('<a class="btn btn-primary btn-block" href="#">Start Game</a>')
   }
 }
 
@@ -110,7 +111,7 @@ $(document).ready(function() {
 
   /* generate HTML: every 500 ms */
   var interval = setInterval(function() { printPlayerList() }, 500);
-  $('#status').submit(function(elem) {
+  $('#status').click(function(elem) {
     clearInterval(interval);
   })
 });
