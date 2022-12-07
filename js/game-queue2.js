@@ -100,7 +100,7 @@ function printPlayerList() {
       $('#status').html('<p class="lh-base">waiting for additional players...</p>')
     } else {
       $('#status').html(
-        '<div class="d-grid">' +
+        '<div class="d-grid p-2 col-6 mx-auto">' +
           '<button class="btn btn-primary">Start Game</button>' +
         '</div>'
       )
