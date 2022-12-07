@@ -125,12 +125,13 @@ $(document).ready(function() {
 
   /* generate HTML: every 500 ms */
   $('#status').click(function(elem) { waiting = false; })
-  timer = setInterval(function() {
+  var timer = setInterval(function() {
     if (waiting) {
       printPlayerList()
     } else {
       clearInterval(timer);
-      setTimeout(() => { window.location.href = "game-blackjack-play2.html" }, 2000);
+      // setTimeout(function() { window.location.href = "game-blackjack-play2.html" }, 1000);
+      window.location.href = "game-blackjack-play2.html";
     }
   }, 1000);
 });
