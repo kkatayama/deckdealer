@@ -133,7 +133,7 @@ $(document).ready(function() {
       // Clear any timeout/interval up to that id
       for (let i = 1; i < (timer + 2); i++) {
         clearInterval(i);
-        if i === (timer + 2) {
+        if (i === (timer + 1)) {
           window.location.href = "game-blackjack-play2.html";
         }
       }
