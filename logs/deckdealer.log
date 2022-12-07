@@ -70561,3 +70561,22 @@ SELECT * FROM games WHERE game_id=?;
     "entry_time": "2022-11-10 13:12:54.755"
   }
 }
+82.145.215.206 2022-12-07 04:09:31.088858 GET http://deckdealer.hopto.org/ 200
+82.145.215.206 2022-12-07 04:09:31.353123 GET http://deckdealer.hopto.org/apple-touch-icon.png 404
+82.145.215.206 2022-12-07 04:09:31.353481 GET http://deckdealer.hopto.org/apple-touch-icon.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
