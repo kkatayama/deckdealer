@@ -10,6 +10,7 @@ var html = "";
 var user_id = "";
 var game_id = "";
 var min_players = 0;
+var num_players = 0;
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
@@ -70,33 +71,37 @@ function getPlayerList() {
 }
 
 function printPlayerList() {
-  var player_list = getPlayerList();
+  player_list = getPlayerList();
 
-  $('#player-list').html(html);
-  for (var i = 0; i < player_list.length; i++) {
-    var player = player_list[i];
-    $('#player-list').append(
-      '<div class="row justify-content-center text-success">' +
-        '<div class="col-1 bg-light ps-3 text-center border" style="--bs-bg-opacity: .6;">' +
+  if (!!(num_players === player_list.length)) {
+    $('#player-list').html(html);
+    for (var i = 0; i < player_list.length; i++) {
+      var player = player_list[i];
+      $('#player-list').append(
+        '<div class="row justify-content-center text-success">' +
+          '<div class="col-1 bg-light ps-3 text-center border" style="--bs-bg-opacity: .6;">' +
           '<h3>' + player.player_id +'</h3>' +
-        '</div>' +
-        '<div class="col-3 bg-light ps-3 border" style="--bs-bg-opacity: .6;">' +
+          '</div>' +
+          '<div class="col-3 bg-light ps-3 border" style="--bs-bg-opacity: .6;">' +
           '<h3>' + player.name +'</h3>' +
-        '</div>' +
-        '<div class="col-4 bg-light ps-3 border" style="--bs-bg-opacity: .6;">' +
+          '</div>' +
+          '<div class="col-4 bg-light ps-3 border" style="--bs-bg-opacity: .6;">' +
           '<h3>' + player.email +'</h3>' +
-        '</div>' +
-      '</div>'
-    )
-  }
-  if (player_list.length < min_players) {
-    $('#status').html('<p class="lh-base">waiting for additional players...</p>')
+          '</div>' +
+          '</div>'
+      )
+    }
+    if (player_list.length < min_players) {
+      $('#status').html('<p class="lh-base">waiting for additional players...</p>')
+    } else {
+      $('#status').html(
+        '<div class="d-grid">' +
+          '<button class="btn btn-primary">Start Game</button>' +
+          '</div>'
+      )
+    }
   } else {
-    $('#status').html(
-      '<div class="d-grid">' +
-        '<button class="btn btn-primary">Start Game</button>' +
-      '</div>'
-    )
+    num_players = player_list.length;
   }
 }
 
@@ -106,6 +111,8 @@ $(document).ready(function() {
   user_id = getUserID();
   game_id = getGameID();
   min_players = getMinPlayers();
+  player_list = getPlayerList();
+  // num_players = player_list.length;
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
