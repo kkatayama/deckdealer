@@ -65,6 +65,14 @@ function getPlayers() {
   return temp_players;
 }
 
+function getPlayerID() {
+  for (var i = 0; i < players.length; i++) {
+    if (players[i].user_id == user_id) {
+      return players[i].player_id
+    }
+  }
+}
+
 function getActiveGame() {
   /* Get: https://deckdealer.hopto.org/get/active_game2 */
   var url = new URL('/get/active_game2', api_url).toString();
@@ -81,6 +89,14 @@ function getActiveGame() {
     }
   });
   return temp_active;
+}
+
+function printActiveGame() {
+  active_game = getActiveGame();
+
+  if (!(active_game)) {
+    showPopup("Waiting for the dealer to start...");
+  }
 }
 
 function printPlayerList() {
@@ -124,12 +140,12 @@ $(document).ready(function() {
   /* set variables */
   html = $('#player-list').html();
   user_id = getUserID();
-  // player_list = getPlayerList();
-  // num_players = player_list.length;
+  players = getPlayers();
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
-
+  console.log('=== players ===')
+  console.table(players);
 
   /* generate HTML: every 500 ms */
   // var timer = setInterval(function() { printPlayerList() }, 1000);
