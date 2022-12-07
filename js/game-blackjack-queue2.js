@@ -69,7 +69,8 @@ function getPlayerList() {
   return temp_list;
 }
 
-function printPlayerList(player_list) {
+function printPlayerList() {
+  $('#player-list').html();
   for (var i = 0; i < player_list.length; i++) {
     var player = player_list[i];
     $('#player-list').append(
@@ -86,7 +87,7 @@ function printPlayerList(player_list) {
       '</div>'
     )
   }
-  if (player_list.length > min_players) {
+  if (player_list.length < min_players) {
     $('#status').html('<p class="lh-base">waiting for additional players...</p>')
   } else {
     $('#status').html('<a class="btn btn-primary" href="game-blackjack-play2.html">Start Game</a>')
@@ -105,5 +106,5 @@ $(document).ready(function() {
   console.table(player_list);
 
   /* generate HTML */
-  printPlayerList(player_list);
+  printPlayerList();
 });
