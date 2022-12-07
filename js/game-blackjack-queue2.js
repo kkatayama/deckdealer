@@ -26,7 +26,7 @@ function getUserID() {
   return temp_id;
 }
 
-function getGameID(user_id) {
+function getGameID() {
   /* Get: https://deckdealer.hopto.org/get/players2/user_id/{ID#} */
   var url = new URL('/get/players2/user_id/' + user_id, api_url).toString();
   var temp_id = "";
@@ -38,7 +38,7 @@ function getGameID(user_id) {
   return temp_id;
 }
 
-function getMinPlayers(game_id) {
+function getMinPlayers() {
   /* Get: https://deckdealer.hopto.org/get/games/game_id/{ID#} */
   var url = new URL('/get/games/game_id/' + game_id, api_url).toString();
   var temp_min = "";
@@ -92,9 +92,9 @@ function printPlayerList(player_list) {
 $(document).ready(function() {
   /* local variables */
   user_id = getUserID();
-  game_id = getGameID(user_id);
+  game_id = getGameID();
   player_list = getPlayerList();
-  min_players = getMinPlayers(game_id);
+  min_players = getMinPlayers();
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
