@@ -8,10 +8,9 @@ var api_url = "https://deckdealer.hopto.org"
 ///////////////////////////////////////////////////////////////////////////////
 var html = "";
 var user_id = "";
-var game_id = "";
-var game_name = "";
-var min_players = 0;
-var num_players = 0;
+var user_name = "";
+var players = [];
+var active = [];
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
@@ -28,16 +27,46 @@ function getUserID() {
   return temp_id;
 }
 
-function getGameID() {
-  /* Get: https://deckdealer.hopto.org/get/players2/user_id/{ID#} */
-  var url = new URL('/get/players2/user_id/' + user_id, api_url).toString();
-  var temp_id = "";
+function getUserName() {
+  /* GET: https://deckdealer.hopto.org/get/users/user_id/{ID#} */
+  var url = new URL('/get/users/user_id/' + user_id, api_url).toString();
+  var temp_name = "";
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      temp_id   = response.data.game_id;
+      temp_name = response.data.username;
     }
   });
-  return temp_id;
+  return temp_name;
+}
+
+function getPlayers() {
+  /* GET: https://deckdealer.hopto.org/get/players2 */
+  var url = new URL('/get/players2', api_url).toString();
+  var temp_players = [];
+  $.ajax({url: url, type: 'GET', async: false,
+    success: function(response) {
+      temp_players = response.data;
+    }
+  });
+  return temp_players;
+}
+
+function getActiveGame() {
+  /* Get: https://deckdealer.hopto.org/get/active_game2 */
+  var url = new URL('/get/active_game2', api_url).toString();
+  var temp_active = []
+  $.ajax({url: url, type: 'GET', async: false,
+    success: function(response) {
+      if ((response.message.includes("0")) && (response.message.includes("entries"))) {
+        console.log('Waiting for dealer to start!');
+      } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
+        temp_list = [response.data];
+      } else {
+        temp_list = response.data;
+      }
+    }
+  });
+  return temp_list;
 }
 
 function getGameInfo() {
@@ -54,24 +83,6 @@ function getGameInfo() {
   return {min, name}
 }
 
-
-function getPlayerList() {
-  /* GET: https://deckdealer.hopto.org/get/players2 */
-  var url = new URL('/get/players2', api_url).toString();
-  var temp_list = []
-  $.ajax({url: url, type: 'GET', async: false,
-    success: function(response) {
-      if ((response.message.includes("0")) && (response.message.includes("entries"))) {
-        console.log('No registered players!');
-      } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
-        temp_list = [response.data];
-      } else {
-        temp_list = response.data;
-      }
-    }
-  });
-  return temp_list;
-}
 
 function printPlayerList() {
   player_list = getPlayerList();
@@ -133,5 +144,11 @@ $(document).ready(function() {
     clearInterval(timer);
     window.location.href = "game-blackjack-play2.html";
   });
+
+  $('#popup').find('button').addClass('disabled')
+  $('#popup').modal({backdrop: 'static', keyboard: false});
+  $('#message').html("Error Processing Params:");
+  $('#message-body').html(message);
+  $('#popup').modal("show");
 
 });
