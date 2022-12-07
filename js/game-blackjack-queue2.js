@@ -92,8 +92,11 @@ function printPlayerList() {
   if (player_list.length < min_players) {
     $('#status').html('<p class="lh-base">waiting for additional players...</p>')
   } else {
-    $('#status').html('<a class="btn btn-primary btn-block" href="game-blackjack-play2.html">Start Game</a>')
-    // $('#status').html('<a class="btn btn-primary btn-block" href="#">Start Game</a>')
+    $('#status').html(
+      '<div class="d-grid">' +
+        '<button class="btn btn-primary" onclick="clearInterval(interval);">Start Game</button>' +
+      '</div>'
+    )
   }
 }
 
@@ -110,8 +113,9 @@ $(document).ready(function() {
   console.log('min_players = ' + min_players);
 
   /* generate HTML: every 500 ms */
-  var interval = setInterval(function() { printPlayerList() }, 500);
+  interval = setInterval(function() { printPlayerList() }, 500);
   $('#status').click(function(elem) {
     clearInterval(interval);
+    window.location = 'game-blackjack-play2.html';
   })
 });
