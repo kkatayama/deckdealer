@@ -11,6 +11,8 @@ var user_id = "";
 var user_name = "";
 var players = [];
 var active = [];
+var card_index = 0;
+var player_index = 1;
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
@@ -137,17 +139,11 @@ $(document).ready(function() {
   /* set variables */
   html = $('#player-list').html();
   user_id = getUserID();
-  game_id = getGameID();
-  game_info = getGameInfo();
-  game_name = game_info.name;
-  min_players = game_info.min;
   // player_list = getPlayerList();
   // num_players = player_list.length;
 
   /* debug: check local variables */
-  // console.log('user_id = ' + user_id);
-  // console.log('game_id = ' + game_id);
-  // console.log('min_players = ' + min_players);
+  console.log('user_id = ' + user_id);
 
 
   /* generate HTML: every 500 ms */
@@ -157,6 +153,6 @@ $(document).ready(function() {
     window.location.href = "game-blackjack-play2.html";
   });
 
-  showPopup("test");
+  showPopup("test2");
 
 });
