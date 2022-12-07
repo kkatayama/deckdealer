@@ -16,49 +16,42 @@ var num_players = 0;
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
 ///////////////////////////////////////////////////////////////////////////////
-function getUserID() {
+function setUserID() {
   /* GET: https://deckdealer.hopto.org/status */
   var url = new URL('/status', api_url).toString();
-  var temp_id = "";
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      temp_id = response.user_id;
+      user_id = response.user_id;
     }
   });
-  return temp_id;
 }
 
-function getGameInfo() {
+function setGameInfo() {
   /* Get: https://deckdealer.hopto.org/get/players2/user_id/{ID#} */
   var url = new URL('/get/players2/user_id/' + user_id, api_url).toString();
-  var temp_id   = "";
-  var temp_name = "";
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      temp_id   = response.data.game_id;
-      temp_name = response.data.name;
+      game_id   = response.data.game_id;
+      game_name = response.data.name;
     }
   });
-  return {temp_id, temp_name};
 }
 
-function getMinPlayers() {
+function setMinPlayers() {
   /* Get: https://deckdealer.hopto.org/get/games/game_id/{ID#} */
   var url = new URL('/get/games/game_id/' + game_id, api_url).toString();
-  var temp_min = 0;
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      temp_min = parseInt(response.data.min_players);
+      min_players = parseInt(response.data.min_players);
     }
   });
-  return temp_min;
 }
 
 
 function getPlayerList() {
   /* GET: https://deckdealer.hopto.org/get/players2 */
   var url = new URL('/get/players2', api_url).toString();
-  var temp_list = [];
+  var temp_list = []
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
       if ((response.message.includes("0")) && (response.message.includes("entries"))) {
@@ -113,9 +106,9 @@ function printPlayerList() {
 $(document).ready(function() {
   /* set variables */
   html = $('#player-list').html();
-  user_id = getUserID();
-  game_id, game_name = getGameInfo();
-  min_players = getMinPlayers();
+  setUserID();
+  setGameInfo();
+  setMinPlayers();
   player_list = getPlayerList();
   // num_players = player_list.length;
 
