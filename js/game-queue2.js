@@ -9,6 +9,7 @@ var api_url = "https://deckdealer.hopto.org"
 var html = "";
 var user_id = "";
 var game_id = "";
+var game_name = "";
 var min_players = 0;
 var num_players = 0;
 
@@ -27,16 +28,18 @@ function getUserID() {
   return temp_id;
 }
 
-function getGameID() {
+function getGameInfo() {
   /* Get: https://deckdealer.hopto.org/get/players2/user_id/{ID#} */
   var url = new URL('/get/players2/user_id/' + user_id, api_url).toString();
-  var temp_id = "";
+  var temp_id   = "";
+  var temp_name = "";
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      temp_id = response.data.game_id;
+      temp_id   = response.data.game_id;
+      temp_name = response.data.name;
     }
   });
-  return temp_id;
+  return {temp_id, temp_name};
 }
 
 function getMinPlayers() {
@@ -74,6 +77,7 @@ function printPlayerList() {
   player_list = getPlayerList();
 
   if (!!(num_players === player_list.length)) {
+    $('#game-queue').text(game_name + ' Player Queue');
     $('#player-list').html(html);
     for (var i = 0; i < player_list.length; i++) {
       var player = player_list[i];
@@ -110,7 +114,7 @@ $(document).ready(function() {
   /* set variables */
   html = $('#player-list').html();
   user_id = getUserID();
-  game_id = getGameID();
+  game_id, game_name = getGameInfo();
   min_players = getMinPlayers();
   player_list = getPlayerList();
   // num_players = player_list.length;
