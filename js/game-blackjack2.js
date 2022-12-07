@@ -14,6 +14,23 @@ var active = [];
 var card_index = 1;
 var player_index = 1;
 
+/* taken from: https://stackoverflow.com/questions/18673860/defining-a-html-template-to-append-using-jquery */
+var player_info_template = ({ game_name, user_name, score }) => `
+<div class="col-auto">
+  <div class="card">
+    <h5 class="card-header" id="header_1">dealer</h5>
+    <div class="card-body">
+      <h5 class="card-title" id="score_1">score: 20</h5>
+      <a href="#" class="btn btn-primary" id="hit_1">hit</a>
+      <a href="#" class="btn btn-primary" id="stay_1">stay</a>
+    </div>
+  </div>
+</div>
+`;
+var player_cards_template = ({ img }) => `
+<div class="col"><img src="6D.png" class="img-fluid"></div>
+`;
+
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
 ///////////////////////////////////////////////////////////////////////////////
@@ -81,7 +98,7 @@ function getPlayerName() {
   }
 }
 
-function getCard() {
+function dealCard() {
   /* GET: https://deckdealer.hopto.org/get/deck?filter=(card_id={card_index}) */
   var url = new URL('/get/deck?filter=(card_id=' + card_index + ')', api_url).toString();
   var temp_card = {};
