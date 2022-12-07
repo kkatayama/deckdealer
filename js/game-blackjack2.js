@@ -15,10 +15,10 @@ var card_index = 1;
 var player_index = 1;
 
 /* taken from: https://stackoverflow.com/questions/18673860/defining-a-html-template-to-append-using-jquery */
-var player_info_template = ({ game_name, player_id, user_name, score }) => `
+var player_info_template = ({ player_id, user_name, score }) => `
 <div class="col-auto">
   <div class="card">
-    <h5 class="card-header" id="header_${player_id}">${game_name}</h5>
+    <h5 class="card-header" id="header_${player_id}">${user_name}</h5>
     <div class="card-body">
       <h5 class="card-title" id="score_${player_id}">score: ${score}</h5>
       <a href="#" class="btn btn-primary" id="hit_${player_id}">hit</a>
