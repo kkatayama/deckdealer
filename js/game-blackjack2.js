@@ -122,9 +122,9 @@ $(document).ready(function() {
   // num_players = player_list.length;
 
   /* debug: check local variables */
-  console.log('user_id = ' + user_id);
-  console.log('game_id = ' + game_id);
-  console.log('min_players = ' + min_players);
+  // console.log('user_id = ' + user_id);
+  // console.log('game_id = ' + game_id);
+  // console.log('min_players = ' + min_players);
 
 
   /* generate HTML: every 500 ms */
