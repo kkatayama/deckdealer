@@ -44,10 +44,10 @@ function getMinPlayers(game_id) {
   var temp_min = "";
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      temp_min = response.min_players;
+      temp_min = parseInt(response.min_players);
     }
   });
-  return temp_id;
+  return temp_min;
 }
 
 
@@ -86,12 +86,15 @@ function printPlayerList(player_list) {
       '</div>'
     )
   }
+
 }
 
 $(document).ready(function() {
   /* local variables */
-  user_id   = getUserID();
+  user_id = getUserID();
+  game_id = getGameID();
   player_list = getPlayerList();
+  min_players = getMinPlayers();
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
