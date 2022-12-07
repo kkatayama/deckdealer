@@ -72355,3 +72355,1069 @@ DELETE FROM users WHERE ((user_id >= 1));
     }
   ]
 }
+128.4.70.133 2022-12-07 11:20:21.659205 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:20:21.659847 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:20:21.662910 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE 1;
+128.4.70.133 2022-12-07 11:20:21.663093 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE 1;
+128.4.70.133 2022-12-07 11:20:21.658818 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {},
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:20:36.343736 GET http://deckdealer.hopto.org/register/username/dealer/password/dealer/password2/dealer request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:20:36.344364 GET http://deckdealer.hopto.org/register/username/dealer/password/dealer/password2/dealer request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:20:36.350350 GET http://deckdealer.hopto.org/register/username/dealer/password/dealer/password2/dealer request
+SELECT * FROM users WHERE username=?;
+128.4.70.133 2022-12-07 11:20:36.350642 GET http://deckdealer.hopto.org/register/username/dealer/password/dealer/password2/dealer request
+['dealer']
+128.4.70.133 2022-12-07 11:20:36.350874 GET http://deckdealer.hopto.org/register/username/dealer/password/dealer/password2/dealer request
+INSERT INTO users (username,password) VALUES (?, ?);
+128.4.70.133 2022-12-07 11:20:36.350999 GET http://deckdealer.hopto.org/register/username/dealer/password/dealer/password2/dealer request
+['dealer', '04f1074508b0e3f7b4f13a285c477c4d9a575307e4eb4a6379f4efd33141fb591a9504ed21127460ddee224c2682efe291037cec8c878c160303c3dbf2533ca3']
+128.4.70.133 2022-12-07 11:20:36.343615 GET http://deckdealer.hopto.org/register/username/dealer/password/dealer/password2/dealer None
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": 1,
+  "username": "dealer"
+}
+128.4.70.133 2022-12-07 11:21:14.944317 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%201) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:21:14.944895 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%201) request
+['table', 'sqlite_%']
+filter_conditions: "username=? AND password=? AND (user_id >= 1)"
+filter_values: ['admin', 'admin']
+128.4.70.133 2022-12-07 11:21:14.950230 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%201) request
+DELETE FROM users WHERE (username=? AND password=? AND (user_id >= 1));
+128.4.70.133 2022-12-07 11:21:14.950576 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%201) request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:21:14.943947 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%201) None
+{"request.params": {"filter": "(user_id >= 1)", "username": "admin", "password": "admin"}}
+{
+  "message": "0 user entries found matching your parameters",
+  "submitted": [
+    {
+      "filter": "(user_id >= 1)",
+      "username": "admin",
+      "password": "admin"
+    }
+  ]
+}
+128.4.70.133 2022-12-07 11:21:34.595481 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:21:34.596105 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:21:34.599416 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE username=? AND password=?;
+128.4.70.133 2022-12-07 11:21:34.599828 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:21:34.595054 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:21:56.012614 GET http://deckdealer.hopto.org/ 304
+128.4.70.133 2022-12-07 11:22:00.121992 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:22:00.122571 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:22:00.121882 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+128.4.70.133 2022-12-07 11:22:07.607148 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:22:07.607733 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:22:07.607035 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+128.4.70.133 2022-12-07 11:22:09.036704 GET http://deckdealer.hopto.org/game.html 304
+128.4.70.133 2022-12-07 11:22:09.118986 GET http://deckdealer.hopto.org/css/login-register.css 304
+128.4.70.133 2022-12-07 11:22:09.122010 GET http://deckdealer.hopto.org/css/login-register-header.css 304
+128.4.70.133 2022-12-07 11:22:09.135005 GET http://deckdealer.hopto.org/js/player-game.js 304
+128.4.70.133 2022-12-07 11:22:11.616170 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:22:11.616883 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:22:11.619505 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+INSERT INTO active_game (game_id,user_id,player_id,player_hand,player_action) VALUES (?, ?, ?, ?, ?);
+128.4.70.133 2022-12-07 11:22:11.619720 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup request
+['1', '7', '2', '6D', 'setup']
+128.4.70.133 2022-12-07 11:22:11.615777 GET http://deckdealer.hopto.org/add/active_game/game_id/1/user_id/7/player_id/2/player_hand/6D/player_action/setup None
+{"request.params": {}}
+{
+  "message": "data added to <active_game>",
+  "entry_id": 1,
+  "game_id": "1",
+  "user_id": "7",
+  "player_id": "2"
+}
+128.4.70.133 2022-12-07 11:22:24.592478 GET http://deckdealer.hopto.org/get/userws request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:22:24.592730 GET http://deckdealer.hopto.org/get/userws request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:22:24.592315 GET http://deckdealer.hopto.org/get/userws None
+{"request.params": {}}
+{
+  "message": "active tables in the database",
+  "tables": [
+    {
+      "name": "users",
+      "type": "table",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "username",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "password",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "create_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "cards",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "deck",
+      "type": "table",
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "key",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "suit",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "description",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "file_name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "players",
+      "type": "table",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "spectators",
+      "type": "table",
+      "columns": [
+        {
+          "name": "spectator_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "games",
+      "type": "table",
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "min_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "max_decks",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_actions",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "rules",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "active_game",
+      "type": "table",
+      "columns": [
+        {
+          "name": "entry_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_action",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "score_board",
+      "type": "table",
+      "columns": [
+        {
+          "name": "score_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "winner",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_score",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_hands",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_scores",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "spectators",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIMEY_TIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "spectators2",
+      "type": "table",
+      "columns": [
+        {
+          "name": "spectator_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "players2",
+      "type": "table",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "name",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "active_game2",
+      "type": "table",
+      "columns": [
+        {
+          "name": "entry_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_action",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    },
+    {
+      "name": "score_board2",
+      "type": "table",
+      "columns": [
+        {
+          "name": "score_id",
+          "type": "INTEGER PRIMARY KEY"
+        },
+        {
+          "name": "game_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "user_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "player_id",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "winner",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_email",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_hand",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "winner_score",
+          "type": "INTEGER NOT NULL"
+        },
+        {
+          "name": "players",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_hands",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "player_scores",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "spectators",
+          "type": "TEXT NOT NULL"
+        },
+        {
+          "name": "entry_time",
+          "type": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      ]
+    }
+  ]
+}
+128.4.70.133 2022-12-07 11:22:25.799335 GET http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:22:25.799961 GET http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:22:25.803324 GET http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE 1;
+128.4.70.133 2022-12-07 11:22:25.803736 GET http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE 1;
+128.4.70.133 2022-12-07 11:22:25.798950 GET http://deckdealer.hopto.org/get/users None
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 1,
+    "username": "dealer",
+    "password": "04f1074508b0e3f7b4f13a285c477c4d9a575307e4eb4a6379f4efd33141fb591a9504ed21127460ddee224c2682efe291037cec8c878c160303c3dbf2533ca3",
+    "create_time": "2022-12-07 11:20:36.351"
+  }
+}
+128.4.70.133 2022-12-07 11:22:51.775777 GET http://deckdealer.hopto.org/register/username/bryce/password/bryce/password2/bryce request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:22:51.776340 GET http://deckdealer.hopto.org/register/username/bryce/password/bryce/password2/bryce request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:22:51.783250 GET http://deckdealer.hopto.org/register/username/bryce/password/bryce/password2/bryce request
+SELECT * FROM users WHERE username=?;
+128.4.70.133 2022-12-07 11:22:51.783707 GET http://deckdealer.hopto.org/register/username/bryce/password/bryce/password2/bryce request
+['bryce']
+128.4.70.133 2022-12-07 11:22:51.784180 GET http://deckdealer.hopto.org/register/username/bryce/password/bryce/password2/bryce request
+INSERT INTO users (username,password) VALUES (?, ?);
+128.4.70.133 2022-12-07 11:22:51.784394 GET http://deckdealer.hopto.org/register/username/bryce/password/bryce/password2/bryce request
+['bryce', 'e9a7cc83e52dba45e5bf83f5675222c0f0857865e32686d7644805205e5082236d044f9af68107820326454fb5b7891c121d328ee004f45b4fc5d76e7621868c']
+128.4.70.133 2022-12-07 11:22:51.775673 GET http://deckdealer.hopto.org/register/username/bryce/password/bryce/password2/bryce None
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": 2,
+  "username": "bryce"
+}
+128.4.70.133 2022-12-07 11:23:06.617497 GET http://deckdealer.hopto.org/register/username/ethan/password/ethan/password2/ethan request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:23:06.618057 GET http://deckdealer.hopto.org/register/username/ethan/password/ethan/password2/ethan request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:23:06.624030 GET http://deckdealer.hopto.org/register/username/ethan/password/ethan/password2/ethan request
+SELECT * FROM users WHERE username=?;
+128.4.70.133 2022-12-07 11:23:06.624251 GET http://deckdealer.hopto.org/register/username/ethan/password/ethan/password2/ethan request
+['ethan']
+128.4.70.133 2022-12-07 11:23:06.624500 GET http://deckdealer.hopto.org/register/username/ethan/password/ethan/password2/ethan request
+INSERT INTO users (username,password) VALUES (?, ?);
+128.4.70.133 2022-12-07 11:23:06.624638 GET http://deckdealer.hopto.org/register/username/ethan/password/ethan/password2/ethan request
+['ethan', 'decb5e86248dcdadc902d0938795ca7801f48868da8d8052c741c4547c9d285ce9471f601ffc11923b5f0a0419ee21d9592b2fe3237b9185000c8d287a33f9c8']
+128.4.70.133 2022-12-07 11:23:06.617391 GET http://deckdealer.hopto.org/register/username/ethan/password/ethan/password2/ethan None
+{"request.params": {}}
+{
+  "message": "new user created",
+  "user_id": 3,
+  "username": "ethan"
+}
+128.4.70.133 2022-12-07 11:23:14.432441 GET http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:23:14.432677 GET http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:23:14.433851 GET http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE 1;
+128.4.70.133 2022-12-07 11:23:14.433995 GET http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE 1;
+128.4.70.133 2022-12-07 11:23:14.432280 GET http://deckdealer.hopto.org/get/users None
+{"request.params": {}}
+{
+  "message": "found 3 user entries",
+  "data": [
+    {
+      "user_id": 1,
+      "username": "dealer",
+      "password": "04f1074508b0e3f7b4f13a285c477c4d9a575307e4eb4a6379f4efd33141fb591a9504ed21127460ddee224c2682efe291037cec8c878c160303c3dbf2533ca3",
+      "create_time": "2022-12-07 11:20:36.351"
+    },
+    {
+      "user_id": 2,
+      "username": "bryce",
+      "password": "e9a7cc83e52dba45e5bf83f5675222c0f0857865e32686d7644805205e5082236d044f9af68107820326454fb5b7891c121d328ee004f45b4fc5d76e7621868c",
+      "create_time": "2022-12-07 11:22:51.784"
+    },
+    {
+      "user_id": 3,
+      "username": "ethan",
+      "password": "decb5e86248dcdadc902d0938795ca7801f48868da8d8052c741c4547c9d285ce9471f601ffc11923b5f0a0419ee21d9592b2fe3237b9185000c8d287a33f9c8",
+      "create_time": "2022-12-07 11:23:06.624"
+    }
+  ]
+}
+128.4.70.133 2022-12-07 11:23:43.610061 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%203) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:23:43.610403 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%203) request
+['table', 'sqlite_%']
+filter_conditions: "username=? AND password=? AND (user_id >= 3)"
+filter_values: ['admin', 'admin']
+128.4.70.133 2022-12-07 11:23:43.613407 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%203) request
+DELETE FROM users WHERE (username=? AND password=? AND (user_id >= 3));
+128.4.70.133 2022-12-07 11:23:43.613579 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%203) request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:23:43.609872 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%203) None
+{"request.params": {"filter": "(user_id >= 3)", "password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found matching your parameters",
+  "submitted": [
+    {
+      "filter": "(user_id >= 3)",
+      "password": "admin",
+      "username": "admin"
+    }
+  ]
+}
+128.4.70.133 2022-12-07 11:23:53.559955 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%202) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:23:53.560386 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%202) request
+['table', 'sqlite_%']
+filter_conditions: "username=? AND password=? AND (user_id >= 2)"
+filter_values: ['admin', 'admin']
+128.4.70.133 2022-12-07 11:23:53.565079 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%202) request
+DELETE FROM users WHERE (username=? AND password=? AND (user_id >= 2));
+128.4.70.133 2022-12-07 11:23:53.565395 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%202) request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:23:53.559691 POST http://deckdealer.hopto.org/delete/users?filter=(user_id%20%3E=%202) None
+{"request.params": {"filter": "(user_id >= 2)", "password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found matching your parameters",
+  "submitted": [
+    {
+      "filter": "(user_id >= 2)",
+      "password": "admin",
+      "username": "admin"
+    }
+  ]
+}
+74.103.158.35 2022-12-07 11:24:01.488981 GET http://deckdealer.hopto.org/game-blackjack2.html 304
+74.103.158.35 2022-12-07 11:24:01.687192 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 11:24:01.708110 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 11:24:01.708569 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 11:24:01.711056 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 11:24:01.711372 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 11:24:01.707799 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 11:24:01.724712 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 11:24:01.724953 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 11:24:01.725942 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 11:24:01.726082 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 11:24:01.724555 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+128.4.70.133 2022-12-07 11:24:08.092069 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:08.092678 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:08.095203 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:08.095367 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:08.091694 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:12.433875 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:12.434470 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:12.438598 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:12.438805 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:12.433497 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:12.846238 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:12.846876 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:12.850188 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:12.850592 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:12.845862 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:13.011346 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:13.011939 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:13.014924 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:13.015069 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:13.010943 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:13.190307 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:13.191046 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:13.194229 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:13.194662 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:13.189926 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:13.339234 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:13.339827 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:13.343202 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:13.343731 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:13.338853 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:13.489775 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:13.490218 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:13.493171 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:13.493501 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:13.489493 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:13.668735 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:13.669352 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:13.671460 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:13.671634 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:13.668337 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:13.827894 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:13.828502 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:13.831102 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:13.831263 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:13.827515 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:13.979672 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:13.980267 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:13.983468 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:13.983897 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:13.979204 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:14.183254 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:14.183884 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:14.186672 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:14.186825 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:14.182852 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+128.4.70.133 2022-12-07 11:24:14.396827 POST http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.70.133 2022-12-07 11:24:14.397447 POST http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.70.133 2022-12-07 11:24:14.401779 POST http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE password=? AND username=?;
+128.4.70.133 2022-12-07 11:24:14.402233 POST http://deckdealer.hopto.org/get/users request
+['admin', 'admin']
+128.4.70.133 2022-12-07 11:24:14.396452 POST http://deckdealer.hopto.org/get/users None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "0 user entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {
+        "password": "admin",
+        "username": "admin"
+      },
+      {
+        "filter": ""
+      }
+    ]
+  }
+}

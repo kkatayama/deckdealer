@@ -69,6 +69,18 @@ function getActiveGame() {
   return temp_list;
 }
 
+function showPopup(message) {
+  $('#popup').find('button').addClass('disabled')
+  $('#popup').modal({backdrop: 'static', keyboard: false});
+  $('#message').html("Error Processing Params:");
+  $('#message-body').html(message);
+  $('#popup').modal("show");
+}
+
+function hidePopup() {
+  $('#popup').modal('hide');
+}
+
 function getGameInfo() {
   /* Get: https://deckdealer.hopto.org/get/games/game_id/{ID#} */
   var url = new URL('/get/games/game_id/' + game_id, api_url).toString();
@@ -145,10 +157,6 @@ $(document).ready(function() {
     window.location.href = "game-blackjack-play2.html";
   });
 
-  $('#popup').find('button').addClass('disabled')
-  $('#popup').modal({backdrop: 'static', keyboard: false});
-  $('#message').html("Error Processing Params:");
-  $('#message-body').html(message);
-  $('#popup').modal("show");
+  showPopup("test");
 
 });
