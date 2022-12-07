@@ -86,7 +86,7 @@ function printPlayerList(player_list) {
       '</div>'
     )
   }
-  if (player_list.length < min_players) {
+  if (player_list.length >== min_players) {
     $('#status').html('<p class="lh-base">waiting for additional players...</p>')
   } else {
     $('#status').html('<a class="btn btn-primary" href="game-blackjack-play2.html">Start Game</a>')
