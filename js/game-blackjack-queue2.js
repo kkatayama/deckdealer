@@ -131,7 +131,7 @@ $(document).ready(function() {
       printPlayerList()
     } else {
       clearInterval(interval);
-      window.setTimeout(playGame, 1000);
+      setTimeout(function() {playGame()}, 1000);
     }
   }, 500);
   if (!(waiting)) {
