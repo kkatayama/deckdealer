@@ -118,7 +118,7 @@ $(document).ready(function() {
   game_info = getGameInfo();
   game_name = game_info.name;
   min_players = game_info.min;
-  player_list = getPlayerList();
+  // player_list = getPlayerList();
   // num_players = player_list.length;
 
   /* debug: check local variables */
@@ -128,7 +128,7 @@ $(document).ready(function() {
 
 
   /* generate HTML: every 500 ms */
-  var timer = setInterval(function() { printPlayerList() }, 1000);
+  // var timer = setInterval(function() { printPlayerList() }, 1000);
   $('#status').click(function(elem) {
     clearInterval(timer);
     window.location.href = "game-blackjack-play2.html";
