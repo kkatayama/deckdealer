@@ -89,6 +89,7 @@ function getActiveGame() {
     success: function(response) {
       if ((response.message.includes("0")) && (response.message.includes("entries"))) {
         console.log('Waiting the for dealer to start...');
+        temp_active = [];
       } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
         temp_active = [response.data];
       } else {
@@ -103,6 +104,7 @@ function printActiveGame() {
   active_game = getActiveGame();
 
   if (active_game.length) {
+    hidePopup();
     console.log('Game is Active !')
   } else {
     showPopup("Waiting for the dealer to start...");
