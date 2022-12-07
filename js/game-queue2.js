@@ -16,35 +16,42 @@ var num_players = 0;
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
 ///////////////////////////////////////////////////////////////////////////////
-function setUserID() {
+function getUserID() {
   /* GET: https://deckdealer.hopto.org/status */
   var url = new URL('/status', api_url).toString();
+  var temp_id = "";
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      user_id = response.user_id;
+      temp_id = response.user_id;
     }
   });
+  return temp_id;
 }
 
-function setGameInfo() {
+function getGameID() {
   /* Get: https://deckdealer.hopto.org/get/players2/user_id/{ID#} */
   var url = new URL('/get/players2/user_id/' + user_id, api_url).toString();
+  var temp_id = "";
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      game_id   = response.data.game_id;
-      game_name = response.data.name;
+      temp_id   = response.data.game_id;
     }
   });
+  return temp_id;
 }
 
-function setMinPlayers() {
+function getGameInfo() {
   /* Get: https://deckdealer.hopto.org/get/games/game_id/{ID#} */
   var url = new URL('/get/games/game_id/' + game_id, api_url).toString();
+  var min  = 0;
+  var name = "";
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      min_players = parseInt(response.data.min_players);
+      min = parseInt(response.data.min_players);
+      name = response.data.name;
     }
   });
+  return {min, name}
 }
 
 
@@ -69,7 +76,9 @@ function getPlayerList() {
 function printPlayerList() {
   player_list = getPlayerList();
 
-  if (!!(num_players === player_list.length)) {
+  if (!(num_players === player_list.length)) {
+    console.log('num_players = ' + num_players);
+    console.log('player_list.length = ' + player_list.length)
     $('#game-queue').text(game_name + ' Player Queue');
     $('#player-list').html(html);
     for (var i = 0; i < player_list.length; i++) {
@@ -106,9 +115,11 @@ function printPlayerList() {
 $(document).ready(function() {
   /* set variables */
   html = $('#player-list').html();
-  setUserID();
-  setGameInfo();
-  setMinPlayers();
+  user_id = getUserID();
+  game_id = getGameID();
+  game_info = getGameInfo();
+  game_name = game_info.name;
+  min_players = game_info.min;
   player_list = getPlayerList();
   // num_players = player_list.length;
 
