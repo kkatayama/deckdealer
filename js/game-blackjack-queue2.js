@@ -6,6 +6,7 @@ var api_url = "https://deckdealer.hopto.org"
 ///////////////////////////////////////////////////////////////////////////////
 //                      Global Variables (for debugging)                     //
 ///////////////////////////////////////////////////////////////////////////////
+var html = "";
 var user_id = "";
 var game_id = "";
 var player_list = [];
@@ -70,7 +71,7 @@ function getPlayerList() {
 }
 
 function printPlayerList() {
-  $('#player-list').html();
+  $('#player-list').html(html);
   for (var i = 0; i < player_list.length; i++) {
     var player = player_list[i];
     $('#player-list').append(
@@ -95,7 +96,8 @@ function printPlayerList() {
 }
 
 $(document).ready(function() {
-  /* local variables */
+  /* set variables */
+  html = $('#player-list').html();
   user_id = getUserID();
   game_id = getGameID();
   player_list = getPlayerList();
@@ -107,6 +109,6 @@ $(document).ready(function() {
   console.log('min_players = ' + min_players);
   console.table(player_list);
 
-  /* generate HTML */
-  printPlayerList();
+  /* generate HTML: every 500 ms */
+  //var interval = setInterval(function() { printPlayerList() }, 500);
 });
