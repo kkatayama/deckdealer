@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="DeckDealer">
+    <title>LOGIN/REGISTER</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script src="blackjack.js"></script>
+    <style>
+      .nav-link:hover { outline: solid 1px; }
+    </style>
+
+  </head>
+
+  <body class="bg-primary" style="--bs-bg-opacity: .5;">
+
+    <div class="container-fluid py-5 vh-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-sm-9 col-md-6 col-lg-5 col-xl-4 mx-auto">
+          <div class="card border-0 shadow rounded-3 my-5">
+            <div class="card-body p-4 p-sm-5">
+
+
+              <h1 class="fs-1 text-center lh-lg pb-2"><p>Deck Dealer</p></h1>
+
+
+
+              <nav>
+                <div class="nav nav-pills nav-justified mb-3" id="nav-tab" role="tablist">
+                  <a class="nav-link active" id="tab-player" data-bs-toggle="tab" href="#pills-player" role="tab"
+                     aria-controls="pills-players" aria-selected="true">Your Hand</a>
+                  <a class="nav-link" id="tab-dealer" data-bs-toggle="tab" href="#pills-dealer" role="tab"
+                     aria-controls="pills-dealer" aria-selected="false">Dealer Hand</a>
+                </div>
+              </nav>
+
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="pills-player" role="tabpanel" aria-labelledby="tab-hit">
+                  <form id="player">
+                    <div class="form-outline mb-4">
+                      <input type="text" id="first-card" class="form-control" />
+                      <label class="form-label" for="first-card">First Card</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="text" id="second-card" class="form-control" />
+                      <label class="form-label" for="second-card">Second Card</label>
+                    </div>
+
+                    <div class="d-grid">
+                      <button type="submit" class="btn btn-primary btn-block mb-4">Hit</button>
+                      <button type="submit" class="btn btn-primary btn-block mb-4">Stand</button>
+                    </div>
+
+                  </form>
+                </div>
+                <div class="tab-pane fade" id="pills-dealer" role="tabpanel" aria-labelledby="tab-dealer">
+                  <form id="dealer">
+                    <div class="form-outline mb-4">
+                      <input type="text" id="first-card" class="form-control" />
+                      <label class="form-label" for="username-register">First Card</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="text" id="second-card" class="form-control" />
+                      <label class="form-label" for="second-card">Second Card</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
