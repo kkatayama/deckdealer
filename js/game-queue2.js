@@ -99,11 +99,14 @@ function printPlayerList() {
     if (player_list.length < min_players) {
       $('#status').html('<p class="lh-base">waiting for additional players...</p>')
     } else {
-      $('#status').html(
-        '<div class="d-grid p-2 col-6 mx-auto">' +
-          '<button class="btn btn-primary">Start Game</button>' +
-        '</div>'
-      )
+      // $('#status').html(
+      //   '<div class="d-grid p-2 col-6 mx-auto">' +
+      //     '<button class="btn btn-primary">Start Game</button>' +
+      //   '</div>'
+      //   '<div class="btn btn-primary form-control btn-block">Start Game</div>'
+      // )
+      $('#status').removeClass('bg-light');
+      $('#status').addClass('bg-primary');
     }
   }
 }
