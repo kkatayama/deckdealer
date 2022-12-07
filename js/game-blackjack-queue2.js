@@ -129,14 +129,8 @@ $(document).ready(function() {
     if (waiting) {
       printPlayerList()
     } else {
-
-      // Clear any timeout/interval up to that id
-      for (let i = 1; i < (timer + 2); i++) {
-        clearInterval(i);
-        if (i === (timer + 1)) {
-          window.location.href = "game-blackjack-play2.html";
-        }
-      }
+      clearInterval(timer);
+      setTimeout(() => { window.location.href = "game-blackjack-play2.html" }, 2000);
     }
   }, 1000);
 });
