@@ -74,13 +74,13 @@ function printPlayerList(player_list) {
     var player = player_list[i];
     $('#player-list').append(
       '<div class="row justify-content-center text-success">' +
-        '<div class="col-1 bg-primary ps-3 text-center border" style="--bs-bg-opacity: .1;">' +
+        '<div class="col-1 bg-light ps-3 text-center border" style="--bs-bg-opacity: .6;">' +
           '<h3>' + player.player_id +'</h3>' +
         '</div>' +
-        '<div class="col-3 ps-3 border">' +
+        '<div class="col-3 bg-light ps-3 border" style="--bs-bg-opacity: .7;">' +
           '<h3>' + player.name +'</h3>' +
         '</div>' +
-        '<div class="col-4 ps-3 border">' +
+        '<div class="col-4 bg-light ps-3 border" style="--bs-bg-opacity: .8;">' +
           '<h3>' + player.email +'</h3>' +
         '</div>' +
       '</div>'
