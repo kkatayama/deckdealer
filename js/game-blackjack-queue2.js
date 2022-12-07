@@ -32,7 +32,7 @@ function getGameID(user_id) {
   var temp_id = "";
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      temp_id = response.game_id;
+      temp_id = response.data.game_id;
     }
   });
   return temp_id;
@@ -92,9 +92,9 @@ function printPlayerList(player_list) {
 $(document).ready(function() {
   /* local variables */
   user_id = getUserID();
-  game_id = getGameID();
+  game_id = getGameID(user_id);
   player_list = getPlayerList();
-  min_players = getMinPlayers();
+  min_players = getMinPlayers(game_id);
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
