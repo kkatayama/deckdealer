@@ -106,6 +106,10 @@ function printPlayerList() {
   }
 }
 
+function playGame() {
+  window.localtion.href = "game-blackjack-play2.html";
+}
+
 $(document).ready(function() {
   /* set variables */
   html = $('#player-list').html();
@@ -121,12 +125,13 @@ $(document).ready(function() {
   console.log('min_players = ' + min_players);
 
   /* generate HTML: every 500 ms */
+  $('#status').click(function(elem) { waiting = false; })
   var interval = setInterval(function() {
     if (waiting) {
       printPlayerList()
     } else {
       clearInterval(interval);
+      return playGame();
     }
   }, 500);
-  $('#status').click(function(elem) { waiting = false; })
 });
