@@ -12,6 +12,7 @@ var game_id = "";
 var min_players = 0;
 var num_players = 0;
 var waiting = true;
+var timer = 0;
 
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
@@ -106,10 +107,16 @@ function printPlayerList() {
   }
 }
 
-function playGame() {
-  window.location.href = "game-blackjack-play2.html";
+function playGame(status) {
+  if (status === 0) {
+    window.location.href = "game-blackjack-play2.html";
+  }
 }
 
+function clearTimer() {
+  clearInterval(timer);
+  return 0;
+}
 
 $(document).ready(function() {
   /* set variables */
@@ -125,13 +132,14 @@ $(document).ready(function() {
   console.log('game_id = ' + game_id);
   console.log('min_players = ' + min_players);
 
+
   /* generate HTML: every 500 ms */
   $('#status').click(function(elem) { waiting = false; })
-  var timer = setInterval(function() {
+  timer = setInterval(function() {
     if (waiting) {
       printPlayerList()
     } else {
-      clearInterval(timer);
+      playGame(clearTimer());
     }
   }, 1000);
 });
