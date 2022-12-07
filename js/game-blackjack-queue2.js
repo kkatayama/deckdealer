@@ -77,10 +77,10 @@ function printPlayerList(player_list) {
         '<div class="col-1 bg-light ps-3 text-center border" style="--bs-bg-opacity: .6;">' +
           '<h3>' + player.player_id +'</h3>' +
         '</div>' +
-        '<div class="col-3 bg-light ps-3 border" style="--bs-bg-opacity: .7;">' +
+        '<div class="col-3 bg-light ps-3 border" style="--bs-bg-opacity: .6;">' +
           '<h3>' + player.name +'</h3>' +
         '</div>' +
-        '<div class="col-4 bg-light ps-3 border" style="--bs-bg-opacity: .8;">' +
+        '<div class="col-4 bg-light ps-3 border" style="--bs-bg-opacity: .6;">' +
           '<h3>' + player.email +'</h3>' +
         '</div>' +
       '</div>'
