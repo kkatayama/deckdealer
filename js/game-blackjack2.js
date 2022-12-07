@@ -11,7 +11,7 @@ var user_id = "";
 var user_name = "";
 var players = [];
 var active = [];
-var card_index = 0;
+var card_index = 1;
 var player_index = 1;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -81,10 +81,23 @@ function getPlayerName() {
   }
 }
 
+function getCard() {
+  /* GET: https://deckdealer.hopto.org/get/deck?filter=(card_id={card_index}) */
+  var url = new URL('/get/deck?filter=(card_id=' + card_index + ')', api_url).toString();
+  var temp_card = {};
+  $.ajax({url: url, type: 'GET', async: false,
+    success: function(response) {
+      temp_card = response.data;
+      card_index++;
+    }
+  });
+  return temp_card;
+}
+
 function getActiveGame() {
   /* Get: https://deckdealer.hopto.org/get/active_game2 */
   var url = new URL('/get/active_game2', api_url).toString();
-  var temp_active = []
+  var temp_active = [];
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
       if ((response.message.includes("0")) && (response.message.includes("entries"))) {
@@ -105,7 +118,9 @@ function printActiveGame() {
 
   if (active_game.length) {
     hidePopup();
-    console.log('Game is Active !')
+    console.log('Game is Active !');
+
+
   } else {
     showPopup("Waiting for the dealer to start...");
   }
