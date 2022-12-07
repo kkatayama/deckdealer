@@ -107,7 +107,7 @@ function printPlayerList() {
 }
 
 function playGame() {
-  window.localtion.href = "game-blackjack-play2.html";
+  window.location.href = "game-blackjack-play2.html";
 }
 
 $(document).ready(function() {
@@ -131,7 +131,10 @@ $(document).ready(function() {
       printPlayerList()
     } else {
       clearInterval(interval);
-      return playGame();
+      window.setTimeout(playGame, 1000);
     }
   }, 500);
+  if (!(waiting)) {
+
+  }
 });
