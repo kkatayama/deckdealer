@@ -76,9 +76,8 @@ function getPlayerList() {
 function printPlayerList() {
   player_list = getPlayerList();
 
-  if (!(num_players === player_list.length)) {
-    console.log('num_players = ' + num_players);
-    console.log('player_list.length = ' + player_list.length)
+  if ((num_players < player_list.length) || (num_players > player_list.length)) {
+    num_players = player_list.length;
     $('#game-queue').text(game_name + ' Player Queue');
     $('#player-list').html(html);
     for (var i = 0; i < player_list.length; i++) {
@@ -106,8 +105,6 @@ function printPlayerList() {
         '</div>'
       )
     }
-  } else {
-    num_players = player_list.length;
   }
 }
 
