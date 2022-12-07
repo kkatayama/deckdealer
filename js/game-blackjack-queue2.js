@@ -103,6 +103,8 @@ $(document).ready(function() {
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
+  console.log('game_id = ' + game_id);
+  console.log('min_players = ' + min_players);
   console.table(player_list);
 
   /* generate HTML */
