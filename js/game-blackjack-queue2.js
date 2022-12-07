@@ -41,10 +41,10 @@ function getGameID() {
 function getMinPlayers() {
   /* Get: https://deckdealer.hopto.org/get/games/game_id/{ID#} */
   var url = new URL('/get/games/game_id/' + game_id, api_url).toString();
-  var temp_min = "";
+  var temp_min = 0;
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      temp_min = parseInt(response.min_players);
+      temp_min = parseInt(response.data.min_players);
     }
   });
   return temp_min;
@@ -86,7 +86,7 @@ function printPlayerList(player_list) {
       '</div>'
     )
   }
-  if (player_list.length >== min_players) {
+  if (player_list.length > min_players) {
     $('#status').html('<p class="lh-base">waiting for additional players...</p>')
   } else {
     $('#status').html('<a class="btn btn-primary" href="game-blackjack-play2.html">Start Game</a>')
