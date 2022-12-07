@@ -131,7 +131,7 @@ $(document).ready(function() {
   var timer = setInterval(function() { printPlayerList() }, 1000);
   $('#status').click(function(elem) {
     clearInterval(timer);
-    window.location.href = "game-blackjack2.html";
+    window.location.href = "game-blackjack-play2.html";
   });
 
 });
