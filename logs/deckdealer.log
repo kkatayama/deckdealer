@@ -69606,3 +69606,852 @@ SELECT * FROM games WHERE game_id=?;
     "entry_time": "2022-11-10 13:12:54.755"
   }
 }
+74.103.158.35 2022-12-07 03:45:03.385306 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:45:03.564899 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:45:03.583427 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:45:03.583752 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:45:03.585429 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:45:03.585629 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:45:03.583222 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:45:03.597106 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:45:03.597478 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:45:03.599602 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:45:03.599919 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:45:03.596842 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:45:18.774839 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:45:19.049777 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:45:19.061667 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:45:19.062151 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:45:19.064631 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:45:19.064877 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:45:19.061354 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:45:19.091764 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:45:19.092331 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:45:19.095488 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:45:19.095860 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:45:19.091397 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:45:47.153014 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:45:47.387383 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:45:47.402136 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:45:47.402486 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:45:47.404276 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:45:47.404494 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:45:47.401901 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:45:47.415951 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:45:47.416360 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:45:47.418594 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:45:47.418907 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:45:47.415685 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:46:02.134781 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:46:02.423588 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:46:02.457449 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:46:02.457902 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:46:02.460787 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:46:02.461260 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:46:02.456696 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:46:02.476920 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:46:02.477156 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:46:02.478244 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:46:02.478370 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:46:02.476765 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:46:17.899206 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:46:18.211724 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:46:18.225725 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:46:18.226087 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:46:18.227949 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:46:18.228179 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:46:18.225469 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:46:18.242952 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:46:18.243232 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:46:18.244656 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:46:18.244831 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:46:18.242752 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:46:38.713300 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:46:38.929727 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:46:38.958111 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:46:38.958465 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:46:38.960844 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:46:38.961169 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:46:38.957875 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:46:38.986206 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:46:38.986698 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:46:38.989132 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:46:38.989455 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:46:38.985885 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:46:44.879778 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:46:45.010608 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:46:45.025911 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:46:45.026320 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:46:45.028538 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:46:45.028821 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:46:45.025643 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:46:45.044031 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:46:45.044461 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:46:45.046723 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:46:45.046955 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:46:45.043744 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:46:57.055899 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:46:57.110494 GET http://deckdealer.hopto.org/js/game-blackjack2.js 304
+74.103.158.35 2022-12-07 03:46:57.236057 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:46:57.254379 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:46:57.254733 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:46:57.257125 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:46:57.257430 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:46:57.254191 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:46:57.276975 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:46:57.277294 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:46:57.279195 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:46:57.279495 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:46:57.276751 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:47:24.963763 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:47:25.095093 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:47:25.122840 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:47:25.123431 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:47:25.126979 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:47:25.127145 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:47:25.122408 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:47:25.149405 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:47:25.149816 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:47:25.152078 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:47:25.152373 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:47:25.149143 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:47:34.738231 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:47:34.935109 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:47:34.957266 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:47:34.957707 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:47:34.960361 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:47:34.960785 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:47:34.956955 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:47:34.974708 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:47:34.975037 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:47:34.976682 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:47:34.976885 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:47:34.974467 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:48:29.351124 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:48:29.613395 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:48:29.622352 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:48:29.622562 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:48:29.623528 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:48:29.623645 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:48:29.621910 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:48:29.633977 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:48:29.634173 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:48:29.635164 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:48:29.635305 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:48:29.633840 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:48:45.002737 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:48:45.215108 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:48:45.227028 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:48:45.227352 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:48:45.228995 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:48:45.229204 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:48:45.226807 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:48:45.242665 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:48:45.243033 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:48:45.244894 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:48:45.245145 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:48:45.242396 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:49:04.448789 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:49:04.676583 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:49:04.697130 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:49:04.697585 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:49:04.700044 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:49:04.700346 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:49:04.696797 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:49:04.723245 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:49:04.723645 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:49:04.725783 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:49:04.726065 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:49:04.722995 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:49:05.837638 GET http://deckdealer.hopto.org/game-blackjack2.html 304
+74.103.158.35 2022-12-07 03:49:05.934776 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:49:05.946728 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:49:05.947010 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:49:05.948398 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:49:05.948570 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:49:05.946505 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:49:05.961591 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:49:05.961943 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:49:05.964202 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:49:05.964504 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:49:05.961368 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:49:30.832258 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:49:30.973389 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:49:30.996842 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:49:30.997388 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:49:31.000367 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:49:31.000734 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:49:30.996498 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:49:31.023538 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:49:31.023920 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:49:31.025892 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:49:31.026142 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:49:31.023288 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+74.103.158.35 2022-12-07 03:49:46.490437 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+74.103.158.35 2022-12-07 03:49:46.772466 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+74.103.158.35 2022-12-07 03:49:46.791018 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:49:46.791492 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:49:46.794285 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+SELECT * FROM players2 WHERE user_id=?;
+74.103.158.35 2022-12-07 03:49:46.794589 GET http://deckdealer.hopto.org/get/players2/user_id/3 request
+['3']
+74.103.158.35 2022-12-07 03:49:46.790706 GET http://deckdealer.hopto.org/get/players2/user_id/3 None
+{"request.params": {}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 2,
+    "user_id": 3,
+    "game_id": 1,
+    "name": "alice",
+    "email": "alice@udel.edu",
+    "entry_time": "2022-12-06 22:00:42.432"
+  }
+}
+74.103.158.35 2022-12-07 03:49:46.804960 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-07 03:49:46.805188 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-07 03:49:46.806163 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+SELECT * FROM games WHERE game_id=?;
+74.103.158.35 2022-12-07 03:49:46.806304 GET http://deckdealer.hopto.org/get/games/game_id/1 request
+['1']
+74.103.158.35 2022-12-07 03:49:46.804808 GET http://deckdealer.hopto.org/get/games/game_id/1 None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
