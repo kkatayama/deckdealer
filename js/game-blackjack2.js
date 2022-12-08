@@ -551,9 +551,58 @@ function clearActiveGame() {
   /*
    * POST: https://deckdealer.hopto.org/delete/active_game2
    * PARAMS: (example):
-   * {
-   *   filter: `(entry_id > 0)`
-   * }
+   * { filter: `(entry_id > 0)` }
+   */
+  var url = new URL('/delete/active_game2', api_url).toString();
+  $.ajax({url: url, type: 'POST', async: false,
+    data: {
+      filter: `(entry_id > 0)`,
+    },
+    success: function(response) {
+      console.log(response);
+    }
+  });
+}
+
+function clearPlayers() {
+  /*
+   * POST: https://deckdealer.hopto.org/delete/players2
+   * PARAMS: (example):
+   * { filter: `(entry_id > 0)` }
+   */
+  var url = new URL('/delete/players2', api_url).toString();
+  $.ajax({url: url, type: 'POST', async: false,
+    data: {
+      filter: `(user_id > 0)`,
+    },
+    success: function(response) {
+      console.log(response);
+    }
+  });
+}
+
+function clearSpectators() {
+  /*
+   * POST: https://deckdealer.hopto.org/delete/spectators2
+   * PARAMS: (example):
+   * { filter: `(entry_id > 0)` }
+   */
+  var url = new URL('/delete/spectators2', api_url).toString();
+  $.ajax({url: url, type: 'POST', async: false,
+    data: {
+      filter: `(user_id > 0)`,
+    },
+    success: function(response) {
+      console.log(response);
+    }
+  });
+}
+
+function clearActiveGame() {
+  /*
+   * POST: https://deckdealer.hopto.org/delete/active_game2
+   * PARAMS: (example):
+   * { filter: `(entry_id > 0)` }
    */
   var url = new URL('/delete/active_game2', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
@@ -573,6 +622,9 @@ function closeGame() {
     $('#close').click(function(elem) {
       hidePopup();
       saveActiveGame();
+      clearActiveGame();
+      clearPlayers();
+      clearSpectators();
     })
   }
 }
