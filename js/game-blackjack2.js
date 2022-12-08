@@ -39,15 +39,40 @@ var player_cards_template = ({ img }) => `
   <div class="col"><img src="${img}" class="img-fluid"></div>
 `;
 
+var msg_body_template = ({ msg }) => `
+<div class="d-flex align-items-center">
+  <strong>${msg}</strong>
+  <div class="spinner-border ms-auto" role="status" aria-hidden="true">
+  </div>
+</div>
+`;
+
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
 ///////////////////////////////////////////////////////////////////////////////
-function showPopup(message) {
+function renderPlayerTemplate() {
+  num_cols = (num_cards > 4) ? 8 : 6;
+  var html_info = [{ player_id: "2", user_name: "alice", score: 20 },].map(player_info_template).join('');
+  var html_cards = [{ img: "6S.png" }, { img: "6H.png" }].map(player_cards_template).join('');
+  var html_player = [{ num_cols: 6, info: html_info, cards: html_cards }].map(player_template).join('');
+  $('#players').append(html_player);
+}
+
+function renderMsgBodyTemplate(msg) {
+  return [{ msg: msg }].map(msg_body_template).join('');
+}
+
+function showPopup(message, kind="alert") {
+  /* disable close button and keyboard escape */
   $('#popup').find('button').addClass('disabled')
   $('#popup').modal({backdrop: 'static', keyboard: false});
-  var msg = '<div class="d-flex align-items-center"><strong>' + message + '</strong><div class="spinner-border ms-auto" role="status" aria-hidden="true"></div></div>';
-  // $('#message').html(msg);
-  $('#message-body').html(msg);
+
+  if (kind === "alert") {
+    $('#message-title').addClass('d-none');
+    $('#message-footer').addClass('d-none');
+  }
+  $('#message-body').html(renderMsgBodyTemplate(message));
+
   $('#popup').modal("show");
 }
 
@@ -139,15 +164,6 @@ function getActiveGame() {
   });
   return temp_active;
 }
-
-function renderPlayerTemplate() {
-  num_cols = (num_cards > 4) ? 8 : 6;
-  var html_info = [{ player_id: "2", user_name: "alice", score: 20 },].map(player_info_template).join('');
-  var html_cards = [{ img: "6S.png" }, { img: "6H.png" }].map(player_cards_template).join('');
-  var html_player = [{ num_cols: 6, info: html_info, cards: html_cards }].map(player_template).join('');
-  $('#players').append(html_player);
-}
-
 
 function printActiveGame() {
   active_game = getActiveGame();
