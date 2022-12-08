@@ -68,8 +68,11 @@ function showPopup(message, kind="alert") {
   $('#popup').modal({backdrop: 'static', keyboard: false});
 
   if (kind === "alert") {
-    $('#message-title').addClass('d-none');
+    $('#message-header').addClass('d-none');
     $('#message-footer').addClass('d-none');
+  } else {
+    $('#message-header').removeClass('d-none');
+    $('#message-footer').removeClass('d-none');
   }
   $('#message-body').html(renderMsgBodyTemplate(message));
 
