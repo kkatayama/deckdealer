@@ -261,7 +261,7 @@ function renderPlayerTemplate(player, cards, num_cols=6) {
     if (i === 1) {
       if (player.name === "dealer") {
         images[i] = {img: "back.png"};
-        score = "?";
+        score = "??";
       } else {
         images[i] = {img: cards[i].player_hand + ".png"};
       }
@@ -287,7 +287,7 @@ function showActiveGame() {
       var player = players[i];
       var cards = getPlayerCards(player);
       var num_cols = (players.length > 4) ? 8 : 6;
-      $('#players').html(renderPlayerTemplate(player, cards, num_cols));
+      $('#players').append(renderPlayerTemplate(player, cards, num_cols));
     }
 
     //showPopup('What would you like to do?', 'action')
@@ -332,6 +332,8 @@ $(document).ready(function() {
   console.log('user_id = ' + user_id);
   console.log('=== players ===')
   console.table(players);
+
+  $('#game-play').html('Blackjack: (' + player_name + ')');
 
   /* generate HTML: every 500 ms */
   // var timer = setInterval(function() { printPlayerList() }, 1000);
