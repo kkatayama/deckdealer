@@ -3,3 +3,4 @@ $(document).ready(function() {
     var user_id = "";
     var token   = "";
 })
+
