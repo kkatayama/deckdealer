@@ -355,7 +355,8 @@ function showActiveGame() {
       $('#players').append(renderPlayerTemplate(player, cards, num_cols));
     }
 
-
+    remaining_players = getRemainingPlayers();
+    if (remaining)
 
     //showPopup('What would you like to do?', 'action')
   } else {
