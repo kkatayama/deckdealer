@@ -469,6 +469,9 @@ function showActiveGame() {
               addActiveGame(dealer, card=dealCard(), 'setup');
             }
           }
+          if (i == 1) {
+            showActiveGame();
+          }
         }
         // startTimer();
       });
