@@ -412,13 +412,16 @@ function showActiveGame() {
     } else {
       console.log('=== PROCESS GAME END ===');
       players.sort((a, b) => {return a.score - b.score});
-      for (var i = 0; i < players.length; i++) {
+      var winner = false;
+      var i = 0;
+      while (winner === false) {
         if (players[i].score < 22) {
           $(`#card_${players[i].player_id}`).append(
             '<div class="card-footer"><h4 class="text-success">WINNER</h4></div/>'
           )
-          i = players.length;
+          winner = true;
         }
+        i++;
       }
     }
 
