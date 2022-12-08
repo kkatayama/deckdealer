@@ -175,18 +175,17 @@ function getPlayerCards(player) {
    * POST: https://deckdealer.hopto.org/get/active_game2
    * PARAMS: (example):
    * {
-   *   filter: (player_id = 1)
+   *   filter: `(player_id = 1 AND player_action != "stay")`
    * }
    */
   var url = new URL('/get/active_game2', api_url).toString();
   var temp_cards = [];
   $.ajax({url: url, type: 'POST', async: false,
     data: {
-      player_id: player.player_id,
+      filter: `(player_id = ${player.player_id} AND player_action != "stay")`,
     },
     success: function(response) {
-      temp_cards = response.data;
-    }
+      temp_cards = response.data;}
   });
   return temp_cards;
 }
@@ -277,16 +276,20 @@ function addActiveGame(player, card, action) {
   });
 }
 
+function get
+
 function showActiveGame() {
   active_game = getActiveGame();
 
   if (active_game.length) {
     hidePopup();
+    card_index = active_game.length;
+
     $('#players').html('');
     for (var i = 0; i < players.length; i++) {
       var player = players[i];
       var cards = getPlayerCards(player);
-      var num_cols = (players.length > 4) ? 8 : 6;
+      var num_cols = (cards.length > 4) ? 8 : 6;
       $('#players').append(renderPlayerTemplate(player, cards, num_cols));
     }
 
