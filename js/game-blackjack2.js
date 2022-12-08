@@ -262,9 +262,11 @@ function renderPlayerTemplate(player, cards, num_cols=6) {
       if (player.name === "dealer") {
         images[i] = {img: "back.png"};
         score = "?";
+      } else {
+        images[i] = {img: cards[i].player_hand + ".png"};
       }
     } else {
-      images[i] = cards[i].player_hand + ".png";
+      images[i] = {img: cards[i].player_hand + ".png"};
     }
   }
 
