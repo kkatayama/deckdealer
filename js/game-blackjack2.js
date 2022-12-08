@@ -192,6 +192,7 @@ function addActiveGame(player, card, action) {
    *   player_action: "setup",
    * }
    */
+
   var url = new URL('/add/active_game2', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -227,7 +228,7 @@ function showActiveGame() {
     if (user_name === 'dealer') {
       showPopup('Click SETUP to deal the first round of cards', 'action');
       $('#setup').click(function(e) {
-        hide
+        hidePopup();
         for (var i = 0; i < players.length; i++) {
           var player = players[i];
 
