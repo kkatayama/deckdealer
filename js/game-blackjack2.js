@@ -87,6 +87,20 @@ function renderPlayerTemplate(player, cards, num_cols=6) {
   return html_player;
 }
 
+function renderPlayerTemplateAll(player, cards, num_cols=6) {
+  var score = getPlayerScore(cards);
+  var images = [];
+  for (var i = 0; i < cards.length; i++) {
+      images[i] = {img: cards[i].player_hand + ".png"};
+  }
+
+  var html_info = [{ player_id: player.player_id, player_name: player.name, score: score }].map(player_info_template).join('');
+  var html_cards = images.map(player_cards_template).join('');
+  var html_player = [{ num_cols: num_cols, info: html_info, cards: html_cards }].map(player_template).join('');
+  // console.log(html_player);
+  return html_player;
+}
+
 function showPopup(message, kind="alert") {
   /* disable close button and keyboard escape */
   $('#message-header').find('button').addClass('disabled')
@@ -360,16 +374,20 @@ function showActiveGame() {
   if (active_game.length) {
     hidePopup();
     card_index = active_game.length + 1;
+    remaining_players = getRemainingPlayers();
 
     $('#players').html('');
     for (var i = 0; i < players.length; i++) {
       var player = players[i];
       var cards = getPlayerCards(player);
       var num_cols = (cards.length > 4) ? 8 : 6;
-      $('#players').append(renderPlayerTemplate(player, cards, num_cols));
+      if (remaining_players.length > 1) {
+        $('#players').append(renderPlayerTemplate(player, cards, num_cols));
+      } else {
+        $('#players').append(renderPlayerTemplateAll(player, cards, num_cols));
+      }
     }
 
-    remaining_players = getRemainingPlayers();
     if (remaining_players.length) {
       var player = remaining_players[0];
 
