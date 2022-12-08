@@ -98,6 +98,7 @@ function renderPlayerTemplateAll(player, cards, num_cols=6) {
   var html_cards = images.map(player_cards_template).join('');
   var html_player = [{ num_cols: num_cols, info: html_info, cards: html_cards }].map(player_template).join('');
   // console.log(html_player);
+
   return html_player;
 }
 
@@ -385,6 +386,7 @@ function showActiveGame() {
         $('#players').append(renderPlayerTemplate(player, cards, num_cols));
       } else {
         $('#players').append(renderPlayerTemplateAll(player, cards, num_cols));
+        players[i]["score"] = getPlayerScore(cards);
       }
     }
 
