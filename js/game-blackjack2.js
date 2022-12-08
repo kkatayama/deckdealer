@@ -481,7 +481,8 @@ function showActiveGame() {
         active_game = getActiveGame();
         if (active_game.length) {
           stopTimer();
-          showActiveGame();
+          hidePopup();
+          setTimeout(function() { showActiveGame() }, 1000);
         }
       });
     }
