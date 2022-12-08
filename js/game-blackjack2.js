@@ -178,6 +178,9 @@ function getSpectators() {
       temp_spectators = response.data;
     }
   });
+  if (temp_spectators.length === 0) {
+    return players;
+  }
   return temp_spectators;
 }
 
