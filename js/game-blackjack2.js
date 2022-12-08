@@ -171,6 +171,14 @@ function getPlayerName() {
   }
 }
 
+function getPlayerNameByID(p_id) {
+  for (var i = 0; i < players.length; i++) {
+    if (players[i].player_id == player_id) {
+      return players[i].name;
+    }
+  }
+}
+
 function getPlayerCards(player) {
   /*
    * POST: https://deckdealer.hopto.org/get/active_game2
@@ -356,7 +364,25 @@ function showActiveGame() {
     }
 
     remaining_players = getRemainingPlayers();
-    if (remaining)
+    if (remaining_players.length > 1) {
+      var player = remaining_players[0];
+      var temp_name = getPlayerNameByID(player.player_id);
+      if (temp_name === player_name) {
+        showPopup(`Player Turn: (${temp_name})`, 'action');
+        $('#hit').click(function(elem) {
+          addActiveGame(player, card=dealCard(), 'hit');
+        });
+        $('#stay').click(function(elem) {
+          addActiveGame(player, card={key: 0}, 'stay');
+        });
+      } else {
+        showPopup(`Player Turn: (${temp_name})`, 'alert');
+      }
+    } else if (remaining_players.length === 1) {
+      console.log('=== PROCESS DEALERS TURN ===');
+    } else {
+      console.log('=== PROCESS GAME END ===');
+    }
 
     //showPopup('What would you like to do?', 'action')
   } else {
