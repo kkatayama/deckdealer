@@ -83,7 +83,7 @@ function renderPlayerTemplate(player, cards, num_cols=6) {
   var html_info = [{ player_id: player.player_id, player_name: player.name, score: score }].map(player_info_template).join('');
   var html_cards = images.map(player_cards_template).join('');
   var html_player = [{ num_cols: num_cols, info: html_info, cards: html_cards }].map(player_template).join('');
-  console.log(html_player);
+  // console.log(html_player);
   return html_player;
 }
 
@@ -366,22 +366,22 @@ function showActiveGame() {
     }
 
     remaining_players = getRemainingPlayers();
-    if (remaining_players.length > 1) {
+    if (remaining_players.length) {
       var player = remaining_players[0];
       var temp_name = getPlayerNameByID(player.player_id);
       if (temp_name === player_name) {
         showPopup(`Player Turn: (${temp_name})`, 'action');
         $('#hit').click(function(elem) {
+          hidePopup();
           addActiveGame(player, card=dealCard(), 'hit');
         });
         $('#stay').click(function(elem) {
+          hidePopup();
           addActiveGame(player, card={key: 0}, 'stay');
         });
       } else {
         showPopup(`Player Turn: (${temp_name})`, 'alert');
       }
-    } else if (remaining_players.length === 1) {
-      console.log('=== PROCESS DEALERS TURN ===');
     } else {
       console.log('=== PROCESS GAME END ===');
     }
