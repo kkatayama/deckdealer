@@ -190,7 +190,21 @@ function addActiveGame(player, card, action) {
    *   player_action: "setup",
    * }
    */
+  var url = new URL('/add/active_game2', api_url).toString();
+  $.ajax({url: url, type: 'POST', async: false,
+    data: {
+      game_id: player.game_id,
+      user_id: player.user_id,
+      player_id: player.player_id,
+      player_hand: card.key,
+      player_action: action,
+    }
+    success: function(response) {
+      console.log(response);
+    }
+  });
 }
+
 function renderPlayerTemplate(player, num_cols=6) {
   var html_info = [{ player_id: "2", user_name: "alice", score: 20 },].map(player_info_template).join('');
   var html_cards = [{ img: "6S.png" }, { img: "6H.png" }].map(player_cards_template).join('');
@@ -212,6 +226,7 @@ function showActiveGame() {
       $('#setup').click(function(e) {
         for (var i = 0; i < players.length; i++) {
           var player = players[i];
+
           if (player.name === "dealer"){
             var dealer = players[i];
           } else {
@@ -219,7 +234,9 @@ function showActiveGame() {
             addActiveGame(player, card, 'setup');
           }
 
-
+          if (i === (players.length - 1)) {
+            addActiveGame(dealer, card, 'setup');
+          }
         }
       });
     } else {
