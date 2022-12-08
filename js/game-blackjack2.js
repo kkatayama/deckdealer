@@ -420,6 +420,7 @@ function showActiveGame() {
           break;
         }
       }
+      setTimeout(function() { closeGame() }, 5000);
     }
 
     //showPopup('What would you like to do?', 'action')
