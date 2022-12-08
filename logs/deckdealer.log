@@ -14966,3 +14966,82 @@ SELECT * FROM active_game2 WHERE (player_action = ?) GROUP BY (player_id) ORDER 
     }
   ]
 }
+74.103.158.35 2022-12-08 05:31:54.639543 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 05:31:54.640180 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 05:31:54.641690 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+74.103.158.35 2022-12-08 05:31:54.641880 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+74.103.158.35 2022-12-08 05:31:54.639149 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 3 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 01:00:32.506"
+    },
+    {
+      "player_id": 2,
+      "user_id": 4,
+      "game_id": 1,
+      "name": "alice",
+      "email": "alice@udel.edu",
+      "entry_time": "2022-12-08 01:00:53.680"
+    },
+    {
+      "player_id": 3,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 01:01:26.837"
+    }
+  ]
+}
+74.103.158.35 2022-12-08 05:33:15.574847 GET http://deckdealer.hopto.org/add/active_game/add/active_game/game_id/1/user_id/4/player_id/2/player_hand/3S/player_action/hit request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 05:33:15.575287 GET http://deckdealer.hopto.org/add/active_game/add/active_game/game_id/1/user_id/4/player_id/2/player_hand/3S/player_action/hit request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 05:33:15.577379 GET http://deckdealer.hopto.org/add/active_game/add/active_game/game_id/1/user_id/4/player_id/2/player_hand/3S/player_action/hit request
+INSERT INTO active_game (game_id,user_id,player_id,player_hand,player_action) VALUES (?, ?, ?, ?, ?);
+74.103.158.35 2022-12-08 05:33:15.577835 GET http://deckdealer.hopto.org/add/active_game/add/active_game/game_id/1/user_id/4/player_id/2/player_hand/3S/player_action/hit request
+['1', '4', '2', '3S', 'hit']
+74.103.158.35 2022-12-08 05:33:15.574574 GET http://deckdealer.hopto.org/add/active_game/add/active_game/game_id/1/user_id/4/player_id/2/player_hand/3S/player_action/hit None
+{"request.params": {}}
+{
+  "message": "data added to <active_game>",
+  "entry_id": 3,
+  "game_id": "1",
+  "user_id": "4",
+  "player_id": "2"
+}
+74.103.158.35 2022-12-08 05:33:58.634123 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22hit%22%20AND%20player_action%20!=%20%22setup%22) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 05:33:58.634453 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22hit%22%20AND%20player_action%20!=%20%22setup%22) request
+['table', 'sqlite_%']
+filter_conditions: "(player_action = ? AND player_action != ?)"
+filter_values: ['hit', 'setup']
+74.103.158.35 2022-12-08 05:33:58.636338 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22hit%22%20AND%20player_action%20!=%20%22setup%22) request
+SELECT * FROM active_game2 WHERE (player_action = ? AND player_action != ?);
+74.103.158.35 2022-12-08 05:33:58.636506 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22hit%22%20AND%20player_action%20!=%20%22setup%22) request
+['hit', 'setup']
+74.103.158.35 2022-12-08 05:33:58.633874 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22hit%22%20AND%20player_action%20!=%20%22setup%22) None
+{"request.params": {"filter": "(player_action = \"hit\" AND player_action != \"setup\")"}}
+{
+  "message": "0 active_game2 entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {},
+      {
+        "filter": "(player_action = \"hit\" AND player_action != \"setup\")"
+      }
+    ]
+  }
+}
