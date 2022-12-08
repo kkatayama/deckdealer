@@ -1010,3 +1010,23 @@ DELETE FROM players2 WHERE ((entry_id > 0));
     "sqlite3.OperationalError: no such column: entry_id"
   ]
 }
+74.103.158.35 2022-12-08 00:35:13.100621 GET http://deckdealer.hopto.org/delete/players2?filter=(player_id%20%3E%200) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 00:35:13.100997 GET http://deckdealer.hopto.org/delete/players2?filter=(player_id%20%3E%200) request
+['table', 'sqlite_%']
+filter_conditions: "(player_id > 0)"
+filter_values: []
+74.103.158.35 2022-12-08 00:35:13.104442 GET http://deckdealer.hopto.org/delete/players2?filter=(player_id%20%3E%200) request
+DELETE FROM players2 WHERE ((player_id > 0));
+74.103.158.35 2022-12-08 00:35:13.104665 GET http://deckdealer.hopto.org/delete/players2?filter=(player_id%20%3E%200) request
+DELETE FROM players2 WHERE ((player_id > 0));
+74.103.158.35 2022-12-08 00:35:13.100386 GET http://deckdealer.hopto.org/delete/players2?filter=(player_id%20%3E%200) None
+{"request.params": {"filter": "(player_id > 0)"}}
+{
+  "message": "2 players2 entries deleted",
+  "submitted": [
+    {
+      "filter": "(player_id > 0)"
+    }
+  ]
+}
