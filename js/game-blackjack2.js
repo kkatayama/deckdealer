@@ -447,7 +447,8 @@ function showActiveGame() {
           break;
         }
       }
-      setTimeout(function() { closeGame() }, 5000);
+      setTimeout(function() { closeGame() }, 1000);
+      stopTimer();
     }
 
     //showPopup('What would you like to do?', 'action')
@@ -611,6 +612,7 @@ function closeGame() {
       clearActiveGame();
       clearPlayers();
       clearSpectators();
+      window.location.href = "index2.html";
     })
   }
 }
