@@ -185,7 +185,8 @@ function getPlayerCards(player) {
       filter: `(player_id = ${player.player_id} AND player_action != "stay")`,
     },
     success: function(response) {
-      temp_cards = response.data;}
+      temp_cards = response.data;
+    }
   });
   return temp_cards;
 }
@@ -276,7 +277,7 @@ function addActiveGame(player, card, action) {
   });
 }
 
-function get
+// function get
 
 function showActiveGame() {
   active_game = getActiveGame();
