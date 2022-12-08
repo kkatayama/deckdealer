@@ -63,6 +63,29 @@ function renderActionBodyTemplate(msg) {
   return [{ msg: msg }].map(action_body_template).join('');
 }
 
+function renderPlayerTemplate(player, cards, num_cols=6) {
+  var score = getPlayerScore(cards);
+  var images = [];
+  for (var i = 0; i < cards.length; i++) {
+    if (i === 1) {
+      if (player.name === "dealer") {
+        images[i] = {img: "back.png"};
+        score = "??";
+      } else {
+        images[i] = {img: cards[i].player_hand + ".png"};
+      }
+    } else {
+      images[i] = {img: cards[i].player_hand + ".png"};
+    }
+  }
+
+  var html_info = [{ player_id: player.player_id, player_name: player.name, score: score }].map(player_info_template).join('');
+  var html_cards = images.map(player_cards_template).join('');
+  var html_player = [{ num_cols: num_cols, info: html_info, cards: html_cards }].map(player_template).join('');
+  console.log(html_player);
+  return html_player;
+}
+
 function showPopup(message, kind="alert") {
   /* disable close button and keyboard escape */
   $('#message-header').find('button').addClass('disabled')
@@ -254,29 +277,6 @@ function addActiveGame(player, card, action) {
   });
 }
 
-function renderPlayerTemplate(player, cards, num_cols=6) {
-  var score = getPlayerScore(cards);
-  var images = [];
-  for (var i = 0; i < cards.length; i++) {
-    if (i === 1) {
-      if (player.name === "dealer") {
-        images[i] = {img: "back.png"};
-        score = "??";
-      } else {
-        images[i] = {img: cards[i].player_hand + ".png"};
-      }
-    } else {
-      images[i] = {img: cards[i].player_hand + ".png"};
-    }
-  }
-
-  var html_info = [{ player_id: player.player_id, player_name: player.name, score: score }].map(player_info_template).join('');
-  var html_cards = images.map(player_cards_template).join('');
-  var html_player = [{ num_cols: num_cols, info: html_info, cards: html_cards }].map(player_template).join('');
-  console.log(html_player);
-  return html_player;
-}
-
 function showActiveGame() {
   active_game = getActiveGame();
 
@@ -289,6 +289,8 @@ function showActiveGame() {
       var num_cols = (players.length > 4) ? 8 : 6;
       $('#players').append(renderPlayerTemplate(player, cards, num_cols));
     }
+
+
 
     //showPopup('What would you like to do?', 'action')
   } else {
