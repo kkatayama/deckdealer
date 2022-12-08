@@ -433,6 +433,14 @@ function showActiveGame() {
         });
       } else {
         showPopup(`Player Turn: (${temp_name})`, 'alert');
+        startTimer(5000, function() {
+          temp_game = getActiveGame();
+          if (temp_game.length > active_game.length) {
+            stopTimer();
+            hidePopup();
+            setTimeout(function() { showActiveGame() }, 1000);
+          }
+        });
       }
     } else {
       console.log('=== PROCESS GAME END ===');
