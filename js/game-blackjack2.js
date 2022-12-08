@@ -92,25 +92,25 @@ function showPopup(message, kind="alert") {
   $('#message-header').find('button').addClass('disabled')
   $('#popup').modal({backdrop: 'static', keyboard: false});
 
+  if (kind === "setup") {
+    $('#message-header').removeClass('d-none');
+    $('#message-footer').removeClass('d-none');
+    $('#message-title').html('Dealer Action');
+    $('#player_action').addClass('d-none');
+    $('#dealer_setup').removeClass('d-none');
+  }
   if (kind === "alert") {
     $('#message-header').addClass('d-none');
     $('#message-footer').addClass('d-none');
-    $('#message-body').html(renderAlertBodyTemplate(message));
   }
   if (kind === "action"){
     $('#message-header').removeClass('d-none');
     $('#message-footer').removeClass('d-none');
-    if (user_name === "dealer") {
-      $('#message-title').html('Dealer Action');
-      $('#player_action').addClass('d-none');
-      $('#dealer_setup').removeClass('d-none');
-    } else {
-      $('#message-title').html('Player Action');
-      $('#player_action').removeClass('d-none');
-      $('#dealer_setup').addClass('d-none');
-    }
-    $('#message-body').html(renderActionBodyTemplate(message));
+    $('#message-title').html('Player Action');
+    $('#player_action').removeClass('d-none');
+    $('#dealer_setup').addClass('d-none');
   }
+  $('#message-body').html(renderAlertBodyTemplate(message));
 
   $('#popup').modal("show");
 }
