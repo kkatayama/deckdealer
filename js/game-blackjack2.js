@@ -54,6 +54,7 @@ var action_body_template = ({ msg }) => `
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
 ///////////////////////////////////////////////////////////////////////////////
+
 function renderAlertBodyTemplate(msg) {
   return [{ msg: msg }].map(alert_body_template).join('');
 }
@@ -178,6 +179,7 @@ function getActiveGame() {
   });
   return temp_active;
 }
+
 function addActiveGame(player, card, action) {
   /*
    * POST: https://deckdealer.hopto.org/add/active_game2
@@ -224,16 +226,17 @@ function showActiveGame() {
     if (user_name === 'dealer') {
       showPopup('Click SETUP to deal the first round of cards', 'action');
       $('#setup').click(function(e) {
+        hide
         for (var i = 0; i < players.length; i++) {
           var player = players[i];
 
           if (player.name === "dealer"){
             var dealer = players[i];
           } else {
-            addActiveGame(player, card, 'setup');
+            addActiveGame(player, card=dealCard(), 'setup');
           }
           if (i === (players.length - 1)) {
-            addActiveGame(dealer, card, 'setup');
+            addActiveGame(dealer, card=dealCard(), 'setup');
           }
         }
       });
