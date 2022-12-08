@@ -475,6 +475,45 @@ function showActiveGame() {
   }
 }
 
+function getStats() {
+  var temp_stats = {};
+
+  var hand_template = ({ player_hand }) => `${player_hand}`;
+  var temp_spectators = [];
+  var temp_hands = [];
+  var temp_names = [];
+  var temp_scores = [];
+  var temp_win_name = "";
+  var temp_win_email = "";
+  var temp_win_score = 0;
+  for (var i = 0; i < players.length; i++) {
+    var player = players[i];
+    var cards = getPlayerCards(player);
+    if (player.winner) {
+      temp_stats.game_id = player.game_id
+      temp_stats.user_id = player.user_id;
+      temp_stats.player_id = player.player_id;
+      temp_stats.winner = player.name;
+      temp_stats.winner_email = player.email;
+      temp_stats.winner_hand = cards.map(hand_template).join('+');
+      temp_stats.winner_score = player.score;
+    }
+	  temp_hands.push(cards.map(hand_template).join('+'));
+    temp_names.push(player.name);
+    temp_scores.push(player.score);
+  }
+  for (var i = 0; i < spectators.length; i++) {
+    temp_spectators.push(spectators[i].name)
+  }
+
+  temp_stats.players = temp_names.join(', ');
+  temp_stats.player_hands = temp_hands.join(', ');
+  temp_stats.player_scores = temp_scores.join(', ');
+  temp_stats.spectators = temp_spectators.join(', ');
+
+  return temp_stats;
+}
+
 function saveActiveGame() {
   /*
    * POST: https://deckdealer.hopto.org/delete/active_game2
