@@ -13,7 +13,7 @@ import re
 def register(users=False):
     if users:
         # -- register 6 users
-        for user in ['dealer', 'alice', 'bob', 'anna', 'steve']:
+        for user in ['dealer', 'alice', 'bob', 'anna', 'steve'][1:]:
             q = f'/register/username/{user}/password/{user}/password2/{user}'
             print('---')
             query.executeQuery(base_url=base_url, query=q)
