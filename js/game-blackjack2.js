@@ -13,6 +13,7 @@ var user_name = "";
 var players = [];
 var player_id = "";
 var player_name = "";
+var spectators = [];
 
 var active = [];
 var card_index = 1;
@@ -166,6 +167,19 @@ function getUserName() {
   });
   return temp_name;
 }
+
+function getSpectators() {
+  /* GET: https://deckdealer.hopto.org/get/spectators2 */
+  var url = new URL('/get/spectators2', api_url).toString();
+  var temp_spectators = [];
+  $.ajax({url: url, type: 'GET', async: false,
+    success: function(response) {
+      temp_spectators = response.data;
+    }
+  });
+  return temp_spectators;
+}
+
 
 function getPlayers() {
   /* GET: https://deckdealer.hopto.org/get/players2 */
@@ -542,6 +556,7 @@ $(document).ready(function() {
   players     = getPlayers();
   player_id   = getPlayerID();
   player_name = getPlayerName();
+  spectators  = getSpectators();
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
