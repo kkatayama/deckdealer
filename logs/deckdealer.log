@@ -13907,3 +13907,22 @@ SELECT * FROM active_game2 WHERE player_id=?;
     }
   ]
 }
+82.145.215.206 2022-12-08 04:26:05.023734 GET http://deckdealer.hopto.org/ 200
+82.145.215.206 2022-12-08 04:26:05.286996 GET http://deckdealer.hopto.org/apple-touch-icon.png 404
+82.145.215.206 2022-12-08 04:26:05.288139 GET http://deckdealer.hopto.org/apple-touch-icon.png None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
