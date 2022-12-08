@@ -14,7 +14,6 @@ var players = [];
 var player_id = "";
 var player_name = "";
 
-var cards = [];
 var active = [];
 var card_index = 1;
 
@@ -241,8 +240,12 @@ function showActiveGame() {
 
   if (active_game.length) {
     hidePopup();
+    $('#players').html('');
     for (var i = 0; i < players.length; i++) {
-
+      var player = players[i];
+      var cards = getPlayerCards(player);
+      var num_cols = (players.length > 4) ? 8 : 6;
+      $('#players').html(renderPlayerTemplate(player, num_cols));
     }
 
     //showPopup('What would you like to do?', 'action')
