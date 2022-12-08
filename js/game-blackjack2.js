@@ -78,12 +78,10 @@ function showPopup(message='', kind="alert") {
       $('#message-title').html('Dealer Action');
       $('#player_action').addClass('d-none');
       $('#dealer_setup').removeClass('d-none');
-      message = "Click SETUP to deal the first round of cards";
     } else {
       $('#message-title').html('Player Action');
       $('#player_action').removeClass('d-none');
       $('#dealer_setup').addClass('d-none');
-      message = 'What would you like to do?';
     }
   }
   $('#message-body').html(renderMsgBodyTemplate(message));
@@ -187,11 +185,11 @@ function printActiveGame() {
     hidePopup();
     console.log('Game is Active !');
 
-
+    showPopup('What would you like to do?', 'action')
   } else {
-    showPopup("Waiting for the dealer to start...");
+    //showPopup('Waiting for the dealer to start...');
 
-
+    showPopup('Click SETUP to deal the first round of cards', 'action');
   }
 }
 
