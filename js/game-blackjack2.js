@@ -296,7 +296,10 @@ function getFinishedPlayers() {
     success: function(response) {
       if (response.data.length === 0) {
         temp_players = [];
-      } else {
+      } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
+        temp_players = [response.data];
+      }
+        else {
         temp_players = response.data;
       }
     }
@@ -308,6 +311,7 @@ function getRemainingPlayers(){
   var url = new URL('/get/active_game2', api_url).toString();
   var temp_players = [];
   var finished_players = getFinishedPlayers();
+
 
   if (finished_players.length) {
     var filter_template = ({ player_id }) => `player_id != ${player_id}`
