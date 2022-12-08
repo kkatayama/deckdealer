@@ -77486,3 +77486,43 @@ SELECT * FROM active_game2 WHERE 1;
     ]
   }
 }
+74.103.158.35 2022-12-07 19:00:08.394203 GET http://deckdealer.hopto.org/6D.png 200
+74.103.158.35 2022-12-07 19:01:15.289637 GET http://deckdealer.hopto.org/6D.png 200
+128.4.132.14 2022-12-07 19:02:26.629440 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.132.14 2022-12-07 19:02:26.630050 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.132.14 2022-12-07 19:02:26.629328 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+128.4.132.14 2022-12-07 19:02:29.647266 GET http://deckdealer.hopto.org/... None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
