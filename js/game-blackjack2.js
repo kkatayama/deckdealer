@@ -410,6 +410,7 @@ function showActiveGame() {
       } else {
         $('#players').append(renderPlayerTemplateAll(player, cards, num_cols));
         players[i]["score"] = getPlayerScore(cards);
+        players[i]["winner"] = false;
       }
     }
 
@@ -440,6 +441,7 @@ function showActiveGame() {
           $(`#card_${players[i].player_id}`).append(
             '<div class="card-footer"><h4 class="text-success">WINNER</h4></div/>'
           )
+          players[i]["winner"] = true;
           break;
         }
       }
