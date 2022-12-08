@@ -230,7 +230,6 @@ function showActiveGame() {
           if (player.name === "dealer"){
             var dealer = players[i];
           } else {
-            var card = dealCard();
             addActiveGame(player, card, 'setup');
           }
           if (i === (players.length - 1)) {
