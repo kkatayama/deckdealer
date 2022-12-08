@@ -39102,3 +39102,77 @@ SELECT * FROM active_game2 WHERE (player_id = 1 AND player_action != ?);
     }
   ]
 }
+73.188.184.84 2022-12-08 10:18:35.271391 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+73.188.184.84 2022-12-08 10:18:35.272024 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+73.188.184.84 2022-12-08 10:18:35.271274 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+73.188.184.84 2022-12-08 10:18:35.783885 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+73.188.184.84 2022-12-08 10:18:35.784511 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+73.188.184.84 2022-12-08 10:18:35.783770 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+73.188.184.84 2022-12-08 10:18:45.407226 GET http://deckdealer.hopto.org/get/users 401
+73.188.184.84 2022-12-08 10:18:45.408132 GET http://deckdealer.hopto.org/get/users None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+73.188.184.84 2022-12-08 10:18:45.627544 GET http://deckdealer.hopto.org/get/users 401
+73.188.184.84 2022-12-08 10:18:45.628352 GET http://deckdealer.hopto.org/get/users None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
