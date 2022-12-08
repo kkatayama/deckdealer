@@ -45,8 +45,10 @@ var player_cards_template = ({ img }) => `
 function showPopup(message) {
   $('#popup').find('button').addClass('disabled')
   $('#popup').modal({backdrop: 'static', keyboard: false});
-  $('#message').html("Error Processing Params:");
-  $('#message-body').html(message);
+  $('#message').html(message + `<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>`);
+  // $('#message-body').html();
   $('#popup').modal("show");
 }
 
