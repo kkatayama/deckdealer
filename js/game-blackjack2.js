@@ -479,10 +479,9 @@ function showActiveGame() {
         active_game = getActiveGame();
         if (active_game.length) {
           stopTimer();
-          showActiveGame()
+          showActiveGame();
         }
-      })
-
+      });
     }
   }
 }
