@@ -198,7 +198,7 @@ function addActiveGame(player, card, action) {
       player_id: player.player_id,
       player_hand: card.key,
       player_action: action,
-    }
+    },
     success: function(response) {
       console.log(response);
     }
@@ -219,7 +219,7 @@ function showActiveGame() {
     hidePopup();
     console.log('Game is Active !');
 
-    showPopup('What would you like to do?', 'action')
+    //showPopup('What would you like to do?', 'action')
   } else {
     if (user_name === 'dealer') {
       showPopup('Click SETUP to deal the first round of cards', 'action');
@@ -233,7 +233,6 @@ function showActiveGame() {
             var card = dealCard();
             addActiveGame(player, card, 'setup');
           }
-
           if (i === (players.length - 1)) {
             addActiveGame(dealer, card, 'setup');
           }
