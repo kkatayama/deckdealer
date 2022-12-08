@@ -168,9 +168,27 @@ function getPlayerCards(player) {
   return temp_cards;
 }
 
+function cardValue(card) {
+
+}
+
 function getPlayerScore(cards) {
   for (var i = 0; i < cards.length; i++) {
     var card = cards[i].player_hand;
+    if (parseInt(card)) {
+      temp_score = temp_score + parseInt(card);
+    } else {
+      if ((card.includes('J')) || (card.includes('Q')) || (card.includes('K'))) {
+        temp_score = temp_score + 10;
+      } else {
+        /* card is an ACE */
+        if ((temp_score + 11) > 21) {
+          temp_score = temp_score + 1;
+        } else {
+          temp_score = temp_score + 11;
+        }
+      }
+    }
   }
 }
 
@@ -235,24 +253,23 @@ function addActiveGame(player, card, action) {
 }
 
 function renderPlayerTemplate(player, cards, num_cols=6) {
-  var score = 0;
+  var score = getPlayerScore(cards);
   var images = [];
   for (var i = 0; i < cards.length; i++) {
     if (i === 1) {
-      if (user_name === "dealer") {
-        images[i] = {img: cards[i].player_hand + ".png"};
-      } else {
+      if (player.name === "dealer") {
         images[i] = {img: "back.png"};
+        score = "?";
       }
     } else {
-      images["img"] = cards[i].player_hand + ".png";
+      images[i] = cards[i].player_hand + ".png";
     }
   }
 
-  var html_info = [{ player_id: "2", user_name: "alice", score: 20 },].map(player_info_template).join('');
-  var html_cards = [{ img: "6S.png" }, { img: "6H.png" }].map(player_cards_template).join('');
+  var html_info = [{ player_id: player.player_id, player_name: player.name, score: score }].map(player_info_template).join('');
+  var html_cards = images.map(player_cards_template).join('');
   var html_player = [{ num_cols: num_cols, info: html_info, cards: html_cards }].map(player_template).join('');
-  $('#players').append(html_player);
+  return html_player;
 }
 
 function showActiveGame() {
