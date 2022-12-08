@@ -62,7 +62,7 @@ function renderMsgBodyTemplate(msg) {
   return [{ msg: msg }].map(msg_body_template).join('');
 }
 
-function showPopup(message, kind="alert") {
+function showPopup(message='', kind="alert") {
   /* disable close button and keyboard escape */
   $('#popup').find('button').addClass('disabled')
   $('#popup').modal({backdrop: 'static', keyboard: false});
@@ -70,11 +70,21 @@ function showPopup(message, kind="alert") {
   if (kind === "alert") {
     $('#message-header').addClass('d-none');
     $('#message-footer').addClass('d-none');
-  } else {
+  }
+  if (kind === "action"){
     $('#message-header').removeClass('d-none');
     $('#message-footer').removeClass('d-none');
-    $('#message-title').html('Game Options')
-    $('#message-body').html();
+    if (user_name === "dealer") {
+      $('#message-title').html('Dealer Action');
+      $('#player_action').addClass('d-none');
+      $('#dealer_setup').removeClass('d-none');
+      message = "Click SETUP to deal the first round of cards";
+    } else {
+      $('#message-title').html('Player Action');
+      $('#player_action').removeClass('d-none');
+      $('#dealer_setup').addClass('d-none');
+      message = 'What would you like to do?';
+    }
   }
   $('#message-body').html(renderMsgBodyTemplate(message));
 
@@ -172,7 +182,7 @@ function getActiveGame() {
 
 function printActiveGame() {
   active_game = getActiveGame();
-'What would you like to do?'
+
   if (active_game.length) {
     hidePopup();
     console.log('Game is Active !');
