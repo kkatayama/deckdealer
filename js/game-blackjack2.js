@@ -368,16 +368,19 @@ function showActiveGame() {
     remaining_players = getRemainingPlayers();
     if (remaining_players.length) {
       var player = remaining_players[0];
+
       var temp_name = getPlayerNameByID(player.player_id);
       if (temp_name === player_name) {
         showPopup(`Player Turn: (${temp_name})`, 'action');
         $('#hit').click(function(elem) {
           hidePopup();
           addActiveGame(player, card=dealCard(), 'hit');
+          return showActiveGame();
         });
         $('#stay').click(function(elem) {
           hidePopup();
           addActiveGame(player, card={key: 0}, 'stay');
+          return showActiveGame();
         });
       } else {
         showPopup(`Player Turn: (${temp_name})`, 'alert');
