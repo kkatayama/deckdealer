@@ -229,16 +229,18 @@ function showActiveGame() {
       showPopup('Click SETUP to deal the first round of cards', 'action');
       $('#setup').click(function(e) {
         hidePopup();
-        for (var i = 0; i < players.length; i++) {
-          var player = players[i];
+        for (var i = 0; i < 2; i++) {
+          for (var j = 0; j < players.length; j++) {
+            var player = players[j];
 
-          if (player.name === "dealer"){
-            var dealer = players[i];
-          } else {
-            addActiveGame(player, card=dealCard(), 'setup');
-          }
-          if (i === (players.length - 1)) {
-            addActiveGame(dealer, card=dealCard(), 'setup');
+            if (player.name === "dealer"){
+              var dealer = players[j];
+            } else {
+              addActiveGame(player, card=dealCard(), 'setup');
+            }
+            if (i === (players.length - 1)) {
+              addActiveGame(dealer, card=dealCard(), 'setup');
+            }
           }
         }
       });
