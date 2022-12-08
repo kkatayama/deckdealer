@@ -379,12 +379,12 @@ function showActiveGame() {
         $('#hit').click(function(elem) {
           hidePopup();
           addActiveGame(player, card=dealCard(), 'hit');
-          setTimeout(function() { showActiveGame() }, 5000);
+          // setTimeout(function() { showActiveGame() }, 5000);
         });
         $('#stay').click(function(elem) {
           hidePopup();
           addActiveGame(player, card={key: 0}, 'stay');
-          setTimeout(function() { showActiveGame() }, 5000);
+          // setTimeout(function() { showActiveGame() }, 5000);
         });
       } else {
         showPopup(`Player Turn: (${temp_name})`, 'alert');
