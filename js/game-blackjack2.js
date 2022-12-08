@@ -168,6 +168,12 @@ function getPlayerCards(player) {
   return temp_cards;
 }
 
+function getPlayerScore(cards) {
+  for (var i = 0; i < cards.length; i++) {
+    var card = cards[i].player_hand;
+  }
+}
+
 function dealCard() {
   /* GET: https://deckdealer.hopto.org/get/deck?filter=(card_id={card_index}) */
   var url = new URL('/get/deck?filter=(card_id=' + card_index + ')', api_url).toString();
@@ -228,10 +234,24 @@ function addActiveGame(player, card, action) {
   });
 }
 
-function renderPlayerTemplate(player, num_cols=6) {
+function renderPlayerTemplate(player, cards, num_cols=6) {
+  var score = 0;
+  var images = [];
+  for (var i = 0; i < cards.length; i++) {
+    if (i === 1) {
+      if (user_name === "dealer") {
+        images[i] = {img: cards[i].player_hand + ".png"};
+      } else {
+        images[i] = {img: "back.png"};
+      }
+    } else {
+      images["img"] = cards[i].player_hand + ".png";
+    }
+  }
+
   var html_info = [{ player_id: "2", user_name: "alice", score: 20 },].map(player_info_template).join('');
   var html_cards = [{ img: "6S.png" }, { img: "6H.png" }].map(player_cards_template).join('');
-  var html_player = [{ num_cols: 6, info: html_info, cards: html_cards }].map(player_template).join('');
+  var html_player = [{ num_cols: num_cols, info: html_info, cards: html_cards }].map(player_template).join('');
   $('#players').append(html_player);
 }
 
@@ -245,7 +265,7 @@ function showActiveGame() {
       var player = players[i];
       var cards = getPlayerCards(player);
       var num_cols = (players.length > 4) ? 8 : 6;
-      $('#players').html(renderPlayerTemplate(player, num_cols));
+      $('#players').html(renderPlayerTemplate(player, cards, num_cols));
     }
 
     //showPopup('What would you like to do?', 'action')
