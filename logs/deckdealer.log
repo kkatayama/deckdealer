@@ -9186,3 +9186,26 @@ SELECT * FROM players2 WHERE 1;
     }
   ]
 }
+74.103.158.35 2022-12-08 01:53:07.958807 GET http://deckdealer.hopto.org/get/players2?filter=(player_id%20=%201) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:53:07.960265 GET http://deckdealer.hopto.org/get/players2?filter=(player_id%20=%201) request
+['table', 'sqlite_%']
+filter_conditions: "(player_id = 1)"
+filter_values: []
+74.103.158.35 2022-12-08 01:53:07.966111 GET http://deckdealer.hopto.org/get/players2?filter=(player_id%20=%201) request
+SELECT * FROM players2 WHERE (player_id = 1);
+74.103.158.35 2022-12-08 01:53:07.966415 GET http://deckdealer.hopto.org/get/players2?filter=(player_id%20=%201) request
+SELECT * FROM players2 WHERE (player_id = 1);
+74.103.158.35 2022-12-08 01:53:07.958499 GET http://deckdealer.hopto.org/get/players2?filter=(player_id%20=%201) None
+{"request.params": {"filter": "(player_id = 1)"}}
+{
+  "message": "1 players2 entry found",
+  "data": {
+    "player_id": 1,
+    "user_id": 2,
+    "game_id": 1,
+    "name": "dealer",
+    "email": "dealer@udel.edu",
+    "entry_time": "2022-12-08 01:00:32.506"
+  }
+}
