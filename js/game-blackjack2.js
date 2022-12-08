@@ -9,7 +9,11 @@ var api_url = "https://deckdealer.hopto.org"
 var html = "";
 var user_id = "";
 var user_name = "";
+
 var players = [];
+var player_id = "";
+var player_name = "";
+
 var active = [];
 var card_index = 1;
 
@@ -18,10 +22,10 @@ var player_template = ({ num_cols, info, cards }) => `
 <div class="row row-cols-${num_cols} justify-items-center mt-2">${info}${cards}</div>
 `;
 
-var player_info_template = ({ player_id, user_name, score }) => `
+var player_info_template = ({ player_id, player_name, score }) => `
   <div class="col-auto">
     <div class="card">
-      <h5 class="card-header" id="header_${player_id}">${user_name}</h5>
+      <h5 class="card-header" id="header_${player_id}">${player_name}</h5>
       <div class="card-body">
         <h5 class="card-title" id="score_${player_id}">score: ${score}</h5>
         <a href="#" class="btn btn-primary" id="hit_${player_id}">hit</a>
@@ -102,6 +106,7 @@ function getPlayerName() {
   }
 }
 
+
 function dealCard() {
   /* GET: https://deckdealer.hopto.org/get/deck?filter=(card_id={card_index}) */
   var url = new URL('/get/deck?filter=(card_id=' + card_index + ')', api_url).toString();
@@ -154,7 +159,7 @@ function printActiveGame() {
   } else {
     showPopup("Waiting for the dealer to start...");
 
-    if ()
+
   }
 }
 
@@ -162,8 +167,12 @@ function printActiveGame() {
 $(document).ready(function() {
   /* set variables */
   html = $('#player-list').html();
-  user_id = getUserID();
-  players = getPlayers();
+  user_id   = getUserID();
+  user_name = getUserName();
+
+  players     = getPlayers();
+  player_id   = getPlayerID();
+  player_name = getPlayerName();
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
