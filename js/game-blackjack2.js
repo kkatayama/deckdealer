@@ -424,12 +424,12 @@ function showActiveGame() {
         $('#hit').click(function(elem) {
           hidePopup();
           addActiveGame(player, card=dealCard(), 'hit');
-          // setTimeout(function() { showActiveGame() }, 5000);
+          setTimeout(function() { showActiveGame() }, 1000);
         });
         $('#stay').click(function(elem) {
           hidePopup();
           addActiveGame(player, card={key: 0}, 'stay');
-          // setTimeout(function() { showActiveGame() }, 5000);
+          setTimeout(function() { showActiveGame() }, 1000);
         });
       } else {
         showPopup(`Player Turn: (${temp_name})`, 'alert');
@@ -470,7 +470,8 @@ function showActiveGame() {
             }
           }
           if (i == 1) {
-            showActiveGame();
+            console.log('\n\nDealer Setup Finished!\n\n');
+            setTimeout(function() { showActiveGame() }, 1000);
           }
         }
         // startTimer();
