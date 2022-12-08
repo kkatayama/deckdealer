@@ -54,14 +54,6 @@ var action_body_template = ({ msg }) => `
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
 ///////////////////////////////////////////////////////////////////////////////
-function renderPlayerTemplate() {
-  num_cols = (num_cards > 4) ? 8 : 6;
-  var html_info = [{ player_id: "2", user_name: "alice", score: 20 },].map(player_info_template).join('');
-  var html_cards = [{ img: "6S.png" }, { img: "6H.png" }].map(player_cards_template).join('');
-  var html_player = [{ num_cols: 6, info: html_info, cards: html_cards }].map(player_template).join('');
-  $('#players').append(html_player);
-}
-
 function renderAlertBodyTemplate(msg) {
   return [{ msg: msg }].map(alert_body_template).join('');
 }
@@ -187,7 +179,14 @@ function getActiveGame() {
   return temp_active;
 }
 
-function printActiveGame() {
+function renderPlayerTemplate(player, num_cols=6) {
+  var html_info = [{ player_id: "2", user_name: "alice", score: 20 },].map(player_info_template).join('');
+  var html_cards = [{ img: "6S.png" }, { img: "6H.png" }].map(player_cards_template).join('');
+  var html_player = [{ num_cols: 6, info: html_info, cards: html_cards }].map(player_template).join('');
+  $('#players').append(html_player);
+}
+
+function showActiveGame() {
   active_game = getActiveGame();
 
   if (active_game.length) {
@@ -196,9 +195,11 @@ function printActiveGame() {
 
     showPopup('What would you like to do?', 'action')
   } else {
-    //showPopup('Waiting for the dealer to start...');
-
-    showPopup('Click SETUP to deal the first round of cards', 'action');
+    if (user_name === 'dealer') {
+      showPopup('Click SETUP to deal the first round of cards', 'action');
+    } else {
+      showPopup('Waiting for the dealer to start...');
+    }
   }
 }
 
@@ -225,6 +226,6 @@ $(document).ready(function() {
     window.location.href = "game-blackjack-play2.html";
   });
 
-  printActiveGame();
+  showActiveGame();
 
 });
