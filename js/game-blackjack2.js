@@ -73,6 +73,8 @@ function showPopup(message, kind="alert") {
   } else {
     $('#message-header').removeClass('d-none');
     $('#message-footer').removeClass('d-none');
+    $('#message-title').html('Game Options')
+    $('#message-body').html();
   }
   $('#message-body').html(renderMsgBodyTemplate(message));
 
@@ -170,7 +172,7 @@ function getActiveGame() {
 
 function printActiveGame() {
   active_game = getActiveGame();
-
+'What would you like to do?'
   if (active_game.length) {
     hidePopup();
     console.log('Game is Active !');

@@ -82220,3 +82220,23 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
   ]
 }
 74.103.158.236 2022-12-07 22:15:46.483830 GET http://deckdealer.hopto.org/blackjack.html 200
+74.103.158.236 2022-12-07 22:21:06.576139 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-07 22:21:06.576757 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-07 22:21:06.575967 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.236 2022-12-07 22:21:12.768267 GET http://deckdealer.hopto.org/blackjack.html 200
+74.103.158.236 2022-12-07 22:21:14.224494 GET http://deckdealer.hopto.org/blackjack.html 200
