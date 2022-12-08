@@ -191,7 +191,7 @@ function getPlayers() {
   var temp_players = [];
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      if ((response.message.includes("0 players")) && (response.message.includes("entries"))) {
+      if (response.message.includes("0 players2 entries found")) {
         console.log('No players registered...');
         window.location.href = 'index2.html'
       } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
@@ -294,7 +294,7 @@ function getActiveGame() {
   var temp_active = [];
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      if ((response.message.includes("0 active_game")) && (response.message.includes("entries"))) {
+      if (response.message.includes("0 active_game2 entries found")) {
         console.log('Waiting the for dealer to start...');
         temp_active = [];
       } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
@@ -374,7 +374,7 @@ function getRemainingPlayers(){
         filter: `(player_action = "setup" AND ${temp_filter}) GROUP BY (player_id) ORDER BY (entry_id)`,
       },
       success: function(response) {
-        if ((response.message.includes("0 active_game")) && (response.message.includes("entries"))) {
+        if (response.message.includes("0 active_game2 entries found")) {
           temp_players = [];
         } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
           temp_players = [response.data];
@@ -390,7 +390,7 @@ function getRemainingPlayers(){
         filter: `(player_action = "setup") GROUP BY (player_id) ORDER BY (entry_id)`,
       },
       success: function(response) {
-        if ((response.message.includes("0 active_game")) && (response.message.includes("entries"))) {
+        if (response.message.includes("0 active_game2 entries found")) {
           temp_players = [];
         } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
           temp_players = [response.data];
@@ -439,7 +439,7 @@ function showActiveGame() {
         $('#stay').click(function(elem) {
           hidePopup();
           addActiveGame(player, card={key: 0}, 'stay');
-          setTimeout(function() { showActiveGame() }, 1000);
+          setTimeout(function() { showActiveGame() }, 3000);
         });
       } else {
         showPopup(`Player Turn: (${temp_name})`, 'alert');
