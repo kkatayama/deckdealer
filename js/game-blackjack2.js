@@ -70,9 +70,9 @@ function renderActionBodyTemplate(msg) {
   return [{ msg: msg }].map(action_body_template).join('');
 }
 
-function showPopup(message='', kind="alert") {
+function showPopup(message, kind="alert") {
   /* disable close button and keyboard escape */
-  $('#message-title').find('button').addClass('disabled')
+  $('#message-header').find('button').addClass('disabled')
   $('#popup').modal({backdrop: 'static', keyboard: false});
 
   if (kind === "alert") {
