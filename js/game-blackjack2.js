@@ -220,8 +220,9 @@ function showActiveGame() {
 
   if (active_game.length) {
     hidePopup();
+    for (var i = 0; i < active_game.length; i++) {
 
-    console.log('Game is Active !');
+    }
 
     //showPopup('What would you like to do?', 'action')
   } else {
