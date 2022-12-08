@@ -45,10 +45,9 @@ var player_cards_template = ({ img }) => `
 function showPopup(message) {
   $('#popup').find('button').addClass('disabled')
   $('#popup').modal({backdrop: 'static', keyboard: false});
-  $('#message').html(message + `<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>`);
-  // $('#message-body').html();
+  var msg = '<div class="d-flex align-items-center"><strong>' + message + '</strong><div class="spinner-border ms-auto" role="status" aria-hidden="true"></div></div>';
+  // $('#message').html(msg);
+  $('#message-body').html(msg);
   $('#popup').modal("show");
 }
 
