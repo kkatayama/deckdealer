@@ -28,8 +28,6 @@ var player_info_template = ({ player_id, player_name, score }) => `
       <h5 class="card-header" id="header_${player_id}">${player_name}</h5>
       <div class="card-body">
         <h5 class="card-title" id="score_${player_id}">score: ${score}</h5>
-        <a href="#" class="btn btn-primary" id="hit_${player_id}">hit</a>
-        <a href="#" class="btn btn-primary" id="stay_${player_id}">stay</a>
       </div>
     </div>
   </div>
@@ -187,9 +185,9 @@ function printActiveGame() {
 
     showPopup('What would you like to do?', 'action')
   } else {
-    //showPopup('Waiting for the dealer to start...');
+    showPopup('Waiting for the dealer to start...');
 
-    showPopup('Click SETUP to deal the first round of cards', 'action');
+    //showPopup('Click SETUP to deal the first round of cards', 'action');
   }
 }
 
