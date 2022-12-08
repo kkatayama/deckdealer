@@ -541,6 +541,7 @@ def delete(db, table_name="", url_paths=""):
     if isinstance(num_deletes, dict):
         if num_deletes.get('Error'):
             return checkType(num_deletes)
+        print('=== num_deletes ===')
         print(num_deletes)
     elif num_deletes:
         if num_deletes == 1:

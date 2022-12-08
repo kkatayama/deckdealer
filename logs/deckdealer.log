@@ -807,3 +807,47 @@ DELETE FROM players2 WHERE ((entry_id > 0));
     "_status_line": "500 Internal Server Error"
   }
 }
+74.103.158.35 2022-12-08 00:26:09.001585 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 00:26:09.002168 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+['table', 'sqlite_%']
+filter_conditions: "(entry_id > 0)"
+filter_values: []
+74.103.158.35 2022-12-08 00:26:09.005588 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+DELETE FROM players2 WHERE ((entry_id > 0));
+74.103.158.35 2022-12-08 00:26:09.005783 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+DELETE FROM players2 WHERE ((entry_id > 0));
+74.103.158.35 2022-12-08 00:26:09.020208 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) None
+{
+  "message": "Internal Server Error",
+  "Python_Error": {
+    "exception": "local variable 'message' referenced before assignment",
+    "traceback": [
+      "Traceback (most recent call last):",
+      "  File \"/home/katayama/.local/lib/python3.9/site-packages/bottle.py\", line 868, in _handle",
+      "    return route.call(**args)",
+      "  File \"/home/katayama/.local/lib/python3.9/site-packages/bottle.py\", line 1748, in wrapper",
+      "    rv = callback(*a, **ka)",
+      "  File \"/home/katayama/.local/lib/python3.9/site-packages/bottle_sqlite.py\", line 155, in wrapper",
+      "    rv = callback(*args, **kwargs)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 783, in _log_to_logger",
+      "    actual_response = fn(*args, **kwargs)",
+      "  File \"/home/katayama/.local/lib/python3.9/site-packages/bottle_cors_plugin.py\", line 27, in _enable_cors",
+      "    return fn(*args, **kwargs)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 524, in check_uid",
+      "    return fn(**kwargs)",
+      "  File \"/home/katayama/Documents/DeckDealer/deckdealer/server.py\", line 555, in delete",
+      "    res = {\"message\": message, \"submitted\": [submitted]}",
+      "UnboundLocalError: local variable 'message' referenced before assignment"
+    ],
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Internal Server Error",
+    "_status_code": 500,
+    "_status_line": "500 Internal Server Error"
+  }
+}
