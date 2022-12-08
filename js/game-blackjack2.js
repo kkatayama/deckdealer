@@ -411,10 +411,13 @@ function showActiveGame() {
       }
     } else {
       console.log('=== PROCESS GAME END ===');
-      payers.sort((a, b) => {return a.score - b.score});
+      players.sort((a, b) => {return a.score - b.score});
       for (var i = 0; i < players.length; i++) {
         if (players[i].score < 22) {
-
+          $(`#card_${players[i].player_id}`).append(
+            '<div class="card-footer"><h4 class="text-success">WINNER</h4></div/>'
+          )
+          i = players.length;
         }
       }
     }
