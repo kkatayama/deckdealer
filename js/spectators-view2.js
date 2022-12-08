@@ -297,15 +297,13 @@ $(document).ready(function() {
   user_name = getUserName();
 
   players     = getPlayers();
-  player_id   = getPlayerID();
-  player_name = getPlayerName();
 
   /* debug: check local variables */
   console.log('user_id = ' + user_id);
   console.log('=== players ===')
   console.table(players);
 
-  $('#game-play').html('Blackjack: (' + player_name + ')');
+  $('#game-play').html('Blackjack: (Spectators View)');
 
   /* generate HTML: every 500 ms */
   // var timer = setInterval(function() { printPlayerList() }, 1000);
