@@ -445,7 +445,7 @@ function showActiveGame() {
           break;
         }
       }
-      // setTimeout(function() { closeGame() }, 5000);
+      setTimeout(function() { closeGame() }, 5000);
     }
 
     //showPopup('What would you like to do?', 'action')
@@ -533,20 +533,9 @@ function saveActiveGame() {
    * }
    */
   var url = new URL('/add/score_board2', api_url).toString();
+  var stats = getStats();
   $.ajax({url: url, type: 'POST', async: false,
-    data: {
-      game_id: 1,
-      user_id: 2,
-      player_id: 1,
-      winner: "dealer",
-      winner_email: "dealer@udel.edu",
-      winner_hand: "10S, 10H",
-      winner_score: 20,
-      players: "dealer, alice, bob",
-      player_hands: "10S+10H, 6D+QH+3S, 4H+9D+5S",
-      player_scores: "20, 19, 18",
-      spectators: "anna, steve",
-    },
+    data: stats,
     success: function(response) {
       console.log(response);
     }
@@ -579,11 +568,7 @@ function closeGame() {
     showPopup('Click [CLOSE GAME] to add the results to the score_board', 'close');
     $('#close').click(function(elem) {
       hidePopup();
-      for (var i = 0; i < players.length; i++) {
-        var player = players[i];
-        var cards = getPlayerCards(player);
-
-      }
+      saveActiveGame();
     })
   }
 }
