@@ -25,7 +25,7 @@ var player_template = ({ num_cols, info, cards }) => `
 
 var player_info_template = ({ player_id, player_name, score }) => `
   <div class="col-auto">
-    <div class="card">
+    <div class="card" id="card_${player_id}">
       <h5 class="card-header" id="header_${player_id}">${player_name}</h5>
       <div class="card-body">
         <h5 class="card-title" id="score_${player_id}">score: ${score}</h5>
@@ -411,6 +411,12 @@ function showActiveGame() {
       }
     } else {
       console.log('=== PROCESS GAME END ===');
+      payers.sort((a, b) => {return a.score - b.score});
+      for (var i = 0; i < players.length; i++) {
+        if (players[i].score < 22) {
+
+        }
+      }
     }
 
     //showPopup('What would you like to do?', 'action')
