@@ -219,6 +219,7 @@ function showActiveGame() {
 
   if (active_game.length) {
     hidePopup();
+
     console.log('Game is Active !');
 
     //showPopup('What would you like to do?', 'action')
