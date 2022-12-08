@@ -470,7 +470,6 @@ function showActiveGame() {
             }
           }
         }
-        location.reload();
         // startTimer();
       });
     } else {
