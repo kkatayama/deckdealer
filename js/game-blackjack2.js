@@ -116,10 +116,12 @@ function showPopup(message, kind="alert") {
     $('#message-title').html('Dealer Action');
     $('#player-action').addClass('d-none');
     $('#dealer-setup').removeClass('d-none');
+    $('#message-body').html(renderActionBodyTemplate(message));
   }
   if (kind === "alert") {
     $('#message-header').addClass('d-none');
     $('#message-footer').addClass('d-none');
+    $('#message-body').html(renderAlertBodyTemplate(message));
   }
   if (kind === "action"){
     $('#message-header').removeClass('d-none');
@@ -127,15 +129,17 @@ function showPopup(message, kind="alert") {
     $('#message-title').html('Player Action');
     $('#player-action').removeClass('d-none');
     $('#dealer-setup').addClass('d-none');
+    $('#message-body').html(renderActionBodyTemplate(message));
   }
   if (kind === "close") {
     $('#message-header').removeClass('d-none');
     $('#message-footer').removeClass('d-none');
     $('#message-title').html('Dealer Action');
     $('#player-action').addClass('d-none');
+    $('#dealer-setup').addClass('d-none');
     $('#dealer-close').removeClass('d-none');
+    $('#message-body').html(renderActionBodyTemplate(message));
   }
-  $('#message-body').html(renderAlertBodyTemplate(message));
 
   $('#popup').modal("show");
 }
@@ -551,7 +555,7 @@ function clearActiveGame() {
    *   filter: `(entry_id > 0)`
    * }
    */
-  var url = new URL('/get/active_game2', api_url).toString();
+  var url = new URL('/delete/active_game2', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
       filter: `(entry_id > 0)`,
@@ -592,11 +596,7 @@ $(document).ready(function() {
   $('#game-play').html('Blackjack: (' + player_name + ')');
 
   /* generate HTML: every 500 ms */
-  // var timer = setInterval(function() { printPlayerList() }, 1000);
-  $('#status').click(function(elem) {
-    clearInterval(timer);
-    window.location.href = "game-blackjack-play2.html";
-  });
+  timer = setInterval(function() { showActiveGame() }, 1000);
 
   showActiveGame();
 
