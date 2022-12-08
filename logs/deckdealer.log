@@ -851,3 +851,162 @@ DELETE FROM players2 WHERE ((entry_id > 0));
     "_status_line": "500 Internal Server Error"
   }
 }
+74.103.158.35 2022-12-08 00:31:46.181071 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 00:31:46.181935 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+['table', 'sqlite_%']
+filter_conditions: "(entry_id > 0)"
+filter_values: []
+74.103.158.35 2022-12-08 00:31:46.186226 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+DELETE FROM players2 WHERE ((entry_id > 0));
+74.103.158.35 2022-12-08 00:31:46.186433 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+DELETE FROM players2 WHERE ((entry_id > 0));
+74.103.158.35 2022-12-08 00:31:46.180704 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) None
+{"request.params": {"filter": "(entry_id > 0)"}}
+{
+  "SQLite.OperationalError": "no such column: entry_id",
+  "Debug Info": {
+    "query": "DELETE FROM players2 WHERE ((entry_id > 0));",
+    "kwargs": {
+      "table": {
+        "name": "players2",
+        "type": "table",
+        "columns": {
+          "player_id": "INTEGER",
+          "user_id": "INTEGER",
+          "game_id": "INTEGER",
+          "name": "TEXT",
+          "email": "TEXT",
+          "entry_time": "DATETIME"
+        },
+        "info": {
+          "player_id": "INTEGER PRIMARY KEY",
+          "user_id": "INTEGER NOT NULL",
+          "game_id": "INTEGER NOT NULL",
+          "name": "TEXT NOT NULL",
+          "email": "TEXT NOT NULL",
+          "entry_time": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      },
+      "where": "(entry_id > 0)",
+      "values": []
+    },
+    "parsed": {
+      "table": "players2",
+      "condition": "((entry_id > 0))",
+      "values": []
+    }
+  },
+  "SQLite Traceback": [
+    "Traceback (most recent call last):",
+    "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 397, in deleteRow",
+    "    cur = db.execute(query, values)",
+    "sqlite3.OperationalError: no such column: entry_id"
+  ]
+}
+74.103.158.35 2022-12-08 00:31:56.280502 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 00:31:56.280757 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+['table', 'sqlite_%']
+filter_conditions: "(entry_id > 0)"
+filter_values: []
+74.103.158.35 2022-12-08 00:31:56.282837 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+DELETE FROM players2 WHERE ((entry_id > 0));
+74.103.158.35 2022-12-08 00:31:56.283104 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+DELETE FROM players2 WHERE ((entry_id > 0));
+74.103.158.35 2022-12-08 00:31:56.280340 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) None
+{"request.params": {"filter": "(entry_id > 0)"}}
+{
+  "SQLite.OperationalError": "no such column: entry_id",
+  "Debug Info": {
+    "query": "DELETE FROM players2 WHERE ((entry_id > 0));",
+    "kwargs": {
+      "table": {
+        "name": "players2",
+        "type": "table",
+        "columns": {
+          "player_id": "INTEGER",
+          "user_id": "INTEGER",
+          "game_id": "INTEGER",
+          "name": "TEXT",
+          "email": "TEXT",
+          "entry_time": "DATETIME"
+        },
+        "info": {
+          "player_id": "INTEGER PRIMARY KEY",
+          "user_id": "INTEGER NOT NULL",
+          "game_id": "INTEGER NOT NULL",
+          "name": "TEXT NOT NULL",
+          "email": "TEXT NOT NULL",
+          "entry_time": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      },
+      "where": "(entry_id > 0)",
+      "values": []
+    },
+    "parsed": {
+      "table": "players2",
+      "condition": "((entry_id > 0))",
+      "values": []
+    }
+  },
+  "SQLite Traceback": [
+    "Traceback (most recent call last):",
+    "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 397, in deleteRow",
+    "    cur = db.execute(query, values)",
+    "sqlite3.OperationalError: no such column: entry_id"
+  ]
+}
+74.103.158.35 2022-12-08 00:34:57.900550 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 00:34:57.900974 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+['table', 'sqlite_%']
+filter_conditions: "(entry_id > 0)"
+filter_values: []
+74.103.158.35 2022-12-08 00:34:57.904990 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+DELETE FROM players2 WHERE ((entry_id > 0));
+74.103.158.35 2022-12-08 00:34:57.905191 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) request
+DELETE FROM players2 WHERE ((entry_id > 0));
+74.103.158.35 2022-12-08 00:34:57.900063 GET http://deckdealer.hopto.org/delete/players2?filter=(entry_id%20%3E%200) None
+{"request.params": {"filter": "(entry_id > 0)"}}
+{
+  "SQLite.OperationalError": "no such column: entry_id",
+  "Debug Info": {
+    "query": "DELETE FROM players2 WHERE ((entry_id > 0));",
+    "kwargs": {
+      "table": {
+        "name": "players2",
+        "type": "table",
+        "columns": {
+          "player_id": "INTEGER",
+          "user_id": "INTEGER",
+          "game_id": "INTEGER",
+          "name": "TEXT",
+          "email": "TEXT",
+          "entry_time": "DATETIME"
+        },
+        "info": {
+          "player_id": "INTEGER PRIMARY KEY",
+          "user_id": "INTEGER NOT NULL",
+          "game_id": "INTEGER NOT NULL",
+          "name": "TEXT NOT NULL",
+          "email": "TEXT NOT NULL",
+          "entry_time": "DATETIME NOT NULL DEFAULT (strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'))"
+        }
+      },
+      "where": "(entry_id > 0)",
+      "values": []
+    },
+    "parsed": {
+      "table": "players2",
+      "condition": "((entry_id > 0))",
+      "values": []
+    }
+  },
+  "SQLite Traceback": [
+    "Traceback (most recent call last):",
+    "  File \"/home/katayama/Documents/DeckDealer/deckdealer/utils/db_functions.py\", line 397, in deleteRow",
+    "    cur = db.execute(query, values)",
+    "sqlite3.OperationalError: no such column: entry_id"
+  ]
+}
