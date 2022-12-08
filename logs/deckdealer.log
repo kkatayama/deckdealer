@@ -81776,3 +81776,23 @@ SELECT * FROM active_game2 WHERE 1;
     ]
   }
 }
+74.103.158.236 2022-12-07 21:50:40.898218 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-07 21:50:40.898470 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-07 21:50:40.898172 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+87.236.176.41 2022-12-07 21:50:43.683800 GET http://www.deckdealer.hopto.org/ 200
+74.103.158.236 2022-12-07 21:50:45.684220 GET http://deckdealer.hopto.org/blackjack.html 200
