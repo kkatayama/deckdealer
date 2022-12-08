@@ -452,9 +452,10 @@ function showActiveGame() {
     //showPopup('What would you like to do?', 'action')
   } else {
     if (user_name === 'dealer') {
-      showPopup('Click [SETUP] to deal the first round of cards', 'action');
+      showPopup('Click [SETUP] to deal the first round of cards', 'setup');
       $('#setup').click(function(elem) {
         hidePopup();
+        stopTimer();
         for (var i = 0; i < 2; i++) {
           for (var j = 0; j < players.length; j++) {
             var player = players[j];
@@ -469,6 +470,7 @@ function showActiveGame() {
             }
           }
         }
+        startTimer();
       });
     } else {
       showPopup('Waiting for the dealer to start...');
@@ -626,6 +628,14 @@ function closeGame() {
   }
 }
 
+function startTimer(ms=5000) {
+  timer = setInterval(function() { showActiveGame() }, ms);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+}
+
 $(document).ready(function() {
   /* set variables */
   html = $('#player-list').html();
@@ -645,8 +655,6 @@ $(document).ready(function() {
   $('#game-play').html('Blackjack: (' + player_name + ')');
 
   /* generate HTML: every 500 ms */
-  timer = setInterval(function() { showActiveGame() }, 1000);
 
-  showActiveGame();
 
 });
