@@ -312,6 +312,8 @@ function getRemainingPlayers(){
   if (finished_players.length) {
     var filter_template = ({ player_id }) => `player_id != ${player_id}`
     var temp_filter = finished_players.map(filter_template).join(' AND ');
+    console.log ('=== TEMP FILTER ===');
+    console.log(temp_filter)
 
     $.ajax({
       url: url, type: 'POST', async: false,
