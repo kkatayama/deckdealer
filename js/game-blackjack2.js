@@ -178,7 +178,19 @@ function getActiveGame() {
   });
   return temp_active;
 }
-
+function addActiveGame(player, card, action) {
+  /*
+   * POST: https://deckdealer.hopto.org/add/active_game2
+   * PARAMS (example):
+   * {
+   *   game_id: "1",
+   *   user_id: "4",
+   *   player_id: "3",
+   *   player_hand: "4H",
+   *   player_action: "setup",
+   * }
+   */
+}
 function renderPlayerTemplate(player, num_cols=6) {
   var html_info = [{ player_id: "2", user_name: "alice", score: 20 },].map(player_info_template).join('');
   var html_cards = [{ img: "6S.png" }, { img: "6H.png" }].map(player_cards_template).join('');
@@ -197,6 +209,19 @@ function showActiveGame() {
   } else {
     if (user_name === 'dealer') {
       showPopup('Click SETUP to deal the first round of cards', 'action');
+      $('#setup').click(function(e) {
+        for (var i = 0; i < players.length; i++) {
+          var player = players[i];
+          if (player.name === "dealer"){
+            var dealer = players[i];
+          } else {
+            var card = dealCard();
+            addActiveGame(player, card, 'setup');
+          }
+
+
+        }
+      });
     } else {
       showPopup('Waiting for the dealer to start...');
     }
