@@ -14,6 +14,7 @@ var players = [];
 var player_id = "";
 var player_name = "";
 
+var cards = [];
 var active = [];
 var card_index = 1;
 
@@ -147,6 +148,26 @@ function getPlayerName() {
   }
 }
 
+function getPlayerCards(player) {
+  /*
+   * POST: https://deckdealer.hopto.org/get/active_game2
+   * PARAMS: (example):
+   * {
+   *   filter: (player_id = 1)
+   * }
+   */
+  var url = new URL('/get/active_game2', api_url).toString();
+  var temp_cards = [];
+  $.ajax({url: url, type: 'POST', async: false,
+    data: {
+      player_id: player.player_id,
+    },
+    success: function(response) {
+      console.log(response);
+    }
+  });
+
+}
 
 function dealCard() {
   /* GET: https://deckdealer.hopto.org/get/deck?filter=(card_id={card_index}) */
@@ -220,7 +241,7 @@ function showActiveGame() {
 
   if (active_game.length) {
     hidePopup();
-    for (var i = 0; i < active_game.length; i++) {
+    for (var i = 0; i < players.length; i++) {
 
     }
 
