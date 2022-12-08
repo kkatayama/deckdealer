@@ -18,6 +18,8 @@ var active = [];
 var card_index = 1;
 var remaining_players = [];
 
+var timer = 0;
+
 /* taken from: https://stackoverflow.com/questions/18673860/defining-a-html-template-to-append-using-jquery */
 var player_template = ({ num_cols, info, cards }) => `
 <div class="row row-cols-${num_cols} justify-content-center mt-2">${info}${cards}</div>
@@ -427,14 +429,14 @@ function showActiveGame() {
           break;
         }
       }
-      setTimeout(function() { closeGame() }, 5000);
+      // setTimeout(function() { closeGame() }, 5000);
     }
 
     //showPopup('What would you like to do?', 'action')
   } else {
     if (user_name === 'dealer') {
-      showPopup('Click SETUP to deal the first round of cards', 'action');
-      $('#setup').click(function(e) {
+      showPopup('Click [SETUP] to deal the first round of cards', 'action');
+      $('#setup').click(function(elem) {
         hidePopup();
         for (var i = 0; i < 2; i++) {
           for (var j = 0; j < players.length; j++) {
@@ -457,9 +459,63 @@ function showActiveGame() {
   }
 }
 
+function saveActiveGame() {
+  /*
+   * POST: https://deckdealer.hopto.org/delete/active_game2
+   * PARAMS: (example):
+   * {
+   *   game_id: 1,
+   *   user_id: 2,
+   *   player_id: 1,
+   *   winner: "dealer",
+   *   winner_email: "dealer@udel.edu",
+   *   winner_hand: "10S, 10H",
+   *   winner_score: 20,
+   *   players: "dealer, alice, bob",
+   *   player_hands: "10S+10H, 6D+QH+3S, 4H+9D+5S",
+   *   player_scores: "20, 19, 18",
+   *   spectators: "anna, steve",
+   * }
+   */
+  var url = new URL('/add/score_board2', api_url).toString();
+  $.ajax({url: url, type: 'POST', async: false,
+    data: {
+      filter: `(entry_id > 0)`,
+    },
+    success: function(response) {
+      console.log(response);
+    }
+  });
+
+}
+
+function clearActiveGame() {
+  /*
+   * POST: https://deckdealer.hopto.org/delete/active_game2
+   * PARAMS: (example):
+   * {
+   *   filter: `(entry_id > 0)`
+   * }
+   */
+  var url = new URL('/get/active_game2', api_url).toString();
+  $.ajax({url: url, type: 'POST', async: false,
+    data: {
+      filter: `(entry_id > 0)`,
+    },
+    success: function(response) {
+      console.log(response);
+    }
+  });
+}
+
 function closeGame() {
+  clearInterval(timer);
   if (user_name === 'dealer') {
-    showPopup('')
+    showPopup('Click [CLOSE GAME] to add the results to the score_board', 'close');
+    $('#close').click(function(elem) {
+      hidePopup();
+      save
+    })
   }
 }
 
