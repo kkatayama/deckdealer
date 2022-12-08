@@ -82240,3 +82240,43 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 }
 74.103.158.236 2022-12-07 22:21:12.768267 GET http://deckdealer.hopto.org/blackjack.html 200
 74.103.158.236 2022-12-07 22:21:14.224494 GET http://deckdealer.hopto.org/blackjack.html 200
+74.103.158.236 2022-12-07 22:25:56.750926 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-07 22:25:56.751543 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-07 22:25:56.750813 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.236 2022-12-07 22:26:05.550104 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2022-12-07 22:26:05.550407 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.236 2022-12-07 22:26:05.550050 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.236 2022-12-07 22:26:09.043632 GET http://deckdealer.hopto.org/blackjack.html 200
+74.103.158.236 2022-12-07 22:26:13.291196 GET http://deckdealer.hopto.org/blackjack.html 200
+74.103.158.236 2022-12-07 22:26:42.264956 GET http://deckdealer.hopto.org/spectators.html 304
+74.103.158.236 2022-12-07 22:26:42.336299 GET http://deckdealer.hopto.org/js/watch-game.js 304
