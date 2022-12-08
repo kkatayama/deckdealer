@@ -37,11 +37,17 @@ var player_cards_template = ({ img }) => `
   <div class="col"><img src="${img}" class="img-fluid"></div>
 `;
 
-var msg_body_template = ({ msg }) => `
+var alert_body_template = ({ msg }) => `
 <div class="d-flex align-items-center">
   <strong>${msg}</strong>
   <div class="spinner-border ms-auto" role="status" aria-hidden="true">
   </div>
+</div>
+`;
+
+var action_body_template = ({ msg }) => `
+<div class="d-flex align-items-center">
+  <strong>${msg}</strong>
 </div>
 `;
 
@@ -56,8 +62,12 @@ function renderPlayerTemplate() {
   $('#players').append(html_player);
 }
 
-function renderMsgBodyTemplate(msg) {
-  return [{ msg: msg }].map(msg_body_template).join('');
+function renderAlertBodyTemplate(msg) {
+  return [{ msg: msg }].map(alert_body_template).join('');
+}
+
+function renderActionBodyTemplate(msg) {
+  return [{ msg: msg }].map(action_body_template).join('');
 }
 
 function showPopup(message='', kind="alert") {
@@ -68,6 +78,7 @@ function showPopup(message='', kind="alert") {
   if (kind === "alert") {
     $('#message-header').addClass('d-none');
     $('#message-footer').addClass('d-none');
+    $('#message-body').html(renderAlertBodyTemplate(message));
   }
   if (kind === "action"){
     $('#message-header').removeClass('d-none');
@@ -81,8 +92,8 @@ function showPopup(message='', kind="alert") {
       $('#player_action').removeClass('d-none');
       $('#dealer_setup').addClass('d-none');
     }
+    $('#message-body').html(renderActionBodyTemplate(message));
   }
-  $('#message-body').html(renderMsgBodyTemplate(message));
 
   $('#popup').modal("show");
 }
@@ -185,9 +196,9 @@ function printActiveGame() {
 
     showPopup('What would you like to do?', 'action')
   } else {
-    showPopup('Waiting for the dealer to start...');
+    //showPopup('Waiting for the dealer to start...');
 
-    //showPopup('Click SETUP to deal the first round of cards', 'action');
+    showPopup('Click SETUP to deal the first round of cards', 'action');
   }
 }
 
