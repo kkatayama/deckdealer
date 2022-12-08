@@ -111,8 +111,8 @@ function showPopup(message, kind="alert") {
     $('#message-header').removeClass('d-none');
     $('#message-footer').removeClass('d-none');
     $('#message-title').html('Dealer Action');
-    $('#player_action').addClass('d-none');
-    $('#dealer_setup').removeClass('d-none');
+    $('#player-action').addClass('d-none');
+    $('#dealer-setup').removeClass('d-none');
   }
   if (kind === "alert") {
     $('#message-header').addClass('d-none');
@@ -122,8 +122,15 @@ function showPopup(message, kind="alert") {
     $('#message-header').removeClass('d-none');
     $('#message-footer').removeClass('d-none');
     $('#message-title').html('Player Action');
-    $('#player_action').removeClass('d-none');
-    $('#dealer_setup').addClass('d-none');
+    $('#player-action').removeClass('d-none');
+    $('#dealer-setup').addClass('d-none');
+  }
+  if (kind === "close") {
+    $('#message-header').removeClass('d-none');
+    $('#message-footer').removeClass('d-none');
+    $('#message-title').html('Dealer Action');
+    $('#player-action').addClass('d-none');
+    $('#dealer-close').removeClass('d-none');
   }
   $('#message-body').html(renderAlertBodyTemplate(message));
 
@@ -450,6 +457,11 @@ function showActiveGame() {
   }
 }
 
+function closeGame() {
+  if (user_name === 'dealer') {
+    showPopup('')
+  }
+}
 
 $(document).ready(function() {
   /* set variables */
