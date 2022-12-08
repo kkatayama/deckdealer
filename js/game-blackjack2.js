@@ -432,14 +432,20 @@ function showActiveGame() {
       if (temp_name === player_name) {
         showPopup(`Player Turn: (${temp_name})`, 'action');
         $('#hit').click(function(elem) {
+          elem.preventDefault();
           hidePopup();
           addActiveGame(player, card=dealCard(), 'hit');
           setTimeout(function() { showActiveGame() }, 1000);
+          elem.stopImmediatePropagation();
+          return false;
         });
         $('#stay').click(function(elem) {
+          elem.preventDefault();
           hidePopup();
           addActiveGame(player, card={key: 0}, 'stay');
           setTimeout(function() { showActiveGame() }, 3000);
+          elem.stopImmediatePropagation();
+          return false;
         });
       } else {
         showPopup(`Player Turn: (${temp_name})`, 'alert');
