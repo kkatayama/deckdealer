@@ -15,8 +15,6 @@ var player_id = "";
 var player_name = "";
 
 var active = [];
-var card_index = 1;
-var remaining_players = [];
 
 var timer = 0;
 
@@ -40,32 +38,9 @@ var player_cards_template = ({ img }) => `
   <div class="col"><img src="${img}" class="img-fluid"></div>
 `;
 
-var alert_body_template = ({ msg }) => `
-<div class="d-flex align-items-center">
-  <strong>${msg}</strong>
-  <div class="spinner-border ms-auto" role="status" aria-hidden="true">
-  </div>
-</div>
-`;
-
-var action_body_template = ({ msg }) => `
-<div class="d-flex align-items-center">
-  <strong>${msg}</strong>
-</div>
-`;
-
 ///////////////////////////////////////////////////////////////////////////////
 //                              Global Functions                             //
 ///////////////////////////////////////////////////////////////////////////////
-
-function renderAlertBodyTemplate(msg) {
-  return [{ msg: msg }].map(alert_body_template).join('');
-}
-
-function renderActionBodyTemplate(msg) {
-  return [{ msg: msg }].map(action_body_template).join('');
-}
-
 function renderPlayerTemplate(player, cards, num_cols=6) {
   var score = getPlayerScore(cards);
   var images = [];
@@ -102,45 +77,6 @@ function renderPlayerTemplateAll(player, cards, num_cols=6) {
   // console.log(html_player);
 
   return html_player;
-}
-
-function showPopup(message, kind="alert") {
-  /* disable close button and keyboard escape */
-  $('#message-header').find('button').addClass('disabled')
-  $('#popup').modal({backdrop: 'static', keyboard: false});
-
-  if (kind === "setup") {
-    $('#message-header').removeClass('d-none');
-    $('#message-footer').removeClass('d-none');
-    $('#message-title').html('Dealer Action');
-    $('#player-action').addClass('d-none');
-    $('#dealer-setup').removeClass('d-none');
-  }
-  if (kind === "alert") {
-    $('#message-header').addClass('d-none');
-    $('#message-footer').addClass('d-none');
-  }
-  if (kind === "action"){
-    $('#message-header').removeClass('d-none');
-    $('#message-footer').removeClass('d-none');
-    $('#message-title').html('Player Action');
-    $('#player-action').removeClass('d-none');
-    $('#dealer-setup').addClass('d-none');
-  }
-  if (kind === "close") {
-    $('#message-header').removeClass('d-none');
-    $('#message-footer').removeClass('d-none');
-    $('#message-title').html('Dealer Action');
-    $('#player-action').addClass('d-none');
-    $('#dealer-close').removeClass('d-none');
-  }
-  $('#message-body').html(renderAlertBodyTemplate(message));
-
-  $('#popup').modal("show");
-}
-
-function hidePopup() {
-  $('#popup').modal('hide');
 }
 
 function getUserID() {
@@ -224,10 +160,6 @@ function getPlayerCards(player) {
   return temp_cards;
 }
 
-function cardValue(card) {
-
-}
-
 function getPlayerScore(cards) {
   var temp_score = 0
   for (var i = 0; i < cards.length; i++) {
@@ -250,19 +182,6 @@ function getPlayerScore(cards) {
   return temp_score;
 }
 
-function dealCard() {
-  /* GET: https://deckdealer.hopto.org/get/deck?filter=(card_id={card_index}) */
-  var url = new URL('/get/deck?filter=(card_id=' + card_index + ')', api_url).toString();
-  var temp_card = {};
-  $.ajax({url: url, type: 'GET', async: false,
-    success: function(response) {
-      temp_card = response.data;
-      card_index++;
-    }
-  });
-  return temp_card;
-}
-
 function getActiveGame() {
   /* Get: https://deckdealer.hopto.org/get/active_game2 */
   var url = new URL('/get/active_game2', api_url).toString();
@@ -280,34 +199,6 @@ function getActiveGame() {
     }
   });
   return temp_active;
-}
-
-function addActiveGame(player, card, action) {
-  /*
-   * POST: https://deckdealer.hopto.org/add/active_game2
-   * PARAMS (example):
-   * {
-   *   game_id: "1",
-   *   user_id: "4",
-   *   player_id: "3",
-   *   player_hand: "4H",
-   *   player_action: "setup",
-   * }
-   */
-
-  var url = new URL('/add/active_game2', api_url).toString();
-  $.ajax({url: url, type: 'POST', async: false,
-    data: {
-      game_id: player.game_id,
-      user_id: player.user_id,
-      player_id: player.player_id,
-      player_hand: card.key,
-      player_action: action,
-    },
-    success: function(response) {
-      console.log(response);
-    }
-  });
 }
 
 function getFinishedPlayers() {
@@ -382,8 +273,6 @@ function showActiveGame() {
   active_game = getActiveGame();
 
   if (active_game.length) {
-    hidePopup();
-    card_index = active_game.length + 1;
     remaining_players = getRemainingPlayers();
 
     $('#players').html('');
@@ -398,124 +287,6 @@ function showActiveGame() {
         players[i]["score"] = getPlayerScore(cards);
       }
     }
-
-    if (remaining_players.length) {
-      var player = remaining_players[0];
-
-      var temp_name = getPlayerNameByID(player.player_id);
-      if (temp_name === player_name) {
-        showPopup(`Player Turn: (${temp_name})`, 'action');
-        $('#hit').click(function(elem) {
-          hidePopup();
-          addActiveGame(player, card=dealCard(), 'hit');
-          // setTimeout(function() { showActiveGame() }, 5000);
-        });
-        $('#stay').click(function(elem) {
-          hidePopup();
-          addActiveGame(player, card={key: 0}, 'stay');
-          // setTimeout(function() { showActiveGame() }, 5000);
-        });
-      } else {
-        showPopup(`Player Turn: (${temp_name})`, 'alert');
-      }
-    } else {
-      console.log('=== PROCESS GAME END ===');
-      players.sort((a, b) => {return b.score - a.score});
-      for (var i = 0; i < players.length; i++) {
-        if (players[i].score < 22) {
-          $(`#card_${players[i].player_id}`).append(
-            '<div class="card-footer"><h4 class="text-success">WINNER</h4></div/>'
-          )
-          break;
-        }
-      }
-      // setTimeout(function() { closeGame() }, 5000);
-    }
-
-    //showPopup('What would you like to do?', 'action')
-  } else {
-    if (user_name === 'dealer') {
-      showPopup('Click [SETUP] to deal the first round of cards', 'action');
-      $('#setup').click(function(elem) {
-        hidePopup();
-        for (var i = 0; i < 2; i++) {
-          for (var j = 0; j < players.length; j++) {
-            var player = players[j];
-
-            if (player.name === "dealer"){
-              var dealer = players[j];
-            } else {
-              addActiveGame(player, card=dealCard(), 'setup');
-            }
-            if (j === (players.length - 1)) {
-              addActiveGame(dealer, card=dealCard(), 'setup');
-            }
-          }
-        }
-      });
-    } else {
-      showPopup('Waiting for the dealer to start...');
-    }
-  }
-}
-
-function saveActiveGame() {
-  /*
-   * POST: https://deckdealer.hopto.org/delete/active_game2
-   * PARAMS: (example):
-   * {
-   *   game_id: 1,
-   *   user_id: 2,
-   *   player_id: 1,
-   *   winner: "dealer",
-   *   winner_email: "dealer@udel.edu",
-   *   winner_hand: "10S, 10H",
-   *   winner_score: 20,
-   *   players: "dealer, alice, bob",
-   *   player_hands: "10S+10H, 6D+QH+3S, 4H+9D+5S",
-   *   player_scores: "20, 19, 18",
-   *   spectators: "anna, steve",
-   * }
-   */
-  var url = new URL('/add/score_board2', api_url).toString();
-  $.ajax({url: url, type: 'POST', async: false,
-    data: {
-      filter: `(entry_id > 0)`,
-    },
-    success: function(response) {
-      console.log(response);
-    }
-  });
-
-}
-
-function clearActiveGame() {
-  /*
-   * POST: https://deckdealer.hopto.org/delete/active_game2
-   * PARAMS: (example):
-   * {
-   *   filter: `(entry_id > 0)`
-   * }
-   */
-  var url = new URL('/get/active_game2', api_url).toString();
-  $.ajax({url: url, type: 'POST', async: false,
-    data: {
-      filter: `(entry_id > 0)`,
-    },
-    success: function(response) {
-      console.log(response);
-    }
-  });
-}
-
-function closeGame() {
-  clearInterval(timer);
-  if (user_name === 'dealer') {
-    showPopup('Click [CLOSE GAME] to add the results to the score_board', 'close');
-    $('#close').click(function(elem) {
-      hidePopup();
-      save
-    })
   }
 }
 
