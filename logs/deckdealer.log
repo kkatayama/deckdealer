@@ -15045,3 +15045,161 @@ SELECT * FROM active_game2 WHERE (player_action = ? AND player_action != ?);
     ]
   }
 }
+74.103.158.35 2022-12-08 06:06:50.265220 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 06:06:50.265564 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+['table', 'sqlite_%']
+filter_conditions: "(player_action = ?) GROUP BY (player_id) ORDER BY (entry_id)"
+filter_values: ['setup']
+74.103.158.35 2022-12-08 06:06:50.267261 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+SELECT * FROM active_game2 WHERE (player_action = ?) GROUP BY (player_id) ORDER BY (entry_id);
+74.103.158.35 2022-12-08 06:06:50.267414 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+['setup']
+74.103.158.35 2022-12-08 06:06:50.265028 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) None
+{"request.params": {"filter": "(player_action = \"setup\") GROUP BY (player_id) ORDER BY (entry_id)"}}
+{
+  "message": "found 3 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 4,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.417"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 3,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.571"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 1,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.714"
+    }
+  ]
+}
+74.103.158.35 2022-12-08 06:07:32.537034 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id)%20AND%20(player_id%20!=%202) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 06:07:32.537290 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id)%20AND%20(player_id%20!=%202) request
+['table', 'sqlite_%']
+filter_conditions: "(player_action = ?) GROUP BY (player_id) ORDER BY (entry_id) AND (player_id != 2)"
+filter_values: ['setup']
+74.103.158.35 2022-12-08 06:07:32.538357 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id)%20AND%20(player_id%20!=%202) request
+SELECT * FROM active_game2 WHERE (player_action = ?) GROUP BY (player_id) ORDER BY (entry_id) AND (player_id != 2);
+74.103.158.35 2022-12-08 06:07:32.538452 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id)%20AND%20(player_id%20!=%202) request
+['setup']
+74.103.158.35 2022-12-08 06:07:32.536876 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id)%20AND%20(player_id%20!=%202) None
+{"request.params": {"filter": "(player_action = \"setup\") GROUP BY (player_id) ORDER BY (entry_id) AND (player_id != 2)"}}
+{
+  "message": "found 3 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 4,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.417"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 1,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.714"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 3,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.571"
+    }
+  ]
+}
+74.103.158.35 2022-12-08 06:07:55.631118 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22%20AND%20(player_id%20!=%202))%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 06:07:55.631777 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22%20AND%20(player_id%20!=%202))%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+['table', 'sqlite_%']
+filter_conditions: "(player_action = ? AND (player_id != 2)) GROUP BY (player_id) ORDER BY (entry_id)"
+filter_values: ['setup']
+74.103.158.35 2022-12-08 06:07:55.635285 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22%20AND%20(player_id%20!=%202))%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+SELECT * FROM active_game2 WHERE (player_action = ? AND (player_id != 2)) GROUP BY (player_id) ORDER BY (entry_id);
+74.103.158.35 2022-12-08 06:07:55.635446 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22%20AND%20(player_id%20!=%202))%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+['setup']
+74.103.158.35 2022-12-08 06:07:55.630727 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22%20AND%20(player_id%20!=%202))%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) None
+{"request.params": {"filter": "(player_action = \"setup\" AND (player_id != 2)) GROUP BY (player_id) ORDER BY (entry_id)"}}
+{
+  "message": "found 2 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 3,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.571"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 1,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.714"
+    }
+  ]
+}
+74.103.158.35 2022-12-08 06:08:03.408824 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22%20AND%20player_id%20!=%202)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 06:08:03.409127 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22%20AND%20player_id%20!=%202)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+['table', 'sqlite_%']
+filter_conditions: "(player_action = ? AND player_id != 2) GROUP BY (player_id) ORDER BY (entry_id)"
+filter_values: ['setup']
+74.103.158.35 2022-12-08 06:08:03.410871 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22%20AND%20player_id%20!=%202)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+SELECT * FROM active_game2 WHERE (player_action = ? AND player_id != 2) GROUP BY (player_id) ORDER BY (entry_id);
+74.103.158.35 2022-12-08 06:08:03.411021 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22%20AND%20player_id%20!=%202)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) request
+['setup']
+74.103.158.35 2022-12-08 06:08:03.408636 GET http://deckdealer.hopto.org/get/active_game2?filter=(player_action%20=%20%22setup%22%20AND%20player_id%20!=%202)%20GROUP%20BY%20(player_id)%20ORDER%20BY%20(entry_id) None
+{"request.params": {"filter": "(player_action = \"setup\" AND player_id != 2) GROUP BY (player_id) ORDER BY (entry_id)"}}
+{
+  "message": "found 2 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 3,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.571"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 1,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.714"
+    }
+  ]
+}
