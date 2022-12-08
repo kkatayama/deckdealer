@@ -33,7 +33,7 @@ var player_info_template = ({ player_id, user_name, score }) => `
 `;
 
 var player_cards_template = ({ img }) => `
-  <div class="col"><img src="${img}" class="img-fluid"></div>
+  <div class="col"><img src="${img}" class="img-fluid" height="200"></div>
 `;
 
 ///////////////////////////////////////////////////////////////////////////////
