@@ -45,7 +45,7 @@ $(document).ready(function() {
   $('#game-register').submit(function(elem) {
     elem.preventDefault();
     /* register player */
-    /* POST: https://deckdealer.hopto.org/add/players2
+    /* POST: https://deckdealer.hopto.org/add/spectators2
      * PARAMS (example):
      * {
      *   user_id: "3",
@@ -53,15 +53,8 @@ $(document).ready(function() {
      *   name: "alice",
      *   email: "alice@udel.edu",
      * }
-     * RETURNS:
-     * {
-     *   "message": "data added to <players>",
-     *   "player_id": "2",
-     *   "user_id": "3",
-     *   "game_id": "1",
-     * }
      */
-    var url = new URL('/add/players2', api_url).toString();
+    var url = new URL('/add/spectators2', api_url).toString();
     $.ajax({url: url, method: 'POST',
             data: {
               user_id: user_id,
