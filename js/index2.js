@@ -6,8 +6,16 @@ $(document).ready(function() {
     if (message.includes('user login success')) {
       $('#popup-content').append(
         '<div class="modal-footer">' +
-          '<a class="btn btn-primary" href="spectators.html">Watch Game</a>' +
-          '<a class="btn btn-primary" href="game-list2.html">Play Game</a>' +
+          '<div class="container">' +
+            '<div class="row justify-content-center">' +
+              '<div class="col">' +
+                '<a class="btn btn-primary" href="spectators.html">Watch Game</a>' +
+              '</div>' +
+              '<div class="col">' +
+                '<a class="btn btn-primary" href="game-list2.html">Play Game</a>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
         '</div>'
       )
     }

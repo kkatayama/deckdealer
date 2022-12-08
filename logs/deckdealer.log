@@ -1423,3 +1423,39 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
     {}
   ]
 }
+74.103.158.35 2022-12-08 00:56:00.706368 GET http://deckdealer.hopto.org/ 304
+74.103.158.35 2022-12-08 00:56:07.171548 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 00:56:07.172274 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 00:56:07.171428 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.35 2022-12-08 00:56:33.019543 GET http://deckdealer.hopto.org/ 304
+74.103.158.35 2022-12-08 00:57:09.093118 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 00:57:09.093736 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 00:57:09.099199 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+74.103.158.35 2022-12-08 00:57:09.099394 POST http://deckdealer.hopto.org/login request
+['dealer']
+74.103.158.35 2022-12-08 00:57:09.092983 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "dealer", "password": "dealer"}}
+{
+  "message": "user login success",
+  "user_id": 2,
+  "username": "dealer",
+  "token": "IXg1b2tPN3RITEhwMktadHZFWC82SWc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeWxJYVVMZz09"
+}
