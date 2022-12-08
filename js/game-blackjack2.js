@@ -64,7 +64,7 @@ function renderMsgBodyTemplate(msg) {
 
 function showPopup(message='', kind="alert") {
   /* disable close button and keyboard escape */
-  $('#popup').find('button').addClass('disabled')
+  $('#message-title').find('button').addClass('disabled')
   $('#popup').modal({backdrop: 'static', keyboard: false});
 
   if (kind === "alert") {
