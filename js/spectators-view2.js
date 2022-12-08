@@ -306,11 +306,8 @@ $(document).ready(function() {
   $('#game-play').html('Blackjack: (Spectators View)');
 
   /* generate HTML: every 500 ms */
-  // var timer = setInterval(function() { printPlayerList() }, 1000);
-  $('#status').click(function(elem) {
-    clearInterval(timer);
-    window.location.href = "game-blackjack-play2.html";
-  });
+
+  timer = setInterval(function() { showActiveGame() }, 1000);
 
   showActiveGame();
 

@@ -117,21 +117,18 @@ function showPopup(message, kind="alert") {
     $('#player-action').addClass('d-none');
     $('#dealer-setup').removeClass('d-none');
     $('#message-body').html(renderActionBodyTemplate(message));
-  }
-  if (kind === "alert") {
+  } else if (kind === "alert") {
     $('#message-header').addClass('d-none');
     $('#message-footer').addClass('d-none');
     $('#message-body').html(renderAlertBodyTemplate(message));
-  }
-  if (kind === "action"){
+  } else if (kind === "action"){
     $('#message-header').removeClass('d-none');
     $('#message-footer').removeClass('d-none');
     $('#message-title').html('Player Action');
     $('#player-action').removeClass('d-none');
     $('#dealer-setup').addClass('d-none');
     $('#message-body').html(renderActionBodyTemplate(message));
-  }
-  if (kind === "close") {
+  } else if (kind === "close") {
     $('#message-header').removeClass('d-none');
     $('#message-footer').removeClass('d-none');
     $('#message-title').html('Dealer Action');
