@@ -163,10 +163,10 @@ function getPlayerCards(player) {
       player_id: player.player_id,
     },
     success: function(response) {
-      console.log(response);
+      temp_cards = response.data;
     }
   });
-
+  return temp_cards;
 }
 
 function dealCard() {
