@@ -173,6 +173,7 @@ function cardValue(card) {
 }
 
 function getPlayerScore(cards) {
+  var temp_score = 0
   for (var i = 0; i < cards.length; i++) {
     var card = cards[i].player_hand;
     if (parseInt(card)) {
@@ -190,6 +191,7 @@ function getPlayerScore(cards) {
       }
     }
   }
+  return temp_score;
 }
 
 function dealCard() {
@@ -269,6 +271,7 @@ function renderPlayerTemplate(player, cards, num_cols=6) {
   var html_info = [{ player_id: player.player_id, player_name: player.name, score: score }].map(player_info_template).join('');
   var html_cards = images.map(player_cards_template).join('');
   var html_player = [{ num_cols: num_cols, info: html_info, cards: html_cards }].map(player_template).join('');
+  console.log(html_player);
   return html_player;
 }
 
