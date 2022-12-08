@@ -36278,3 +36278,205 @@ SELECT * FROM active_game2 WHERE (player_id = 3 AND player_action != ?);
     }
   ]
 }
+73.188.184.84 2022-12-08 08:38:51.002043 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+73.188.184.84 2022-12-08 08:38:51.002339 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+73.188.184.84 2022-12-08 08:38:51.001987 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+73.188.184.84 2022-12-08 08:38:51.465307 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+73.188.184.84 2022-12-08 08:38:51.465994 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+73.188.184.84 2022-12-08 08:38:51.465182 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+73.188.184.84 2022-12-08 08:38:51.759609 GET http://deckdealer.hopto.org/favicon.ico 404
+73.188.184.84 2022-12-08 08:38:51.760684 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+73.188.184.84 2022-12-08 08:39:00.849590 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+73.188.184.84 2022-12-08 08:39:00.849801 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+73.188.184.84 2022-12-08 08:39:00.849548 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+73.188.184.84 2022-12-08 08:39:01.119832 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+73.188.184.84 2022-12-08 08:39:01.120330 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+73.188.184.84 2022-12-08 08:39:01.119737 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+73.188.184.84 2022-12-08 08:39:02.854113 GET http://deckdealer.hopto.org/get/users 401
+73.188.184.84 2022-12-08 08:39:02.854693 GET http://deckdealer.hopto.org/get/users None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+73.188.184.84 2022-12-08 08:39:03.063242 GET http://deckdealer.hopto.org/get/users 401
+73.188.184.84 2022-12-08 08:39:03.063714 GET http://deckdealer.hopto.org/get/users None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+73.188.184.84 2022-12-08 08:39:11.302887 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+73.188.184.84 2022-12-08 08:39:11.303570 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+73.188.184.84 2022-12-08 08:39:11.302769 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+73.188.184.84 2022-12-08 08:39:11.635016 GET http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+73.188.184.84 2022-12-08 08:39:11.635285 GET http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+73.188.184.84 2022-12-08 08:39:11.634959 GET http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+73.188.184.84 2022-12-08 08:39:14.302886 GET http://deckdealer.hopto.org/get/users 401
+73.188.184.84 2022-12-08 08:39:14.303770 GET http://deckdealer.hopto.org/get/users None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+73.188.184.84 2022-12-08 08:39:14.530984 GET http://deckdealer.hopto.org/get/users 401
+73.188.184.84 2022-12-08 08:39:14.531492 GET http://deckdealer.hopto.org/get/users None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
