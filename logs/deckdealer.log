@@ -9244,3 +9244,510 @@ SELECT * FROM active_game2 WHERE (player_id = 1);
     }
   ]
 }
+74.103.158.35 2022-12-08 02:23:41.184705 GET http://deckdealer.hopto.org/get/cards request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 02:23:41.185172 GET http://deckdealer.hopto.org/get/cards request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 02:23:41.187050 GET http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-12-08 02:23:41.187268 GET http://deckdealer.hopto.org/get/cards request
+SELECT * FROM cards WHERE 1;
+74.103.158.35 2022-12-08 02:23:41.184248 GET http://deckdealer.hopto.org/get/cards None
+{"request.params": {}}
+{
+  "message": "found 52 card entries",
+  "data": [
+    {
+      "card_id": 1,
+      "key": "2C",
+      "name": "2",
+      "suit": "CLUBS",
+      "description": "2_of_clubs",
+      "file_name": "2C.png",
+      "entry_time": "2022-11-01 15:04:21.768"
+    },
+    {
+      "card_id": 2,
+      "key": "2D",
+      "name": "2",
+      "suit": "DIAMONDS",
+      "description": "2_of_diamonds",
+      "file_name": "2D.png",
+      "entry_time": "2022-11-01 15:04:22.103"
+    },
+    {
+      "card_id": 3,
+      "key": "2H",
+      "name": "2",
+      "suit": "HEARTS",
+      "description": "2_of_hearts",
+      "file_name": "2H.png",
+      "entry_time": "2022-11-01 15:04:22.457"
+    },
+    {
+      "card_id": 4,
+      "key": "2S",
+      "name": "2",
+      "suit": "SPADES",
+      "description": "2_of_spades",
+      "file_name": "2S.png",
+      "entry_time": "2022-11-01 15:04:22.838"
+    },
+    {
+      "card_id": 5,
+      "key": "3C",
+      "name": "3",
+      "suit": "CLUBS",
+      "description": "3_of_clubs",
+      "file_name": "3C.png",
+      "entry_time": "2022-11-01 15:04:23.178"
+    },
+    {
+      "card_id": 6,
+      "key": "3D",
+      "name": "3",
+      "suit": "DIAMONDS",
+      "description": "3_of_diamonds",
+      "file_name": "3D.png",
+      "entry_time": "2022-11-01 15:04:23.550"
+    },
+    {
+      "card_id": 7,
+      "key": "3H",
+      "name": "3",
+      "suit": "HEARTS",
+      "description": "3_of_hearts",
+      "file_name": "3H.png",
+      "entry_time": "2022-11-01 15:04:23.911"
+    },
+    {
+      "card_id": 8,
+      "key": "3S",
+      "name": "3",
+      "suit": "SPADES",
+      "description": "3_of_spades",
+      "file_name": "3S.png",
+      "entry_time": "2022-11-01 15:04:24.251"
+    },
+    {
+      "card_id": 9,
+      "key": "4C",
+      "name": "4",
+      "suit": "CLUBS",
+      "description": "4_of_clubs",
+      "file_name": "4C.png",
+      "entry_time": "2022-11-01 15:04:24.609"
+    },
+    {
+      "card_id": 10,
+      "key": "4D",
+      "name": "4",
+      "suit": "DIAMONDS",
+      "description": "4_of_diamonds",
+      "file_name": "4D.png",
+      "entry_time": "2022-11-01 15:04:24.969"
+    },
+    {
+      "card_id": 11,
+      "key": "4H",
+      "name": "4",
+      "suit": "HEARTS",
+      "description": "4_of_hearts",
+      "file_name": "4H.png",
+      "entry_time": "2022-11-01 15:04:25.321"
+    },
+    {
+      "card_id": 12,
+      "key": "4S",
+      "name": "4",
+      "suit": "SPADES",
+      "description": "4_of_spades",
+      "file_name": "4S.png",
+      "entry_time": "2022-11-01 15:04:25.765"
+    },
+    {
+      "card_id": 13,
+      "key": "5C",
+      "name": "5",
+      "suit": "CLUBS",
+      "description": "5_of_clubs",
+      "file_name": "5C.png",
+      "entry_time": "2022-11-01 15:04:26.148"
+    },
+    {
+      "card_id": 14,
+      "key": "5D",
+      "name": "5",
+      "suit": "DIAMONDS",
+      "description": "5_of_diamonds",
+      "file_name": "5D.png",
+      "entry_time": "2022-11-01 15:04:26.501"
+    },
+    {
+      "card_id": 15,
+      "key": "5H",
+      "name": "5",
+      "suit": "HEARTS",
+      "description": "5_of_hearts",
+      "file_name": "5H.png",
+      "entry_time": "2022-11-01 15:04:26.855"
+    },
+    {
+      "card_id": 16,
+      "key": "5S",
+      "name": "5",
+      "suit": "SPADES",
+      "description": "5_of_spades",
+      "file_name": "5S.png",
+      "entry_time": "2022-11-01 15:04:27.195"
+    },
+    {
+      "card_id": 17,
+      "key": "6C",
+      "name": "6",
+      "suit": "CLUBS",
+      "description": "6_of_clubs",
+      "file_name": "6C.png",
+      "entry_time": "2022-11-01 15:04:27.558"
+    },
+    {
+      "card_id": 18,
+      "key": "6D",
+      "name": "6",
+      "suit": "DIAMONDS",
+      "description": "6_of_diamonds",
+      "file_name": "6D.png",
+      "entry_time": "2022-11-01 15:04:27.924"
+    },
+    {
+      "card_id": 19,
+      "key": "6H",
+      "name": "6",
+      "suit": "HEARTS",
+      "description": "6_of_hearts",
+      "file_name": "6H.png",
+      "entry_time": "2022-11-01 15:04:28.257"
+    },
+    {
+      "card_id": 20,
+      "key": "6S",
+      "name": "6",
+      "suit": "SPADES",
+      "description": "6_of_spades",
+      "file_name": "6S.png",
+      "entry_time": "2022-11-01 15:04:28.606"
+    },
+    {
+      "card_id": 21,
+      "key": "7C",
+      "name": "7",
+      "suit": "CLUBS",
+      "description": "7_of_clubs",
+      "file_name": "7C.png",
+      "entry_time": "2022-11-01 15:04:28.976"
+    },
+    {
+      "card_id": 22,
+      "key": "7D",
+      "name": "7",
+      "suit": "DIAMONDS",
+      "description": "7_of_diamonds",
+      "file_name": "7D.png",
+      "entry_time": "2022-11-01 15:04:29.341"
+    },
+    {
+      "card_id": 23,
+      "key": "7H",
+      "name": "7",
+      "suit": "HEARTS",
+      "description": "7_of_hearts",
+      "file_name": "7H.png",
+      "entry_time": "2022-11-01 15:04:29.705"
+    },
+    {
+      "card_id": 24,
+      "key": "7S",
+      "name": "7",
+      "suit": "SPADES",
+      "description": "7_of_spades",
+      "file_name": "7S.png",
+      "entry_time": "2022-11-01 15:04:30.081"
+    },
+    {
+      "card_id": 25,
+      "key": "8C",
+      "name": "8",
+      "suit": "CLUBS",
+      "description": "8_of_clubs",
+      "file_name": "8C.png",
+      "entry_time": "2022-11-01 15:04:30.435"
+    },
+    {
+      "card_id": 26,
+      "key": "8D",
+      "name": "8",
+      "suit": "DIAMONDS",
+      "description": "8_of_diamonds",
+      "file_name": "8D.png",
+      "entry_time": "2022-11-01 15:04:31.126"
+    },
+    {
+      "card_id": 27,
+      "key": "8H",
+      "name": "8",
+      "suit": "HEARTS",
+      "description": "8_of_hearts",
+      "file_name": "8H.png",
+      "entry_time": "2022-11-01 15:04:31.469"
+    },
+    {
+      "card_id": 28,
+      "key": "8S",
+      "name": "8",
+      "suit": "SPADES",
+      "description": "8_of_spades",
+      "file_name": "8S.png",
+      "entry_time": "2022-11-01 15:04:31.844"
+    },
+    {
+      "card_id": 29,
+      "key": "9C",
+      "name": "9",
+      "suit": "CLUBS",
+      "description": "9_of_clubs",
+      "file_name": "9C.png",
+      "entry_time": "2022-11-01 15:04:32.189"
+    },
+    {
+      "card_id": 30,
+      "key": "9D",
+      "name": "9",
+      "suit": "DIAMONDS",
+      "description": "9_of_diamonds",
+      "file_name": "9D.png",
+      "entry_time": "2022-11-01 15:04:32.566"
+    },
+    {
+      "card_id": 31,
+      "key": "9H",
+      "name": "9",
+      "suit": "HEARTS",
+      "description": "9_of_hearts",
+      "file_name": "9H.png",
+      "entry_time": "2022-11-01 15:04:32.937"
+    },
+    {
+      "card_id": 32,
+      "key": "9S",
+      "name": "9",
+      "suit": "SPADES",
+      "description": "9_of_spades",
+      "file_name": "9S.png",
+      "entry_time": "2022-11-01 15:04:33.297"
+    },
+    {
+      "card_id": 33,
+      "key": "10C",
+      "name": "10",
+      "suit": "CLUBS",
+      "description": "10_of_clubs",
+      "file_name": "10C.png",
+      "entry_time": "2022-11-01 15:04:33.667"
+    },
+    {
+      "card_id": 34,
+      "key": "10D",
+      "name": "10",
+      "suit": "DIAMONDS",
+      "description": "10_of_diamonds",
+      "file_name": "10D.png",
+      "entry_time": "2022-11-01 15:04:34.030"
+    },
+    {
+      "card_id": 35,
+      "key": "10H",
+      "name": "10",
+      "suit": "HEARTS",
+      "description": "10_of_hearts",
+      "file_name": "10H.png",
+      "entry_time": "2022-11-01 15:04:34.375"
+    },
+    {
+      "card_id": 36,
+      "key": "10S",
+      "name": "10",
+      "suit": "SPADES",
+      "description": "10_of_spades",
+      "file_name": "10S.png",
+      "entry_time": "2022-11-01 15:04:34.715"
+    },
+    {
+      "card_id": 37,
+      "key": "JC",
+      "name": "JACK",
+      "suit": "CLUBS",
+      "description": "jack_of_clubs",
+      "file_name": "JC.png",
+      "entry_time": "2022-11-01 15:04:35.093"
+    },
+    {
+      "card_id": 38,
+      "key": "JD",
+      "name": "JACK",
+      "suit": "DIAMONDS",
+      "description": "jack_of_diamonds",
+      "file_name": "JD.png",
+      "entry_time": "2022-11-01 15:04:35.448"
+    },
+    {
+      "card_id": 39,
+      "key": "JH",
+      "name": "JACK",
+      "suit": "HEARTS",
+      "description": "jack_of_hearts",
+      "file_name": "JH.png",
+      "entry_time": "2022-11-01 15:04:35.897"
+    },
+    {
+      "card_id": 40,
+      "key": "JS",
+      "name": "JACK",
+      "suit": "SPADES",
+      "description": "jack_of_spades",
+      "file_name": "JS.png",
+      "entry_time": "2022-11-01 15:04:36.267"
+    },
+    {
+      "card_id": 41,
+      "key": "QC",
+      "name": "QUEEN",
+      "suit": "CLUBS",
+      "description": "queen_of_clubs",
+      "file_name": "QC.png",
+      "entry_time": "2022-11-01 15:04:36.629"
+    },
+    {
+      "card_id": 42,
+      "key": "QD",
+      "name": "QUEEN",
+      "suit": "DIAMONDS",
+      "description": "queen_of_diamonds",
+      "file_name": "QD.png",
+      "entry_time": "2022-11-01 15:04:36.967"
+    },
+    {
+      "card_id": 43,
+      "key": "QH",
+      "name": "QUEEN",
+      "suit": "HEARTS",
+      "description": "queen_of_hearts",
+      "file_name": "QH.png",
+      "entry_time": "2022-11-01 15:04:37.303"
+    },
+    {
+      "card_id": 44,
+      "key": "QS",
+      "name": "QUEEN",
+      "suit": "SPADES",
+      "description": "queen_of_spades",
+      "file_name": "QS.png",
+      "entry_time": "2022-11-01 15:04:37.646"
+    },
+    {
+      "card_id": 45,
+      "key": "KC",
+      "name": "KING",
+      "suit": "CLUBS",
+      "description": "king_of_clubs",
+      "file_name": "KC.png",
+      "entry_time": "2022-11-01 15:04:38.001"
+    },
+    {
+      "card_id": 46,
+      "key": "KD",
+      "name": "KING",
+      "suit": "DIAMONDS",
+      "description": "king_of_diamonds",
+      "file_name": "KD.png",
+      "entry_time": "2022-11-01 15:04:38.354"
+    },
+    {
+      "card_id": 47,
+      "key": "KH",
+      "name": "KING",
+      "suit": "HEARTS",
+      "description": "king_of_hearts",
+      "file_name": "KH.png",
+      "entry_time": "2022-11-01 15:04:38.745"
+    },
+    {
+      "card_id": 48,
+      "key": "KS",
+      "name": "KING",
+      "suit": "SPADES",
+      "description": "king_of_spades",
+      "file_name": "KS.png",
+      "entry_time": "2022-11-01 15:04:39.121"
+    },
+    {
+      "card_id": 49,
+      "key": "AC",
+      "name": "ACE",
+      "suit": "CLUBS",
+      "description": "ace_of_clubs",
+      "file_name": "AC.png",
+      "entry_time": "2022-11-01 15:04:39.467"
+    },
+    {
+      "card_id": 50,
+      "key": "AD",
+      "name": "ACE",
+      "suit": "DIAMONDS",
+      "description": "ace_of_diamonds",
+      "file_name": "AD.png",
+      "entry_time": "2022-11-01 15:04:39.831"
+    },
+    {
+      "card_id": 51,
+      "key": "AH",
+      "name": "ACE",
+      "suit": "HEARTS",
+      "description": "ace_of_hearts",
+      "file_name": "AH.png",
+      "entry_time": "2022-11-01 15:04:40.157"
+    },
+    {
+      "card_id": 52,
+      "key": "AS",
+      "name": "ACE",
+      "suit": "SPADES",
+      "description": "ace_of_spades",
+      "file_name": "AS.png",
+      "entry_time": "2022-11-01 15:04:40.495"
+    }
+  ]
+}
+74.103.158.35 2022-12-08 02:24:45.118684 GET http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 02:24:45.119028 GET http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 02:24:45.121037 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+74.103.158.35 2022-12-08 02:24:45.121274 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+74.103.158.35 2022-12-08 02:24:45.118481 GET http://deckdealer.hopto.org/get/games None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
