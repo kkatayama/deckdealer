@@ -175,12 +175,15 @@ function getSpectators() {
   var temp_spectators = [];
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
-      temp_spectators = response.data;
+      if (response.message.includes("0 spectators2 entries found")) {
+        temp_spectators = players;
+      } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
+        temp_spectators = [response.data];
+      } else {
+        temp_spectators = response.data;
+      }
     }
   });
-  if (temp_spectators.length === 0) {
-    return players;
-  }
   return temp_spectators;
 }
 
