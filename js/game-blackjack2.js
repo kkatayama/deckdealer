@@ -16,6 +16,7 @@ var player_name = "";
 
 var active = [];
 var card_index = 1;
+var remaining_players = [];
 
 /* taken from: https://stackoverflow.com/questions/18673860/defining-a-html-template-to-append-using-jquery */
 var player_template = ({ num_cols, info, cards }) => `
@@ -277,7 +278,67 @@ function addActiveGame(player, card, action) {
   });
 }
 
-// function get
+function getFinishedPlayers() {
+  var url = new URL('/get/active_game2', api_url).toString();
+  var temp_players = [];
+  $.ajax({url: url, type: 'POST', async: false,
+    data: {
+      filter: `(player_action = "stay") GROUP BY (player_id) ORDER BY (entry_id)`,
+    },
+    success: function(response) {
+      if (response.data.length === 0) {
+        temp_players = [];
+      } else {
+        temp_players = response.data;
+      }
+    }
+  });
+  return temp_players;
+}
+
+function getRemainingPlayers(){
+  var url = new URL('/get/active_game2', api_url).toString();
+  var temp_players = [];
+  var finished_players = getFinishedPlayers();
+
+  if (finished_players.length) {
+    var filter_template = ({ player_id }) => `player_id != ${player_id}`
+    var temp_filter = finished_players.map(filter_template).join(' AND ');
+
+    $.ajax({
+      url: url, type: 'POST', async: false,
+      data: {
+        filter: `(player_action = "setup" AND ${temp_filter}) GROUP BY (player_id) ORDER BY (entry_id)`,
+      },
+      success: function(response) {
+        if ((response.message.includes("0")) && (response.message.includes("entries"))) {
+          temp_players = [];
+        } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
+          temp_players = [response.data];
+        } else {
+          temp_players = response.data;
+        }
+      }
+    });
+  } else {
+    $.ajax({
+      url: url, type: 'POST', async: false,
+      data: {
+        filter: `(player_action = "setup") GROUP BY (player_id) ORDER BY (entry_id)`,
+      },
+      success: function(response) {
+        if ((response.message.includes("0")) && (response.message.includes("entries"))) {
+          temp_players = [];
+        } else if ((response.message.includes("1")) && (response.message.includes("entry"))) {
+          temp_players = [response.data];
+        } else {
+          temp_players = response.data;
+        }
+      }
+    });
+  }
+  return temp_players;
+}
 
 function showActiveGame() {
   active_game = getActiveGame();
