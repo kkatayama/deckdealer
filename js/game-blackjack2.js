@@ -446,7 +446,7 @@ function showActiveGame() {
           elem.preventDefault();
           hidePopup();
           addActiveGame(player, card={key: 0}, 'stay');
-          setTimeout(function() { showActiveGame() }, 3000);
+          setTimeout(function() { showActiveGame() }, 1000);
           elem.stopImmediatePropagation();
           return false;
         });
