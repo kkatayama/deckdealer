@@ -238,7 +238,7 @@ function showActiveGame() {
             } else {
               addActiveGame(player, card=dealCard(), 'setup');
             }
-            if (i === (players.length - 1)) {
+            if (j === (players.length - 1)) {
               addActiveGame(dealer, card=dealCard(), 'setup');
             }
           }

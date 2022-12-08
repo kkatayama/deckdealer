@@ -8724,3 +8724,426 @@ SELECT * FROM active_game2 WHERE 1;
     }
   ]
 }
+74.103.158.35 2022-12-08 01:20:34.361889 GET http://deckdealer.hopto.org/delete/active_game2?filter=(entry_id%20%3E%200) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:34.362209 GET http://deckdealer.hopto.org/delete/active_game2?filter=(entry_id%20%3E%200) request
+['table', 'sqlite_%']
+filter_conditions: "(entry_id > 0)"
+filter_values: []
+74.103.158.35 2022-12-08 01:20:34.364954 GET http://deckdealer.hopto.org/delete/active_game2?filter=(entry_id%20%3E%200) request
+DELETE FROM active_game2 WHERE ((entry_id > 0));
+74.103.158.35 2022-12-08 01:20:34.365124 GET http://deckdealer.hopto.org/delete/active_game2?filter=(entry_id%20%3E%200) request
+DELETE FROM active_game2 WHERE ((entry_id > 0));
+74.103.158.35 2022-12-08 01:20:34.361688 GET http://deckdealer.hopto.org/delete/active_game2?filter=(entry_id%20%3E%200) None
+{"request.params": {"filter": "(entry_id > 0)"}}
+{
+  "message": "4 active_game2 entries deleted",
+  "submitted": [
+    {
+      "filter": "(entry_id > 0)"
+    }
+  ]
+}
+74.103.158.35 2022-12-08 01:20:52.611091 GET http://deckdealer.hopto.org/game-blackjack2.html 304
+74.103.158.35 2022-12-08 01:20:52.700965 GET http://deckdealer.hopto.org/js/game-blackjack2.js 200
+74.103.158.35 2022-12-08 01:20:52.792913 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "2",
+  "token": "IXg1b2tPN3RITEhwMktadHZFWC82SWc9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeWxJYVVMZz09"
+}
+74.103.158.35 2022-12-08 01:20:52.806221 GET http://deckdealer.hopto.org/get/users/user_id/2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:52.806541 GET http://deckdealer.hopto.org/get/users/user_id/2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 01:20:52.808551 GET http://deckdealer.hopto.org/get/users/user_id/2 request
+SELECT * FROM users WHERE user_id=?;
+74.103.158.35 2022-12-08 01:20:52.808761 GET http://deckdealer.hopto.org/get/users/user_id/2 request
+['2']
+74.103.158.35 2022-12-08 01:20:52.806042 GET http://deckdealer.hopto.org/get/users/user_id/2 None
+{"request.params": {}}
+{
+  "message": "1 user entry found",
+  "data": {
+    "user_id": 2,
+    "username": "dealer",
+    "password": "4a235351dff72c46c3c1c0042beef5f81b0310f40318d216235b276619327e95644fa36a909df018cc1aa519c469bc5a9a42041f1230a174d4a9a9ec24ee6eed",
+    "create_time": "2022-12-07 11:26:20.604"
+  }
+}
+74.103.158.35 2022-12-08 01:20:52.820689 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:52.821041 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 01:20:52.823191 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+74.103.158.35 2022-12-08 01:20:52.823463 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+74.103.158.35 2022-12-08 01:20:52.820462 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 3 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 01:00:32.506"
+    },
+    {
+      "player_id": 2,
+      "user_id": 4,
+      "game_id": 1,
+      "name": "alice",
+      "email": "alice@udel.edu",
+      "entry_time": "2022-12-08 01:00:53.680"
+    },
+    {
+      "player_id": 3,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 01:01:26.837"
+    }
+  ]
+}
+74.103.158.35 2022-12-08 01:20:52.839274 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:52.839573 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 01:20:52.841079 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+74.103.158.35 2022-12-08 01:20:52.841283 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+74.103.158.35 2022-12-08 01:20:52.839086 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "0 active_game2 entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {},
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+74.103.158.35 2022-12-08 01:20:55.404878 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=1) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:55.405110 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=1) request
+['table', 'sqlite_%']
+filter_conditions: "(card_id=1)"
+filter_values: []
+74.103.158.35 2022-12-08 01:20:55.406330 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=1) request
+SELECT * FROM deck WHERE (card_id=1);
+74.103.158.35 2022-12-08 01:20:55.406465 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=1) request
+SELECT * FROM deck WHERE (card_id=1);
+74.103.158.35 2022-12-08 01:20:55.404736 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=1) None
+{"request.params": {"filter": "(card_id=1)"}}
+{
+  "message": "1 deck entry found",
+  "data": {
+    "card_id": 1,
+    "key": "6D",
+    "name": "6",
+    "suit": "DIAMONDS",
+    "description": "6_of_diamonds",
+    "file_name": "6D.png",
+    "entry_time": "2022-11-01 15:04:46.184"
+  }
+}
+74.103.158.35 2022-12-08 01:20:55.415648 POST http://deckdealer.hopto.org/add/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:55.415873 POST http://deckdealer.hopto.org/add/active_game2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 01:20:55.416977 POST http://deckdealer.hopto.org/add/active_game2 request
+INSERT INTO active_game2 (game_id,user_id,player_id,player_hand,player_action) VALUES (?, ?, ?, ?, ?);
+74.103.158.35 2022-12-08 01:20:55.417128 POST http://deckdealer.hopto.org/add/active_game2 request
+['1', '4', '2', '6D', 'setup']
+74.103.158.35 2022-12-08 01:20:55.415498 POST http://deckdealer.hopto.org/add/active_game2 None
+{"request.params": {"game_id": "1", "user_id": "4", "player_id": "2", "player_hand": "6D", "player_action": "setup"}}
+{
+  "message": "data added to <active_game2>",
+  "entry_id": 1,
+  "game_id": "1",
+  "user_id": "4",
+  "player_id": "2"
+}
+74.103.158.35 2022-12-08 01:20:55.554385 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=2) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:55.554700 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=2) request
+['table', 'sqlite_%']
+filter_conditions: "(card_id=2)"
+filter_values: []
+74.103.158.35 2022-12-08 01:20:55.556211 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=2) request
+SELECT * FROM deck WHERE (card_id=2);
+74.103.158.35 2022-12-08 01:20:55.556415 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=2) request
+SELECT * FROM deck WHERE (card_id=2);
+74.103.158.35 2022-12-08 01:20:55.554226 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=2) None
+{"request.params": {"filter": "(card_id=2)"}}
+{
+  "message": "1 deck entry found",
+  "data": {
+    "card_id": 2,
+    "key": "4H",
+    "name": "4",
+    "suit": "HEARTS",
+    "description": "4_of_hearts",
+    "file_name": "4H.png",
+    "entry_time": "2022-11-01 15:04:46.599"
+  }
+}
+74.103.158.35 2022-12-08 01:20:55.568846 POST http://deckdealer.hopto.org/add/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:55.569179 POST http://deckdealer.hopto.org/add/active_game2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 01:20:55.570814 POST http://deckdealer.hopto.org/add/active_game2 request
+INSERT INTO active_game2 (game_id,user_id,player_id,player_hand,player_action) VALUES (?, ?, ?, ?, ?);
+74.103.158.35 2022-12-08 01:20:55.571039 POST http://deckdealer.hopto.org/add/active_game2 request
+['1', '5', '3', '4H', 'setup']
+74.103.158.35 2022-12-08 01:20:55.568629 POST http://deckdealer.hopto.org/add/active_game2 None
+{"request.params": {"game_id": "1", "user_id": "5", "player_id": "3", "player_hand": "4H", "player_action": "setup"}}
+{
+  "message": "data added to <active_game2>",
+  "entry_id": 2,
+  "game_id": "1",
+  "user_id": "5",
+  "player_id": "3"
+}
+74.103.158.35 2022-12-08 01:20:55.703034 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=3) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:55.703260 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=3) request
+['table', 'sqlite_%']
+filter_conditions: "(card_id=3)"
+filter_values: []
+74.103.158.35 2022-12-08 01:20:55.704477 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=3) request
+SELECT * FROM deck WHERE (card_id=3);
+74.103.158.35 2022-12-08 01:20:55.704628 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=3) request
+SELECT * FROM deck WHERE (card_id=3);
+74.103.158.35 2022-12-08 01:20:55.702896 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=3) None
+{"request.params": {"filter": "(card_id=3)"}}
+{
+  "message": "1 deck entry found",
+  "data": {
+    "card_id": 3,
+    "key": "10S",
+    "name": "10",
+    "suit": "SPADES",
+    "description": "10_of_spades",
+    "file_name": "10S.png",
+    "entry_time": "2022-11-01 15:04:46.967"
+  }
+}
+74.103.158.35 2022-12-08 01:20:55.712941 POST http://deckdealer.hopto.org/add/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:55.713166 POST http://deckdealer.hopto.org/add/active_game2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 01:20:55.714262 POST http://deckdealer.hopto.org/add/active_game2 request
+INSERT INTO active_game2 (game_id,user_id,player_id,player_hand,player_action) VALUES (?, ?, ?, ?, ?);
+74.103.158.35 2022-12-08 01:20:55.714425 POST http://deckdealer.hopto.org/add/active_game2 request
+['1', '2', '1', '10S', 'setup']
+74.103.158.35 2022-12-08 01:20:55.712806 POST http://deckdealer.hopto.org/add/active_game2 None
+{"request.params": {"game_id": "1", "user_id": "2", "player_id": "1", "player_hand": "10S", "player_action": "setup"}}
+{
+  "message": "data added to <active_game2>",
+  "entry_id": 3,
+  "game_id": "1",
+  "user_id": "2",
+  "player_id": "1"
+}
+74.103.158.35 2022-12-08 01:20:55.818356 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=4) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:55.818581 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=4) request
+['table', 'sqlite_%']
+filter_conditions: "(card_id=4)"
+filter_values: []
+74.103.158.35 2022-12-08 01:20:55.819871 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=4) request
+SELECT * FROM deck WHERE (card_id=4);
+74.103.158.35 2022-12-08 01:20:55.820013 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=4) request
+SELECT * FROM deck WHERE (card_id=4);
+74.103.158.35 2022-12-08 01:20:55.818218 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=4) None
+{"request.params": {"filter": "(card_id=4)"}}
+{
+  "message": "1 deck entry found",
+  "data": {
+    "card_id": 4,
+    "key": "QH",
+    "name": "QUEEN",
+    "suit": "HEARTS",
+    "description": "queen_of_hearts",
+    "file_name": "QH.png",
+    "entry_time": "2022-11-01 15:04:47.321"
+  }
+}
+74.103.158.35 2022-12-08 01:20:55.830299 POST http://deckdealer.hopto.org/add/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:55.830528 POST http://deckdealer.hopto.org/add/active_game2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 01:20:55.831863 POST http://deckdealer.hopto.org/add/active_game2 request
+INSERT INTO active_game2 (game_id,user_id,player_id,player_hand,player_action) VALUES (?, ?, ?, ?, ?);
+74.103.158.35 2022-12-08 01:20:55.832033 POST http://deckdealer.hopto.org/add/active_game2 request
+['1', '4', '2', 'QH', 'setup']
+74.103.158.35 2022-12-08 01:20:55.830161 POST http://deckdealer.hopto.org/add/active_game2 None
+{"request.params": {"game_id": "1", "user_id": "4", "player_id": "2", "player_hand": "QH", "player_action": "setup"}}
+{
+  "message": "data added to <active_game2>",
+  "entry_id": 4,
+  "game_id": "1",
+  "user_id": "4",
+  "player_id": "2"
+}
+74.103.158.35 2022-12-08 01:20:55.940705 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=5) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:55.940937 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=5) request
+['table', 'sqlite_%']
+filter_conditions: "(card_id=5)"
+filter_values: []
+74.103.158.35 2022-12-08 01:20:55.942233 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=5) request
+SELECT * FROM deck WHERE (card_id=5);
+74.103.158.35 2022-12-08 01:20:55.942373 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=5) request
+SELECT * FROM deck WHERE (card_id=5);
+74.103.158.35 2022-12-08 01:20:55.940567 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=5) None
+{"request.params": {"filter": "(card_id=5)"}}
+{
+  "message": "1 deck entry found",
+  "data": {
+    "card_id": 5,
+    "key": "9D",
+    "name": "9",
+    "suit": "DIAMONDS",
+    "description": "9_of_diamonds",
+    "file_name": "9D.png",
+    "entry_time": "2022-11-01 15:04:47.684"
+  }
+}
+74.103.158.35 2022-12-08 01:20:55.953431 POST http://deckdealer.hopto.org/add/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:55.953687 POST http://deckdealer.hopto.org/add/active_game2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 01:20:55.954812 POST http://deckdealer.hopto.org/add/active_game2 request
+INSERT INTO active_game2 (game_id,user_id,player_id,player_hand,player_action) VALUES (?, ?, ?, ?, ?);
+74.103.158.35 2022-12-08 01:20:55.954974 POST http://deckdealer.hopto.org/add/active_game2 request
+['1', '5', '3', '9D', 'setup']
+74.103.158.35 2022-12-08 01:20:55.953295 POST http://deckdealer.hopto.org/add/active_game2 None
+{"request.params": {"game_id": "1", "user_id": "5", "player_id": "3", "player_hand": "9D", "player_action": "setup"}}
+{
+  "message": "data added to <active_game2>",
+  "entry_id": 5,
+  "game_id": "1",
+  "user_id": "5",
+  "player_id": "3"
+}
+74.103.158.35 2022-12-08 01:20:56.086427 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=6) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:56.086685 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=6) request
+['table', 'sqlite_%']
+filter_conditions: "(card_id=6)"
+filter_values: []
+74.103.158.35 2022-12-08 01:20:56.087918 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=6) request
+SELECT * FROM deck WHERE (card_id=6);
+74.103.158.35 2022-12-08 01:20:56.088052 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=6) request
+SELECT * FROM deck WHERE (card_id=6);
+74.103.158.35 2022-12-08 01:20:56.086286 GET http://deckdealer.hopto.org/get/deck?filter=(card_id=6) None
+{"request.params": {"filter": "(card_id=6)"}}
+{
+  "message": "1 deck entry found",
+  "data": {
+    "card_id": 6,
+    "key": "10H",
+    "name": "10",
+    "suit": "HEARTS",
+    "description": "10_of_hearts",
+    "file_name": "10H.png",
+    "entry_time": "2022-11-01 15:04:48.021"
+  }
+}
+74.103.158.35 2022-12-08 01:20:56.097817 POST http://deckdealer.hopto.org/add/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:20:56.098040 POST http://deckdealer.hopto.org/add/active_game2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 01:20:56.099197 POST http://deckdealer.hopto.org/add/active_game2 request
+INSERT INTO active_game2 (game_id,user_id,player_id,player_hand,player_action) VALUES (?, ?, ?, ?, ?);
+74.103.158.35 2022-12-08 01:20:56.099362 POST http://deckdealer.hopto.org/add/active_game2 request
+['1', '2', '1', '10H', 'setup']
+74.103.158.35 2022-12-08 01:20:56.097682 POST http://deckdealer.hopto.org/add/active_game2 None
+{"request.params": {"game_id": "1", "user_id": "2", "player_id": "1", "player_hand": "10H", "player_action": "setup"}}
+{
+  "message": "data added to <active_game2>",
+  "entry_id": 6,
+  "game_id": "1",
+  "user_id": "2",
+  "player_id": "1"
+}
+74.103.158.35 2022-12-08 01:21:04.803443 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.35 2022-12-08 01:21:04.803994 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+74.103.158.35 2022-12-08 01:21:04.806001 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+74.103.158.35 2022-12-08 01:21:04.806241 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+74.103.158.35 2022-12-08 01:21:04.803031 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 4,
+      "player_id": 2,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.417"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 3,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.571"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 1,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.714"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 4,
+      "player_id": 2,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.832"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 3,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:55.955"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 1,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 01:20:56.099"
+    }
+  ]
+}
