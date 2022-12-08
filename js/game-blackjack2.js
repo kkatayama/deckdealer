@@ -19,7 +19,7 @@ var card_index = 1;
 
 /* taken from: https://stackoverflow.com/questions/18673860/defining-a-html-template-to-append-using-jquery */
 var player_template = ({ num_cols, info, cards }) => `
-<div class="row row-cols-${num_cols} justify-items-center mt-2">${info}${cards}</div>
+<div class="row row-cols-${num_cols} justify-content-center mt-2">${info}${cards}</div>
 `;
 
 var player_info_template = ({ player_id, player_name, score }) => `
