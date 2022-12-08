@@ -9,7 +9,7 @@ $(document).ready(function() {
           '<div class="container">' +
             '<div class="row justify-content-center">' +
               '<div class="col">' +
-                '<a class="btn btn-primary form-control btn-block" href="spectators-register2.html">Watch Game</a>' +
+                '<a class="btn btn-primary form-control btn-block" href="spectators-register2.html?game_id=1">Watch Game</a>' +
               '</div>' +
               '<div class="col">' +
                 '<a class="btn btn-primary form-control btn-block" href="game-list2.html">Play Game</a>' +

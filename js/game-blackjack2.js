@@ -338,7 +338,7 @@ function getRemainingPlayers(){
 
 
   if (finished_players.length) {
-    var filter_template = ({ player_id }) => `player_id != ${player_id}`
+    var filter_template = ({ player_id }) => `player_id != ${player_id}`;
     var temp_filter = finished_players.map(filter_template).join(' AND ');
     console.log ('=== TEMP FILTER ===');
     console.log(temp_filter)
@@ -480,7 +480,17 @@ function saveActiveGame() {
   var url = new URL('/add/score_board2', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
-      filter: `(entry_id > 0)`,
+      game_id: 1,
+      user_id: 2,
+      player_id: 1,
+      winner: "dealer",
+      winner_email: "dealer@udel.edu",
+      winner_hand: "10S, 10H",
+      winner_score: 20,
+      players: "dealer, alice, bob",
+      player_hands: "10S+10H, 6D+QH+3S, 4H+9D+5S",
+      player_scores: "20, 19, 18",
+      spectators: "anna, steve",
     },
     success: function(response) {
       console.log(response);
@@ -514,7 +524,11 @@ function closeGame() {
     showPopup('Click [CLOSE GAME] to add the results to the score_board', 'close');
     $('#close').click(function(elem) {
       hidePopup();
-      save
+      for (var i = 0; i < players.length; i++) {
+        var player = players[i];
+        var cards = getPlayerCards(player);
+
+      }
     })
   }
 }
