@@ -397,6 +397,7 @@ function showActiveGame() {
   active_game = getActiveGame();
 
   if (active_game.length) {
+    startTimer();
     hidePopup();
     card_index = active_game.length + 1;
     remaining_players = getRemainingPlayers();
@@ -470,10 +471,12 @@ function showActiveGame() {
             }
           }
         }
+        location.reload();
         // startTimer();
       });
     } else {
       showPopup('Waiting for the dealer to start...');
+      startTimer();
     }
   }
 }
@@ -613,7 +616,7 @@ function closeGame() {
 }
 
 function startTimer(ms=5000) {
-  timer = setInterval(function() { showActiveGame() }, ms);
+  timer = setInterval(function() { location.reload(); }, ms);
 }
 
 function stopTimer() {
@@ -639,6 +642,7 @@ $(document).ready(function() {
   $('#game-play').html('Blackjack: (' + player_name + ')');
 
   /* generate HTML: every 500 ms */
-  startTimer();
+  //startTimer();
+  showActiveGame();
 
 });
