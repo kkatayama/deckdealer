@@ -173,7 +173,7 @@ function getPlayerName() {
 
 function getPlayerNameByID(p_id) {
   for (var i = 0; i < players.length; i++) {
-    if (players[i].player_id == player_id) {
+    if (players[i].player_id == p_id) {
       return players[i].name;
     }
   }
@@ -359,7 +359,7 @@ function showActiveGame() {
 
   if (active_game.length) {
     hidePopup();
-    card_index = active_game.length;
+    card_index = active_game.length + 1;
 
     $('#players').html('');
     for (var i = 0; i < players.length; i++) {
