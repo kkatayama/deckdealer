@@ -397,7 +397,6 @@ function showActiveGame() {
   active_game = getActiveGame();
 
   if (active_game.length) {
-    startTimer();
     hidePopup();
     card_index = active_game.length + 1;
     remaining_players = getRemainingPlayers();
@@ -448,7 +447,6 @@ function showActiveGame() {
         }
       }
       setTimeout(function() { closeGame() }, 1000);
-      stopTimer();
     }
 
     //showPopup('What would you like to do?', 'action')
@@ -477,7 +475,14 @@ function showActiveGame() {
       });
     } else {
       showPopup('Waiting for the dealer to start...');
-      startTimer();
+      startTimer(5000, function() {
+        active_game = getActiveGame();
+        if (active_game.length) {
+          stopTimer();
+          showActiveGame()
+        }
+      })
+
     }
   }
 }
@@ -617,8 +622,8 @@ function closeGame() {
   }
 }
 
-function startTimer(ms=5000) {
-  timer = setInterval(function() { location.reload(); }, ms);
+function startTimer(ms=5000, callback) {
+  timer = setInterval(function() { callback(); }, ms);
 }
 
 function stopTimer() {
