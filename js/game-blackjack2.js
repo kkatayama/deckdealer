@@ -455,7 +455,7 @@ function showActiveGame() {
       showPopup('Click [SETUP] to deal the first round of cards', 'setup');
       $('#setup').click(function(elem) {
         hidePopup();
-        stopTimer();
+        // stopTimer();
         for (var i = 0; i < 2; i++) {
           for (var j = 0; j < players.length; j++) {
             var player = players[j];
@@ -470,7 +470,7 @@ function showActiveGame() {
             }
           }
         }
-        startTimer();
+        // startTimer();
       });
     } else {
       showPopup('Waiting for the dealer to start...');
@@ -597,22 +597,6 @@ function clearSpectators() {
   });
 }
 
-function clearActiveGame() {
-  /*
-   * POST: https://deckdealer.hopto.org/delete/active_game2
-   * PARAMS: (example):
-   * { filter: `(entry_id > 0)` }
-   */
-  var url = new URL('/delete/active_game2', api_url).toString();
-  $.ajax({url: url, type: 'POST', async: false,
-    data: {
-      filter: `(entry_id > 0)`,
-    },
-    success: function(response) {
-      console.log(response);
-    }
-  });
-}
 
 function closeGame() {
   clearInterval(timer);
@@ -655,6 +639,6 @@ $(document).ready(function() {
   $('#game-play').html('Blackjack: (' + player_name + ')');
 
   /* generate HTML: every 500 ms */
-
+  startTimer();
 
 });
