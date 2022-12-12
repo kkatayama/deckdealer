@@ -62,3 +62,19 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 100.34.13.54 2022-12-11 22:32:06.686005 GET http://deckdealer.hopto.org/blackjack.html 200
 100.34.13.54 2022-12-11 22:32:06.763348 GET http://deckdealer.hopto.org/blackjack.js 200
 100.34.13.54 2022-12-11 22:32:10.850309 GET http://deckdealer.hopto.org/6D.png 200
+100.34.13.54 2022-12-11 22:49:34.992049 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-11 22:49:34.992271 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-11 22:49:34.994970 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+100.34.13.54 2022-12-11 22:49:34.995189 POST http://deckdealer.hopto.org/login request
+['admin']
+100.34.13.54 2022-12-11 22:49:34.991998 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "admin", "password": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
