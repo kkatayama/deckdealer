@@ -972,3 +972,21 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
     }
   ]
 }
+100.34.13.54 2022-12-11 22:59:48.302064 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2022-12-11 22:59:48.302721 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+100.34.13.54 2022-12-11 22:59:48.301953 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
