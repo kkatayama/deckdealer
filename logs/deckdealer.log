@@ -663,3 +663,86 @@
 }
 205.169.39.63 2022-12-27 10:29:45.640158 GET http://deckdealer.hopto.org/ 200
 205.169.39.63 2022-12-27 10:29:45.721632 GET http://deckdealer.hopto.org/login-register.js 200
+179.43.177.154 2022-12-27 10:30:10.180416 GET http://deckdealer.hopto.org/wp-content/themes/.git/config None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+179.43.177.154 2022-12-27 10:30:10.183562 GET http://deckdealer.hopto.org/wp-content/plugins/.git/config None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+179.43.177.154 2022-12-27 10:30:10.187613 GET http://deckdealer.hopto.org/wp-includes/js/.git/config None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+179.43.177.154 2022-12-27 10:30:10.198576 GET http://deckdealer.hopto.org/wp-content/.git/config None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+179.43.169.181 2022-12-27 10:30:40.651129 GET http://deckdealer.hopto.org/ 200
+179.43.169.181 2022-12-27 10:30:52.211302 GET http://deckdealer.hopto.org/ 200
+179.43.169.181 2022-12-27 10:31:05.663696 GET http://deckdealer.hopto.org/ 200
