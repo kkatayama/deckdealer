@@ -131,3 +131,22 @@
     "_status_line": "404 Not Found"
   }
 }
+18.204.233.163 2022-12-28 03:51:29.070869 GET http://deckdealer.hopto.org/ 200
+18.204.233.163 2022-12-28 03:51:29.160130 GET http://deckdealer.hopto.org/favicon.ico 404
+18.204.233.163 2022-12-28 03:51:29.161186 GET http://deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
