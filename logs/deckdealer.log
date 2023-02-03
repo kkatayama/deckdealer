@@ -44,3 +44,4 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 128.4.85.108 2023-02-03 09:47:33.467306 GET http://deckdealer.hopto.org/blackjack.js 200
 128.4.85.108 2023-02-03 09:47:36.699319 GET http://deckdealer.hopto.org/6D.png 200
 128.4.85.108 2023-02-03 09:47:40.765950 GET http://deckdealer.hopto.org/AS.png 200
+205.169.39.63 2023-02-03 11:42:20.868826 GET http://deckdealer.hopto.org/ 200
