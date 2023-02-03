@@ -1,41 +1,46 @@
-151.106.38.6 2023-02-02 12:54:31.897569 GET http://deckdealer.hopto.org/wp-login.php None
+128.4.85.108 2023-02-03 09:47:14.699641 GET http://deckdealer.hopto.org/ 200
+128.4.85.108 2023-02-03 09:47:14.807831 GET http://deckdealer.hopto.org/login-register.js 200
+128.4.85.108 2023-02-03 09:47:15.114418 GET http://deckdealer.hopto.org/favicon.ico 404
+128.4.85.108 2023-02-03 09:47:15.115498 GET http://deckdealer.hopto.org/favicon.ico None
 {
-  "message": "Method not allowed.",
+  "message": "File does not exist.",
   "Error": {
     "exception": null,
     "traceback": null,
     "_cookies": null,
     "_headers": {
-      "Allow": [
-        "OPTIONS"
-      ],
       "Content-Type": [
         "application/json"
       ]
     },
-    "body": "Method not allowed.",
-    "_status_code": 405,
-    "_status_line": "405 Method Not Allowed"
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
   }
 }
-132.148.155.12 2023-02-02 14:00:37.262922 GET http://www.deckdealer.hopto.org/wp-login.php None
+128.4.85.108 2023-02-03 09:47:28.308718 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.85.108 2023-02-03 09:47:28.309350 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.85.108 2023-02-03 09:47:28.308544 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
 {
-  "message": "Method not allowed.",
-  "Error": {
-    "exception": null,
-    "traceback": null,
-    "_cookies": null,
-    "_headers": {
-      "Allow": [
-        "OPTIONS"
-      ],
-      "Content-Type": [
-        "application/json"
-      ]
-    },
-    "body": "Method not allowed.",
-    "_status_code": 405,
-    "_status_line": "405 Method Not Allowed"
-  }
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
 }
-34.251.44.50 2023-02-02 14:41:57.893352 GET http://www.deckdealer.hopto.org/ 200
+128.4.85.108 2023-02-03 09:47:30.071505 GET http://deckdealer.hopto.org/game.html 200
+128.4.85.108 2023-02-03 09:47:30.188697 GET http://deckdealer.hopto.org/css/login-register.css 200
+128.4.85.108 2023-02-03 09:47:30.301277 GET http://deckdealer.hopto.org/css/login-register-header.css 200
+128.4.85.108 2023-02-03 09:47:30.369646 GET http://deckdealer.hopto.org/js/player-game.js 200
+128.4.85.108 2023-02-03 09:47:33.373143 GET http://deckdealer.hopto.org/blackjack.html 200
+128.4.85.108 2023-02-03 09:47:33.467306 GET http://deckdealer.hopto.org/blackjack.js 200
+128.4.85.108 2023-02-03 09:47:36.699319 GET http://deckdealer.hopto.org/6D.png 200
+128.4.85.108 2023-02-03 09:47:40.765950 GET http://deckdealer.hopto.org/AS.png 200
