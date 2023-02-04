@@ -1,7 +1,9 @@
-128.4.85.108 2023-02-03 09:47:14.699641 GET http://deckdealer.hopto.org/ 200
-128.4.85.108 2023-02-03 09:47:14.807831 GET http://deckdealer.hopto.org/login-register.js 200
-128.4.85.108 2023-02-03 09:47:15.114418 GET http://deckdealer.hopto.org/favicon.ico 404
-128.4.85.108 2023-02-03 09:47:15.115498 GET http://deckdealer.hopto.org/favicon.ico None
+162.142.125.210 2023-02-04 00:14:54.530644 GET http://deckdealer.hopto.org/ 200
+167.94.138.119 2023-02-04 00:14:54.596383 GET http://www.deckdealer.hopto.org/ 200
+162.142.125.210 2023-02-04 00:14:54.598564 GET http://deckdealer.hopto.org/ 200
+167.94.138.119 2023-02-04 00:14:54.627318 GET http://www.deckdealer.hopto.org/ 200
+162.142.125.210 2023-02-04 00:14:54.640635 GET http://deckdealer.hopto.org/favicon.ico 404
+162.142.125.210 2023-02-04 00:14:54.641116 GET http://deckdealer.hopto.org/favicon.ico None
 {
   "message": "File does not exist.",
   "Error": {
@@ -18,30 +20,57 @@
     "_status_line": "404 Not Found"
   }
 }
-128.4.85.108 2023-02-03 09:47:28.308718 POST http://deckdealer.hopto.org/login request
-SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
-128.4.85.108 2023-02-03 09:47:28.309350 POST http://deckdealer.hopto.org/login request
-['table', 'sqlite_%']
-128.4.85.108 2023-02-03 09:47:28.308544 POST http://deckdealer.hopto.org/login None
-{"request.params": {}}
+162.142.125.210 2023-02-04 00:14:54.705193 GET http://deckdealer.hopto.org/favicon.ico 404
+162.142.125.210 2023-02-04 00:14:54.705811 GET http://deckdealer.hopto.org/favicon.ico None
 {
-  "message": "missing parameters",
-  "required": [
-    {
-      "username": "TEXT",
-      "password": "TEXT"
-    }
-  ],
-  "submitted": [
-    {}
-  ]
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
 }
-128.4.85.108 2023-02-03 09:47:30.071505 GET http://deckdealer.hopto.org/game.html 200
-128.4.85.108 2023-02-03 09:47:30.188697 GET http://deckdealer.hopto.org/css/login-register.css 200
-128.4.85.108 2023-02-03 09:47:30.301277 GET http://deckdealer.hopto.org/css/login-register-header.css 200
-128.4.85.108 2023-02-03 09:47:30.369646 GET http://deckdealer.hopto.org/js/player-game.js 200
-128.4.85.108 2023-02-03 09:47:33.373143 GET http://deckdealer.hopto.org/blackjack.html 200
-128.4.85.108 2023-02-03 09:47:33.467306 GET http://deckdealer.hopto.org/blackjack.js 200
-128.4.85.108 2023-02-03 09:47:36.699319 GET http://deckdealer.hopto.org/6D.png 200
-128.4.85.108 2023-02-03 09:47:40.765950 GET http://deckdealer.hopto.org/AS.png 200
-205.169.39.63 2023-02-03 11:42:20.868826 GET http://deckdealer.hopto.org/ 200
+167.94.138.119 2023-02-04 00:14:54.738683 GET http://www.deckdealer.hopto.org/favicon.ico 404
+167.94.138.119 2023-02-04 00:14:54.739134 GET http://www.deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+167.94.138.119 2023-02-04 00:14:54.773491 GET http://www.deckdealer.hopto.org/favicon.ico 404
+167.94.138.119 2023-02-04 00:14:54.774551 GET http://www.deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
