@@ -39,3 +39,23 @@
     "_status_line": "404 Not Found"
   }
 }
+20.109.101.102 2023-02-06 16:28:30.859653 GET http://deckdealer.hopto.org/wp-login.php None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
