@@ -1294,3 +1294,40 @@ SELECT * FROM active_game2 WHERE 1;
   ]
 }
 65.154.226.170 2023-02-14 13:15:08.967799 GET http://deckdealer.hopto.org/ 200
+87.236.176.183 2023-02-14 13:27:45.554682 GET http://www.deckdealer.hopto.org/ 200
+165.22.39.64 2023-02-14 13:27:46.627072 GET http://www.deckdealer.hopto.org/favicon.ico 404
+165.22.39.64 2023-02-14 13:27:46.627588 GET http://www.deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+185.220.101.175 2023-02-14 13:28:01.046246 GET http://www.deckdealer.hopto.org/favicon.ico 404
+185.220.101.175 2023-02-14 13:28:01.047345 GET http://www.deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
