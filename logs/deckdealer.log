@@ -1,40 +1,37 @@
-103.117.180.2 2023-02-27 14:09:28.751317 GET http://deckdealer.hopto.org/wp-login.php None
+35.180.55.106 2023-02-28 09:49:29.306949 GET http://deckdealer.hopto.org/ 200
+35.180.55.106 2023-02-28 09:49:36.909115 GET http://deckdealer.hopto.org/favicon.ico 404
+35.180.55.106 2023-02-28 09:49:36.910154 GET http://deckdealer.hopto.org/favicon.ico None
 {
-  "message": "Method not allowed.",
+  "message": "File does not exist.",
   "Error": {
     "exception": null,
     "traceback": null,
     "_cookies": null,
     "_headers": {
-      "Allow": [
-        "OPTIONS"
-      ],
       "Content-Type": [
         "application/json"
       ]
     },
-    "body": "Method not allowed.",
-    "_status_code": 405,
-    "_status_line": "405 Method Not Allowed"
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
   }
 }
-93.113.111.100 2023-02-27 23:34:36.894348 GET http://www.deckdealer.hopto.org/wp-login.php None
+44.202.244.96 2023-02-28 09:49:39.976954 GET http://deckdealer.hopto.org/favicon.ico 404
+44.202.244.96 2023-02-28 09:49:39.977983 GET http://deckdealer.hopto.org/favicon.ico None
 {
-  "message": "Method not allowed.",
+  "message": "File does not exist.",
   "Error": {
     "exception": null,
     "traceback": null,
     "_cookies": null,
     "_headers": {
-      "Allow": [
-        "OPTIONS"
-      ],
       "Content-Type": [
         "application/json"
       ]
     },
-    "body": "Method not allowed.",
-    "_status_code": 405,
-    "_status_line": "405 Method Not Allowed"
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
   }
 }
