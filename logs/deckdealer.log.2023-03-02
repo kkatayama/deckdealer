@@ -1,0 +1,65 @@
+18.220.128.229 2023-03-02 06:50:21.188118 GET http://deckdealer.hopto.org/.git/config None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+18.220.128.229 2023-03-02 07:31:20.297821 GET http://deckdealer.hopto.org/.env None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+18.220.156.195 2023-03-02 09:54:00.374973 GET http://deckdealer.hopto.org/.git/config None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+140.82.115.122 2023-03-02 11:16:31.286275 GET http://deckdealer.hopto.org/AC.png 200
+140.82.115.53 2023-03-02 11:16:31.336998 GET http://deckdealer.hopto.org/AS.png 200
+140.82.115.53 2023-03-02 11:16:31.354609 GET http://deckdealer.hopto.org/AD.png 200
+140.82.115.250 2023-03-02 11:16:31.477643 GET http://deckdealer.hopto.org/AH.png 200
+52.210.9.64 2023-03-02 20:05:05.295376 GET http://www.deckdealer.hopto.org/ 200

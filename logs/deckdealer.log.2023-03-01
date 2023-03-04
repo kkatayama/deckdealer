@@ -1,0 +1,80 @@
+51.79.144.41 2023-03-01 12:41:39.989482 GET http://deckdealer.hopto.org/wp-login.php None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+42.200.187.44 2023-03-01 13:47:10.044769 GET http://www.deckdealer.hopto.org/wp-login.php None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+173.62.203.195 2023-03-01 16:17:28.039000 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+173.62.203.195 2023-03-01 16:17:28.332023 GET http://deckdealer.hopto.org/js/game-blackjack2.js 200
+173.62.203.195 2023-03-01 16:17:29.374193 GET http://deckdealer.hopto.org/status 401
+173.62.203.195 2023-03-01 16:17:29.627219 GET http://deckdealer.hopto.org/status None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+173.62.203.195 2023-03-01 16:17:32.115184 GET http://deckdealer.hopto.org/get/users/user_id 401
+173.62.203.195 2023-03-01 16:17:32.143419 GET http://deckdealer.hopto.org/get/users/user_id None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
