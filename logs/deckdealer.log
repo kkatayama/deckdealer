@@ -1379,3 +1379,22 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
   "user_id": "3",
   "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
 }
+74.103.158.236 2023-03-03 21:54:02.674401 GET http://deckdealer.hopto.org/game.html 200
+74.103.158.236 2023-03-03 21:54:05.349815 GET http://deckdealer.hopto.org/registation.html 404
+74.103.158.236 2023-03-03 21:54:05.382631 GET http://deckdealer.hopto.org/registation.html None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
