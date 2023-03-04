@@ -1350,3 +1350,32 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
 }
 74.103.158.236 2023-03-03 21:23:45.830213 GET http://deckdealer.hopto.org/blackjack.html 304
 74.103.158.236 2023-03-03 21:23:47.300165 GET http://deckdealer.hopto.org/blackjack.html 304
+74.103.158.236 2023-03-03 21:30:36.555738 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+74.103.158.236 2023-03-03 21:30:36.556104 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+74.103.158.236 2023-03-03 21:30:36.555689 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+74.103.158.236 2023-03-03 21:30:51.525051 GET http://deckdealer.hopto.org/game.html 200
+74.103.158.236 2023-03-03 21:30:53.555146 GET http://deckdealer.hopto.org/game.html 304
+74.103.158.236 2023-03-03 21:31:07.194902 GET http://deckdealer.hopto.org/spectators.html 200
+74.103.158.236 2023-03-03 21:31:19.195254 GET http://deckdealer.hopto.org/game.html 304
+74.103.158.236 2023-03-03 21:33:12.350785 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
