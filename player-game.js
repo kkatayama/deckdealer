@@ -23,7 +23,7 @@ function getUserID() {
   });
   return temp_id;
 }
-/* */
+/* Test */
 function getGameList() {
   /* GET: https://deckdealer.hopto.org/get/games */
   var url = new URL('/get/games', api_url).toString();
