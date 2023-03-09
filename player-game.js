@@ -80,5 +80,5 @@ $(document).ready(function() {
   console.table(game_list);
 
   /* generate HTML */
-  printGameList(game_list);
+  /*printGameList(game_list);*/
 });
