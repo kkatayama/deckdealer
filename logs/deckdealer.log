@@ -896,3 +896,139 @@ SELECT * FROM games WHERE 1;
   "user_id": "3",
   "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
 }
+100.34.13.54 2023-03-09 10:49:13.674158 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 10:49:13.674837 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 10:49:13.679261 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+100.34.13.54 2023-03-09 10:49:13.679474 POST http://deckdealer.hopto.org/login request
+['bryce']
+100.34.13.54 2023-03-09 10:49:13.674021 POST http://deckdealer.hopto.org/login None
+{"request.params": {"username": "bryce", "password": "bryce"}}
+{
+  "message": "user login success",
+  "user_id": 3,
+  "username": "bryce",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+100.34.13.54 2023-03-09 10:49:15.407357 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+100.34.13.54 2023-03-09 10:49:15.450474 GET http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 10:49:15.451072 GET http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 10:49:15.455324 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2023-03-09 10:49:15.455765 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2023-03-09 10:49:15.450003 GET http://deckdealer.hopto.org/get/games None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+100.34.13.54 2023-03-09 10:49:19.483045 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+100.34.13.54 2023-03-09 10:54:06.207877 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+100.34.13.54 2023-03-09 10:57:08.044532 GET http://deckdealer.hopto.org/game.html 200
+100.34.13.54 2023-03-09 10:57:08.328590 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+100.34.13.54 2023-03-09 10:57:08.368749 GET http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 10:57:08.369410 GET http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 10:57:08.371818 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2023-03-09 10:57:08.372072 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2023-03-09 10:57:08.368353 GET http://deckdealer.hopto.org/get/games None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+100.34.13.54 2023-03-09 10:57:10.766997 GET http://deckdealer.hopto.org/registation.html?game_id=1 404
+100.34.13.54 2023-03-09 10:57:10.767987 GET http://deckdealer.hopto.org/registation.html?game_id=1 None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+100.34.13.54 2023-03-09 10:57:19.730064 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+100.34.13.54 2023-03-09 10:57:35.886371 GET http://deckdealer.hopto.org/registation.html?game_id=1 404
+100.34.13.54 2023-03-09 10:57:35.887171 GET http://deckdealer.hopto.org/registation.html?game_id=1 None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
