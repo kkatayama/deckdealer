@@ -14394,3 +14394,759 @@ SELECT * FROM players2 WHERE 1;
     }
   ]
 }
+100.34.13.54 2023-03-09 11:31:26.066701 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:26.066927 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:26.067895 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:26.068000 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:26.066544 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:27.088126 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:27.088413 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:27.089498 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:27.089670 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:27.087946 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:28.473706 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:28.473902 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:28.474910 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:28.475026 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:28.473565 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:29.084305 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:29.084498 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:29.085430 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:29.085542 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:29.084167 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:30.066850 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:30.067322 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:30.069962 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:30.070329 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:30.066526 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:31.075644 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:31.075936 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:31.077110 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:31.077270 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:31.075479 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:32.071499 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:32.072074 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:32.075387 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:32.075799 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:32.071100 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:33.079677 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:33.080282 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:33.083627 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:33.084042 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:33.079275 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:34.089421 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:34.090091 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:34.093456 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:34.093861 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:34.089009 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:35.078221 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:35.078694 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:35.081083 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:35.081359 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:35.077905 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:36.066093 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:36.066461 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:36.068168 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:36.068380 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:36.065857 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
+100.34.13.54 2023-03-09 11:31:37.079802 GET http://deckdealer.hopto.org/get/players2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:31:37.080113 GET http://deckdealer.hopto.org/get/players2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:31:37.081646 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:37.081843 GET http://deckdealer.hopto.org/get/players2 request
+SELECT * FROM players2 WHERE 1;
+100.34.13.54 2023-03-09 11:31:37.079599 GET http://deckdealer.hopto.org/get/players2 None
+{"request.params": {}}
+{
+  "message": "found 6 players2 entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 5,
+      "game_id": 1,
+      "name": "bob",
+      "email": "bob@udel.edu",
+      "entry_time": "2022-12-08 15:16:49.136"
+    },
+    {
+      "player_id": 2,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2022-12-08 17:19:44.506"
+    },
+    {
+      "player_id": 3,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2022-12-08 17:20:53.183"
+    },
+    {
+      "player_id": 4,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-02-14 12:33:46.016"
+    },
+    {
+      "player_id": 5,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-03 21:14:16.502"
+    },
+    {
+      "player_id": 6,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "Bryce Leslie",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-03-04 11:52:56.520"
+    }
+  ]
+}
