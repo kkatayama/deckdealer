@@ -347,3 +347,97 @@ SELECT * FROM games WHERE 1;
     "_status_line": "404 Not Found"
   }
 }
+100.34.13.54 2023-03-09 10:32:15.191802 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 10:32:15.192006 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 10:32:15.191759 POST http://deckdealer.hopto.org/login None
+{"request.params": {}}
+{
+  "message": "missing parameters",
+  "required": [
+    {
+      "username": "TEXT",
+      "password": "TEXT"
+    }
+  ],
+  "submitted": [
+    {}
+  ]
+}
+100.34.13.54 2023-03-09 10:32:16.647345 GET http://deckdealer.hopto.org/game.html 200
+100.34.13.54 2023-03-09 10:32:16.675945 GET http://deckdealer.hopto.org/js/player-game.js 200
+100.34.13.54 2023-03-09 10:32:16.702593 GET http://deckdealer.hopto.org/status 401
+100.34.13.54 2023-03-09 10:32:16.703440 GET http://deckdealer.hopto.org/status None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2023-03-09 10:32:16.712821 GET http://deckdealer.hopto.org/get/games 401
+100.34.13.54 2023-03-09 10:32:16.713326 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+100.34.13.54 2023-03-09 10:32:18.048344 GET http://deckdealer.hopto.org/registation.html 404
+100.34.13.54 2023-03-09 10:32:18.049397 GET http://deckdealer.hopto.org/registation.html None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+100.34.13.54 2023-03-09 10:32:22.435275 GET http://deckdealer.hopto.org/registation.html 404
+100.34.13.54 2023-03-09 10:32:22.436380 GET http://deckdealer.hopto.org/registation.html None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
