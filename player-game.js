@@ -49,7 +49,7 @@ function printGameList(game_list) {
             '<br /><strong>RULES</strong><br />' +
             game.rules.replaceAll(',', '<br />') + '<br />' +
             '<div class="d-grid py-3">' +
-            '<a class="btn btn-primary" href="game-register.html?game_id=' + game.game_id + '">Play ' + game.name + '</a>' +
+            '<a class="btn btn-primary" href="registration.html?game_id=' + game.game_id + '">Play ' + game.name + '</a>' +
             '</div>' +
           '</div>' +
         '</div>' +
