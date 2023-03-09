@@ -1781,3 +1781,100 @@ SELECT * FROM games WHERE 1;
   "user_id": "3",
   "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
 }
+100.34.13.54 2023-03-09 11:04:23.338152 GET http://deckdealer.hopto.org/game.html 304
+100.34.13.54 2023-03-09 11:04:23.395530 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+100.34.13.54 2023-03-09 11:04:23.405825 GET http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:04:23.406151 GET http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:04:23.407829 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2023-03-09 11:04:23.408036 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2023-03-09 11:04:23.405602 GET http://deckdealer.hopto.org/get/games None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+100.34.13.54 2023-03-09 11:04:24.239564 GET http://deckdealer.hopto.org/game.html 304
+100.34.13.54 2023-03-09 11:04:24.269079 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+100.34.13.54 2023-03-09 11:04:24.291032 GET http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:04:24.291524 GET http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:04:24.294501 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2023-03-09 11:04:24.294691 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2023-03-09 11:04:24.290708 GET http://deckdealer.hopto.org/get/games None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+100.34.13.54 2023-03-09 11:04:24.382895 GET http://deckdealer.hopto.org/game.html 304
+100.34.13.54 2023-03-09 11:04:24.409754 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
+100.34.13.54 2023-03-09 11:04:24.427442 GET http://deckdealer.hopto.org/get/games request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-03-09 11:04:24.427954 GET http://deckdealer.hopto.org/get/games request
+['table', 'sqlite_%']
+100.34.13.54 2023-03-09 11:04:24.430816 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2023-03-09 11:04:24.431155 GET http://deckdealer.hopto.org/get/games request
+SELECT * FROM games WHERE 1;
+100.34.13.54 2023-03-09 11:04:24.427112 GET http://deckdealer.hopto.org/get/games None
+{"request.params": {}}
+{
+  "message": "1 game entry found",
+  "data": {
+    "game_id": 1,
+    "name": "Blackjack",
+    "min_players": "2",
+    "max_players": "10",
+    "min_decks": "1",
+    "max_decks": "10",
+    "player_actions": "setup, hit, stay",
+    "rules": "1. All players are dealt 2 cards, 2. Dealer asks each player to \"hit\" or \"stay\", 3. Dealer hits until hand is at least 17, 4. Hand that is closest to 21 but not greater WINS",
+    "entry_time": "2022-11-10 13:12:54.755"
+  }
+}
+100.34.13.54 2023-03-09 11:04:24.829737 GET http://deckdealer.hopto.org/game.html 304
