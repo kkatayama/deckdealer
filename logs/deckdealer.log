@@ -2518,3 +2518,12 @@ SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
     "_status_line": "401 Unauthorized"
   }
 }
+100.34.13.54 2023-03-09 11:13:20.558405 GET http://deckdealer.hopto.org/registration.html 304
+100.34.13.54 2023-03-09 11:13:20.595775 GET http://deckdealer.hopto.org/js/game-register.js 304
+100.34.13.54 2023-03-09 11:13:20.864897 GET http://deckdealer.hopto.org/status None
+{"request.params": {}}
+{
+  "message": "Authorized: user is logged in with an active session cookie",
+  "user_id": "3",
+  "token": "IVh0QVVobWcralVhRHhpSW5tVjgvNkE9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFemxJYVVMZz09"
+}
