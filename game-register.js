@@ -41,7 +41,7 @@ $(document).ready(function() {
             },
             success: function(response) {
               console.log(response);
-              window.location.href = 'game-queue2.html'
+              window.location.href = 'game-queue.html'
             }
            });
   });
