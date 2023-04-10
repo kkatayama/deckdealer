@@ -1,0 +1,117 @@
+173.62.203.195 2023-03-19 01:15:12.796261 GET http://deckdealer.hopto.org/game-blackjack2.html 200
+173.62.203.195 2023-03-19 01:15:14.971776 GET http://deckdealer.hopto.org/js/game-blackjack2.js 200
+173.62.203.195 2023-03-19 01:15:15.525659 GET http://deckdealer.hopto.org/status 401
+173.62.203.195 2023-03-19 01:15:15.696793 GET http://deckdealer.hopto.org/status None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+173.62.203.195 2023-03-19 01:15:15.768074 GET http://deckdealer.hopto.org/get/users/user_id 401
+173.62.203.195 2023-03-19 01:15:15.773023 GET http://deckdealer.hopto.org/get/users/user_id None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+173.62.203.195 2023-03-19 01:15:15.781968 GET http://deckdealer.hopto.org/get/players2 401
+173.62.203.195 2023-03-19 01:15:15.790224 GET http://deckdealer.hopto.org/get/players2 None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+173.62.203.195 2023-03-19 01:15:15.797110 GET http://deckdealer.hopto.org/get/spectators2 401
+173.62.203.195 2023-03-19 01:15:15.797554 GET http://deckdealer.hopto.org/get/spectators2 None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+173.62.203.195 2023-03-19 01:15:15.804713 GET http://deckdealer.hopto.org/get/active_game2 401
+173.62.203.195 2023-03-19 01:15:15.805174 GET http://deckdealer.hopto.org/get/active_game2 None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+190.92.159.48 2023-03-19 14:10:45.887262 GET http://deckdealer.hopto.org/wp-login.php None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
