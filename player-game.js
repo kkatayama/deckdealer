@@ -1,19 +1,9 @@
-///////////////////////////////////////////////////////////////////////////////
-//                              Global Variables                             //
-///////////////////////////////////////////////////////////////////////////////
 var api_url = "https://deckdealer.hopto.org"
 
-///////////////////////////////////////////////////////////////////////////////
-//                      Global Variables (for debugging)                     //
-///////////////////////////////////////////////////////////////////////////////
 var user_id = "";
 var game_list = [];
 
-///////////////////////////////////////////////////////////////////////////////
-//                              Global Functions                             //
-///////////////////////////////////////////////////////////////////////////////
 function getUserID() {
-  /* GET: https://deckdealer.hopto.org/status */
   var url = new URL('/status', api_url).toString();
   var temp_id = "";
   $.ajax({url: url, type: 'GET', async: false,
@@ -25,7 +15,6 @@ function getUserID() {
 }
 
 function getGameList() {
-  /* GET: https://deckdealer.hopto.org/get/games */
   var url = new URL('/get/games', api_url).toString();
   var temp_list = [];
   $.ajax({url: url, type: 'GET', async: false,
@@ -39,7 +28,7 @@ function getGameList() {
   });
   return temp_list;
 }
- /*
+
 function printGameList(game_list) {
   for (var i = 0; i < game_list.length; i++) {
     var game = game_list[i];
@@ -60,7 +49,7 @@ function printGameList(game_list) {
             '<br /><strong>RULES</strong><br />' +
             game.rules.replaceAll(',', '<br />') + '<br />' +
             '<div class="d-grid py-3">' +
-            '<a class="btn btn-primary" href="registration.html/game_id=' + game.game_id + '">Play ' + game.name + '</a>' +
+            '<a class="btn btn-primary" href="registration.html?game_id=' + game.game_id + '">Play ' + game.name + '</a>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -68,17 +57,13 @@ function printGameList(game_list) {
     )
   }
 }
-*/
 
 $(document).ready(function() {
-  /* local variables */
   user_id   = getUserID();
   game_list = getGameList();
 
-  /* debug: check local variables */
   console.log('user_id = ' + user_id);
   console.table(game_list);
 
-  /* generate HTML */
-  /*printGameList(game_list);*/
+  printGameList(game_list);
 });
