@@ -9869,3 +9869,72 @@ SELECT * FROM active_game2 WHERE 1;
     }
   ]
 }
+128.4.75.228 2023-04-10 10:34:36.540617 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:34:36.540847 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:34:36.541873 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:34:36.542004 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:34:36.540455 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
