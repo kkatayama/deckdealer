@@ -19,7 +19,7 @@ function getUserID() {
 }
 
 function getGameID() {
-  var url = new URL('/get/players2/user_id/' + user_id, api_url).toString();
+  var url = new URL('/get/players/user_id/' + user_id, api_url).toString();
   var temp_id = "";
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
@@ -44,7 +44,7 @@ function getGameInfo() {
 
 
 function getPlayerList() {
-  var url = new URL('/get/players2', api_url).toString();
+  var url = new URL('/get/players', api_url).toString();
   var temp_list = []
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
