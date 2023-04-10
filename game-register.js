@@ -31,7 +31,7 @@ $(document).ready(function() {
   $('#game-register').submit(function(elem) {
     elem.preventDefault();
 
-    var url = new URL('/add/players2', api_url).toString();
+    var url = new URL('/add/players', api_url).toString();
     $.ajax({url: url, method: 'POST',
             data: {
               user_id: user_id,
