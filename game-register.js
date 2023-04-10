@@ -20,7 +20,7 @@ function getGameID() {
   var urlParams = new URLSearchParams(window.location.search);
   return urlParams.get('game_id');
 }
-
+// Merge
 $(document).ready(function() {
   user_id = getUserID();
   game_id = getGameID();
