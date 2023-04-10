@@ -48,8 +48,6 @@ var action_body_template = ({ msg }) => `
 </div>
 `;
 
-
-
 function renderAlertBodyTemplate(msg) {
   return [{ msg: msg }].map(alert_body_template).join('');
 }
@@ -216,7 +214,7 @@ function getPlayerNameByID(p_id) {
 }
 
 function getPlayerCards(player) {
-  var url = new URL('/get/active_game', api_url).toString();
+  var url = new URL('/get/active_game2', api_url).toString();
   var temp_cards = [];
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -243,6 +241,7 @@ function getPlayerScore(cards) {
       if ((card.includes('J')) || (card.includes('Q')) || (card.includes('K'))) {
         temp_score = temp_score + 10;
       } else {
+        /* card is an ACE */
         if ((temp_score + 11) > 21) {
           temp_score = temp_score + 1;
         } else {
@@ -285,6 +284,7 @@ function getActiveGame() {
 }
 
 function addActiveGame(player, card, action) {
+
   var url = new URL('/add/active_game', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -437,6 +437,7 @@ function showActiveGame() {
       }
       setTimeout(function() { closeGame() }, 1000);
     }
+
   } else {
     if (user_name === 'dealer') {
       showPopup('Click [SETUP] to deal the first round of cards', 'setup');
@@ -601,5 +602,7 @@ $(document).ready(function() {
   console.table(players);
 
   $('#game-play').html('Blackjack: (' + player_name + ')');
+
   showActiveGame();
+
 });

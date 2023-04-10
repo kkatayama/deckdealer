@@ -30,6 +30,7 @@ function getGameID() {
 }
 
 function getGameInfo() {
+  /* Get: https://deckdealer.hopto.org/get/games/game_id/{ID#} */
   var url = new URL('/get/games/game_id/' + game_id, api_url).toString();
   var min  = 0;
   var name = "";
@@ -98,6 +99,7 @@ function printPlayerList() {
 
 
 $(document).ready(function() {
+  /* set variables */
   html = $('#player-list').html();
   user_id = getUserID();
   game_id = getGameID();
@@ -105,12 +107,15 @@ $(document).ready(function() {
   game_name = game_info.name;
   min_players = game_info.min;
   player_list = getPlayerList();
+  // num_players = player_list.length;
 
+  /* debug: check local variables */
   console.log('user_id = ' + user_id);
   console.log('game_id = ' + game_id);
   console.log('min_players = ' + min_players);
 
 
+  /* generate HTML: every 500 ms */
   var timer = setInterval(function() { printPlayerList() }, 1000);
   $('#status').click(function(elem) {
     clearInterval(timer);

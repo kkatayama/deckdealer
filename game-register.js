@@ -20,7 +20,7 @@ function getGameID() {
   var urlParams = new URLSearchParams(window.location.search);
   return urlParams.get('game_id');
 }
-// Merge
+
 $(document).ready(function() {
   user_id = getUserID();
   game_id = getGameID();
@@ -30,8 +30,7 @@ $(document).ready(function() {
 
   $('#game-register').submit(function(elem) {
     elem.preventDefault();
-
-    var url = new URL('/add/players2', api_url).toString();
+    var url = new URL('/add/players', api_url).toString();
     $.ajax({url: url, method: 'POST',
             data: {
               user_id: user_id,
