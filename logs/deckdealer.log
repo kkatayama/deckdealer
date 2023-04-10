@@ -9938,3 +9938,697 @@ SELECT * FROM active_game2 WHERE 1;
     }
   ]
 }
+128.4.75.228 2023-04-10 10:34:41.534223 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:34:41.534460 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:34:41.535601 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:34:41.535711 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:34:41.534060 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
+140.82.115.60 2023-04-10 10:34:44.146552 GET http://deckdealer.hopto.org/AD.png 200
+140.82.115.113 2023-04-10 10:34:44.225664 GET http://deckdealer.hopto.org/AS.png 200
+140.82.115.50 2023-04-10 10:34:44.289982 GET http://deckdealer.hopto.org/AH.png 200
+140.82.115.248 2023-04-10 10:34:44.291365 GET http://deckdealer.hopto.org/AC.png 200
+128.4.75.228 2023-04-10 10:34:46.809722 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:34:46.809959 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:34:46.810955 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:34:46.811071 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:34:46.809563 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
+128.4.75.228 2023-04-10 10:34:51.534620 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:34:51.534855 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:34:51.535925 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:34:51.536037 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:34:51.534463 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
+128.4.75.228 2023-04-10 10:34:56.532591 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:34:56.532819 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:34:56.533813 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:34:56.533921 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:34:56.532434 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
+128.4.75.228 2023-04-10 10:35:01.897796 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:35:01.898019 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:35:01.898966 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:01.899092 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:01.897639 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
+128.4.75.228 2023-04-10 10:35:06.537496 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:35:06.537720 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:35:06.538633 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:06.538740 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:06.537341 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
+128.4.75.228 2023-04-10 10:35:11.529191 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:35:11.529417 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:35:11.530350 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:11.530455 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:11.529025 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
+128.4.75.228 2023-04-10 10:35:16.537548 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:35:16.537773 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:35:16.538856 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:16.538963 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:16.537393 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
+128.4.75.228 2023-04-10 10:35:21.527854 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:35:21.528077 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:35:21.529045 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:21.529196 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:21.527698 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
+128.4.75.228 2023-04-10 10:35:26.537827 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.75.228 2023-04-10 10:35:26.538051 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+128.4.75.228 2023-04-10 10:35:26.539088 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:26.539217 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+128.4.75.228 2023-04-10 10:35:26.537662 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "found 6 active_game2 entries",
+  "data": [
+    {
+      "entry_id": 1,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "6D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:20:59.864"
+    },
+    {
+      "entry_id": 2,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "4H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.263"
+    },
+    {
+      "entry_id": 3,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10S",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:00.703"
+    },
+    {
+      "entry_id": 4,
+      "game_id": 1,
+      "user_id": 5,
+      "player_id": 1,
+      "player_hand": "QH",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.183"
+    },
+    {
+      "entry_id": 5,
+      "game_id": 1,
+      "user_id": 3,
+      "player_id": 2,
+      "player_hand": "9D",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:01.703"
+    },
+    {
+      "entry_id": 6,
+      "game_id": 1,
+      "user_id": 2,
+      "player_id": 3,
+      "player_hand": "10H",
+      "player_action": "setup",
+      "entry_time": "2022-12-08 17:21:02.062"
+    }
+  ]
+}
