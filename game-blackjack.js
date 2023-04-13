@@ -1,5 +1,11 @@
+///////////////////////////////////////////////////////////////////////////////
+//                              Global Variables                             //
+///////////////////////////////////////////////////////////////////////////////
 var api_url = "https://deckdealer.hopto.org"
 
+///////////////////////////////////////////////////////////////////////////////
+//                      Global Variables (for debugging)                     //
+///////////////////////////////////////////////////////////////////////////////
 var html = "";
 var user_id = "";
 var user_name = "";
@@ -15,6 +21,7 @@ var remaining_players = [];
 
 var timer = 0;
 
+/* taken from: https://stackoverflow.com/questions/18673860/defining-a-html-template-to-append-using-jquery */
 var player_template = ({ num_cols, info, cards }) => `
 <div class="row row-cols-${num_cols} justify-content-center mt-2">${info}${cards}</div>
 `;
@@ -48,6 +55,10 @@ var action_body_template = ({ msg }) => `
 </div>
 `;
 
+///////////////////////////////////////////////////////////////////////////////
+//                              Global Functions                             //
+///////////////////////////////////////////////////////////////////////////////
+
 function renderAlertBodyTemplate(msg) {
   return [{ msg: msg }].map(alert_body_template).join('');
 }
@@ -75,6 +86,7 @@ function renderPlayerTemplate(player, cards, num_cols=6) {
   var html_info = [{ player_id: player.player_id, player_name: player.name, score: score }].map(player_info_template).join('');
   var html_cards = images.map(player_cards_template).join('');
   var html_player = [{ num_cols: num_cols, info: html_info, cards: html_cards }].map(player_template).join('');
+  // console.log(html_player);
   return html_player;
 }
 
@@ -88,11 +100,13 @@ function renderPlayerTemplateAll(player, cards, num_cols=6) {
   var html_info = [{ player_id: player.player_id, player_name: player.name, score: score }].map(player_info_template).join('');
   var html_cards = images.map(player_cards_template).join('');
   var html_player = [{ num_cols: num_cols, info: html_info, cards: html_cards }].map(player_template).join('');
+  // console.log(html_player);
 
   return html_player;
 }
 
 function showPopup(message, kind="alert") {
+  /* disable close button and keyboard escape */
   $('#message-header').find('button').addClass('disabled')
   $('#popup').modal({backdrop: 'static', keyboard: false});
 
@@ -132,6 +146,7 @@ function hidePopup() {
 }
 
 function getUserID() {
+  /* GET: https://deckdealer.hopto.org/status */
   var url = new URL('/status', api_url).toString();
   var temp_id = "";
   $.ajax({url: url, type: 'GET', async: false,
@@ -143,6 +158,7 @@ function getUserID() {
 }
 
 function getUserName() {
+  /* GET: https://deckdealer.hopto.org/get/users/user_id/{ID#} */
   var url = new URL('/get/users/user_id/' + user_id, api_url).toString();
   var temp_name = "";
   $.ajax({url: url, type: 'GET', async: false,
@@ -154,6 +170,7 @@ function getUserName() {
 }
 
 function getSpectators() {
+  /* GET: https://deckdealer.hopto.org/get/spectators */
   var url = new URL('/get/spectators', api_url).toString();
   var temp_spectators = [];
   $.ajax({url: url, type: 'GET', async: false,
@@ -172,6 +189,7 @@ function getSpectators() {
 
 
 function getPlayers() {
+  /* GET: https://deckdealer.hopto.org/get/players */
   var url = new URL('/get/players', api_url).toString();
   var temp_players = [];
   $.ajax({url: url, type: 'GET', async: false,
@@ -214,7 +232,14 @@ function getPlayerNameByID(p_id) {
 }
 
 function getPlayerCards(player) {
-  var url = new URL('/get/active_game2', api_url).toString();
+  /*
+   * POST: https://deckdealer.hopto.org/get/active_game
+   * PARAMS: (example):
+   * {
+   *   filter: `(player_id = 1 AND player_action != "stay")`
+   * }
+   */
+  var url = new URL('/get/active_game', api_url).toString();
   var temp_cards = [];
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -254,6 +279,7 @@ function getPlayerScore(cards) {
 }
 
 function dealCard() {
+  /* GET: https://deckdealer.hopto.org/get/deck?filter=(card_id={card_index}) */
   var url = new URL('/get/deck?filter=(card_id=' + card_index + ')', api_url).toString();
   var temp_card = {};
   $.ajax({url: url, type: 'GET', async: false,
@@ -266,6 +292,7 @@ function dealCard() {
 }
 
 function getActiveGame() {
+  /* Get: https://deckdealer.hopto.org/get/active_game */
   var url = new URL('/get/active_game', api_url).toString();
   var temp_active = [];
   $.ajax({url: url, type: 'GET', async: false,
@@ -284,6 +311,17 @@ function getActiveGame() {
 }
 
 function addActiveGame(player, card, action) {
+  /*
+   * POST: https://deckdealer.hopto.org/add/active_game
+   * PARAMS (example):
+   * {
+   *   game_id: "1",
+   *   user_id: "4",
+   *   player_id: "3",
+   *   player_hand: "4H",
+   *   player_action: "setup",
+   * }
+   */
 
   var url = new URL('/add/active_game', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
@@ -438,11 +476,13 @@ function showActiveGame() {
       setTimeout(function() { closeGame() }, 1000);
     }
 
+    //showPopup('What would you like to do?', 'action')
   } else {
     if (user_name === 'dealer') {
       showPopup('Click [SETUP] to deal the first round of cards', 'setup');
       $('#setup').click(function(elem) {
         hidePopup();
+        // stopTimer();
         for (var i = 0; i < 2; i++) {
           for (var j = 0; j < players.length; j++) {
             var player = players[j];
@@ -461,6 +501,7 @@ function showActiveGame() {
             setTimeout(function() { showActiveGame() }, 1000);
           }
         }
+        // startTimer();
       });
     } else {
       showPopup('Waiting for the dealer to start...');
@@ -516,6 +557,23 @@ function getStats() {
 }
 
 function saveActiveGame() {
+  /*
+   * POST: https://deckdealer.hopto.org/delete/active_game
+   * PARAMS: (example):
+   * {
+   *   game_id: 1,
+   *   user_id: 2,
+   *   player_id: 1,
+   *   winner: "dealer",
+   *   winner_email: "dealer@udel.edu",
+   *   winner_hand: "10S, 10H",
+   *   winner_score: 20,
+   *   players: "dealer, alice, bob",
+   *   player_hands: "10S+10H, 6D+QH+3S, 4H+9D+5S",
+   *   player_scores: "20, 19, 18",
+   *   spectators: "anna, steve",
+   * }
+   */
   var url = new URL('/add/score_board', api_url).toString();
   var stats = getStats();
   $.ajax({url: url, type: 'POST', async: false,
@@ -528,6 +586,11 @@ function saveActiveGame() {
 }
 
 function clearActiveGame() {
+  /*
+   * POST: https://deckdealer.hopto.org/delete/active_game
+   * PARAMS: (example):
+   * { filter: `(entry_id > 0)` }
+   */
   var url = new URL('/delete/active_game', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -540,6 +603,11 @@ function clearActiveGame() {
 }
 
 function clearPlayers() {
+  /*
+   * POST: https://deckdealer.hopto.org/delete/players
+   * PARAMS: (example):
+   * { filter: `(entry_id > 0)` }
+   */
   var url = new URL('/delete/players', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -552,6 +620,11 @@ function clearPlayers() {
 }
 
 function clearSpectators() {
+  /*
+   * POST: https://deckdealer.hopto.org/delete/spectators
+   * PARAMS: (example):
+   * { filter: `(entry_id > 0)` }
+   */
   var url = new URL('/delete/spectators', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -588,6 +661,7 @@ function stopTimer() {
 }
 
 $(document).ready(function() {
+  /* set variables */
   html = $('#player-list').html();
   user_id   = getUserID();
   user_name = getUserName();
@@ -597,12 +671,15 @@ $(document).ready(function() {
   player_name = getPlayerName();
   spectators  = getSpectators();
 
+  /* debug: check local variables */
   console.log('user_id = ' + user_id);
   console.log('=== players ===')
   console.table(players);
 
   $('#game-play').html('Blackjack: (' + player_name + ')');
 
+  /* generate HTML: every 500 ms */
+  //startTimer();
   showActiveGame();
 
 });
