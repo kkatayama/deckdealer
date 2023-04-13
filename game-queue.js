@@ -1,5 +1,5 @@
 var api_url = "https://deckdealer.hopto.org"
-
+/*Is there a bug?*/
 var html = "";
 var user_id = "";
 var game_id = "";
