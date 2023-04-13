@@ -13,7 +13,7 @@
                   '<a class="btn btn-primary form-control btn-block" href="spectators-register2.html?game_id=1">Watch Game</a>' +
                 '</div>' +
                 '<div class="col">' +
-                  '<a class="btn btn-primary form-control btn-block" href="game-list2.html">Play Game</a>' +
+                  '<a class="btn btn-primary form-control btn-block" href="game.html">Play Game</a>' +
                 '</div>' +
               '</div>' +
             '</div>' +
