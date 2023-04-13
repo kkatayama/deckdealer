@@ -36677,3 +36677,1057 @@ SELECT * FROM players WHERE 1;
     }
   ]
 }
+128.4.127.234 2023-04-13 14:18:43.403649 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:43.403878 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:43.404906 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:43.405012 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:43.403496 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:43.568836 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:43.569470 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:43.572600 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:43.572986 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:43.568458 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:44.563936 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:44.564166 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:44.565113 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:44.565234 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:44.563787 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:45.749441 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:45.749657 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:45.750585 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:45.750689 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:45.749288 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:46.747233 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:46.747460 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:46.748408 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:46.748526 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:46.747080 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:47.738941 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:47.739172 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:47.740056 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:47.740166 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:47.738791 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:48.740899 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:48.741152 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:48.742041 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:48.742164 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:48.740747 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:49.749281 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:49.749509 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:49.750512 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:49.750628 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:49.749118 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:50.740579 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:50.740796 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:50.741757 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:50.741864 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:50.740429 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:51.752662 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:51.754448 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:51.755514 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:51.755643 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:51.752513 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:52.569209 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:52.569437 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:52.570326 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:52.570440 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:52.569044 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:53.563466 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:53.564083 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:53.567147 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:53.567580 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:53.563088 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:54.557663 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:54.557880 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:54.558910 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:54.559074 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:54.557514 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:55.563920 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:55.564137 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:55.565037 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:55.565179 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:55.563769 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:56.561884 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:56.562476 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:56.565518 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:56.565912 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:56.561506 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:57.565847 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:57.566053 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:57.566954 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:57.567059 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:57.565697 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:58.570688 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:58.570906 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:58.571783 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:58.571899 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:58.570539 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:18:59.562642 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:18:59.562870 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:18:59.563712 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:59.563817 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:18:59.562481 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:00.562837 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:00.563054 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:00.563981 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:00.564088 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:00.562686 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:01.569128 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:01.569349 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:01.570254 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:01.570356 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:01.568959 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:02.563141 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:02.563374 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:02.564260 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:02.564376 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:02.562993 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:03.575229 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:03.575808 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:03.579139 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:03.579590 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:03.574824 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:04.571447 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:04.571687 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:04.572590 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:04.572703 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:04.571298 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:05.564537 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:05.565177 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:05.568139 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:05.568593 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:05.564154 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:06.569687 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:06.569917 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:06.570912 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:06.571022 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:06.569534 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:07.737067 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:07.737326 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:07.738154 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:07.738257 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:07.736922 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:08.749921 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:08.750145 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:08.751033 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:08.751139 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:08.749773 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:09.746562 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:09.746786 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:09.747746 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:09.747849 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:09.746409 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:10.739578 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:10.739806 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:10.740707 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:10.740839 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:10.739427 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:11.752076 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:11.752309 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:11.753272 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:11.753396 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:11.751920 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:12.752027 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:12.752245 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:12.753092 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:12.753223 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:12.751878 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:13.753134 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:13.753738 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:13.756761 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:13.757276 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:13.752729 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:14.742428 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:14.742649 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:14.743518 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:14.743633 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:14.742277 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
+128.4.127.234 2023-04-13 14:19:15.738203 GET http://deckdealer.hopto.org/get/players request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.127.234 2023-04-13 14:19:15.738425 GET http://deckdealer.hopto.org/get/players request
+['table', 'sqlite_%']
+128.4.127.234 2023-04-13 14:19:15.739315 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:15.739417 GET http://deckdealer.hopto.org/get/players request
+SELECT * FROM players WHERE 1;
+128.4.127.234 2023-04-13 14:19:15.738049 GET http://deckdealer.hopto.org/get/players None
+{"request.params": {}}
+{
+  "message": "found 2 player entries",
+  "data": [
+    {
+      "player_id": 1,
+      "user_id": 3,
+      "game_id": 1,
+      "name": "bryce",
+      "email": "bcleslie@udel.edu",
+      "entry_time": "2023-04-13 14:15:02.176"
+    },
+    {
+      "player_id": 2,
+      "user_id": 2,
+      "game_id": 1,
+      "name": "dealer",
+      "email": "dealer@udel.edu",
+      "entry_time": "2023-04-13 14:15:04.155"
+    }
+  ]
+}
