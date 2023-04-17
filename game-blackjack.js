@@ -233,13 +233,13 @@ function getPlayerNameByID(p_id) {
 
 function getPlayerCards(player) {
   /*
-   * POST: https://deckdealer.hopto.org/get/active_game
+   * POST: https://deckdealer.hopto.org/get/active_game2
    * PARAMS: (example):
    * {
    *   filter: `(player_id = 1 AND player_action != "stay")`
    * }
    */
-  var url = new URL('/get/active_game', api_url).toString();
+  var url = new URL('/get/active_game2', api_url).toString();
   var temp_cards = [];
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -292,8 +292,8 @@ function dealCard() {
 }
 
 function getActiveGame() {
-  /* Get: https://deckdealer.hopto.org/get/active_game */
-  var url = new URL('/get/active_game', api_url).toString();
+  /* Get: https://deckdealer.hopto.org/get/active_game2 */
+  var url = new URL('/get/active_game2', api_url).toString();
   var temp_active = [];
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
