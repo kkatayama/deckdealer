@@ -323,7 +323,7 @@ function addActiveGame(player, card, action) {
    * }
    */
 
-  var url = new URL('/add/active_game', api_url).toString();
+  var url = new URL('/add/active_game2', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
       game_id: player.game_id,
@@ -339,7 +339,7 @@ function addActiveGame(player, card, action) {
 }
 
 function getFinishedPlayers() {
-  var url = new URL('/get/active_game', api_url).toString();
+  var url = new URL('/get/active_game2', api_url).toString();
   var temp_players = [];
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -360,7 +360,7 @@ function getFinishedPlayers() {
 }
 
 function getRemainingPlayers(){
-  var url = new URL('/get/active_game', api_url).toString();
+  var url = new URL('/get/active_game2', api_url).toString();
   var temp_players = [];
   var finished_players = getFinishedPlayers();
 
@@ -591,7 +591,7 @@ function clearActiveGame() {
    * PARAMS: (example):
    * { filter: `(entry_id > 0)` }
    */
-  var url = new URL('/delete/active_game', api_url).toString();
+  var url = new URL('/delete/active_game2', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
       filter: `(entry_id > 0)`,
