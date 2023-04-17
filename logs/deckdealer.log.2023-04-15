@@ -1,0 +1,61 @@
+157.55.39.225 2023-04-15 09:36:03.004491 GET http://deckdealer.hopto.org/robots.txt 404
+157.55.39.225 2023-04-15 09:36:03.005974 GET http://deckdealer.hopto.org/robots.txt None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+40.77.167.202 2023-04-15 09:36:09.095492 GET http://deckdealer.hopto.org/game.html 200
+40.77.167.228 2023-04-15 14:20:41.010654 GET http://deckdealer.hopto.org/AD.png 200
+40.77.167.202 2023-04-15 23:18:46.351506 GET http://deckdealer.hopto.org/ 200
+40.77.167.202 2023-04-15 23:31:47.500098 GET http://deckdealer.hopto.org/game.html 200
+40.77.191.218 2023-04-15 23:31:50.264622 GET http://deckdealer.hopto.org/js/player-game.js 200
+40.77.191.218 2023-04-15 23:31:50.516973 GET http://deckdealer.hopto.org/status 401
+40.77.191.218 2023-04-15 23:31:50.517335 GET http://deckdealer.hopto.org/status None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+40.77.191.218 2023-04-15 23:31:50.669497 GET http://deckdealer.hopto.org/get/games 401
+40.77.191.218 2023-04-15 23:31:50.669803 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
