@@ -655,6 +655,8 @@ function clearDeck() {
 }
 */
 
+//random
+
 function closeGame() {
   clearInterval(timer);
   if (user_name === 'dealer') {
