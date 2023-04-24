@@ -636,12 +636,13 @@ function clearSpectators() {
   });
 }
 
+/* 
 function clearDeck() {
   /*
    * POST: https://deckdealer.hopto.org/delete/deck
    * PARAMS: (example):
    * { filter: `(card_id > 0)` }
-   */
+   
   var url = new URL('/delete/deck', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -652,6 +653,7 @@ function clearDeck() {
     }
   });
 }
+*/
 
 function closeGame() {
   clearInterval(timer);
@@ -663,11 +665,11 @@ function closeGame() {
       clearActiveGame();
       clearPlayers();
       clearSpectators();
-      clearDeck();
+      //clearDeck();
       window.location.href = "index.html";
     })
   }
-  if (player_id > 1) {
+  if (user_id != 2) {
     window.location.href = "index.html";
   }
 }
