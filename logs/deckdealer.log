@@ -22773,3 +22773,26 @@ DELETE FROM spectators WHERE ((user_id > 0));
     }
   ]
 }
+128.4.142.81 2023-04-24 16:40:27.314126 GET http://deckdealer.hopto.org/get/players?filter=(player_id%20%3E=%201) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.142.81 2023-04-24 16:40:27.314371 GET http://deckdealer.hopto.org/get/players?filter=(player_id%20%3E=%201) request
+['table', 'sqlite_%']
+filter_conditions: "(player_id >= 1)"
+filter_values: []
+128.4.142.81 2023-04-24 16:40:27.315657 GET http://deckdealer.hopto.org/get/players?filter=(player_id%20%3E=%201) request
+SELECT * FROM players WHERE (player_id >= 1);
+128.4.142.81 2023-04-24 16:40:27.315750 GET http://deckdealer.hopto.org/get/players?filter=(player_id%20%3E=%201) request
+SELECT * FROM players WHERE (player_id >= 1);
+128.4.142.81 2023-04-24 16:40:27.313972 GET http://deckdealer.hopto.org/get/players?filter=(player_id%20%3E=%201) None
+{"request.params": {"filter": "(player_id >= 1)"}}
+{
+  "message": "0 player entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {},
+      {
+        "filter": "(player_id >= 1)"
+      }
+    ]
+  }
+}
