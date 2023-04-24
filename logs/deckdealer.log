@@ -18443,3 +18443,60 @@ SELECT * FROM deck WHERE 1;
     }
   ]
 }
+128.4.142.81 2023-04-24 16:32:52.378721 GET http://deckdealer.hopto.org/get/users request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.142.81 2023-04-24 16:32:52.378963 GET http://deckdealer.hopto.org/get/users request
+['table', 'sqlite_%']
+128.4.142.81 2023-04-24 16:32:52.379971 GET http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE 1;
+128.4.142.81 2023-04-24 16:32:52.380084 GET http://deckdealer.hopto.org/get/users request
+SELECT * FROM users WHERE 1;
+128.4.142.81 2023-04-24 16:32:52.378566 GET http://deckdealer.hopto.org/get/users None
+{"request.params": {}}
+{
+  "message": "found 7 user entries",
+  "data": [
+    {
+      "user_id": 1,
+      "username": "admin",
+      "password": "f39a3fba2e6a52dcf22fd2924849ffa032a832974a1833232d851ba6c9def36219972292e18273458578d5deb89beb0f13e043dc341f0fd083f766eab64efa03",
+      "create_time": "2022-12-07 11:26:10.400"
+    },
+    {
+      "user_id": 2,
+      "username": "dealer",
+      "password": "4a235351dff72c46c3c1c0042beef5f81b0310f40318d216235b276619327e95644fa36a909df018cc1aa519c469bc5a9a42041f1230a174d4a9a9ec24ee6eed",
+      "create_time": "2022-12-07 11:26:20.604"
+    },
+    {
+      "user_id": 3,
+      "username": "bryce",
+      "password": "c6ebe83b9e9b7796ffbee5968ba10873ee2ad46646e3c4b8322fb4c070118639ac74c191f52f5dc5dd0cc06a8bc7a61504a8e7c7c4351b70b3d543b0129891e0",
+      "create_time": "2022-12-07 11:26:26.787"
+    },
+    {
+      "user_id": 4,
+      "username": "alice",
+      "password": "a02d93d34f0f98e5fc16f630c6a7d7bd5f8f3b7090856d395b9db28218fabd5db007a3f2d199bcd705f34024554379b569a648e63d12cae7753829fd765fd121",
+      "create_time": "2022-12-08 00:50:08.709"
+    },
+    {
+      "user_id": 5,
+      "username": "bob",
+      "password": "ebff032f927499b838007a2b5260d10970afb7db83af6e5a3aa7d56baa34566482f8270c679802a5d5311429551988248d0adad2b29e0f7364927726ed2fb5c5",
+      "create_time": "2022-12-08 00:50:08.835"
+    },
+    {
+      "user_id": 6,
+      "username": "anna",
+      "password": "42337ea349114dc24b5a34e014cef48cff3efb724184a84cdf9dfe2e09b52e94cc3336c8155e98fd159e89ab29fd82678088fb18f8ccee4c782493e81db75595",
+      "create_time": "2022-12-08 00:50:08.946"
+    },
+    {
+      "user_id": 7,
+      "username": "steve",
+      "password": "e094c5bfad6792ccd2be6c6216865ef517abf774101c0bfe272b3145d46ab777ce222f48e80ff3a22ee90003145b3ec01463350f25b7bff06cde7b591654ffe9",
+      "create_time": "2022-12-08 00:50:09.062"
+    }
+  ]
+}
