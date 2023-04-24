@@ -1,0 +1,79 @@
+207.46.13.230 2023-04-19 13:03:44.496628 GET http://deckdealer.hopto.org/robots.txt 404
+207.46.13.230 2023-04-19 13:03:44.497294 GET http://deckdealer.hopto.org/robots.txt None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+40.77.167.94 2023-04-19 13:03:51.689754 GET http://deckdealer.hopto.org/game.html 200
+40.77.189.154 2023-04-19 13:20:02.804275 GET http://deckdealer.hopto.org/js/player-game.js 200
+40.77.189.67 2023-04-19 13:20:09.078732 GET http://deckdealer.hopto.org/get/games 401
+40.77.189.67 2023-04-19 13:20:09.079028 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+120.78.174.129 2023-04-19 13:26:47.502457 GET http://deckdealer.hopto.org/wp-login.php None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+193.107.238.149 2023-04-19 14:18:31.004403 GET http://www.deckdealer.hopto.org/wp-login.php None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
