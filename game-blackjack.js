@@ -636,13 +636,13 @@ function clearSpectators() {
   });
 }
 
-/* 
+ 
 function clearDeck() {
   /*
    * POST: https://deckdealer.hopto.org/delete/deck
    * PARAMS: (example):
    * { filter: `(card_id > 0)` }
-   
+*/   
   var url = new URL('/delete/deck', api_url).toString();
   $.ajax({url: url, type: 'POST', async: false,
     data: {
@@ -653,9 +653,7 @@ function clearDeck() {
     }
   });
 }
-*/
 
-//random
 
 function closeGame() {
   clearInterval(timer);
