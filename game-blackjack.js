@@ -650,6 +650,9 @@ function closeGame() {
       window.location.href = "index.html";
     })
   }
+  if (player_id > 1) {
+    window.location.href = "index.html";
+  }
 }
 
 function startTimer(ms=5000, callback) {
