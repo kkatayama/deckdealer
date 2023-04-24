@@ -650,6 +650,9 @@ function closeGame() {
       window.location.href = "index.html";
     })
   }
+  else {
+    window.location.href = "index.html";
+  }
 }
 
 function startTimer(ms=5000, callback) {
