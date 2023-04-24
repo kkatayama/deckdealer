@@ -665,7 +665,7 @@ function closeGame() {
       clearActiveGame();
       clearPlayers();
       clearSpectators();
-      //clearDeck();
+      clearDeck();
       window.location.href = "index.html";
     })
   }
