@@ -4438,3 +4438,45 @@ SELECT * FROM active_game2 WHERE 1;
     ]
   }
 }
+100.34.13.54 2023-04-25 10:59:14.405821 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-04-25 10:59:14.406089 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-04-25 10:59:14.407403 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+100.34.13.54 2023-04-25 10:59:14.407566 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+100.34.13.54 2023-04-25 10:59:14.405643 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "0 active_game2 entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {},
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
+100.34.13.54 2023-04-25 10:59:15.404003 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+100.34.13.54 2023-04-25 10:59:15.404223 GET http://deckdealer.hopto.org/get/active_game2 request
+['table', 'sqlite_%']
+100.34.13.54 2023-04-25 10:59:15.405183 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+100.34.13.54 2023-04-25 10:59:15.405288 GET http://deckdealer.hopto.org/get/active_game2 request
+SELECT * FROM active_game2 WHERE 1;
+100.34.13.54 2023-04-25 10:59:15.403848 GET http://deckdealer.hopto.org/get/active_game2 None
+{"request.params": {}}
+{
+  "message": "0 active_game2 entries found using submitted parameters",
+  "data": {
+    "submitted": [
+      {},
+      {
+        "filter": ""
+      }
+    ]
+  }
+}
