@@ -288,6 +288,7 @@ function dealCard() {
       card_index++;
     }
   });
+  console.log("Card index = " +card_index);
   return temp_card;
 }
 
