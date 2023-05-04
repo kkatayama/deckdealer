@@ -1,0 +1,79 @@
+40.77.167.94 2023-04-28 11:22:00.414472 GET http://deckdealer.hopto.org/game.html 200
+40.77.167.94 2023-04-28 11:22:20.751671 GET http://deckdealer.hopto.org/js/player-game.js 200
+40.77.202.137 2023-04-28 11:38:20.795588 GET http://deckdealer.hopto.org/status 401
+40.77.202.137 2023-04-28 11:38:20.795901 GET http://deckdealer.hopto.org/status None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+40.77.202.137 2023-04-28 11:38:21.008649 GET http://deckdealer.hopto.org/get/games 401
+40.77.202.137 2023-04-28 11:38:21.008950 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+167.248.133.127 2023-04-28 12:15:39.426526 GET http://www.deckdealer.hopto.org/ 200
+167.248.133.127 2023-04-28 12:15:39.560706 GET http://www.deckdealer.hopto.org/favicon.ico 404
+167.248.133.127 2023-04-28 12:15:39.561255 GET http://www.deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+167.248.133.187 2023-04-28 14:16:36.238909 GET http://www.deckdealer.hopto.org/ 200
+167.248.133.187 2023-04-28 14:16:36.357232 GET http://www.deckdealer.hopto.org/favicon.ico 404
+167.248.133.187 2023-04-28 14:16:36.358222 GET http://www.deckdealer.hopto.org/favicon.ico None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+198.235.24.107 2023-04-28 14:43:09.068121 GET http://deckdealer.hopto.org/ 200

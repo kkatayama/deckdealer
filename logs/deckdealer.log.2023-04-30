@@ -1,0 +1,80 @@
+128.199.31.216 2023-04-30 05:42:11.467027 GET http://deckdealer.hopto.org/.env None
+{
+  "message": "Method not allowed.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Allow": [
+        "OPTIONS"
+      ],
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Method not allowed.",
+    "_status_code": 405,
+    "_status_line": "405 Method Not Allowed"
+  }
+}
+128.199.31.216 2023-04-30 05:42:12.216317 POST http://deckdealer.hopto.org/ 200
+205.210.31.54 2023-04-30 09:00:03.433016 GET http://deckdealer.hopto.org/ 200
+40.77.167.105 2023-04-30 11:14:06.820443 GET http://deckdealer.hopto.org/robots.txt 404
+40.77.167.105 2023-04-30 11:14:06.820955 GET http://deckdealer.hopto.org/robots.txt None
+{
+  "message": "File does not exist.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "File does not exist.",
+    "_status_code": 404,
+    "_status_line": "404 Not Found"
+  }
+}
+40.77.167.94 2023-04-30 11:14:12.818434 GET http://deckdealer.hopto.org/game.html 200
+40.77.189.113 2023-04-30 11:30:24.131321 GET http://deckdealer.hopto.org/js/player-game.js 200
+40.77.189.113 2023-04-30 11:30:24.526025 GET http://deckdealer.hopto.org/status 401
+40.77.189.113 2023-04-30 11:30:24.526332 GET http://deckdealer.hopto.org/status None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+40.77.189.113 2023-04-30 11:30:24.670997 GET http://deckdealer.hopto.org/get/games 401
+40.77.189.113 2023-04-30 11:30:24.671309 GET http://deckdealer.hopto.org/get/games None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
