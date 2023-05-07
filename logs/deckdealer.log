@@ -184,3 +184,112 @@
     "_status_line": "405 Method Not Allowed"
   }
 }
+128.4.89.5 2023-05-07 17:44:23.067421 GET http://deckdealer.hopto.org/delete/deck?filter=(card_id%20%3E=%201) 401
+128.4.89.5 2023-05-07 17:44:23.067747 GET http://deckdealer.hopto.org/delete/deck?filter=(card_id%20%3E=%201) None
+{
+  "Unauthorized": "Invalid Token - Missing Session Cookie",
+  "message": "Please provide a session cookie or valid token.",
+  "Error": {
+    "exception": null,
+    "traceback": null,
+    "_cookies": null,
+    "_headers": {
+      "Content-Type": [
+        "application/json"
+      ]
+    },
+    "body": "Unauthorized",
+    "_status_code": 401,
+    "_status_line": "401 Unauthorized"
+  }
+}
+128.4.89.5 2023-05-07 17:45:10.798681 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.89.5 2023-05-07 17:45:10.798900 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.89.5 2023-05-07 17:45:10.800507 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.89.5 2023-05-07 17:45:10.800643 POST http://deckdealer.hopto.org/login request
+['login']
+128.4.89.5 2023-05-07 17:45:10.798641 POST http://deckdealer.hopto.org/login None
+{"request.params": {"password": "login", "username": "login"}}
+{
+  "message": "user does not exist",
+  "username": "login"
+}
+128.4.89.5 2023-05-07 17:45:22.180528 POST http://deckdealer.hopto.org/login request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.89.5 2023-05-07 17:45:22.180713 POST http://deckdealer.hopto.org/login request
+['table', 'sqlite_%']
+128.4.89.5 2023-05-07 17:45:22.182350 POST http://deckdealer.hopto.org/login request
+SELECT * FROM users WHERE username=?;
+128.4.89.5 2023-05-07 17:45:22.182545 POST http://deckdealer.hopto.org/login request
+['admin']
+128.4.89.5 2023-05-07 17:45:22.180490 POST http://deckdealer.hopto.org/login None
+{"request.params": {"password": "admin", "username": "admin"}}
+{
+  "message": "user login success",
+  "user_id": 1,
+  "username": "admin",
+  "token": "IVVuWDJrV0FiditRLzVyM1drTGtFU1E9PT9nQVdWRVFBQUFBQUFBQUNNQjNWelpYSmZhV1NVakFFeGxJYVVMZz09"
+}
+128.4.89.5 2023-05-07 17:46:59.703741 GET http://deckdealer.hopto.org/delete/active_game2?filter=(game_id%20%3E%200) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.89.5 2023-05-07 17:46:59.703974 GET http://deckdealer.hopto.org/delete/active_game2?filter=(game_id%20%3E%200) request
+['table', 'sqlite_%']
+filter_conditions: "(game_id > 0)"
+filter_values: []
+128.4.89.5 2023-05-07 17:46:59.705676 GET http://deckdealer.hopto.org/delete/active_game2?filter=(game_id%20%3E%200) request
+DELETE FROM active_game2 WHERE ((game_id > 0));
+128.4.89.5 2023-05-07 17:46:59.705834 GET http://deckdealer.hopto.org/delete/active_game2?filter=(game_id%20%3E%200) request
+DELETE FROM active_game2 WHERE ((game_id > 0));
+128.4.89.5 2023-05-07 17:46:59.703585 GET http://deckdealer.hopto.org/delete/active_game2?filter=(game_id%20%3E%200) None
+{"request.params": {"filter": "(game_id > 0)"}}
+{
+  "message": "0 active_game2 entries found matching your parameters",
+  "submitted": [
+    {
+      "filter": "(game_id > 0)"
+    }
+  ]
+}
+128.4.89.5 2023-05-07 17:47:10.383293 GET http://deckdealer.hopto.org/delete/deck?filter=(card_id%20%3E=%201) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.89.5 2023-05-07 17:47:10.383539 GET http://deckdealer.hopto.org/delete/deck?filter=(card_id%20%3E=%201) request
+['table', 'sqlite_%']
+filter_conditions: "(card_id >= 1)"
+filter_values: []
+128.4.89.5 2023-05-07 17:47:10.385116 GET http://deckdealer.hopto.org/delete/deck?filter=(card_id%20%3E=%201) request
+DELETE FROM deck WHERE ((card_id >= 1));
+128.4.89.5 2023-05-07 17:47:10.385219 GET http://deckdealer.hopto.org/delete/deck?filter=(card_id%20%3E=%201) request
+DELETE FROM deck WHERE ((card_id >= 1));
+128.4.89.5 2023-05-07 17:47:10.383140 GET http://deckdealer.hopto.org/delete/deck?filter=(card_id%20%3E=%201) None
+{"request.params": {"filter": "(card_id >= 1)"}}
+{
+  "message": "0 deck entries found matching your parameters",
+  "submitted": [
+    {
+      "filter": "(card_id >= 1)"
+    }
+  ]
+}
+128.4.89.5 2023-05-07 17:47:16.408743 GET http://deckdealer.hopto.org/delete/players?filter=(player_id%20%3E=%201) request
+SELECT name,type FROM sqlite_schema WHERE type = ? AND name NOT LIKE ?;
+128.4.89.5 2023-05-07 17:47:16.408961 GET http://deckdealer.hopto.org/delete/players?filter=(player_id%20%3E=%201) request
+['table', 'sqlite_%']
+filter_conditions: "(player_id >= 1)"
+filter_values: []
+128.4.89.5 2023-05-07 17:47:16.410529 GET http://deckdealer.hopto.org/delete/players?filter=(player_id%20%3E=%201) request
+DELETE FROM players WHERE ((player_id >= 1));
+128.4.89.5 2023-05-07 17:47:16.410625 GET http://deckdealer.hopto.org/delete/players?filter=(player_id%20%3E=%201) request
+DELETE FROM players WHERE ((player_id >= 1));
+128.4.89.5 2023-05-07 17:47:16.408590 GET http://deckdealer.hopto.org/delete/players?filter=(player_id%20%3E=%201) None
+{"request.params": {"filter": "(player_id >= 1)"}}
+{
+  "message": "1 player entry deleted",
+  "submitted": [
+    {
+      "filter": "(player_id >= 1)"
+    }
+  ]
+}
