@@ -10,7 +10,7 @@
             '<div class="container">' +
               '<div class="row justify-content-center">' +
                 '<div class="col">' +
-                  '<a class="btn btn-primary form-control btn-block" href="spectators-register2.html?game_id=1">Watch Game</a>' +
+                  '<a class="btn btn-primary form-control btn-block" href="spectator-register.html">Watch Game</a>' +
                 '</div>' +
                 '<div class="col">' +
                   '<a class="btn btn-primary form-control btn-block" href="game.html">Play Game</a>' +
