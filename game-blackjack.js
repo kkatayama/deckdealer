@@ -282,26 +282,12 @@ function dealCard() {
   /* GET: https://deckdealer.hopto.org/get/deck?filter=(card_id={card_index}) */
   var url = new URL('/get/deck?filter=(card_id=' + card_index + ')', api_url).toString();
   var temp_card = {};
-/*
   $.ajax({url: url, type: 'GET', async: false,
     success: function(response) {
       temp_card = response.data;
       card_index++;
     }
   });
-*/  
-  $.ajax({url: url, type: 'GET', async: false,
-    success: function(response) {
-      if (response.message.includes('0')) {
-        console.log("NO CARD FOUND AT card_index=" + card_index);
-        setTimeout(function() { dealCard() }, 1000);
-      } else {
-        temp_card = response.data;
-        card_index++;  
-      }
-    }
-  });
-  console.log("Card index = " +card_index);
   return temp_card;
 }
 
